@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 export function CommunityCard(props: {
+  key: number
   image: string
   name: string
   surname: string
