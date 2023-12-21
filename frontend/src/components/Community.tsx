@@ -1,46 +1,19 @@
 import { CommunityCard } from './CommunityCard'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
+import { fetchApi } from '@/lib/api'
 
-interface Community {
-  id: number
-  profile_image: string
-  name: string
-  surname: string
-  profile: string
-  description: string
+interface CommunityProps {
+  [key: string]: any
 }
 
 export function Community() {
-  const [community, setCommunity] = useState<Community[]>([])
-  const communityUrl = 'http://localhost:3000/api/v1/communities'
-
-  const fetchCommunity = () => {
-    fetch(communityUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`)
-        }
-        return response.json()
-      })
-      .then((data) => {
-        console.log(data, 'data')
-        setCommunity(data)
-        console.log(data, 'community')
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error)
-      })
-  }
+  const [community, setCommunity] = useState<CommunityProps[]>([])
+  const url = 'api/v1/communities'
 
   useEffect(() => {
-    fetchCommunity()
+    fetchApi(url, setCommunity)
   }, [])
-
-  useEffect(() => {
-    console.log(community, 'community')
-    // Aqui você pode acessar community[0] e outros dados, garantindo que o estado foi atualizado.
-  }, [community])
 
   return (
     <div id="community" className="pb-12">

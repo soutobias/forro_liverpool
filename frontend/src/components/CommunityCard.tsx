@@ -4,9 +4,11 @@ export function CommunityCard(props: {
   key: number
   image: string
   name: string
-  surname: string
   action: string
+  nameParts: string[] // Add the missing nameParts property
 }) {
+  const nameParts = props.name.split(' ')
+
   return (
     <div className="">
       <Image
@@ -19,10 +21,10 @@ export function CommunityCard(props: {
       <div className="mt-0 flex justify-center">
         <div className="bg-gray-60 mt-0 w-10/12">
           <p className="text-black text-[1.25rem]  font-semibold leading-6 pt-3 pl-4 font-sans">
-            {props.name}
+            {nameParts[0]}
           </p>
           <p className="text-black text-[1.25rem]  font-semibold leading-6 pl-4 font-sans">
-            {props.surname}
+            {nameParts[1]}
           </p>
           <p className="text-black text-[1rem]  font-bold leading-6 pl-4 pb-4 font-sans uppercase">
             {props.action}
