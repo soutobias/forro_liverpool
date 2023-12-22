@@ -1,0 +1,6 @@
+.heroBg{
+  background-image: url('/images/bg_hero.jpg'), url('/images/BG-512px-white.jpg');
+  background-size: contain, contain;
+  background-repeat: no-repeat, repeat;
+  background-color: lightgray, lightgray;
+}

@@ -1,12 +1,10 @@
 'use client'
 
-import {
-  faChevronDown,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SpeechBubbles } from '../assets/speech_bubbles'
 import { useState } from 'react'
+import styles from './Faq.module.css'
 
 export function FaqQuestion(props: { question: string; answer: string }) {
   const [showQuestion, setShowQuestion] = useState(false)
@@ -15,23 +13,30 @@ export function FaqQuestion(props: { question: string; answer: string }) {
   }
 
   return (
-    <div className="pl-2 pr-2 pt-4">
-      <div className="border-b-2 pb-6 border-b-gray-100">
-        <div className="flex justify-between" onClick={handleToogleQuestion}>
-          <div className="flex justify-left">
-            <SpeechBubbles />
-            <p className="pl-4 text-[1.25rem] leading-5 font-sans font-semibold">
-              {props.question}
-            </p>
+    <div className="pt-4">
+      <div className="border-b-2 pb-4 border-b-gray-100">
+        <div
+          className="flex justify-between items-center"
+          onClick={handleToogleQuestion}
+        >
+          <div className="flex justify-left w-10/12 items-center">
+            <div>
+              <SpeechBubbles />
+            </div>
+            <div>
+              <p className="pl-4 text-[1.25rem] leading-6 font-extrabold">
+                {props.question}
+              </p>
+            </div>
           </div>
           <FontAwesomeIcon
-            icon={showQuestion ? faChevronDown : faChevronRight}
+            icon={showQuestion ? faChevronDown : faChevronLeft}
             className="text-xl"
           />
         </div>
         {showQuestion && (
-          <div className="pt-6">
-            <p className="text-[1rem] leading-5 font-sans font-normal">
+          <div className="pt-4">
+            <p className="text-[1rem] leading-6 font-semibold font-sans">
               {props.answer}
             </p>
           </div>
@@ -43,20 +48,21 @@ export function FaqQuestion(props: { question: string; answer: string }) {
 
 export function Faq() {
   return (
-    <div className="pt-20 pb-20" id="faq">
-      <h1 className="pl-2 pb-8 text-[2rem] leading-9 font-sans font-semibold">
-        FAQ
-      </h1>
+    <div
+      className={`pt-20 pb-20 font-changa pl-4 pr-4 text-white ${styles.faqBg}`}
+      id="faq"
+    >
+      <h1 className="pt-0 pb-12 text-[2rem] leading-10 font-extrabold">FAQ</h1>
       <FaqQuestion
-        question="Is this a question?"
+        question="What is forró?"
+        answer="Forró is culture from the northeast of Brazil that quickly spread to the rest of the country. It is a style of music, dance, and community events that are now celebrated all over the world. The music traditionally employs just 3 instruments: the accordion, the triangle, and the zabumba (a type of drum). Interested in taking a listen? Check out our Spotify playlist, Forró Liverpool."
+      />
+      <FaqQuestion
+        question="What style of forró do you teach?"
         answer="This is the answer. Answer goes here. This is the answer. Answer goes here. This is the answer. Answer goes here."
       />
       <FaqQuestion
-        question="Is this a question?"
-        answer="This is the answer. Answer goes here. This is the answer. Answer goes here. This is the answer. Answer goes here."
-      />
-      <FaqQuestion
-        question="Is this a question?"
+        question="Is there any sort of registration process to sign up for classes?"
         answer="This is the answer. Answer goes here. This is the answer. Answer goes here. This is the answer. Answer goes here."
       />
     </div>

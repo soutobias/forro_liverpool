@@ -23,6 +23,7 @@ export default function Home() {
   const [hasMounted, setHasMounted] = useState(false)
   const [showEvent, setShowEvent] = useState<keyable>({})
 
+  const [language, setLanguage] = useState('en')
   useEffect(() => {
     setShowGDPR(getToken())
     setHasMounted(true)
@@ -31,10 +32,11 @@ export default function Home() {
   if (!hasMounted) {
     return null
   }
+
   return (
     <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
       <FrameImportant text="liverpool forró fest early bird tickets now available!" />
-      <Navbar></Navbar>
+      <Navbar language={language} setLanguage={setLanguage}></Navbar>
       <Hero></Hero>
       <ClassEvents setShowEvent={setShowEvent}></ClassEvents>
       <Community></Community>

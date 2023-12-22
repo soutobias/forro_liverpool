@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import forroLogo from '../assets/fl_logo.png'
+import forroLogo from '../assets/FL_logo_black.png'
 
 // .dropdown_link {
 //   display: block;
@@ -15,8 +15,8 @@ export function ForroLinks(props: {
   setDropdown?: (dropDown: boolean) => void
 }) {
   return (
-    <ul className="pt-12 pb-32 text-center pl-24 pr-24 font-semibold">
-      <li className="pt-4">
+    <div className="pt-12 text-center font-extrabold font-changa text-[1.25rem]">
+      <div className="pt-0">
         <Link
           href="/"
           className="text-2xl no-underline h-full w-full cursor-pointer flex justify-center"
@@ -25,64 +25,58 @@ export function ForroLinks(props: {
           <Image
             src={forroLogo}
             alt="illustration"
-            className="p-2 overflow-hidden"
-            width={100}
-            height={100}
+            className="overflow-hidden"
+            width={179}
+            height={94}
           />
         </Link>
-      </li>
-      <li className="pt-4 pb-2">
+      </div>
+      <div className="pt-5">
         <Link
           href="/#classes-events"
-          className="text-1xl no-underline h-full w-full cursor-pointer"
+          className="text-1xl no-underline cursor-pointer p-3"
           onClick={() => props.setDropdown && props.setDropdown(false)}
         >
           Classes & Events
         </Link>
-      </li>
-      <li className="pt-2 pb-2">
+      </div>
+      <div className="pt-5">
         <Link
           href="/#community"
-          className="text-1xl no-underline h-full w-full cursor-pointer"
+          className="text-1xl no-underline h-full w-full cursor-pointer p-3"
           onClick={() => props.setDropdown && props.setDropdown(false)}
         >
           Our Community
         </Link>
-      </li>
-      <li className="pt-2 pb-2 ">
+      </div>
+      <div className="pt-5">
         <Link
           href="/#faq"
-          className="text-1xl no-underline h-full w-full cursor-pointer"
+          className="text-1xl no-underline w-full cursor-pointer p-3"
           onClick={() => props.setDropdown && props.setDropdown(false)}
         >
           FAQ
         </Link>
-      </li>
-      <li className="pt-2">
+      </div>
+      <div className="pt-9 text-[1.5rem]">
         <Link
           href="/lff2024"
-          className="text-2xl no-underline h-full w-full cursor-pointer flex justify-center"
+          className="text-1xl no-underline h-full w-full cursor-pointer pt-3 pb-3"
           onClick={() => props.setDropdown && props.setDropdown(false)}
         >
-          <Image
-            src={forroLogo}
-            alt="illustration"
-            className="p-2 rounded-2xl overflow-hidden"
-            width={100}
-            height={100}
-          />
+          Liverpool Forró Festival
         </Link>
-      </li>
-      <li className="pt-2 pb-2 bg-gray-50">
+      </div>
+      <div className="pt-6">
         <Link
           href="/lff2024"
-          className="text-1xl no-underline h-full w-full cursor-pointer"
+          className="text-1xl no-underline h-full w-full cursor-pointer bg-white rounded-xl uppercase px-[8.5rem] py-3 text-[1rem]"
           onClick={() => props.setDropdown && props.setDropdown(false)}
         >
           Tickets
         </Link>
-      </li>
-      <li className="pt-2 pb-2 ">
+      </div>
+      <div className="pt-6">
         <Link
           href="/lff2024#teachers"
           className="text-1xl no-underline h-full w-full cursor-pointer"
@@ -90,8 +84,8 @@ export function ForroLinks(props: {
         >
           Teachers & Musicians
         </Link>
-      </li>
-      <li className="pt-2 pb-2 ">
+      </div>
+      <div className="pt-5 ">
         <Link
           href="/lff2024#program"
           className="text-1xl no-underline h-full w-full cursor-pointer"
@@ -99,8 +93,8 @@ export function ForroLinks(props: {
         >
           Program
         </Link>
-      </li>
-      <li className="pt-2 pb-2 ">
+      </div>
+      <div className="pt-5">
         <Link
           href="/lff2024#liverpool"
           className="text-1xl no-underline h-full w-full cursor-pointer"
@@ -108,16 +102,16 @@ export function ForroLinks(props: {
         >
           Liverpool
         </Link>
-      </li>
-      <li className="pt-2 pb-2 ">
+      </div>
+      <div className="pt-5">
         <Link
           href="/lff2024#faq"
           className="text-1xl no-underline h-full w-full cursor-pointer"
           onClick={() => props.setDropdown && props.setDropdown(false)}
         >
-          FAQ
+          Festival FAQ
         </Link>
-      </li>
-    </ul>
+      </div>
+    </div>
   )
 }

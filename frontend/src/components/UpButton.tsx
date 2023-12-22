@@ -10,9 +10,9 @@ export function UpButton() {
   return (
     <div
       onClick={scrollToTop}
-      className="bg-gray-60 p-3 rounded-full fixed z-19 bottom-4 right-6"
+      className="bg-yellow-500 p-3 rounded-full fixed z-[62] bottom-4 right-6"
     >
-      <ArrowLineUp size={32} />
+      <ArrowLineUp size={44} />
     </div>
   )
 }

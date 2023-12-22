@@ -2,7 +2,7 @@ import { addToken } from '@/lib/handleCookie'
 
 export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
   return (
-    <div className="bg-gray-100 w-full z-20 bottom-0 fixed pointer-events-auto">
+    <div className="bg-gray-100 w-full z-[63] bottom-0 fixed pointer-events-auto">
       <div className="pb-12">
         {/* <div className="flex justify-end">
           <FontAwesomeIcon

@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction } from 'react'
 import { EventCard } from './EventCard'
 import { keyable } from './ClassEvent'
+import { Line1 } from '@/assets/line1'
+import { Line2 } from '@/assets/line2'
 
 export function ClassEvents(props: {
   setShowEvent: Dispatch<SetStateAction<keyable>>
@@ -14,14 +16,17 @@ export function ClassEvents(props: {
   // }, [])
 
   return (
-    <div id="classes-events" className="pb-20">
-      <h1 className="pt-16 pl-2 text-[2rem] leading-9 font-sans font-semibold">
+    <div id="classes-events" className="font-changa pl-4 pr-4 pb-20">
+      <h1 className="pt-20 text-[2rem] leading-10 font-extrabold">
         Classes & Events
       </h1>
       <div>
-        <h2 className="font-sans text-[1.5rem] leading-5 font-semibold pl-2 pt-5">
-          Special Events
-        </h2>
+        <div className="pt-5 pb-8 flex justify-between items-center">
+          <h2 className="text-[1.5rem] leading-8 font-extrabold">
+            Special Events
+          </h2>
+          <Line1 />
+        </div>
         <div>
           <EventCard
             title={'Liverpool Forro Festival 2024'}
@@ -44,9 +49,12 @@ export function ClassEvents(props: {
         </div>
       </div>
       <div>
-        <h2 className="font-sans text-[1.5rem] leading-5 font-semibold pl-2 pt-5">
-          Regular Events
-        </h2>
+        <div className="pt-5 pb-8 flex justify-between items-center">
+          <h2 className="text-[1.5rem] leading-8 font-extrabold">
+            Regular Events
+          </h2>
+          <Line2 />
+        </div>
         <div>
           <EventCard
             title={'All-levels forro classes'}
