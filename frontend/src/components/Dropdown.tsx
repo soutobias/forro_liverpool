@@ -1,3 +1,4 @@
+import { PlusSign } from '@/assets/plus_sign'
 import { ForroLinks } from './ForroLinks'
 
 // .dropdown_link {
@@ -11,7 +12,7 @@ import { ForroLinks } from './ForroLinks'
 
 export function Dropdown(props: { setDropdown: (dropDown: boolean) => void }) {
   return (
-    <div className="absolute top-[7rem] bg-gray-100 w-full z-20">
+    <div className="absolute bg-yellow-500 w-full z-20 pb-20">
       <ForroLinks setDropdown={props.setDropdown} />
     </div>
   )

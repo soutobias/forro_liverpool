@@ -25,6 +25,7 @@ export default function Home() {
   const [showGDPR, setShowGDPR] = useState(false)
   const [hasMounted, setHasMounted] = useState(false)
   const [showEvent, setShowEvent] = useState<keyable>({})
+  const [language, setLanguage] = useState('en')
 
   useEffect(() => {
     setShowGDPR(getToken())
@@ -37,11 +38,14 @@ export default function Home() {
   return (
     <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
       <FrameImportant text="early bird tickets now available!" />
-      <Navbar></Navbar>
+      <Navbar
+        language={language}
+        setLanguage={setLanguage}
+        plusColor="#EAEAEA"
+      ></Navbar>
       <HeroLFF></HeroLFF>
       <VideoIntro></VideoIntro>
       <Teachers></Teachers>
-      <Tickets />
       <ClassEventsLFF setShowEvent={setShowEvent}></ClassEventsLFF>
       <Liverpool />
       <Faq></Faq>

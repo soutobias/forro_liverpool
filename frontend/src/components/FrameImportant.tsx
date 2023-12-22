@@ -85,14 +85,18 @@ export function FrameImportant(props: { text: string }) {
   }
 
   return (
-    <div className="w-full h-16 bg-gray-60">
+    <div
+      className={`w-full h-12 bg-pink-400 items-center ${styles.frameShadow}`}
+    >
       <Link
         href="/lff2024"
-        className="no-underline pb-0 hover:opacity-60 transition-opacity"
+        className="no-underline hover:opacity-60 transition-opacity items-center"
       >
         <InfiniteLooper speed={10} direction="left">
-          <div className="uppercase text-base font-sans font-semibold pt-8">
-            {`  -  ${props.text}  -  ${props.text}`}
+          <div
+            className={`uppercase pt-3 text-base tracking-[0.053rem] font-changa font-bold items-center ${styles.textShadow}`}
+          >
+            {`${props.text}  -  ${props.text}`}
           </div>
         </InfiniteLooper>
       </Link>

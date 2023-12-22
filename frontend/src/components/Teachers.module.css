@@ -1,0 +1,27 @@
+.blackBg{
+  background-image: url('/images/BG-512px-Black.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+  background-color: lightgray;
+}
+
+.pinkBg{
+  background-image: url('/images/BG-512px-LFF-Pink.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+  background-color: lightgray;
+}
+
+.purpleBg{
+  background-image: url('/images/BG-512px-LFF-Purple.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+  background-color: lightgray;
+}
+
+.lightPinkBg{
+  background-image: url('/images/BG-512px-LFF-LightPink.jpg');
+  background-size: contain;
+  background-repeat: repeat;
+  background-color: lightgray;
+}
