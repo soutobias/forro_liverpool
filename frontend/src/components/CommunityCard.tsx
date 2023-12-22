@@ -4,10 +4,11 @@ export function CommunityCard(props: {
   key: number
   image: string
   name: string
-  surname: string
   action: string
   className?: string
 }) {
+  const nameParts = props.name.split(' ')
+
   return (
     <div className={props.className}>
       <Image
@@ -20,10 +21,10 @@ export function CommunityCard(props: {
       <div className="flex justify-center -mt-[6.5rem] z-[59]">
         <div className="bg-gray-60 pt-[7.5rem] w-10/12 pl-4">
           <p className="text-black text-[1.25rem]  font-semibold leading-6 pt-3 pl-4 font-changa">
-            {props.name}
+            {nameParts[0]}
           </p>
           <p className="text-black text-[1.25rem]  font-semibold leading-6 pl-4 font-changa">
-            {props.surname}
+            {nameParts[1]}
           </p>
           <p className="text-black text-[1rem]  font-bold leading-6 pt-2 pl-4 pb-4 font-changa uppercase">
             {props.action}

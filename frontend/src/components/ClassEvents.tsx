@@ -1,19 +1,23 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import { EventCard } from './EventCard'
 import { keyable } from './ClassEvent'
 import { Line1 } from '@/assets/line1'
 import { Line2 } from '@/assets/line2'
+import { fetchApi } from '@/lib/api'
 
-export function ClassEvents(props: {
+interface ClassEventsProps {
   setShowEvent: Dispatch<SetStateAction<keyable>>
-}) {
-  // const [events, setEvents] = useState([])
+}
 
-  // useEffect(() => {
-  //   get('/api/v1/events').then((data) => {
-  //     setEvents(data)
-  //   }
-  // }, [])
+export function ClassEvents(props: ClassEventsProps) {
+  const { setShowEvent } = props
+  const [events, setEvents] = useState<keyable[]>([])
+
+  const url = 'api/v1/events'
+
+  useEffect(() => {
+    fetchApi(url, setEvents)
+  }, [])
 
   return (
     <div id="classes-events" className="font-changa pl-4 pr-4 pb-20">
@@ -28,24 +32,15 @@ export function ClassEvents(props: {
           <Line1 />
         </div>
         <div>
-          <EventCard
-            title={'Liverpool Forro Festival 2024'}
-            period={'10-12 may'}
-            size={'large'}
-            setShowEvent={props.setShowEvent}
-          />
-          <EventCard
-            title={'Forró workshop with guest teacher Lucas Dumont'}
-            period={'8 nov'}
-            location={'Revolución de Cuba'}
-            setShowEvent={props.setShowEvent}
-          />
-          <EventCard
-            title={'Forró workshop with guest teacher Luiz Henrique'}
-            period={'16 dec'}
-            location={'The Caledonia'}
-            setShowEvent={props.setShowEvent}
-          />
+          {events
+            .filter((event: any) => event.type_event === 'Special Events')
+            .map((event: any) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                setShowEvent={setShowEvent}
+              />
+            ))}
         </div>
       </div>
       <div>
@@ -56,18 +51,15 @@ export function ClassEvents(props: {
           <Line2 />
         </div>
         <div>
-          <EventCard
-            title={'All-levels forro classes'}
-            period={'Mondays'}
-            location={'The Caledonia'}
-            setShowEvent={props.setShowEvent}
-          />
-          <EventCard
-            title={'Forró & Chips live forró music'}
-            period={'16 nov'}
-            location={'The Caledonia'}
-            setShowEvent={props.setShowEvent}
-          />
+          {events
+            .filter((event: any) => event.type_event === 'Regular Events')
+            .map((event: any) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                setShowEvent={setShowEvent}
+              />
+            ))}
         </div>
       </div>
     </div>

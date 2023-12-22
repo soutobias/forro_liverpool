@@ -11,7 +11,6 @@
 require 'faker'
 
 EventUser.destroy_all
-Event.destroy_all
 User.destroy_all
 
 first = true
@@ -26,31 +25,98 @@ first = true
       user.save!
     end
   end
-  hour = rand(17..21)
-  day = rand(2..27)
-  month = rand(1..12)
-  year = rand(2023..2024)
-  start_datetime = DateTime.new(year, month, day,hour,0)
-  end_datetime = DateTime.new(year, month, day,hour + 1,0)
-  type_event = 'Special Events'
-  if first
-    type_event = 'Regular Events'
-    first = false
-  end
-  event = Event.new(
-    name: Faker::Movie.title,
-    description: Faker::Movie.quote,
-    start_datetime: start_datetime, 
-    end_datetime: end_datetime,
-    price: rand(0..20),
-    type_event: type_event,
+  # hour = rand(17..21)
+  # day = rand(2..27)
+  # month = rand(1..12)
+  # year = rand(2023..2024)
+  # start_datetime = DateTime.new(year, month, day,hour,0)
+  # end_datetime = DateTime.new(year, month, day,hour + 1,0)
+  # type_event = 'Special Events'
+  # if first
+  #   type_event = 'Regular Events'
+  #   first = false
+  # end
+  # event = Event.new(
+  #   name: Faker::Movie.title,
+  #   description: Faker::Movie.quote,
+  #   location: Faker::Address.full_address,
+  #   start_datetime: start_datetime,
+  #   end_datetime: end_datetime,
+  #   price: rand(0..20),
+  #   type_event: type_event,
+  #   cover_image: Faker::LoremFlickr.image,
+  #   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
+  #   registration_start_datetime: DateTime.new(year, month, 1,hour,0),
+  #   registration_end_datetime: DateTime.new(year, month, 28,23,59),
+  #   sell_site_number: SecureRandom.alphanumeric,
+  # )
+  # event.save!
+end
+
+Event.destroy_all
+
+events_data = [
+  {
+    name: 'Liverpool Forró Festival 2024',
+    description: 'Descrição do Evento 1',
+    start_datetime: DateTime.now,
+    end_datetime: DateTime.now + 3.hours,
+    price: 20.0,
     cover_image: Faker::LoremFlickr.image,
     image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
-    registration_start_datetime: DateTime.new(year, month, 1,hour,0),
-    registration_end_datetime: DateTime.new(year, month, 28,23,59),
+    registration_start_datetime: DateTime.now - 1.day,
+    registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
-  )
-  event.save!
+    type_event: 'Special Events',
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
+  },
+  {
+    name: 'Forró Workshop with Luiz Henrique',
+    description: 'Descrição do Evento 2',
+    start_datetime: DateTime.now,
+    end_datetime: DateTime.now + 3.hours,
+    price: 20.0,
+    cover_image: Faker::LoremFlickr.image,
+    image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
+    registration_start_datetime: DateTime.now - 1.day,
+    registration_end_datetime: DateTime.now + 1.day,
+    sell_site_number: SecureRandom.alphanumeric,
+    type_event: 'Special Events',
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
+  },
+  {
+    name: 'All Levels Forró classes',
+    description: 'Descrição do Evento 3',
+    start_datetime: DateTime.now,
+    end_datetime: DateTime.now + 3.hours,
+    price: 20.0,
+    cover_image: Faker::LoremFlickr.image,
+    image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
+    registration_start_datetime: DateTime.now - 1.day,
+    registration_end_datetime: DateTime.now + 1.day,
+    sell_site_number: SecureRandom.alphanumeric,
+    type_event: 'Regular Events',
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
+  },
+  {
+    name: 'Forró and Chips',
+    description: 'live forró music',
+    start_datetime: DateTime.now,
+    end_datetime: DateTime.now + 3.hours,
+    price: 20.0,
+    cover_image: Faker::LoremFlickr.image,
+    image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
+    registration_start_datetime: DateTime.now - 1.day,
+    registration_end_datetime: DateTime.now + 1.day,
+    sell_site_number: SecureRandom.alphanumeric,
+    type_event: 'Regular Events',
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
+  },
+]
+
+events = events_data.map { |event_data| Event.create!(event_data) }
+
+events.each do |event|
   5.times do
     event_user = EventUser.new(
       user_id: User.order('RANDOM()').limit(1)[0].id,
@@ -60,6 +126,7 @@ first = true
     event_user.save!
   end
 end
+
 
 Site.destroy_all
 

@@ -2,43 +2,19 @@ import { CommunityCard } from './CommunityCard'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import styles from './Community.module.css'
-interface Community {
-  id: number
-  profile_image: string
-  name: string
-  surname: string
-  profile: string
-  description: string
+import { fetchApi } from '@/lib/api'
+
+interface CommunityProps {
+  [key: string]: any
 }
 
 export function Community() {
-  const [community, setCommunity] = useState<Community[]>([])
-  const communityUrl = 'http://localhost:3000/api/v1/communities'
-
-  const fetchCommunity = () => {
-    fetch(communityUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`)
-        }
-        return response.json()
-      })
-      .then((data) => {
-        setCommunity(data)
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error)
-      })
-  }
+  const [community, setCommunity] = useState<CommunityProps[]>([])
+  const url = 'api/v1/communities'
 
   useEffect(() => {
-    fetchCommunity()
+    fetchApi(url, setCommunity)
   }, [])
-
-  useEffect(() => {
-    console.log('')
-    // Aqui você pode acessar community[0] e outros dados, garantindo que o estado foi atualizado.
-  }, [community])
 
   return (
     <div id="community" className={`pb-20 pl-4 pr-4 ${styles.communityBg}`}>
@@ -50,20 +26,16 @@ export function Community() {
           <CommunityCard
             key={item.id}
             image={item.profile_image[0]}
-            name={item.name[0].split(' ')[0]}
-            surname={item.name[0].split(' ')[1]}
+            name={item.name[0]}
             action="Teacher"
-            className="-mr-1"
           />
         ))}
         {community.map((item) => (
           <CommunityCard
             key={item.id}
             image={item.profile_image[1]}
-            name={item.name[1].split(' ')[0]}
-            surname={item.name[1].split(' ')[1]}
+            name={item.name[1]}
             action="Teacher"
-            className="-ml-1"
           />
         ))}
       </div>

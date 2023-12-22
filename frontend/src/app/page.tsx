@@ -15,7 +15,7 @@ import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
 
 export interface keyable {
-  [key: string]: string
+  [key: string]: any
 }
 
 export default function Home() {

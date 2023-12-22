@@ -6,7 +6,7 @@ import { ArrowUpRight } from 'phosphor-react'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface keyable {
-  [key: string]: string
+  [key: string]: any
 }
 
 export function ClassEvent(props: {
