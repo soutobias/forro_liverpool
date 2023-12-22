@@ -5,26 +5,17 @@ import { fetchApi } from '@/lib/api'
 
 interface ClassEventsProps {
   setShowEvent: Dispatch<SetStateAction<keyable>>
-  name: string
-  id: number
-  start_datetime: string
-  end_datetime: string
-  type_event: string
-  location: string
 }
 
 export function ClassEvents(props: ClassEventsProps) {
   const { setShowEvent } = props
+  const [events, setEvents] = useState<keyable[]>([])
 
-  const [events, setEvents] = useState<ClassEventsProps[]>([])
   const url = 'api/v1/events'
-  console.log(events, 'eventCard')
 
   useEffect(() => {
     fetchApi(url, setEvents)
   }, [])
-
-  console.log(events, 'eventCard222222222')
 
   return (
     <div id="classes-events" className="pb-20">
@@ -37,13 +28,11 @@ export function ClassEvents(props: ClassEventsProps) {
         </h2>
         <div>
           {events
-            .filter((event) => event.type_event === 'Special Events')
-            .map((event) => (
+            .filter((event: any) => event.type_event === 'Special Events')
+            .map((event: any) => (
               <EventCard
                 key={event.id}
-                title={event.name}
-                period={`${event.start_datetime} - ${event.end_datetime}`}
-                location={event.location}
+                event={event}
                 setShowEvent={setShowEvent}
               />
             ))}
@@ -55,13 +44,11 @@ export function ClassEvents(props: ClassEventsProps) {
         </h2>
         <div>
           {events
-            .filter((event) => event.type_event === 'Regular Events')
-            .map((event) => (
+            .filter((event: any) => event.type_event === 'Regular Events')
+            .map((event: any) => (
               <EventCard
                 key={event.id}
-                title={event.name}
-                period={`${event.start_datetime} - ${event.end_datetime}`}
-                location={event.location}
+                event={event}
                 setShowEvent={setShowEvent}
               />
             ))}

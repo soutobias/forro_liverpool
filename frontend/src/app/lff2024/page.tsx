@@ -47,9 +47,9 @@ export default function Home() {
       <Faq></Faq>
       <Footer></Footer>
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
-      {Object.keys(showEvent).length > 0 && (
+      {/* {Object.keys(showEvent).length > 0 && (
         <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
-      )}
+      )} */}
       <UpButton />
     </div>
   )

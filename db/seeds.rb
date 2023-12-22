@@ -68,7 +68,7 @@ events_data = [
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Special Events',
-    location: 'The Caledonia'
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
   },
   {
     name: 'Forró Workshop with Luiz Henrique',
@@ -82,7 +82,7 @@ events_data = [
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Special Events',
-    location: 'The Caledonia'
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
   },
   {
     name: 'All Levels Forró classes',
@@ -96,7 +96,7 @@ events_data = [
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
-    location: 'The Caledonia'
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
   },
   {
     name: 'Forró and Chips',
@@ -110,7 +110,7 @@ events_data = [
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
-    location: 'The Caledonia'
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
   },
 ]
 
