@@ -7,7 +7,6 @@ export function TeacherCard(props: {
   action: string
   color: string
 }) {
-  console.log(props.color)
   return (
     <div className={`rounded-lg p-4 pb-6  ${props.color}`}>
       <Image
