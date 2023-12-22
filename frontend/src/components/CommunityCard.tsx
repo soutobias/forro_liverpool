@@ -5,7 +5,6 @@ export function CommunityCard(props: {
   image: string
   name: string
   action: string
-  nameParts: string[] // Add the missing nameParts property
 }) {
   const nameParts = props.name.split(' ')
 

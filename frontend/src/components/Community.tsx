@@ -27,7 +27,6 @@ export function Community() {
               key={item.id}
               image={item.profile_image[0]}
               name={item.name[0]}
-              surname="Silva"
               action="Teacher"
             />
           ))}
@@ -36,7 +35,6 @@ export function Community() {
               key={item.id}
               image={item.profile_image[1]}
               name={item.name[1]}
-              surname="Silva"
               action="Teacher"
             />
           ))}

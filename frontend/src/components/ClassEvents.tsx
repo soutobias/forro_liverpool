@@ -1,17 +1,30 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import { EventCard } from './EventCard'
 import { keyable } from './ClassEvent'
+import { fetchApi } from '@/lib/api'
 
-export function ClassEvents(props: {
+interface ClassEventsProps {
   setShowEvent: Dispatch<SetStateAction<keyable>>
-}) {
-  // const [events, setEvents] = useState([])
+  name: string
+  id: number
+  start_datetime: string
+  end_datetime: string
+  type_event: string
+  location: string
+}
 
-  // useEffect(() => {
-  //   get('/api/v1/events').then((data) => {
-  //     setEvents(data)
-  //   }
-  // }, [])
+export function ClassEvents(props: ClassEventsProps) {
+  const { setShowEvent } = props
+
+  const [events, setEvents] = useState<ClassEventsProps[]>([])
+  const url = 'api/v1/events'
+  console.log(events, 'eventCard')
+
+  useEffect(() => {
+    fetchApi(url, setEvents)
+  }, [])
+
+  console.log(events, 'eventCard222222222')
 
   return (
     <div id="classes-events" className="pb-20">
@@ -23,24 +36,17 @@ export function ClassEvents(props: {
           Special Events
         </h2>
         <div>
-          <EventCard
-            title={'Liverpool Forro Festival 2024'}
-            period={'10-12 may'}
-            size={'large'}
-            setShowEvent={props.setShowEvent}
-          />
-          <EventCard
-            title={'Forró workshop with guest teacher Lucas Dumont'}
-            period={'8 nov'}
-            location={'Revolución de Cuba'}
-            setShowEvent={props.setShowEvent}
-          />
-          <EventCard
-            title={'Forró workshop with guest teacher Luiz Henrique'}
-            period={'16 dec'}
-            location={'The Caledonia'}
-            setShowEvent={props.setShowEvent}
-          />
+          {events
+            .filter((event) => event.type_event === 'Special Events')
+            .map((event) => (
+              <EventCard
+                key={event.id}
+                title={event.name}
+                period={`${event.start_datetime} - ${event.end_datetime}`}
+                location={event.location}
+                setShowEvent={setShowEvent}
+              />
+            ))}
         </div>
       </div>
       <div>
@@ -48,18 +54,17 @@ export function ClassEvents(props: {
           Regular Events
         </h2>
         <div>
-          <EventCard
-            title={'All-levels forro classes'}
-            period={'Mondays'}
-            location={'The Caledonia'}
-            setShowEvent={props.setShowEvent}
-          />
-          <EventCard
-            title={'Forró & Chips live forró music'}
-            period={'16 nov'}
-            location={'The Caledonia'}
-            setShowEvent={props.setShowEvent}
-          />
+          {events
+            .filter((event) => event.type_event === 'Regular Events')
+            .map((event) => (
+              <EventCard
+                key={event.id}
+                title={event.name}
+                period={`${event.start_datetime} - ${event.end_datetime}`}
+                location={event.location}
+                setShowEvent={setShowEvent}
+              />
+            ))}
         </div>
       </div>
     </div>

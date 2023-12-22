@@ -2,25 +2,40 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Dispatch, SetStateAction } from 'react'
 import { keyable } from './ClassEvent'
+// import { fetchApi } from '@/lib/api'
 
-export function EventCard(props: {
+interface EventCardProps {
   title: string
   period: string
   location?: string
   size?: string
   setShowEvent: Dispatch<SetStateAction<keyable>>
-}) {
+}
+
+export function EventCard(props: EventCardProps) {
+  const { title, period, location, size, setShowEvent } = props
+
+  // const [eventCard, setEventCard] = useState<EventCardProps[]>([])
+  // const url = 'api/v1/events'
+  // console.log(eventCard, 'eventCard')
+
+  // useEffect(() => {
+  //   fetchApi(url, setEventCard)
+  // }, [])
+
+  // console.log(eventCard, 'eventCard222222222')
+
   return (
     <div
       className={`p-2 m-2 ${
-        props.size === 'large' ? 'h-[22.5rem]' : 'h-52'
+        size === 'large' ? 'h-[22.5rem]' : 'h-52'
       } bg-cover rounded-xl`}
       style={{
         backgroundImage:
           'url(https://images.unsplash.com/photo-1699755094450-620e32ec86a6?q=80&w=1336&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
       }}
       onClick={() =>
-        props.setShowEvent({
+        setShowEvent({
           title: props.title,
           period: props.period,
           location: props.location ? props.location : '',
@@ -28,16 +43,16 @@ export function EventCard(props: {
       }
     >
       <div className="text-white text-[1.5rem] font-semibold leading-6 pt-3 pl-4 font-sans">
-        {props.title}
+        {title}
       </div>
       <div className="bg-gray-60 uppercase text-black ml-4 mt-1 w-max pl-2 font-bold pr-2 rounded-2xl text-[1rem] font-sans">
-        {props.period}
+        {period}
       </div>
-      {props.location && (
+      {location && (
         <div className="flex ml-4 mt-2 text-white">
           <FontAwesomeIcon icon={faLocationDot} className="h-4 pr-0 pt-1" />
           <div className="text-white uppercase leading-4 pl-0 mt-1 ml-1 font-bold pr-2 text-[1rem] font-sans">
-            {props.location}
+            {location}
           </div>
         </div>
       )}
