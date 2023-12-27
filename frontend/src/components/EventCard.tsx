@@ -1,5 +1,3 @@
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Dispatch, SetStateAction } from 'react'
 import { keyable } from './ClassEvent'
 import { LocationMarker } from '@/assets/location_marker'
@@ -15,7 +13,9 @@ export function EventCard(props: EventCardProps) {
   return (
     <div
       className={`${
-        event.name === 'Liverpool Forró Festival 2024' ? 'h-[21.5rem]' : 'h-[12rem]'
+        event.name === 'Liverpool Forró Festival 2024'
+          ? 'h-[21.5rem]'
+          : 'h-[12rem]'
       } bg-cover rounded-xl font-changa w-full mb-4`}
       style={{
         backgroundImage:

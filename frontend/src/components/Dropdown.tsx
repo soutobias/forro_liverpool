@@ -1,4 +1,3 @@
-import { PlusSign } from '@/assets/plus_sign'
 import { ForroLinks } from './ForroLinks'
 
 // .dropdown_link {

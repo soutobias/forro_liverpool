@@ -1,6 +1,3 @@
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 export function MMTBusPart(props: {
   number: string
   title: string

@@ -1,6 +1,4 @@
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './Faq.module.css'
+import styles from './Bg.module.css'
 // import { LFFLogo } from '@/assets/lff_logo'
 import Image from 'next/image'
 import LFFLogo from '../assets/LFF_Logo.png'
@@ -9,7 +7,7 @@ import { MainButton } from './MainButton'
 
 export function HeroLFF() {
   return (
-    <div className={`w-full z-[59] font-changa relative ${styles.faqBg}`}>
+    <div className={`w-full z-[59] font-changa relative ${styles.blackBg}`}>
       <div className="pt-[6.75rem] flex justify-center pl-4 pr-4">
         <Image
           src={LFFLogo}

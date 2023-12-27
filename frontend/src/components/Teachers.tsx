@@ -1,12 +1,13 @@
+import { H1 } from './H1'
 import { MainButton } from './MainButton'
 import { TeacherCard } from './TeacherCard'
-import styles from './Teachers.module.css'
+import styles from './Bg.module.css'
 export function Teachers() {
   return (
-    <div id="teachers" className={`pb-20 font-changa ${styles.blackBg}`}>
-      <h1 className="pt-16 pl-4 pr-4 pb-10 text-[2rem] leading-10 font-extrabold text-center text-white">
-        Amazing teachers & musicians
-      </h1>
+    <div id="teachers" className={`pb-[15rem] font-changa ${styles.blackBg}`}>
+      <div className="pt-16 pb-10">
+        <H1 color="white" text="Amazing teachers & musicians" />
+      </div>
       <div>
         <div className="p-4 flex gap-4 overflow-x-auto no-scrollbar">
           <TeacherCard

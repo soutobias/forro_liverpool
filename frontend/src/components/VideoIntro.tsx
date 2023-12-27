@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import styles from './Faq.module.css'
+import styles from './Bg.module.css'
 
 export function VideoIntro() {
   return (
     <div
-      className={`pt-24 font-semibold text-center font-changa pr-4 pl-4 text-white ${styles.faqBg}`}
+      className={`pt-24 font-semibold text-center font-changa pr-4 pl-4 text-white ${styles.blackBg}`}
     >
       <h2 className="pb-12 text-[1.5rem] leading-8 font-extrabold">{`Forró in the heart of the UK's music scene`}</h2>
       <Image

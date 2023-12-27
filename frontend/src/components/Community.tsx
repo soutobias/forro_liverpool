@@ -1,7 +1,7 @@
 import { CommunityCard } from './CommunityCard'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import styles from './Community.module.css'
+import styles from './Bg.module.css'
 import { fetchApi } from '@/lib/api'
 
 interface CommunityProps {

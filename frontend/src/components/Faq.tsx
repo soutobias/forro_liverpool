@@ -4,7 +4,7 @@ import { faChevronDown, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SpeechBubbles } from '../assets/speech_bubbles'
 import { useState } from 'react'
-import styles from './Faq.module.css'
+import styles from './Bg.module.css'
 
 export function FaqQuestion(props: { question: string; answer: string }) {
   const [showQuestion, setShowQuestion] = useState(false)
@@ -49,7 +49,7 @@ export function FaqQuestion(props: { question: string; answer: string }) {
 export function Faq() {
   return (
     <div
-      className={`pt-20 pb-20 font-changa pl-4 pr-4 text-white ${styles.faqBg}`}
+      className={`pt-20 pb-20 font-changa pl-4 pr-4 text-white ${styles.blackBg}`}
       id="faq"
     >
       <h1 className="pt-0 pb-12 text-[2rem] leading-10 font-extrabold">FAQ</h1>

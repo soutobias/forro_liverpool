@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { MainButton } from './MainButton'
-import styles from './Hero.module.css'
+import styles from './Bg.module.css'
 
 export function Hero() {
   return (
