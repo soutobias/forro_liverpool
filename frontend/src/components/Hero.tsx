@@ -1,18 +1,29 @@
 import Image from 'next/image'
 import { MainButton } from './MainButton'
+<<<<<<< HEAD
 import styles from './Bg.module.css'
+=======
+import styles from './Hero.module.css'
+import { keyable } from './ClassEvent'
+>>>>>>> 53425c0 (backend do site do forró)
 
-export function Hero() {
-  return (
+interface HeroProps {
+  site: keyable[]
+}
+
+export function Hero(props: HeroProps) {
+  return props.site ? (
     <div className={`w-full z-[59] relative ${styles.heroBg}`}>
       <div className="pl-4 pr-4">
         <h1 className="pt-[6.75rem]  text-[2rem] leading-10 font-extrabold font-changa">
-          Brazilian forró classes & events in the heart of Liverpool
+          {props.site.map((item) => (
+            <p key={item.id}>{item.title}</p>
+          ))}
         </h1>
         <p className="pt-4  pb-[7.25rem] text-[1rem] leading-6 font-sans font-normal">
-          Beginner-friendly, Roots-style forró dance classes and live music
-          events in the heart of Liverpool. No partner needed. Come try a free
-          intro class!
+          {props.site.map((item) => (
+            <p key={item.id}>{item.description}</p>
+          ))}
         </p>
         <div className="">
           <MainButton
@@ -23,9 +34,7 @@ export function Hero() {
           />
         </div>
         <Image
-          src={
-            'https://images.unsplash.com/photo-1699755094450-620e32ec86a6?q=80&w=1336&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          }
+          src={props.site.map((item) => item.image[0]).toString()}
           alt="illustration"
           className="pt-4 pb-4 rounded-3xl overflow-hidden h-[614px] object-cover"
           width={1336}
@@ -33,5 +42,7 @@ export function Hero() {
         />
       </div>
     </div>
+  ) : (
+    <></>
   )
 }

@@ -3,10 +3,28 @@
 import { faChevronDown, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SpeechBubbles } from '../assets/speech_bubbles'
+<<<<<<< HEAD
 import { useState } from 'react'
 import styles from './Bg.module.css'
+=======
+import { useState, useEffect } from 'react'
+import styles from './Faq.module.css'
+import { fetchApi } from '@/lib/api'
 
-export function FaqQuestion(props: { question: string; answer: string }) {
+interface QuestionProps {
+  question: string
+  answer: string
+}
+
+export function FaqQuestion(props: QuestionProps) {
+  const { question, answer } = props
+  const url = 'api/v1/questions'
+
+  useEffect(() => {
+    fetchApi(url, setShowQuestion)
+  }, [])
+>>>>>>> 53425c0 (backend do site do forró)
+
   const [showQuestion, setShowQuestion] = useState(false)
   function handleToogleQuestion() {
     setShowQuestion(!showQuestion)
@@ -25,7 +43,7 @@ export function FaqQuestion(props: { question: string; answer: string }) {
             </div>
             <div>
               <p className="pl-4 text-[1.25rem] leading-6 font-extrabold">
-                {props.question}
+                {question}
               </p>
             </div>
           </div>
@@ -37,7 +55,7 @@ export function FaqQuestion(props: { question: string; answer: string }) {
         {showQuestion && (
           <div className="pt-4">
             <p className="text-[1rem] leading-6 font-semibold font-sans">
-              {props.answer}
+              {answer}
             </p>
           </div>
         )}
