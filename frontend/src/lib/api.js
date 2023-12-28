@@ -1,6 +1,5 @@
 export async function fetchApi(url, setState) {
   const path = 'http://localhost:3000/'
-
   try {
     const response = await fetch(`${path}${url}`)
     if (!response.ok) {

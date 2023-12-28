@@ -21,7 +21,7 @@
 .looper__listInstance {
   display: flex;
   width: max-content;
-
+  padding-right: 0.25rem;
   animation: slideAnimation linear infinite;
 }
 

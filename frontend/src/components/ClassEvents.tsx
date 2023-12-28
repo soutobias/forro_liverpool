@@ -4,6 +4,7 @@ import { keyable } from './ClassEvent'
 import { Line1 } from '@/assets/line1'
 import { Line2 } from '@/assets/line2'
 import { fetchApi } from '@/lib/api'
+import { H1 } from './H1'
 
 interface ClassEventsProps {
   setShowEvent: Dispatch<SetStateAction<keyable>>
@@ -21,9 +22,9 @@ export function ClassEvents(props: ClassEventsProps) {
 
   return (
     <div id="classes-events" className="font-changa pl-4 pr-4 pb-20">
-      <h1 className="pt-20 text-[2rem] leading-10 font-extrabold">
-        Classes & Events
-      </h1>
+      <div className="pt-20">
+        <H1 color="black" text="Classes & Events" />
+      </div>
       <div>
         <div className="pt-5 pb-8 flex justify-between items-center">
           <h2 className="text-[1.5rem] leading-8 font-extrabold">

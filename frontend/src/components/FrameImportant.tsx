@@ -96,7 +96,7 @@ export function FrameImportant(props: { text: string }) {
           <div
             className={`uppercase pt-3 text-base tracking-[0.053rem] font-changa font-bold items-center ${styles.textShadow}`}
           >
-            {`${props.text}  -  ${props.text}`}
+            {`${props.text}`}
           </div>
         </InfiniteLooper>
       </Link>
