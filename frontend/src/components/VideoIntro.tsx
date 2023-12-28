@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import styles from './Bg.module.css'
 
 export function VideoIntro(props: { siteFestival: any }) {
@@ -10,7 +9,7 @@ export function VideoIntro(props: { siteFestival: any }) {
       <h2 className="pb-12 text-[1.5rem] leading-8 font-extrabold">
         {props.siteFestival && props.siteFestival[0].titlevideo}
       </h2>
-      <video width="320" height="240" controls>
+      <video width="342" height="614" controls>
         <source
           src={props.siteFestival && props.siteFestival[0].video}
           type="video/mp4"

@@ -4,7 +4,7 @@ import { HeroLFF } from '@/components/HeroLFF'
 // import { VideoIntro } from '@/components/VideoIntro'
 import { Faq } from '@/components/Faq'
 import { Navbar } from '@/components/NavBar'
-import { FrameImportant } from '@/components/FrameImportant'
+// import { FrameImportant } from '@/components/FrameImportant'
 import { useEffect, useState } from 'react'
 import { GDPR } from '@/components/GDPR'
 import { getToken } from '@/lib/handleCookie'
@@ -34,8 +34,6 @@ export default function Home() {
   useEffect(() => {
     fetchApi(url, setSiteFestival)
   }, [])
-
-  console.log(siteFestival, 'siteeeeeeeeeeevannn')
 
   useEffect(() => {
     setShowGDPR(getToken())

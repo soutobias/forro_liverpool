@@ -4,7 +4,7 @@ import styles from './Bg.module.css'
 import { keyable } from './ClassEvent'
 
 interface HeroProps {
-  site: keyable[]
+  site: keyable[] | null
 }
 
 export function Hero(props: HeroProps) {

@@ -24,11 +24,13 @@ export default function Home() {
   const [hasMounted, setHasMounted] = useState(false)
   const [showEvent, setShowEvent] = useState<keyable>({})
   const [site, setSite] = useState<keyable[] | null>(null)
+  const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
 
   const url = 'api/v1/sites'
 
   useEffect(() => {
     fetchApi(url, setSite)
+    fetchApi(url, setSiteFestival)
   }, [])
 
   const [language, setLanguage] = useState('en')
@@ -44,12 +46,16 @@ export default function Home() {
   return (
     <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
       <FrameImportant site={site} />
-      <Navbar language={language} setLanguage={setLanguage}></Navbar>
+      <Navbar
+        language={language}
+        setLanguage={setLanguage}
+        siteFestival={siteFestival}
+      />
       <Hero site={site} />
-      <ClassEvents setShowEvent={setShowEvent}></ClassEvents>
-      <Community></Community>
-      <Faq></Faq>
-      <Footer></Footer>
+      <ClassEvents setShowEvent={setShowEvent} />
+      <Community />
+      <Faq />
+      <Footer />
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
       {Object.keys(showEvent).length > 0 && (
         <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />

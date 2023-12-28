@@ -6,7 +6,7 @@ import styles from './FrameImportant.module.css'
 import { keyable } from './ClassEvent'
 
 interface FrameProps {
-  site: keyable[]
+  site: keyable[] | null
 }
 
 export function FrameImportant(props: FrameProps) {
