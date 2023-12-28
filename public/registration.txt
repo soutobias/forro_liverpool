@@ -3,7 +3,7 @@
 3:HL["/_next/static/media/ce9ac82bd41cd59c-s.p.woff","font",{"crossOrigin":"","type":"font/woff"}]
 4:HL["/_next/static/media/eb15695615c924c8-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 5:HL["/_next/static/css/cbd129709f145966.css","style",{"crossOrigin":""}]
-0:["pSnHO73aEHYPB7RnRqs4L",[[["",{"children":["registration",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L6",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cbd129709f145966.css","precedence":"next","crossOrigin":""}]],"$L7"]]]]
+0:["3b2uEDmK0abgkdk9LG1UL",[[["",{"children":["registration",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L6",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/cbd129709f145966.css","precedence":"next","crossOrigin":""}]],"$L7"]]]]
 8:I[6954,[],""]
 9:I[7264,[],""]
 b:I[8297,[],""]
