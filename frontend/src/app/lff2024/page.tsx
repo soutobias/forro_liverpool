@@ -16,6 +16,7 @@ import { ClassEventsLFF } from '@/components/ClassEventsLFF'
 import { Liverpool } from '@/components/Liverpool'
 // import { LiverpoolEvents } from '@/components/LiverpoolEvents'
 import { GetTickets } from '@/components/GetTickets'
+import { fetchApi } from '@/lib/api'
 
 export interface keyable {
   [key: string]: string
@@ -26,6 +27,15 @@ export default function Home() {
   const [hasMounted, setHasMounted] = useState(false)
   const [showEvent, setShowEvent] = useState<keyable>({})
   const [language, setLanguage] = useState('en')
+  const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
+
+  const url = 'api/v1/sitefestivals'
+
+  useEffect(() => {
+    fetchApi(url, setSiteFestival)
+  }, [])
+
+  console.log(siteFestival, 'siteeeeeeeeeeevannn')
 
   useEffect(() => {
     setShowGDPR(getToken())
@@ -38,14 +48,19 @@ export default function Home() {
   console.log(showEvent)
   return (
     <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
-      <FrameImportant text="early bird tickets now available!" />
-      <Navbar
-        language={language}
-        setLanguage={setLanguage}
-        plusColor="#EAEAEA"
-      ></Navbar>
-      <HeroLFF></HeroLFF>
-      <VideoIntro></VideoIntro>
+      {/* <FrameImportant text="early bird tickets now available!" /> */}
+      {siteFestival && (
+        <>
+          <Navbar
+            language={language}
+            setLanguage={setLanguage}
+            plusColor="#EAEAEA"
+            siteFestival={siteFestival}
+          ></Navbar>
+          <HeroLFF siteFestival={siteFestival}></HeroLFF>
+          <VideoIntro siteFestival={siteFestival}></VideoIntro>
+        </>
+      )}
       <Teachers></Teachers>
       <ClassEventsLFF setShowEvent={setShowEvent}></ClassEventsLFF>
       <Liverpool />

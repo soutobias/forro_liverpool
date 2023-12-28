@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_22_194055) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_28_164311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,15 +68,27 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_194055) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sitefestivals", force: :cascade do |t|
+    t.text "navbar", default: [], array: true
+    t.text "image", default: [], array: true
+    t.string "data"
+    t.string "local"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "video"
+    t.string "textvideo"
+    t.string "titlevideo"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.text "long_description"
     t.text "cover_image"
     t.text "cover_video"
     t.text "image", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "frame"
   end
 
   create_table "users", force: :cascade do |t|

@@ -3,7 +3,13 @@
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './FrameImportant.module.css'
-export function FrameImportant(props: { text: string }) {
+import { keyable } from './ClassEvent'
+
+interface FrameProps {
+  site: keyable[]
+}
+
+export function FrameImportant(props: FrameProps) {
   const InfiniteLooper = function InfiniteLooper({
     speed,
     direction,
@@ -40,7 +46,7 @@ export function FrameImportant(props: { text: string }) {
 
       const instanceWidth = width / innerRef.current.children.length
 
-      if (widthDeficit) {
+      if (instanceWidth) {
         setLooperInstances(
           looperInstances + Math.ceil(widthDeficit / instanceWidth) + 1,
         )
@@ -58,7 +64,6 @@ export function FrameImportant(props: { text: string }) {
         window.removeEventListener('resize', setupInstances)
       }
     }, [looperInstances, setupInstances])
-
     return (
       <div className={styles.looper} ref={outerRef}>
         <div
@@ -92,13 +97,15 @@ export function FrameImportant(props: { text: string }) {
         href="/lff2024"
         className="no-underline hover:opacity-60 transition-opacity items-center"
       >
-        <InfiniteLooper speed={10} direction="left">
-          <div
-            className={`uppercase pt-3 text-base tracking-[0.053rem] font-changa font-bold items-center ${styles.textShadow}`}
-          >
-            {`${props.text}`}
-          </div>
-        </InfiniteLooper>
+        {props.site && (
+          <InfiniteLooper speed={10} direction="left">
+            <div
+              className={`uppercase pt-3 text-base tracking-[0.053rem] font-changa font-bold items-center ${styles.textShadow}`}
+            >
+              {`${props.site[0].frame}`}
+            </div>
+          </InfiniteLooper>
+        )}
       </Link>
     </div>
   )

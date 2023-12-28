@@ -48,6 +48,6 @@ class Api::V1::SitesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def site_params
-    params.require(:site).permit(:title,:description,:long_description, :cover_image, :cover_video)
+    params.require(:site).permit(:title,:description,:frame, :cover_image, :cover_video)
   end
 end

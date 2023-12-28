@@ -13,6 +13,7 @@ import { getToken } from '@/lib/handleCookie'
 import { ClassEvent } from '@/components/ClassEvent'
 import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
+import { fetchApi } from '@/lib/api'
 
 export interface keyable {
   [key: string]: any
@@ -22,6 +23,13 @@ export default function Home() {
   const [showGDPR, setShowGDPR] = useState(false)
   const [hasMounted, setHasMounted] = useState(false)
   const [showEvent, setShowEvent] = useState<keyable>({})
+  const [site, setSite] = useState<keyable[] | null>(null)
+
+  const url = 'api/v1/sites'
+
+  useEffect(() => {
+    fetchApi(url, setSite)
+  }, [])
 
   const [language, setLanguage] = useState('en')
   useEffect(() => {
@@ -35,9 +43,9 @@ export default function Home() {
 
   return (
     <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
-      <FrameImportant text="liverpool forró fest early bird tickets now available!" />
+      <FrameImportant site={site} />
       <Navbar language={language} setLanguage={setLanguage}></Navbar>
-      <Hero></Hero>
+      <Hero site={site} />
       <ClassEvents setShowEvent={setShowEvent}></ClassEvents>
       <Community></Community>
       <Faq></Faq>
