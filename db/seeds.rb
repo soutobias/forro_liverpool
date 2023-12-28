@@ -25,32 +25,6 @@ first = true
       user.save!
     end
   end
-  # hour = rand(17..21)
-  # day = rand(2..27)
-  # month = rand(1..12)
-  # year = rand(2023..2024)
-  # start_datetime = DateTime.new(year, month, day,hour,0)
-  # end_datetime = DateTime.new(year, month, day,hour + 1,0)
-  # type_event = 'Special Events'
-  # if first
-  #   type_event = 'Regular Events'
-  #   first = false
-  # end
-  # event = Event.new(
-  #   name: Faker::Movie.title,
-  #   description: Faker::Movie.quote,
-  #   location: Faker::Address.full_address,
-  #   start_datetime: start_datetime,
-  #   end_datetime: end_datetime,
-  #   price: rand(0..20),
-  #   type_event: type_event,
-  #   cover_image: Faker::LoremFlickr.image,
-  #   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
-  #   registration_start_datetime: DateTime.new(year, month, 1,hour,0),
-  #   registration_end_datetime: DateTime.new(year, month, 28,23,59),
-  #   sell_site_number: SecureRandom.alphanumeric,
-  # )
-  # event.save!
 end
 
 Event.destroy_all
@@ -111,7 +85,7 @@ events_data = [
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
     location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
-  },
+  }
 ]
 
 events = events_data.map { |event_data| Event.create!(event_data) }
@@ -131,9 +105,9 @@ end
 Site.destroy_all
 
 site = Site.new(
-  title: "Brazilian forro classes & events in the heart of Liverpool",
-  description: "Beginner-friendly, Roots-style forro dance classes and live music events in the heart of Liverpool. No partner needed. Come try a free intro class!",
-  long_description: "Dance classes, live music events, and Brazilian cultural events in Liverpool, England. Teachers from recife teach a mix of styles (pe de serra, universitario, with a roots focus) to all-levels students. We regularly host guest teachers like Luiz Henrique, Mardio Costa & Milena Morais, and Lucas Dumont.",
+  title: "Brazilian forró classes & events in the heart of Liverpool",
+  description: "All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!",
+  frame: "Liverpool forró festival 1st lot tickets",
   cover_image: "https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660",
   cover_video: "https://www.gov.br/pt-br/midias-agorabrasil/video-fundo.mp4",
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
@@ -141,13 +115,36 @@ site = Site.new(
 site.save!
 
 Question.destroy_all
-5.times do
-  question = Question.new(
-    question: Faker::Movie.title,
-    answer: Faker::Movie.quote
-  )
-  question.save!
-end
+
+questions_data = [ 
+  {
+    question: "What is Forró?",
+    answer: "Forró is culture from the northeast of Brazil that quickly spread 
+    to the rest of the country. It is a style of music, dance, and community 
+    events that are now celebrated all over the world. The music traditionally 
+    employs just 3 instruments: the accordion, the triangle, and the zabumba 
+    (a type of drum). Interested in taking a listen? Check out our Spotify 
+    playlist, Forró Liverpool."
+  },
+  {
+    question: "What style of forró do you teach?",
+    answer: "We teach a mix of styles, with a focus on the roots of forró"
+  },
+  { 
+    question: "Is there any sort of registration process to sign up for classes?",
+    answer: "Nope! Just show up to class and pay at the door. We accept cash and card."
+  }
+]
+
+questions = questions_data.map { |question_data| Question.create(question_data) }
+
+# 5.times do
+#   question = Question.new(
+#     question: Faker::Movie.title,
+#     answer: Faker::Movie.quote
+#   )
+#   question.save!
+# end
 
 Community.destroy_all
 community = Community.new(
