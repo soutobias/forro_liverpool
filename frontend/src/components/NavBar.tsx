@@ -8,10 +8,12 @@ import Image from 'next/image'
 import forroLogo from '../assets/fl_logo.png'
 import { PlusSign } from '../assets/plus_sign'
 import styles from './NavBar.module.css'
+
 export function Navbar(props: {
   language: any
   setLanguage: any
   plusColor?: string
+  siteFestival: any
 }) {
   const [dropdown, setDropdown] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
@@ -112,7 +114,7 @@ export function Navbar(props: {
               className="no-underline pt-4 pb-4 hover:opacity-60 transition-opacity"
               onClick={closeMobileMenu}
             >
-              Liverpool Forró Festival 2024
+              {props.siteFestival && props.siteFestival[0].navbar[0]}
             </Link>
           </li>
           <li className="flex align-middle h-20">
@@ -121,7 +123,7 @@ export function Navbar(props: {
               className="no-underline pt-4 pb-4 hover:opacity-60 transition-opacity"
               onClick={closeMobileMenu}
             >
-              Classes & Events
+              {props.siteFestival && props.siteFestival[0].navbar[1]}
             </Link>
           </li>
           <li className="flex align-middle h-20">
@@ -130,7 +132,7 @@ export function Navbar(props: {
               className="no-underline pt-4 pb-4 hover:opacity-60 transition-opacity"
               onClick={closeMobileMenu}
             >
-              Our Community
+              {props.siteFestival && props.siteFestival[0].navbar[2]}
             </Link>
           </li>
           <li className="flex align-middle h-20">
@@ -139,7 +141,7 @@ export function Navbar(props: {
               className="no-underline pt-4 pb-4 hover:opacity-60 transition-opacity"
               onClick={closeMobileMenu}
             >
-              FAQ
+              {props.siteFestival && props.siteFestival[0].navbar[3]}
             </Link>
           </li>
         </ul>

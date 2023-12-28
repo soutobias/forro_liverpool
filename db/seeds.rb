@@ -154,3 +154,16 @@ community = Community.new(
   description: "Something about the comunnity of forrozeiros, that they come from all over, many speak/don't speak Portuguese, etc. Emphasize grassroots, collaborative approach"
 )
 community.save!
+
+Sitefestival.destroy_all
+
+sitefestival = Sitefestival.new(
+  navbar: ['Liverpool Forró Festival 2024', 'Classes & Events', 'Our Community', 'FAQ'],
+  image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660', 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
+  data: "10-12 MAY, 2024",
+  local: "Liverpool, England",
+  video: "https://www.gov.br/pt-br/midias-agorabrasil/video-fundo.mp4",
+  textvideo: "3 days of dance classes and parties with incredible forró teachers and musicians from around the world. Come celebrate Brazilian culture in the heart of the UK's music scene!",
+  titlevideo: "Forró in the heart of the UK's music scene"
+)
+sitefestival.save!

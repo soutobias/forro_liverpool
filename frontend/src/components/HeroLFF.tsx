@@ -5,7 +5,7 @@ import LFFLogo from '../assets/LFF_Logo.png'
 import CrossWalk from '../assets/Images-LFF-Crosswalk.png'
 import { MainButton } from './MainButton'
 
-export function HeroLFF() {
+export function HeroLFF(props: { siteFestival: any }) {
   return (
     <div className={`w-full z-[59] font-changa relative ${styles.blackBg}`}>
       <div className="pt-[6.75rem] flex justify-center pl-4 pr-4">
@@ -28,10 +28,10 @@ export function HeroLFF() {
       </div>
       <div className="pr-4 pl-4">
         <p className="text-center text-white pt-8 pb-0 pl-4 pr-4 text-[1.5rem] leading-5  font-extrabold">
-          10-12 May, 2024
+          {props.siteFestival && props.siteFestival[0].data}
         </p>
         <p className="text-center text-white uppercase font-changa pt-2 pb-8 pl-3 pr-3 text-[1rem] leading-5 font-extrabold">
-          Liverpool, England
+          {props.siteFestival && props.siteFestival[0].local}
         </p>
         <MainButton href="#" content="TICKETS" bg="white" font="black" />
         {/* <div className="flex justify-center leading-5">
