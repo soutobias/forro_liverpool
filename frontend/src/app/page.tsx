@@ -31,8 +31,6 @@ export default function Home() {
     fetchApi(url, setSite)
   }, [])
 
-  console.log(site, 'siteeeeeeeeeeevannn')
-
   const [language, setLanguage] = useState('en')
   useEffect(() => {
     setShowGDPR(getToken())

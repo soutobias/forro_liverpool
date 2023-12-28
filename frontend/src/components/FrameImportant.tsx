@@ -19,7 +19,6 @@ export function FrameImportant(props: FrameProps) {
     direction: 'right' | 'left'
     children: React.ReactNode
   }) {
-    console.log(props.site, 'props.site')
     const [looperInstances, setLooperInstances] = useState(1)
     const outerRef = useRef<HTMLDivElement>(null)
     const innerRef = useRef<HTMLDivElement>(null)

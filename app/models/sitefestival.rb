@@ -1,0 +1,2 @@
+class Sitefestival < ApplicationRecord
+end
