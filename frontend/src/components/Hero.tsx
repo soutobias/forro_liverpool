@@ -1,11 +1,7 @@
 import Image from 'next/image'
 import { MainButton } from './MainButton'
-<<<<<<< HEAD
 import styles from './Bg.module.css'
-=======
-import styles from './Hero.module.css'
 import { keyable } from './ClassEvent'
->>>>>>> 53425c0 (backend do site do forró)
 
 interface HeroProps {
   site: keyable[]

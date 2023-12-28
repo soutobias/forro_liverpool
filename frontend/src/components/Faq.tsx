@@ -3,12 +3,8 @@
 import { faChevronDown, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SpeechBubbles } from '../assets/speech_bubbles'
-<<<<<<< HEAD
-import { useState } from 'react'
-import styles from './Bg.module.css'
-=======
 import { useState, useEffect } from 'react'
-import styles from './Faq.module.css'
+import styles from './Bg.module.css'
 import { fetchApi } from '@/lib/api'
 
 interface QuestionProps {
@@ -23,7 +19,6 @@ export function FaqQuestion(props: QuestionProps) {
   useEffect(() => {
     fetchApi(url, setShowQuestion)
   }, [])
->>>>>>> 53425c0 (backend do site do forró)
 
   const [showQuestion, setShowQuestion] = useState(false)
   function handleToogleQuestion() {
