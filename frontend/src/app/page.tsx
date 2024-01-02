@@ -27,10 +27,11 @@ export default function Home() {
   const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
 
   const url = 'api/v1/sites'
+  const urlFestival = 'api/v1/sitefestivals'
 
   useEffect(() => {
     fetchApi(url, setSite)
-    fetchApi(url, setSiteFestival)
+    fetchApi(urlFestival, setSiteFestival)
   }, [])
 
   const [language, setLanguage] = useState('en')
