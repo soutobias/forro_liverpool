@@ -15,6 +15,7 @@ export function Navbar(props: {
   plusColor?: string
   siteFestival: any
 }) {
+  console.log(props.siteFestival, 'siteFestival1111111')
   const [dropdown, setDropdown] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
   const [zIndex, setZIndex] = useState('z-[61]')
@@ -135,7 +136,7 @@ export function Navbar(props: {
               {props.siteFestival && props.siteFestival[0].navbar[2]}
             </Link>
           </li>
-          <li className="flex align-middle h-20">
+          {/* <li className="flex align-middle h-20">
             <Link
               href="/#faq"
               className="no-underline pt-4 pb-4 hover:opacity-60 transition-opacity"
@@ -143,7 +144,7 @@ export function Navbar(props: {
             >
               {props.siteFestival && props.siteFestival[0].navbar[3]}
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div
@@ -153,7 +154,7 @@ export function Navbar(props: {
             : `${zIndex} opacity-0 transition-opacity duration-500 relative`
         }
       >
-        <Dropdown setDropdown={setDropdown} />
+        <Dropdown setDropdown={setDropdown} siteFestival={props.siteFestival} />
       </div>
 
       {/* <SignUpButton /> */}

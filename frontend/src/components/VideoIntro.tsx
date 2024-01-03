@@ -1,7 +1,6 @@
 import styles from './Bg.module.css'
 
 export function VideoIntro(props: { siteFestival: any }) {
-  console.log(props.siteFestival, '-------')
   return (
     <div
       className={`pt-24 font-semibold text-center font-changa pr-4 pl-4 text-white ${styles.blackBg}`}

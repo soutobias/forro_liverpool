@@ -42,7 +42,8 @@ events_data = [
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Special Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
+    date: '10-12 MAY'
   },
   {
     name: 'Forró Workshop with Luiz Henrique',
@@ -56,7 +57,8 @@ events_data = [
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Special Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
+    date: '10 MAY'
   },
   {
     name: 'All Levels Forró classes',
@@ -70,7 +72,8 @@ events_data = [
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
+    date: 'MONDAYS'
   },
   {
     name: 'Forró and Chips',
@@ -84,7 +87,8 @@ events_data = [
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF']
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
+    date: 'WEDNESDAYS'
   }
 ]
 
@@ -119,12 +123,7 @@ Question.destroy_all
 questions_data = [ 
   {
     question: "What is Forró?",
-    answer: "Forró is culture from the northeast of Brazil that quickly spread 
-    to the rest of the country. It is a style of music, dance, and community 
-    events that are now celebrated all over the world. The music traditionally 
-    employs just 3 instruments: the accordion, the triangle, and the zabumba 
-    (a type of drum). Interested in taking a listen? Check out our Spotify 
-    playlist, Forró Liverpool."
+    answer: "Forró is culture from the northeast of Brazil that quickly spread to the rest of the country. It is a style of music, dance, and community events that are now celebrated all over the world. The music traditionally employs just 3 instruments: the accordion, the triangle, and the zabumba (a type of drum). Interested in taking a listen? Check out our Spotify playlist, Forró Liverpool."
   },
   {
     question: "What style of forró do you teach?",
@@ -150,15 +149,15 @@ Community.destroy_all
 community = Community.new(
   profile_image: ['https://avatars.githubusercontent.com/u/85016706?v=4','https://avatars.githubusercontent.com/u/85016706?v=4'],
   name: ['Felipe Braga', 'Marina Cerqueira'],
-  profile: "Profiles on Felipe & Marina including how long they have been dancing, where they trained, maybe why they dance forro",
-  description: "Something about the comunnity of forrozeiros, that they come from all over, many speak/don't speak Portuguese, etc. Emphasize grassroots, collaborative approach"
+  profile: "Growing up in Recife, Brazil, Marina and Filipe started dancing with their families at a very young age. They were regulars at many forró events in Pernambuco's capital city. They started Forró Liverpool in January 2020, where they teach regular classes, and bring incredible guest teachers, amazing bands, and their own Brazilian culture to the growing forró scene in the city.",
+  description: "We are proudly community-led, with many Liverpool forrozeiras stepping up to organize events, offer marketing support, and teach workshops. Our friendly community is a beautiful mix of Brazilians and folks from all over the world."
 )
 community.save!
 
 Sitefestival.destroy_all
 
 sitefestival = Sitefestival.new(
-  navbar: ['Liverpool Forró Festival 2024', 'Classes & Events', 'Our Community', 'FAQ'],
+  navbar: ['Liverpool Forró Festival 2024', 'Classes & Events', 'Our Community', 'FAQ', 'Tickets', 'Teachers & Musicians', 'Program', 'FAQ', 'Tickets', 'Teachers & Musicians', 'Program','Liverpol', 'Festival FAQ'],
   image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660', 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   data: "10-12 MAY, 2024",
   local: "Liverpool, England",

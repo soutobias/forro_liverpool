@@ -43,7 +43,6 @@ export default function Home() {
   if (!hasMounted) {
     return null
   }
-  console.log(showEvent)
   return (
     <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
       {/* <FrameImportant text="early bird tickets now available!" /> */}
@@ -64,7 +63,7 @@ export default function Home() {
       <Liverpool />
       <GetTickets />
       {/* <LiverpoolEvents /> */}
-      <Faq></Faq>
+      {/* <Faq></Faq> */}
       <Footer></Footer>
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
       {/* {Object.keys(showEvent).length > 0 && (

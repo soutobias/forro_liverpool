@@ -3,10 +3,10 @@ import { ForroLinks } from './ForroLinks'
 import styles from './Bg.module.css'
 import { InstagramLogo } from '@/assets/instagram_logo'
 import { FacebookLogo } from '@/assets/facebook_logo'
-export function Footer() {
+export function Footer(props: { siteFestival: any }) {
   return (
     <div className={`w-full z-20 pb-6 ${styles.communityBg}`}>
-      <ForroLinks />
+      <ForroLinks siteFestival={props.siteFestival} />
       <div className="flex justify-center gap-8 pt-10 pb-8">
         <Link
           href="https://www.instagram.com/forro.liverpool/"
