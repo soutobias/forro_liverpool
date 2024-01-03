@@ -8,6 +8,7 @@ interface EventCardProps {
 }
 
 export function EventCard(props: EventCardProps) {
+  console.log(props.event, 'event')
   const { event, setShowEvent } = props
 
   return (
@@ -24,7 +25,7 @@ export function EventCard(props: EventCardProps) {
       onClick={() =>
         setShowEvent({
           title: event.name,
-          period: event.start_datetime ? event.start_datetime : '',
+          period: event.date ? event.date : '',
           location: event.location ? event.location : '',
         })
       }
@@ -33,7 +34,7 @@ export function EventCard(props: EventCardProps) {
         {event.name}
       </div>
       <div className="bg-white uppercase text-black ml-4 mt-4 w-max pl-4 pr-4 rounded-2xl text-[1rem] font-extrabold pt-0 pb-0 leading-5 tracking-[0.05rem]">
-        {event.start_datetime}
+        {event.date}
       </div>
       {event.location && (
         <div className="flex ml-4 pt-4 text-black">

@@ -4,7 +4,7 @@ import { Hero } from '@/components/Hero'
 // import { VideoIntro } from '@/components/VideoIntro'
 import { ClassEvents } from '@/components/ClassEvents'
 import { Community } from '@/components/Community'
-import { Faq } from '@/components/Faq'
+// import { Faq } from '@/components/Faq'
 import { Navbar } from '@/components/NavBar'
 import { FrameImportant } from '@/components/FrameImportant'
 import { useEffect, useState } from 'react'
@@ -47,16 +47,20 @@ export default function Home() {
   return (
     <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
       <FrameImportant site={site} />
-      <Navbar
-        language={language}
-        setLanguage={setLanguage}
-        siteFestival={siteFestival}
-      />
+      {siteFestival && (
+        <>
+          <Navbar
+            language={language}
+            setLanguage={setLanguage}
+            siteFestival={siteFestival}
+          />
+        </>
+      )}
       <Hero site={site} />
       <ClassEvents setShowEvent={setShowEvent} />
       <Community />
-      <Faq />
-      <Footer />
+      {/* <Faq /> */}
+      <Footer siteFestival={siteFestival} />
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
       {Object.keys(showEvent).length > 0 && (
         <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
