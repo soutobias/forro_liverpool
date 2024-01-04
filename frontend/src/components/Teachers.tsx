@@ -1,8 +1,21 @@
 import { H1 } from './H1'
 import { MainButton } from './MainButton'
 import { TeacherCard } from './TeacherCard'
+import { useState, useEffect } from 'react'
+import { fetchApi } from '@/lib/api'
 import styles from './Bg.module.css'
+import { keyable } from './ClassEvent'
+
 export function Teachers() {
+  const [teachers, setTeachers] = useState<keyable[] | null>(null)
+  const url = 'api/v1/festival_teachers'
+
+  useEffect(() => {
+    fetchApi(url, setTeachers)
+  }, [])
+
+  console.log(teachers, 'teachers ------')
+
   return (
     <div id="teachers" className={`pb-[15rem] font-changa ${styles.blackBg}`}>
       <div className="pt-16 pb-10">
@@ -10,94 +23,49 @@ export function Teachers() {
       </div>
       <div>
         <div className="p-4 flex gap-4 overflow-x-auto no-scrollbar">
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Yse Goes'}
-            location={'Porto'}
-            action={'Teacher'}
-            color={styles.lightPinkBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Camila Alves'}
-            location={'Lisbon'}
-            action={'Teacher'}
-            color={styles.lightPinkBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Felipe & Marina'}
-            location={'Liverpool'}
-            action={'Teacher'}
-            color={styles.lightPinkBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Yse Goes'}
-            location={'Porto'}
-            action={'Teacher'}
-            color={styles.lightPinkBg}
-          />
+          {teachers &&
+            teachers
+              .filter((item: any) => item.function === 'Teacher')
+              .map((item) => (
+                <TeacherCard
+                  key={item.id}
+                  image={item.image}
+                  title={item.name}
+                  location={item.location}
+                  action={item.function}
+                  color={styles.lightPinkBg}
+                />
+              ))}
         </div>
         <div className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse">
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1521547418549-6a31aad7c177?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Band Name'}
-            location={'Recife'}
-            action={'band'}
-            color={styles.pinkBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1521547418549-6a31aad7c177?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'DJ Name'}
-            location={'London'}
-            action={'dj'}
-            color={styles.pinkBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1521547418549-6a31aad7c177?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Band Name'}
-            location={'Liverpool'}
-            action={'band'}
-            color={styles.pinkBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1521547418549-6a31aad7c177?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Band Name'}
-            location={'Recife'}
-            action={'band'}
-            color={styles.pinkBg}
-          />
+          {teachers &&
+            teachers
+              .filter((item: any) => item.function === 'Teacher')
+              .map((item) => (
+                <TeacherCard
+                  key={item.id}
+                  image={item.image}
+                  title={item.name}
+                  location={item.location}
+                  action={item.function}
+                  color={styles.lightPinkBg}
+                />
+              ))}
         </div>
         <div className="p-4 flex gap-4 overflow-x-auto no-scrollbar">
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Yse Goes'}
-            location={'Porto'}
-            action={'Teacher'}
-            color={styles.purpleBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Camila Alves'}
-            location={'Lisbon'}
-            action={'Teacher'}
-            color={styles.purpleBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Felipe & Marina'}
-            location={'Liverpool'}
-            action={'Teacher'}
-            color={styles.purpleBg}
-          />
-          <TeacherCard
-            image="https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            title={'Yse Goes'}
-            location={'Porto'}
-            action={'Teacher'}
-            color={styles.purpleBg}
-          />
+          {teachers &&
+            teachers
+              .filter((item: any) => item.function === 'Teacher')
+              .map((item) => (
+                <TeacherCard
+                  key={item.id}
+                  image={item.image}
+                  title={item.name}
+                  location={item.location}
+                  action={item.function}
+                  color={styles.lightPinkBg}
+                />
+              ))}
         </div>
       </div>
       <div className="pl-4 pr-4 pt-8">
