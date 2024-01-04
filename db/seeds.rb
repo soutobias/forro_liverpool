@@ -32,7 +32,7 @@ Event.destroy_all
 events_data = [
   {
     name: 'Liverpool Forró Festival 2024',
-    description: 'Descrição do Evento 1',
+    description: 'Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia. Check out our Instagram page for the latest events and news, like class cancellations or delays. No pre-purchase or registration necessary. Just show up and we will see you there!',
     start_datetime: DateTime.now,
     end_datetime: DateTime.now + 3.hours,
     price: 20.0,
@@ -43,7 +43,8 @@ events_data = [
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Special Events',
     location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
-    date: '10-12 MAY'
+    date: '10-12 MAY',
+    time: '7pm Class, 8pm Social'
   },
   {
     name: 'Forró Workshop with Luiz Henrique',
@@ -58,7 +59,8 @@ events_data = [
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Special Events',
     location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
-    date: '10 MAY'
+    date: '10 MAY',
+    time: '7pm Class, 8pm Social'
   },
   {
     name: 'All Levels Forró classes',
@@ -73,7 +75,8 @@ events_data = [
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
     location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
-    date: 'MONDAYS'
+    date: 'MONDAYS',
+    time: '7pm Class, 8pm Social'
   },
   {
     name: 'Forró and Chips',
@@ -88,7 +91,8 @@ events_data = [
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
     location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
-    date: 'WEDNESDAYS'
+    date: 'WEDNESDAYS',
+    time: '7pm Class, 8pm Social'
   }
 ]
 
@@ -166,3 +170,34 @@ sitefestival = Sitefestival.new(
   titlevideo: "Forró in the heart of the UK's music scene"
 )
 sitefestival.save!
+
+FestivalTeacher.destroy_all
+
+festival_teachers_data = [ 
+  {
+    image: "https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Yse Goes",
+    location: "Porto",
+    function: "Teacher"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Felipe e Marina",
+    location: "Liverpool",
+    function: 'Teacher'
+  }, 
+  {
+    image: "https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Band Name",
+    location: "Liverpool",
+    function: 'Band'
+  },
+  {
+    image: "https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Other band name",
+    location: "Liverpool",
+    function: 'Band'
+  }
+]
+
+festival_teachers = festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(festival_teacher_data) }

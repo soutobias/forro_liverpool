@@ -1,0 +1,2 @@
+class FestivalTeacher < ApplicationRecord
+end
