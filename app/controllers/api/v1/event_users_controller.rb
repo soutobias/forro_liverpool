@@ -1,53 +1,58 @@
-class Api::V1::EventUsersController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_event_user, only: %i[show update destroy]
+module Api
+  module V1
+    class EventUsersController < ApplicationController
+      before_action :set_event_user, only: %i[show update destroy]
 
-  # GET /event_users
-  def index
-    @event_users = EventUser.all
+      # GET /event_users
+      def index
+        @event_users = EventUser.all
 
-    render json: @event_users
-  end
+        render json: @event_users
+      end
 
-  # GET /event_users/1
-  def show
-    render json: @event_user
-  end
+      # GET /event_users/1
+      def show
+        render json: @event_user
+      end
 
-  # POST /event_users
-  def create
-    @event_user = EventUser.new(event_user_params)
+      # POST /event_users
+      def create
+        @event_user = EventUser.new(event_user_params)
 
-    if @event_user.save
-      render json: @event_user, status: :created, location: @event_user
-    else
-      render json: @event_user.errors, status: :unprocessable_entity
+        if @event_user.save
+          render json: @event_user, status: :created, location: @event_user
+        else
+          render json: @event_user.errors, status: :unprocessable_entity
+        end
+      end
+
+      # PATCH/PUT /event_users/1
+      def update
+        if @event_user.update(event_user_params)
+          render json: @event_user
+        else
+          render json: @event_user.errors, status: :unprocessable_entity
+        end
+      end
+
+      # DELETE /event_users/1
+      def destroy
+        @event_user.destroy
+      end
+
+      private
+
+      # Use callbacks to share common setup or constraints between actions.
+      def set_event_user
+        @event_user = EventUser.find(params[:id])
+      end
+
+      # Only allow a list of trusted parameters through.
+      def event_user_params
+        params.require(:event_user).permit(:user_id, :event_id, :relation_type)
+      end
     end
-  end
-
-  # PATCH/PUT /event_users/1
-  def update
-    if @event_user.update(event_user_params)
-      render json: @event_user
-    else
-      render json: @event_user.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /event_users/1
-  def destroy
-    @event_user.destroy
-  end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_event_user
-    @event_user = EventUser.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def event_user_params
-    params.require(:event_user).permit(:user_id,:event_id,:relation_type)
   end
 end

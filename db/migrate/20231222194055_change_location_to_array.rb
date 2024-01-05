@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeLocationToArray < ActiveRecord::Migration[7.1]
   def up
     add_column :events, :location_temp, :text, array: true, default: [], null: false

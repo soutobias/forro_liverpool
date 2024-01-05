@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateFestivalTeachers < ActiveRecord::Migration[7.1]
   def change
     create_table :festival_teachers do |t|
