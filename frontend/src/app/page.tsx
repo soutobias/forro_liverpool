@@ -14,6 +14,7 @@ import { ClassEvent } from '@/components/ClassEvent'
 import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
 import { fetchApi } from '@/lib/api'
+import { Faq } from '@/components/Faq'
 
 export interface keyable {
   [key: string]: any
@@ -59,7 +60,7 @@ export default function Home() {
       <Hero site={site} />
       <ClassEvents setShowEvent={setShowEvent} />
       <Community />
-      {/* <Faq /> */}
+      <Faq />
       <Footer siteFestival={siteFestival} />
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
       {Object.keys(showEvent).length > 0 && (
