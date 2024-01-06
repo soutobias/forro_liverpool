@@ -1,53 +1,58 @@
-class Api::V1::PostsController < ApplicationController
+# frozen_string_literal: true
 
-  before_action :set_post, only: %i[show update destroy]
+module Api
+  module V1
+    class PostsController < ApplicationController
+      before_action :set_post, only: %i[show update destroy]
 
-  # GET /posts
-  def index
-    @posts = Post.all
+      # GET /posts
+      def index
+        @posts = Post.all
 
-    render json: @posts
-  end
+        render json: @posts
+      end
 
-  # GET /posts/1
-  def show
-    render json: @post
-  end
+      # GET /posts/1
+      def show
+        render json: @post
+      end
 
-  # POST /posts
-  def create
-    @post = Post.new(post_params)
+      # POST /posts
+      def create
+        @post = Post.new(post_params)
 
-    if @post.save
-      render json: @post, status: :created, location: @post
-    else
-      render json: @post.errors, status: :unprocessable_entity
+        if @post.save
+          render json: @post, status: :created, location: @post
+        else
+          render json: @post.errors, status: :unprocessable_entity
+        end
+      end
+
+      # PATCH/PUT /posts/1
+      def update
+        if @post.update(post_params)
+          render json: @post
+        else
+          render json: @post.errors, status: :unprocessable_entity
+        end
+      end
+
+      # DELETE /posts/1
+      def destroy
+        @post.destroy
+      end
+
+      private
+
+      # Use callbacks to share common setup or constraints between actions.
+      def set_post
+        @post = Post.find(params[:id])
+      end
+
+      # Only allow a list of trusted parameters through.
+      def post_params
+        params.require(:post).permit(:user_id, :tile, :description, :cover_image, :image)
+      end
     end
-  end
-
-  # PATCH/PUT /posts/1
-  def update
-    if @post.update(post_params)
-      render json: @post
-    else
-      render json: @post.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /posts/1
-  def destroy
-    @post.destroy
-  end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_post
-    @post = Post.find(params[:id])
-  end
-
-  # Only allow a list of trusted parameters through.
-  def post_params
-    params.require(:post).permit(:user_id, :tile, :description, :cover_image, :image)
   end
 end

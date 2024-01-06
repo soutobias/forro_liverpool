@@ -14,6 +14,7 @@ import { ClassEvent } from '@/components/ClassEvent'
 import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
 import { fetchApi } from '@/lib/api'
+import { Faq } from '@/components/Faq'
 
 export interface keyable {
   [key: string]: any

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -15,15 +17,15 @@ User.destroy_all
 
 first = true
 10.times do
-  if first
-    10.times do
-      user = User.new(
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        sell_site_token: SecureRandom.alphanumeric,
-      )
-      user.save!
-    end
+  next unless first
+
+  10.times do
+    user = User.new(
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      sell_site_token: SecureRandom.alphanumeric
+    )
+    user.save!
   end
 end
 
@@ -103,43 +105,42 @@ events.each do |event|
     event_user = EventUser.new(
       user_id: User.order('RANDOM()').limit(1)[0].id,
       event_id: event.id,
-      relation_type: ['booked', 'wish'].sample
+      relation_type: %w[booked wish].sample
     )
     event_user.save!
   end
 end
 
-
 Site.destroy_all
 
 site = Site.new(
-  title: "Brazilian forró classes & events in the heart of Liverpool",
-  description: "All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!",
-  frame: "Liverpool forró festival 1st lot tickets",
-  cover_image: "https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660",
-  cover_video: "https://www.gov.br/pt-br/midias-agorabrasil/video-fundo.mp4",
+  title: 'Brazilian forró classes & events in the heart of Liverpool',
+  description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
+  frame: 'Liverpool forró festival 1st lot tickets',
+  cover_image: 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660',
+  cover_video: 'https://www.gov.br/pt-br/midias-agorabrasil/video-fundo.mp4',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
 )
 site.save!
 
 Question.destroy_all
 
-questions_data = [ 
+questions_data = [
   {
-    question: "What is Forró?",
-    answer: "Forró is culture from the northeast of Brazil that quickly spread to the rest of the country. It is a style of music, dance, and community events that are now celebrated all over the world. The music traditionally employs just 3 instruments: the accordion, the triangle, and the zabumba (a type of drum). Interested in taking a listen? Check out our Spotify playlist, Forró Liverpool."
+    question: 'What is Forró?',
+    answer: 'Forró is culture from the northeast of Brazil that quickly spread to the rest of the country. It is a style of music, dance, and community events that are now celebrated all over the world. The music traditionally employs just 3 instruments: the accordion, the triangle, and the zabumba (a type of drum). Interested in taking a listen? Check out our Spotify playlist, Forró Liverpool.'
   },
   {
-    question: "What style of forró do you teach?",
-    answer: "We teach a mix of styles, with a focus on the roots of forró"
+    question: 'What style of forró do you teach?',
+    answer: 'We teach a mix of styles, with a focus on the roots of forró'
   },
-  { 
-    question: "Is there any sort of registration process to sign up for classes?",
-    answer: "Nope! Just show up to class and pay at the door. We accept cash and card."
+  {
+    question: 'Is there any sort of registration process to sign up for classes?',
+    answer: 'Nope! Just show up to class and pay at the door. We accept cash and card.'
   }
 ]
 
-questions = questions_data.map { |question_data| Question.create(question_data) }
+questions_data.map { |question_data| Question.create(question_data) }
 
 # 5.times do
 #   question = Question.new(
@@ -151,21 +152,24 @@ questions = questions_data.map { |question_data| Question.create(question_data) 
 
 Community.destroy_all
 community = Community.new(
-  profile_image: ['https://avatars.githubusercontent.com/u/85016706?v=4','https://avatars.githubusercontent.com/u/85016706?v=4'],
+  profile_image: ['https://avatars.githubusercontent.com/u/85016706?v=4', 'https://avatars.githubusercontent.com/u/85016706?v=4'],
   name: ['Felipe Braga', 'Marina Cerqueira'],
   profile: "Growing up in Recife, Brazil, Marina and Filipe started dancing with their families at a very young age. They were regulars at many forró events in Pernambuco's capital city. They started Forró Liverpool in January 2020, where they teach regular classes, and bring incredible guest teachers, amazing bands, and their own Brazilian culture to the growing forró scene in the city.",
-  description: "We are proudly community-led, with many Liverpool forrozeiras stepping up to organize events, offer marketing support, and teach workshops. Our friendly community is a beautiful mix of Brazilians and folks from all over the world."
+  description: 'We are proudly community-led, with many Liverpool forrozeiras stepping up to organize events, offer marketing support, and teach workshops. Our friendly community is a beautiful mix of Brazilians and folks from all over the world.'
 )
 community.save!
 
 Sitefestival.destroy_all
 
 sitefestival = Sitefestival.new(
-  navbar: ['Liverpool Forró Festival 2024', 'Classes & Events', 'Our Community', 'FAQ', 'Tickets', 'Teachers & Musicians', 'Program', 'FAQ', 'Tickets', 'Teachers & Musicians', 'Program','Liverpol', 'Festival FAQ'],
-  image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660', 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
-  data: "10-12 MAY, 2024",
-  local: "Liverpool, England",
-  video: "https://www.gov.br/pt-br/midias-agorabrasil/video-fundo.mp4",
+  navbar: ['Liverpool Forró Festival 2024', 'Classes & Events', 'Our Community', 'FAQ', 'Tickets',
+           'Teachers & Musicians', 'Program', 'FAQ', 'Tickets', 'Teachers & Musicians', 'Program', 'Liverpol', 'Festival FAQ'],
+  image: [
+    'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660', 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'
+  ],
+  data: '10-12 MAY, 2024',
+  local: 'Liverpool, England',
+  video: 'https://www.gov.br/pt-br/midias-agorabrasil/video-fundo.mp4',
   textvideo: "3 days of dance classes and parties with incredible forró teachers and musicians from around the world. Come celebrate Brazilian culture in the heart of the UK's music scene!",
   titlevideo: "Forró in the heart of the UK's music scene"
 )
@@ -173,31 +177,31 @@ sitefestival.save!
 
 FestivalTeacher.destroy_all
 
-festival_teachers_data = [ 
+festival_teachers_data = [
   {
-    image: "https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Yse Goes",
-    location: "Porto",
-    function: "Teacher"
+    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Yse Goes',
+    location: 'Porto',
+    function: 'Teacher'
   },
   {
-    image: "https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Felipe e Marina",
-    location: "Liverpool",
+    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Felipe e Marina',
+    location: 'Liverpool',
     function: 'Teacher'
-  }, 
+  },
   {
-    image: "https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Band Name",
-    location: "Liverpool",
+    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Band Name',
+    location: 'Liverpool',
     function: 'Band'
   },
   {
-    image: "https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    name: "Other band name",
-    location: "Liverpool",
+    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    name: 'Other band name',
+    location: 'Liverpool',
     function: 'Band'
   }
 ]
 
-festival_teachers = festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(festival_teacher_data) }
+festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(festival_teacher_data) }
