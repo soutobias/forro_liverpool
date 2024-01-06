@@ -13,7 +13,6 @@ export function Dropdown(props: {
   setDropdown: (dropDown: boolean) => void
   siteFestival: any
 }) {
-  console.log(props.siteFestival, 'siteFestival222222')
   return (
     <div className="absolute bg-yellow-500 w-full z-20 pb-20">
       <ForroLinks

@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { keyable } from './ClassEvent'
 import Link from 'next/link'
 import styles from './Bg.module.css'
+import { LocationMarker } from '@/assets/location_marker'
 
 export function EventCardLFF(props: {
   title: string
@@ -24,39 +25,41 @@ export function EventCardLFF(props: {
           </div>
         </div>
       ) : (
-        <>
-          <div className="text-black text-[1.25rem] font-semibold leading-6 pt-8 pl-6">
+        <div className="pl-5 pt-5 pr-5">
+          <div className="text-black text-[1.5rem] font-extrabold leading-8 ont-changa">
             {props.title}
           </div>
-          <div className="flex pl-6 pt-6">
-            <div className="bg-gray-60 uppercase text-black font-bold pl-4 pr-4 rounded-2xl text-[1rem]">
-              {props.period}
+          <div className="flex pt-6">
+            <div>
+              <div className="bg-pink-400 uppercase text-white align-middle items-center font-bold pl-4 pr-4 py-0 rounded-2xl text-[1rem] font-sans">
+                {props.period}
+              </div>
             </div>
-            <div className="flex ml-4 mt-2 text-black">
-              <FontAwesomeIcon icon={faLocationDot} className="h-4 pr-0 pt-1" />
-              <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold pr-2 text-[1rem]">
+            <div className="flex ml-6 mt-2 text-black">
+              <LocationMarker />
+              <div className="text-black uppercase pl-0 mt-1 ml-1 font-extrabold pr-2 text-[1rem] font-changa leading-5">
                 {props.location}
               </div>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-8">
             {props.eventType === 'class' ? (
               <Link
                 href="#"
-                className="no-underline bg-gray-60 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4 ml-2 mr-2"
+                className="rounded-2xl no-underline bg-pink-400 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full text-white"
               >
                 View Class Schedule
               </Link>
             ) : (
               <Link
                 href="#"
-                className="no-underline bg-gray-60 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4 ml-2 mr-2"
+                className="rounded-2xl no-underline bg-pink-400 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full text-white"
               >
                 See event details
               </Link>
             )}
           </div>
-        </>
+        </div>
       )}
     </div>
   )

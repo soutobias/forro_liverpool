@@ -9,7 +9,6 @@ interface EventCardProps {
 }
 
 export function EventCard(props: EventCardProps) {
-  console.log(props.event, 'event')
   const { event, setShowEvent } = props
 
   return (

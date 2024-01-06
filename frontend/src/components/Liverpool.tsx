@@ -12,7 +12,7 @@ export function Liverpool() {
         className={`absolute -top-[10rem] w-full h-[20rem] ${styles.circlesBg1}`}
       />
       <div className="pl-4 pr-4 ">
-        <div className="pt-[13rem] pb-10">
+        <div className="pt-[13rem] pb-10 text-center">
           <H1 color="white" text="Come Together in Liverpool" />
         </div>
         {/* <PromoCard
