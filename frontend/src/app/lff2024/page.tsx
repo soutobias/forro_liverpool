@@ -19,7 +19,7 @@ import { GetTickets } from '@/components/GetTickets'
 import { fetchApi } from '@/lib/api'
 
 export interface keyable {
-  [key: string]: string
+  [key: string]: any
 }
 
 export default function Home() {
@@ -28,11 +28,17 @@ export default function Home() {
   const [showEvent, setShowEvent] = useState<keyable>({})
   const [language, setLanguage] = useState('en')
   const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
+  const [showQuestion, setShowQuestion] = useState<keyable[] | null>(null)
 
   const url = 'api/v1/sitefestivals'
+  const urlQuestions = 'api/v1/questions'
 
   useEffect(() => {
     fetchApi(url, setSiteFestival)
+  }, [])
+
+  useEffect(() => {
+    fetchApi(urlQuestions, setShowQuestion)
   }, [])
 
   useEffect(() => {
@@ -60,10 +66,19 @@ export default function Home() {
       )}
       <Teachers></Teachers>
       <ClassEventsLFF setShowEvent={setShowEvent}></ClassEventsLFF>
-      <Liverpool />
+      {showQuestion && (
+        <>
+          <Liverpool />
+        </>
+      )}
+
       <GetTickets />
       {/* <LiverpoolEvents /> */}
-      <Faq></Faq>
+      {showQuestion && (
+        <>
+          <Faq showQuestion={showQuestion} setShowQuestion={setShowQuestion} />
+        </>
+      )}
       <Footer siteFestival={siteFestival}></Footer>
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
       {/* {Object.keys(showEvent).length > 0 && (

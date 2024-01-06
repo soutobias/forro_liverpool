@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :users
       resources :sitefestivals
       resources :festival_teachers
+      resources :liverpool_questions
     end
   end
 
