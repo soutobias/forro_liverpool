@@ -14,6 +14,9 @@ import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
 import { GDPR } from '@/components/GDPR'
 import { EventCard } from '@/components/EventCard'
+import styles from '../../../components/Bg.module.css'
+import { LocationMarker } from '@/assets/location_marker'
+import { MainButton } from '@/components/MainButton'
 
 export default function EventDetails({ params }: { params: any }) {
   const [events, setEvents] = useState<keyable[]>([])
@@ -39,15 +42,12 @@ export default function EventDetails({ params }: { params: any }) {
 
   useEffect(() => {
     if (events.length > 0) {
-      console.log(params.id, 'params.id')
       const foundEvent = events.find((event) => {
-        console.log(event.id, 'event.id')
         return String(event.id) === params.id
       })
       setSelectedEvent(foundEvent || null)
     }
   }, [events, params.id])
-  console.log(selectedEvent, 'selectedEvent')
 
   const [language, setLanguage] = useState('en')
   useEffect(() => {
@@ -71,97 +71,91 @@ export default function EventDetails({ params }: { params: any }) {
           />
         </>
       )}
-      <div className="">
+      <div className={`w-full z-[59] relative ${styles.begeBg}`}>
         {selectedEvent && (
-          <>
-            <div className=" bg-gray-100 opacity-90"></div>
-            <div className="bg-white z-20 rounded-t-2xl">
-              <div className="bg-gray-100 opacity-90">
-                <Image
-                  src={selectedEvent.image[0]}
-                  alt="illustration"
-                  className="rounded-t-2xl"
-                  width={1336}
-                  height={400}
-                />
-              </div>
-              <div className="pt-7 pl-3 pr-3 pb-8">
-                <div className="pt-0 pr-2">
-                  <p className="text-black text-[2rem] leading-9 font-sans font-semibold pb-8">
-                    {selectedEvent.name}
-                  </p>
-                  <div className="flex gap-16 justify-between w-full pb-6">
-                    <div className="pl-2">
-                      <div className="bg-gray-60 uppercase text-black mb-4 w-max pl-2 font-bold pr-2 rounded-2xl text-[1rem] font-sans">
-                        {selectedEvent.date}
-                      </div>
-                      <div className="bg-gray-60 uppercase text-black w-max pl-2 font-bold pr-2 rounded-2xl text-[1rem] font-sans">
-                        &pound; 7
-                      </div>
+          <div className="pl-4 pr-4">
+            <Image
+              src={selectedEvent.image[0]}
+              alt="illustration"
+              className="rounded-xl h-[12rem] w-full object-cover mt-[7.25rem]"
+              width={1336}
+              height={192}
+            />
+            <div className="pt-7 pb-8">
+              <div className="pt-0">
+                <h1 className="font-changa text-[2rem] leading-10 font-extrabold text-black">
+                  {selectedEvent.name}
+                </h1>
+                <div className="flex gap-16 justify-between w-full pb-6 pt-7">
+                  <div className="">
+                    <div className="bg-pink-400 uppercase text-white mb-4 w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
+                      {selectedEvent.date}
                     </div>
-                    <div>
-                      {selectedEvent.location && (
-                        <div>
-                          <div className="flex text-black">
-                            <FontAwesomeIcon
-                              icon={faLocationDot}
-                              className="h-4 pr-0 pt-1"
-                            />
-                            <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold text-[1rem] font-sans">
-                              {selectedEvent.location[0]}
-                            </div>
-                            <ArrowUpRight size={20} />
-                          </div>
-                          <div className="ml-4 mt-2 text-black">
-                            <div className="text-black leading-4 pl-0 mt-1 font-normal text-[1rem] font-sans">
-                              {selectedEvent.location[1]}
-                            </div>
-                            <div className="text-black leading-4 pl-0 mt-1 pt-3 font-normal text-[1rem] font-sans">
-                              {selectedEvent.time}
-                            </div>
-                          </div>
-                        </div>
-                      )}
+                    <div className="bg-pink-400 uppercase text-white w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
+                      &pound;7
                     </div>
                   </div>
-                  <p className="pt-0 pb-7 text-black text-[1rem] leading-5 font-sans font-normal">
+                  <div>
+                    {selectedEvent.location && (
+                      <div>
+                        <div className="flex text-black">
+                          <LocationMarker />
+                          <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold text-[1rem] font-sans">
+                            {selectedEvent.location[0]}
+                          </div>
+                          <ArrowUpRight size={20} />
+                        </div>
+                        <div className="ml-4 mt-2 text-black">
+                          <div className="text-black leading-4 pl-0 mt-1 font-normal text-[1rem] font-sans">
+                            {selectedEvent.location[1]}
+                          </div>
+                          <div className="text-black leading-4 pl-0 mt-1 pt-3 font-normal text-[1rem] font-sans">
+                            {selectedEvent.time}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="pt-8">
+                  <p className="text-black text-[1rem] leading-6 font-sans font-semibold">
                     {selectedEvent.description}
                   </p>
                 </div>
-                {/* <Link
-                  href="/registration"
-                  className="no-underline mr-2 flex bg-gray-60 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4 justify-center"
-                >
-                  <div>Get Tickets</div>
-                  <ArrowUpRight size={20} />
-                </Link> */}
+                {selectedEvent.type_event === 'Special Events' && (
+                  <div className="pt-8 z-[61]">
+                    <MainButton
+                      href="#"
+                      content="GET TICKETS"
+                      bg="black"
+                      font="white"
+                    />
+                  </div>
+                )}
+                <h1 className="font-changa text-[1.5rem] leading-10 font-extrabold text-black pt-12">
+                  Plus, join us for...
+                </h1>
+                <div className="pt-8">
+                  {events &&
+                    events.length > 0 &&
+                    events.map(
+                      (event: any) =>
+                        String(event.id) !== params.id && (
+                          <EventCard
+                            key={event.id}
+                            event={event}
+                            setShowEvent={setShowEvent}
+                          />
+                        ),
+                    )}
+                </div>
               </div>
             </div>
-          </>
+          </div>
         )}
-      </div>
-      <div className="text-black font-sans bg-white z-20 pb-2 font-bold">
-        Plus, join us for...
-      </div>
-      <div>
-        {events &&
-          events.length > 0 &&
-          events.map(
-            (event: any) =>
-              String(event.id) !== params.id && (
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  setShowEvent={setShowEvent}
-                />
-              ),
-          )}
       </div>
       <Footer siteFestival={siteFestival} />
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
-      {Object.keys(showEvent).length > 0 && (
-        <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
-      )}
       <UpButton />
     </div>
   )

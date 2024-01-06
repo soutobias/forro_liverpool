@@ -15,7 +15,7 @@ export function ClassEventsLFF(props: {
       <div
         className={`absolute -top-[10rem] w-full h-[20rem] ${styles.circlesBg2}`}
       />
-      <div className="pt-[10rem] pb-12">
+      <div className="pt-[10rem] pb-12 text-center">
         <H1 color="white" text="3 days of dance!" />
       </div>
       <div>
@@ -24,6 +24,13 @@ export function ClassEventsLFF(props: {
           period={''}
           location={''}
           eventType={'future'}
+          setShowEvent={props.setShowEvent}
+        />
+        <EventCardLFF
+          title={'Bem Vindos Party'}
+          period={'8PM-3AM'}
+          location={'Revolucion de Cuba'}
+          eventType={'party'}
           setShowEvent={props.setShowEvent}
         />
         {/* <h2 className="text-center font-sans text-[1.5rem] leading-5 font-semibold pl-2 pt-16">

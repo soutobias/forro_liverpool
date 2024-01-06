@@ -1,8 +1,12 @@
 import { addToken } from '@/lib/handleCookie'
+import { MainButton } from './MainButton'
+import styles from './Bg.module.css'
 
 export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
   return (
-    <div className="bg-gray-100 w-full z-[63] bottom-0 fixed pointer-events-auto">
+    <div
+      className={`w-full z-[64] bottom-0 fixed pointer-events-auto opacity-100 ${styles.begeBg}`}
+    >
       <div className="pb-12">
         {/* <div className="flex justify-end">
           <FontAwesomeIcon
@@ -18,18 +22,18 @@ export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
             cookies.
           </p>
         </div>
-        <div
-          className="no-underline bg-white text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4"
-          onClick={() => props.setShowGDPR(addToken())}
-        >
-          Accept
+        <div className="mx-4 h-max">
+          <div
+            onClick={() => props.setShowGDPR(addToken())}
+            className={`flex justify-center bg-black no-underline`}
+          >
+            <p
+              className={`text-white text-center text-[1rem] leading-5 uppercase font-extrabold w-full p-5`}
+            >
+              Accept
+            </p>
+          </div>
         </div>
-        {/* <div
-          className="no-underline bg-white text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4"
-          onClick={() => props.setShowGDPR(addToken())}
-        >
-          Reject
-        </div> */}
       </div>
     </div>
   )

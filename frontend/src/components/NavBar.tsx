@@ -15,7 +15,6 @@ export function Navbar(props: {
   plusColor?: string
   siteFestival: any
 }) {
-  console.log(props.siteFestival, 'siteFestival1111111')
   const [dropdown, setDropdown] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
   const [zIndex, setZIndex] = useState('z-[61]')

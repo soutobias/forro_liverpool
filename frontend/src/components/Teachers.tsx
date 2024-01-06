@@ -14,11 +14,9 @@ export function Teachers() {
     fetchApi(url, setTeachers)
   }, [])
 
-  console.log(teachers, 'teachers ------')
-
   return (
     <div id="teachers" className={`pb-[15rem] font-changa ${styles.blackBg}`}>
-      <div className="pt-16 pb-10">
+      <div className="pt-16 pb-10 text-center">
         <H1 color="white" text="Amazing teachers & musicians" />
       </div>
       <div>

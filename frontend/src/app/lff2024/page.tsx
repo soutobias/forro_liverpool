@@ -63,7 +63,7 @@ export default function Home() {
       <Liverpool />
       <GetTickets />
       {/* <LiverpoolEvents /> */}
-      {/* <Faq></Faq> */}
+      <Faq></Faq>
       <Footer siteFestival={siteFestival}></Footer>
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
       {/* {Object.keys(showEvent).length > 0 && (
