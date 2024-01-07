@@ -17,14 +17,15 @@ export function Liverpool() {
   return (
     <div
       id="liverpool"
-      className={`pb-[15rem] text-white relative ${styles.blackBg}`}
+      className={`pb-[15rem] md:pb-[25rem] text-white relative ${styles.blackBg}`}
     >
       <div
-        className={`absolute -top-[10rem] w-full h-[20rem] ${styles.circlesBg1}`}
+        className={`absolute -top-[10rem] md:-top-[25rem] w-full h-[20rem] md:h-[45rem] ${styles.circlesBg1}`}
       />
-      <div className="pl-4 pr-4 ">
-        <div className="pt-[13rem] pb-10 text-center">
-          <H1 color="white" text="Come Together in Liverpool" />
+      <div className="px-4 md:px-[23.25rem] ">
+        <div className="pt-[13rem] md:pt-[25rem] pb-10 text-center">
+          <H1 color="white" text="Come Together" />
+          <H1 color="white" text="in Liverpool" />
         </div>
         {/* <PromoCard
         title="Special offer!"
@@ -32,7 +33,7 @@ export function Liverpool() {
         code="Use code FORRO30 on Selina.com to take advantage of this special offer for Liverpool Forró Festival 2024 attendees!"
       /> */}
         <div>
-          <h2 className="text-center font-changa text-[1.5rem] leading-8 font-extrabold pl-2 pt-1 pb-8">
+          <h2 className="text-center font-changa text-[1.5rem] leading-8 font-extrabold pl-2 pt-1 md:pt-10 pb-8 md:text-left md:pb-20">
             Getting to Liverpool
           </h2>
           {showLiverpool &&

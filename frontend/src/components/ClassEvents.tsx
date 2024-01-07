@@ -21,46 +21,48 @@ export function ClassEvents(props: ClassEventsProps) {
   }, [])
 
   return (
-    <div id="classes-events" className="font-changa pl-4 pr-4 pb-20">
-      <div className="pt-20">
+    <div id="classes-events" className="font-changa px-4 md:px-[8.5rem] pb-20">
+      <div className="pt-20 text-left md:text-center">
         <H1 color="black" text="Classes & Events" />
       </div>
-      <div>
-        <div className="pt-5 pb-8 flex justify-between items-center">
-          <h2 className="text-[1.5rem] leading-8 font-extrabold">
-            Special Events
-          </h2>
-          <Line1 />
+      <div className="md:grid md:grid-cols-2 md:gap-40">
+        <div>
+          <div className="pt-5 pb-8 flex justify-between items-center">
+            <h2 className="text-[1.5rem] leading-8 font-extrabold">
+              Special Events
+            </h2>
+            <Line1 />
+          </div>
+          <div>
+            {events
+              .filter((event: any) => event.type_event === 'Special Events')
+              .map((event: any) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  setShowEvent={setShowEvent}
+                />
+              ))}
+          </div>
         </div>
         <div>
-          {events
-            .filter((event: any) => event.type_event === 'Special Events')
-            .map((event: any) => (
-              <EventCard
-                key={event.id}
-                event={event}
-                setShowEvent={setShowEvent}
-              />
-            ))}
-        </div>
-      </div>
-      <div>
-        <div className="pt-5 pb-8 flex justify-between items-center">
-          <h2 className="text-[1.5rem] leading-8 font-extrabold">
-            Regular Events
-          </h2>
-          <Line2 />
-        </div>
-        <div>
-          {events
-            .filter((event: any) => event.type_event === 'Regular Events')
-            .map((event: any) => (
-              <EventCard
-                key={event.id}
-                event={event}
-                setShowEvent={setShowEvent}
-              />
-            ))}
+          <div className="pt-5 pb-8 flex justify-between items-center">
+            <h2 className="text-[1.5rem] leading-8 font-extrabold">
+              Regular Events
+            </h2>
+            <Line2 />
+          </div>
+          <div>
+            {events
+              .filter((event: any) => event.type_event === 'Regular Events')
+              .map((event: any) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  setShowEvent={setShowEvent}
+                />
+              ))}
+          </div>
         </div>
       </div>
     </div>

@@ -10,14 +10,14 @@ interface EventCardProps {
 
 export function EventCard(props: EventCardProps) {
   const { event, setShowEvent } = props
-
+  console.log(setShowEvent)
   return (
     <Link href={`/events/${event.id}`} passHref>
       <div
         className={`${
           event.name === 'Liverpool Forró Festival 2024'
-            ? 'h-[21.5rem]'
-            : 'h-[12rem]'
+            ? 'h-[22.5rem]'
+            : 'h-[11rem]'
         } bg-cover rounded-xl font-changa w-full mb-4`}
         style={{
           backgroundImage:

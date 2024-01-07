@@ -1,10 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { keyable, ClassEvent } from '@/components/ClassEvent'
+import { keyable } from '@/components/ClassEvent'
 import { fetchApi } from '@/lib/api'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import { ArrowUpRight } from 'phosphor-react'
 import { FrameImportant } from '@/components/FrameImportant'
@@ -31,6 +29,7 @@ export default function EventDetails({ params }: { params: any }) {
   const urlEvents = 'api/v1/events'
   const urlFestival = 'api/v1/sitefestivals'
 
+  console.log(showEvent)
   useEffect(() => {
     fetchApi(url, setSite)
     fetchApi(urlFestival, setSiteFestival)
@@ -71,90 +70,96 @@ export default function EventDetails({ params }: { params: any }) {
           />
         </>
       )}
-      <div className={`w-full z-[59] relative ${styles.begeBg}`}>
+      <div className={`w-full z-[59] relative ${styles.begeBg} pb-20`}>
         {selectedEvent && (
-          <div className="pl-4 pr-4">
-            <Image
-              src={selectedEvent.image[0]}
-              alt="illustration"
-              className="rounded-xl h-[12rem] w-full object-cover mt-[7.25rem]"
-              width={1336}
-              height={192}
-            />
-            <div className="pt-7 pb-8">
-              <div className="pt-0">
-                <h1 className="font-changa text-[2rem] leading-10 font-extrabold text-black">
-                  {selectedEvent.name}
-                </h1>
-                <div className="flex gap-16 justify-between w-full pb-6 pt-7">
-                  <div className="">
-                    <div className="bg-pink-400 uppercase text-white mb-4 w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
-                      {selectedEvent.date}
-                    </div>
-                    <div className="bg-pink-400 uppercase text-white w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
-                      &pound;7
-                    </div>
-                  </div>
-                  <div>
-                    {selectedEvent.location && (
-                      <div>
-                        <div className="flex text-black">
-                          <LocationMarker />
-                          <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold text-[1rem] font-sans">
-                            {selectedEvent.location[0]}
-                          </div>
-                          <ArrowUpRight size={20} />
-                        </div>
-                        <div className="ml-4 mt-2 text-black">
-                          <div className="text-black leading-4 pl-0 mt-1 font-normal text-[1rem] font-sans">
-                            {selectedEvent.location[1]}
-                          </div>
-                          <div className="text-black leading-4 pl-0 mt-1 pt-3 font-normal text-[1rem] font-sans">
-                            {selectedEvent.time}
-                          </div>
-                        </div>
+          <div className="px-4 md:px-[8.75rem] mt-[7.25rem] md:mt-[9rem]">
+            <div className="md:flex md:justify-between md:gap-20">
+              <Image
+                src={selectedEvent.image[0]}
+                alt="illustration"
+                className="rounded-xl h-[12rem] md:h-max w-full md:w-[50%] object-cover"
+                width={1336}
+                height={192}
+              />
+              <div className="pt-7 pb-8">
+                <div className="pt-0">
+                  <h1 className="font-changa text-[2rem] leading-10 font-extrabold text-black">
+                    {selectedEvent.name}
+                  </h1>
+                  <div className="flex gap-16 justify-between w-full pb-6 pt-7">
+                    <div className="">
+                      <div className="bg-pink-400 uppercase text-white mb-4 w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
+                        {selectedEvent.date}
                       </div>
-                    )}
+                      <div className="bg-pink-400 uppercase text-white w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
+                        &pound;7
+                      </div>
+                    </div>
+                    <div>
+                      {selectedEvent.location && (
+                        <div>
+                          <div className="flex text-black">
+                            <LocationMarker />
+                            <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold text-[1rem] font-sans">
+                              {selectedEvent.location[0]}
+                            </div>
+                            <ArrowUpRight size={20} />
+                          </div>
+                          <div className="ml-4 mt-2 text-black">
+                            <div className="text-black leading-4 pl-0 mt-1 font-normal text-[1rem] font-sans">
+                              {selectedEvent.location[1]}
+                            </div>
+                            <div className="text-black leading-4 pl-0 mt-1 pt-3 font-normal text-[1rem] font-sans">
+                              {selectedEvent.time}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-                <div className="pt-8">
-                  <p className="text-black text-[1rem] leading-6 font-sans font-semibold">
-                    {selectedEvent.description}
-                  </p>
-                </div>
-                {selectedEvent.type_event === 'Special Events' && (
-                  <div className="pt-8 z-[61]">
-                    <MainButton
-                      href="#"
-                      content="GET TICKETS"
-                      bg="black"
-                      font="white"
-                    />
+                  <div className="pt-8">
+                    <p className="text-black text-[1rem] leading-6 font-sans font-semibold">
+                      {selectedEvent.description}
+                    </p>
                   </div>
-                )}
-                <h1 className="font-changa text-[1.5rem] leading-10 font-extrabold text-black pt-12">
-                  Plus, join us for...
-                </h1>
-                <div className="pt-8">
-                  {events &&
-                    events.length > 0 &&
-                    events.map(
-                      (event: any) =>
-                        String(event.id) !== params.id && (
-                          <EventCard
-                            key={event.id}
-                            event={event}
-                            setShowEvent={setShowEvent}
-                          />
-                        ),
-                    )}
                 </div>
               </div>
+            </div>
+            {selectedEvent.type_event === 'Special Events' && (
+              <div className="pt-8 z-[61]">
+                <MainButton
+                  href="#"
+                  content="GET TICKETS"
+                  bg="black"
+                  font="white"
+                />
+              </div>
+            )}
+            <h1 className="font-changa text-[1.5rem] leading-10 font-extrabold text-black pt-12">
+              Plus, join us for...
+            </h1>
+            <div className="pt-8 md:grid md:grid-cols-2 md:gap-4">
+              {events &&
+                events.length > 0 &&
+                events.map(
+                  (event: any) =>
+                    String(event.id) !== params.id && (
+                      <EventCard
+                        key={event.id}
+                        event={event}
+                        setShowEvent={setShowEvent}
+                      />
+                    ),
+                )}
             </div>
           </div>
         )}
       </div>
-      <Footer siteFestival={siteFestival} />
+      <Footer
+        siteFestival={siteFestival}
+        language={language}
+        setLanguage={setLanguage}
+      />
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
       <UpButton />
     </div>

@@ -1,5 +1,4 @@
 import { addToken } from '@/lib/handleCookie'
-import { MainButton } from './MainButton'
 import styles from './Bg.module.css'
 
 export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
@@ -25,7 +24,7 @@ export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
         <div className="mx-4 h-max">
           <div
             onClick={() => props.setShowGDPR(addToken())}
-            className={`flex justify-center bg-black no-underline`}
+            className={`flex justify-center bg-black no-underline cursor-pointer`}
           >
             <p
               className={`text-white text-center text-[1rem] leading-5 uppercase font-extrabold w-full p-5`}

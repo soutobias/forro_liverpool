@@ -15,7 +15,10 @@ export function Teachers() {
   }, [])
 
   return (
-    <div id="teachers" className={`pb-[15rem] font-changa ${styles.blackBg}`}>
+    <div
+      id="teachers"
+      className={`pb-[15rem] md:pb-[25rem] md:px-[8.5rem] font-changa ${styles.blackBg}`}
+    >
       <div className="pt-16 pb-10 text-center">
         <H1 color="white" text="Amazing teachers & musicians" />
       </div>
@@ -66,8 +69,17 @@ export function Teachers() {
               ))}
         </div>
       </div>
-      <div className="pl-4 pr-4 pt-8">
+      <div className="pl-4 pr-4 pt-8 md:hidden">
         <MainButton href="#" content="GET TICKETS" bg="white" font="black" />
+      </div>
+      <div className="pl-4 pr-4 pt-8 md:flex md:justify-center hidden">
+        <MainButton
+          href="#"
+          content="GET TICKETS"
+          bg="white"
+          font="black"
+          width="50%"
+        />
       </div>
     </div>
   )

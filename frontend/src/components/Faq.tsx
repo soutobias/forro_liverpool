@@ -15,7 +15,7 @@ interface FaqProps {
 
 export function Faq(props: { siteType: string }) {
   const { siteType } = props
-
+  console.log(siteType)
   const urlQuestions = 'api/v1/questions'
 
   const [question, setQuestion] = useState<keyable[] | null>(null)
@@ -26,7 +26,7 @@ export function Faq(props: { siteType: string }) {
 
   return (
     <div
-      className={`pt-20 pb-20 font-changa pl-4 pr-4 text-white ${styles.blackBg}`}
+      className={`pt-20 pb-20 font-changa px-4 md:px-[23rem] md:pb-40 text-white ${styles.blackBg}`}
       id="faq"
     >
       <h1 className="pt-0 pb-12 text-[2rem] leading-10 font-extrabold">FAQ</h1>
@@ -52,7 +52,7 @@ export function FaqQuestion({ question, answer }: FaqProps) {
     <div className="pt-4">
       <div className="border-b-2 pb-4 border-b-gray-100">
         <div
-          className="flex justify-between items-center"
+          className="flex justify-between items-center cursor-pointer"
           onClick={handleToogleQuestion}
         >
           <div className="flex justify-left w-10/12 items-center">

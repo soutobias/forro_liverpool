@@ -11,7 +11,6 @@ import styles from './NavBar.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faChevronDown,
-  faChevronLeft,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -25,10 +24,6 @@ export function Navbar(props: {
   const [dropdownFestival, setDropdownFestival] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
   const [zIndex, setZIndex] = useState('z-[61]')
-
-  const handleDropDownFestival = () => {
-    setDropdownFestival(!dropdownFestival)
-  }
 
   const handleClick = () => {
     setDropdown(!dropdown)
@@ -86,13 +81,18 @@ export function Navbar(props: {
   }, [isChecked, props])
   return (
     <nav
-      className={`h-23 align-middle text-xl w-full flex-shrink-0 transition-colors duration-500 absolute ${
-        dropdown ? 'z-[60] bg-yellow-500' : 'bg-transparent'
-      }`}
+      className={`h-23 align-middle text-xl w-full flex-shrink-0 transition-colors duration-500 absolute text-${
+        props.plusColor ? 'white' : 'black'
+      } ${dropdown ? 'z-[60] bg-yellow-500' : 'bg-transparent'}`}
     >
       <div
-        className={`${styles.container} flex justify-between align-middle text-xl w-full flex-shrink-0 z-[60] relative`}
+        className={`${styles.container} h-[5rem] flex justify-between align-middle text-xl w-full flex-shrink-0 z-[60] relative`}
       >
+        <div
+          className={`md:block hidden w-full h-[1px] bg-${
+            props.plusColor ? 'white' : 'black'
+          } bg-opacity-25 px-4 absolute bottom-0`}
+        ></div>
         <div
           className={`absolute left-4 top-3 z-[60] ${dropdown ? 'hidden' : ''}`}
         >
@@ -120,7 +120,7 @@ export function Navbar(props: {
         >
           <PlusSign color={props.plusColor || '#201E1E'} />
         </div>
-        <ul className="items-center gap-5 hidden sm:flex text-center justify-end text-[1.25rem] font-semibold">
+        <ul className="items-center gap-10 hidden sm:flex text-center justify-end text-[1.25rem] font-semibold">
           <li className="flex align-middle h-20">{LanguageToogle}</li>
           <li className="flex align-middle items-center h-20">
             <Link
@@ -139,16 +139,59 @@ export function Navbar(props: {
             </Link>
           </li>
           <li
-            onClick={() => setDropdownFestival(!dropdownFestival)}
-            className="flex align-center h-20 items-center gap-2 w-40 cursor-pointer"
+            onMouseEnter={() => setDropdownFestival(true)}
+            onMouseLeave={() => setDropdownFestival(false)}
+            className="align-center h-full cursor-pointer items-center"
           >
-            <div className="no-underline text-left hover:opacity-60 transition-opacity items-center">
-              {props.siteFestival && props.siteFestival[0].navbar[0]}
+            <div className="flex gap-2 items-center h-full">
+              <Link
+                href="/lff2024"
+                className={`pt-2 no-underline h-full text-left hover:opacity-60 transition-opacity items-center bg-${
+                  props.plusColor ? 'white' : 'black'
+                } bg-opacity-25 w-60 px-10`}
+              >
+                {props.siteFestival && props.siteFestival[0].navbar[0]}
+              </Link>
+              <FontAwesomeIcon
+                icon={dropdownFestival ? faChevronDown : faChevronRight}
+                className="text-xl items-center p-4 w-4"
+              />
             </div>
-            <FontAwesomeIcon
-              icon={dropdownFestival ? faChevronDown : faChevronRight}
-              className="text-xl items-center w-4"
-            />
+            {dropdownFestival && (
+              <div
+                className={`relative z-[63] bg-${
+                  props.plusColor ? 'white' : 'black'
+                } bg-opacity-25 w-full text-left pb-4`}
+              >
+                <div className="pr-4 pt-6 z-[61] pl-10">
+                  <div
+                    className={`flex justify-center bg-white no-underline rounded-lg mr-16 hover:opacity-60`}
+                  >
+                    <p
+                      className={`text-black text-center text-[1rem] leading-5 uppercase font-extrabold p-2`}
+                    >
+                      TICKETS
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-6 pl-10">
+                  <Link
+                    href="/lff2024#teachers"
+                    className="text-1xl no-underline h-full w-full cursor-pointer hover:opacity-60"
+                  >
+                    {props.siteFestival[0] && props.siteFestival[0].navbar[5]}
+                  </Link>
+                </div>
+                <div className="pt-5 pl-10">
+                  <Link
+                    href="/lff2024#program"
+                    className="text-1xl no-underline h-full w-full cursor-pointer hover:opacity-60"
+                  >
+                    {props.siteFestival[0] && props.siteFestival[0].navbar[6]}
+                  </Link>
+                </div>
+              </div>
+            )}
           </li>
           {/* <li className="flex align-middle h-20">
             <Link
@@ -161,50 +204,6 @@ export function Navbar(props: {
           </li> */}
         </ul>
       </div>
-      {dropdownFestival && (
-        <div
-          id="dropdown"
-          className="z-62 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-        >
-          <ul
-            className="py-2 text-sm text-gray-700 dark:text-gray-200"
-            aria-labelledby="dropdownDefaultButton"
-          >
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Settings
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Earnings
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Sign out
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
       <div
         className={
           dropdown

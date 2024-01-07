@@ -1,5 +1,3 @@
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Dispatch, SetStateAction } from 'react'
 import { keyable } from './ClassEvent'
 import Link from 'next/link'
@@ -25,7 +23,7 @@ export function EventCardLFF(props: {
           </div>
         </div>
       ) : (
-        <div className="pl-5 pt-5 pr-5">
+        <div className="pl-3 pt-5 pr-3">
           <div className="text-black text-[1.5rem] font-extrabold leading-8 ont-changa">
             {props.title}
           </div>

@@ -11,13 +11,23 @@ export function GetTickets() {
     <div id="get_tickets" className="relative font-changa">
       <div className={`relative ${styles.purpleBg}`}>
         <div
-          className={`absolute -top-[10rem] w-full h-[20rem] ${styles.rainbowBg}`}
+          className={`absolute -top-[10rem] md:-top-[19rem] w-full h-[20rem] md:h-[30rem] ${styles.rainbowBg}`}
         />
-        <div className="pt-[12rem] pb-10 relative z-[61] text-center">
-          <H1 color="white" text={'Are you ready to party? Let’s forrozear!'} />
+        <div className="pt-[12rem] md:pt-[20rem] pb-10 relative z-[61] text-center">
+          <H1 color="white" text={'Are you ready to party?'} />
+          <H1 color="white" text={'Let’s forrozear!'} />
         </div>
-        <div className="pl-4 pr-4 pt-8 z-[61]">
+        <div className="pl-4 pr-4 pt-8 z-[61] md:hidden">
           <MainButton href="#" content="GET TICKETS" bg="white" font="black" />
+        </div>
+        <div className="pl-4 pr-4 pt-8 z-[61] md:flex md:justify-center hidden">
+          <MainButton
+            href="#"
+            content="GET TICKETS"
+            bg="white"
+            font="black"
+            width="50%"
+          />
         </div>
         <Image
           src={triangle}
@@ -28,7 +38,7 @@ export function GetTickets() {
           style={{ maxWidth: '10rem' }}
         />
       </div>
-      <div className={`relative h-[720px] ${styles.gradientBg}`}>
+      <div className={`relative h-[45rem] ${styles.gradientBg}`}>
         <Image
           src={zabumba}
           alt="illustration"

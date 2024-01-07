@@ -65,7 +65,11 @@ export default function Home() {
         <ClassEvents setShowEvent={setShowEvent} />
         <Community />
         <Faq siteType={'forro_liverpool'} />
-        <Footer siteFestival={siteFestival} />
+        <Footer
+          siteFestival={siteFestival}
+          language={language}
+          setLanguage={setLanguage}
+        />
         {Object.keys(showEvent).length > 0 && (
           <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
         )}
