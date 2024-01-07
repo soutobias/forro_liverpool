@@ -41,7 +41,6 @@ export function Liverpool() {
                 key={item.id}
                 question={item.question}
                 answer={item.answer}
-                setShowQuestion={setShowLiverpool}
               />
             ))}
         </div>
