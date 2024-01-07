@@ -1,8 +1,19 @@
 import { FaqQuestion } from './Faq'
 import { H1 } from './H1'
 import styles from './Bg.module.css'
+import { fetchApi } from '@/lib/api'
+import { useEffect, useState } from 'react'
+import { keyable } from './ClassEvent'
 
 export function Liverpool() {
+  const [showLiverpool, setShowLiverpool] = useState<keyable[] | null>(null)
+
+  const urlLiverpool = 'api/v1/liverpool_questions'
+
+  useEffect(() => {
+    fetchApi(urlLiverpool, setShowLiverpool)
+  }, [])
+
   return (
     <div
       id="liverpool"
@@ -24,18 +35,15 @@ export function Liverpool() {
           <h2 className="text-center font-changa text-[1.5rem] leading-8 font-extrabold pl-2 pt-1 pb-8">
             Getting to Liverpool
           </h2>
-          <FaqQuestion
-            question="By plane"
-            answer="This is the answer. Answer goes here. This is the answer. Answer goes here. This is the answer. Answer goes here."
-          />
-          <FaqQuestion
-            question="By train"
-            answer="This is the answer. Answer goes here. This is the answer. Answer goes here. This is the answer. Answer goes here."
-          />
-          <FaqQuestion
-            question="By bus"
-            answer="This is the answer. Answer goes here. This is the answer. Answer goes here. This is the answer. Answer goes here."
-          />
+          {showLiverpool &&
+            showLiverpool.map((item: any) => (
+              <FaqQuestion
+                key={item.id}
+                question={item.question}
+                answer={item.answer}
+                setShowQuestion={setShowLiverpool}
+              />
+            ))}
         </div>
       </div>
     </div>

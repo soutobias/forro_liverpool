@@ -142,6 +142,25 @@ questions_data = [
 
 questions_data.map { |question_data| Question.create(question_data) }
 
+LiverpoolQuestion.destroy_all
+
+liverpool_questions_data = [
+  {
+    question: 'By plane',
+    answer: 'XXX'
+  },
+  {
+    question: 'By train',
+    answer: 'XXX'
+  },
+  {
+    question: 'By BUS',
+    answer: 'XXX'
+  }
+]
+
+liverpool_questions_data.map { |liverpool_question_data| LiverpoolQuestion.create(liverpool_question_data) }
+
 # 5.times do
 #   question = Question.new(
 #     question: Faker::Movie.title,
