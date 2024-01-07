@@ -181,7 +181,7 @@ community.save!
 Sitefestival.destroy_all
 
 sitefestival = Sitefestival.new(
-  navbar: ['Liverpool Forró Festival 2024', 'Classes & Events', 'Our Community', 'FAQ', 'Tickets',
+  navbar: ['Liverpool Forró Festival', 'Classes & Events', 'Our Community', 'FAQ', 'Tickets',
            'Teachers & Musicians', 'Program', 'FAQ', 'Tickets', 'Teachers & Musicians', 'Program', 'Liverpol', 'Festival FAQ'],
   image: [
     'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660', 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'

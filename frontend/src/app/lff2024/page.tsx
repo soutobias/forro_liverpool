@@ -74,11 +74,7 @@ export default function Home() {
 
       <GetTickets />
       {/* <LiverpoolEvents /> */}
-      {showQuestion && (
-        <>
-          <Faq showQuestion={showQuestion} setShowQuestion={setShowQuestion} />
-        </>
-      )}
+      <Faq siteType={'forro_festival'} />
       <Footer siteFestival={siteFestival}></Footer>
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
       {/* {Object.keys(showEvent).length > 0 && (

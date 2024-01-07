@@ -25,11 +25,9 @@ export default function Home() {
   const [showEvent, setShowEvent] = useState<keyable>({})
   const [site, setSite] = useState<keyable[] | null>(null)
   const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
-  const [showQuestion, setShowQuestion] = useState<keyable[] | null>(null)
 
   const url = 'api/v1/sites'
   const urlFestival = 'api/v1/sitefestivals'
-  const urlQuestions = 'api/v1/questions'
 
   useEffect(() => {
     fetchApi(url, setSite)
@@ -40,10 +38,6 @@ export default function Home() {
   useEffect(() => {
     setShowGDPR(getToken())
     setHasMounted(true)
-  }, [])
-
-  useEffect(() => {
-    fetchApi(urlQuestions, setShowQuestion)
   }, [])
 
   if (!hasMounted) {
@@ -70,14 +64,7 @@ export default function Home() {
         <Hero site={site} />
         <ClassEvents setShowEvent={setShowEvent} />
         <Community />
-        {showQuestion && (
-          <>
-            <Faq
-              showQuestion={showQuestion}
-              setShowQuestion={setShowQuestion}
-            />
-          </>
-        )}
+        <Faq siteType={'forro_liverpool'} />
         <Footer siteFestival={siteFestival} />
         {Object.keys(showEvent).length > 0 && (
           <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />

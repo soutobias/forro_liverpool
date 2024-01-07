@@ -4,37 +4,45 @@ import { faChevronDown, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { SpeechBubbles } from '../assets/speech_bubbles'
 import styles from './Bg.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { fetchApi } from '@/lib/api'
+import { keyable } from './ClassEvent'
 
 interface FaqProps {
-  showQuestion?: any
-  setShowQuestion?: any
   answer?: any
   question?: any
 }
 
-export function Faq(props: FaqProps) {
-  const { showQuestion, setShowQuestion } = props
+export function Faq(props: { siteType: string }) {
+  const { siteType } = props
+
+  const urlQuestions = 'api/v1/questions'
+
+  const [question, setQuestion] = useState<keyable[] | null>(null)
+
+  useEffect(() => {
+    fetchApi(urlQuestions, setQuestion)
+  }, [])
+
   return (
     <div
       className={`pt-20 pb-20 font-changa pl-4 pr-4 text-white ${styles.blackBg}`}
       id="faq"
     >
       <h1 className="pt-0 pb-12 text-[2rem] leading-10 font-extrabold">FAQ</h1>
-      {showQuestion &&
-        showQuestion.map((item: any) => (
+      {question &&
+        question.map((item: any) => (
           <FaqQuestion
             key={item.id}
             question={item.question}
             answer={item.answer}
-            setShowQuestion={setShowQuestion}
           />
         ))}
     </div>
   )
 }
 
-export function FaqQuestion({ question, answer, setShowQuestion }: FaqProps) {
+export function FaqQuestion({ question, answer }: FaqProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   function handleToogleQuestion() {
@@ -62,11 +70,13 @@ export function FaqQuestion({ question, answer, setShowQuestion }: FaqProps) {
             className="text-xl"
           />
         </div>
-        <div className="pt-4">
-          <p className="text-[1rem] leading-6 font-semibold font-sans">
-            {answer}
-          </p>
-        </div>
+        {isOpen && (
+          <div className="pt-4">
+            <p className="text-[1rem] leading-6 font-semibold font-sans">
+              {answer}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )

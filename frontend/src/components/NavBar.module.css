@@ -48,9 +48,10 @@
   left: 4px;
   bottom: 4px;
   background-color: #EAEAEA;
+}
+.slider_animation:before{
   animation: slide-out .3s ease-in;
 }
-
 input:checked + .slider {
   background-color: #201E1E;
 }
@@ -58,7 +59,9 @@ input:checked + .slider {
 input:focus + .slider {
   box-shadow: 0 0 1px #201E1E;
 }
-
+input:checked + .slider_animation:before {
+  animation: slide-in .3s ease-in;
+}
 input:checked + .slider:before {
   animation: slide-in .3s ease-in;
   -webkit-transform: translateX(46px);
