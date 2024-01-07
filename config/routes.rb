@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'up' => 'rails/health#show', as: :rails_health_check
+  # get 'up' => 'rails/health#show', as: :rails_health_check
 
   get '*path', to: 'application#frontend_index_html', constraints: lambda { |request|
     !request.xhr? && request.format.html?

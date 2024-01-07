@@ -1,14 +1,14 @@
-# # frozen_string_literal: true
+# frozen_string_literal: true
 
-# class ApiConstraints
-#   attr_reader :options
+class ApiConstraints
+  attr_reader :options
 
-#   def initialize(options)
-#     @version = options[:version]
-#     @default = options[:default]
-#   end
+  def initialize(options)
+    @version = options[:version]
+    @default = options[:default]
+  end
 
-#   def matches?(request)
-#     @default || request.headers['Accept'].include?("application/vnd.marketplace.v#{@version}")
-#   end
-# end
+  def matches?(request)
+    @default || request.headers['Accept'].include?("application/vnd.marketplace.v#{@version}")
+  end
+end
