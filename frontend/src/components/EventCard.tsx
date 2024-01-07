@@ -12,7 +12,7 @@ export function EventCard(props: EventCardProps) {
   const { event, setShowEvent } = props
   console.log(setShowEvent)
   return (
-    <Link href={`/events/${event.id}`} passHref>
+    <Link href={`/events?id=${event.id}`} passHref>
       <div
         className={`${
           event.name === 'Liverpool Forró Festival 2024'

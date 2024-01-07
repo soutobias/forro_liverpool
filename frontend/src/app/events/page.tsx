@@ -12,11 +12,12 @@ import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
 import { GDPR } from '@/components/GDPR'
 import { EventCard } from '@/components/EventCard'
-import styles from '../../../components/Bg.module.css'
+import styles from '@/components/Bg.module.css'
 import { LocationMarker } from '@/assets/location_marker'
 import { MainButton } from '@/components/MainButton'
+import { useSearchParams } from 'next/navigation'
 
-export default function EventDetails({ params }: { params: any }) {
+export default function EventDetails() {
   const [events, setEvents] = useState<keyable[]>([])
   const [showEvent, setShowEvent] = useState<keyable>({})
   const [selectedEvent, setSelectedEvent] = useState<keyable | null>(null)
@@ -29,6 +30,10 @@ export default function EventDetails({ params }: { params: any }) {
   const urlEvents = 'api/v1/events'
   const urlFestival = 'api/v1/sitefestivals'
 
+  const searchParams = useSearchParams()
+
+  const paramsId = searchParams.get('id')
+
   console.log(showEvent)
   useEffect(() => {
     fetchApi(url, setSite)
@@ -37,16 +42,16 @@ export default function EventDetails({ params }: { params: any }) {
 
   useEffect(() => {
     fetchApi(urlEvents, setEvents)
-  }, [params.id])
+  }, [paramsId])
 
   useEffect(() => {
     if (events.length > 0) {
       const foundEvent = events.find((event) => {
-        return String(event.id) === params.id
+        return String(event.id) === paramsId
       })
       setSelectedEvent(foundEvent || null)
     }
-  }, [events, params.id])
+  }, [events, paramsId])
 
   const [language, setLanguage] = useState('en')
   useEffect(() => {
@@ -143,7 +148,7 @@ export default function EventDetails({ params }: { params: any }) {
                 events.length > 0 &&
                 events.map(
                   (event: any) =>
-                    String(event.id) !== params.id && (
+                    String(event.id) !== paramsId && (
                       <EventCard
                         key={event.id}
                         event={event}
