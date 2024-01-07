@@ -15,7 +15,9 @@ interface FaqProps {
 
 export function Faq(props: { siteType: string }) {
   const { siteType } = props
+
   console.log(siteType)
+
   const urlQuestions = 'api/v1/questions'
 
   const [question, setQuestion] = useState<keyable[] | null>(null)
