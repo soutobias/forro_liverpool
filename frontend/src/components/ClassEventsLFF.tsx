@@ -41,11 +41,15 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
         </div>
         <div className="md:grid md:grid-cols-3 md:px-[8.5rem]">
           {eventsEmpty ? (
-            <EventCardLFF
-              key={'empty'}
-              event={events}
-              setShowEvent={setShowEvent}
-            />
+            <div
+              className={`m-2 h-[15rem] font-changa rounded-2xl border-black border-4 ${styles.begeBg}`}
+            >
+              <div className="w-full h-full flex justify-center align-middle items-center">
+                <div className="text-black text-[1.5rem] text-center font-extrabold leading-8 pl-16 pr-16">
+                  Check back soon for the complete festival schedule!
+                </div>
+              </div>
+            </div>
           ) : (
             <div>
               <h2 className="text-center font-changa text-white text-[1.5rem] leading-5 font-semibold pl-2 pt-16">
