@@ -16,7 +16,6 @@ export function Community() {
   useEffect(() => {
     fetchApi(url, setCommunity)
   }, [])
-  console.log(community)
   return (
     <div
       id="community"
@@ -28,17 +27,21 @@ export function Community() {
       <div>
         {community.length > 0 && (
           <div>
-            <div className="flex pt-12 justify-center gap-10">
-              <CommunityCard
-                image={community[0].profile_image[0]}
-                name={community[0].name[0]}
-                action="Teacher"
-              />
-              <CommunityCard
-                image={community[0].profile_image[1]}
-                name={community[0].name[1]}
-                action="Teacher"
-              />
+            <div className="flex pt-12 justify-center mr-2">
+              <div className="ml-2">
+                <CommunityCard
+                  image={community[0].profile_image[0]}
+                  name={community[0].name[0]}
+                  action="Teacher"
+                />
+              </div>
+              <div className="-ml-2">
+                <CommunityCard
+                  image={community[0].profile_image[1]}
+                  name={community[0].name[1]}
+                  action="Teacher"
+                />
+              </div>
             </div>
             <div className=" flex flex-col justify-center">
               <p className="pt-8 pb-12 text-[1rem] md:text-[1.24rem] md:px-[10rem] leading-6 font-changa font-semibold">
@@ -49,15 +52,15 @@ export function Community() {
         )}
       </div>
       <div className="md:pt-[4rem] md:flex md:justify-center md:gap-20">
-        <Image
-          src={
-            'https://images.unsplash.com/photo-1699755094450-620e32ec86a6?q=80&w=1336&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          }
-          alt="illustration"
-          className="overflow-hidden md:w-[60%]"
-          width={1336}
-          height={360}
-        />
+        {community.length > 0 && (
+          <Image
+            src={community[0].profile_image[2]}
+            alt="illustration"
+            className="overflow-hidden"
+            width={1336}
+            height={360}
+          />
+        )}
         <p className="pt-8 text-[1rem] md:text-[1.25rem] leading-6 font-changa font-semibold md:w-[40%]">
           {community.length > 0 && <p>{community[0].description}</p>}
         </p>

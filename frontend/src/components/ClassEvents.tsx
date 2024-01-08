@@ -14,7 +14,7 @@ export function ClassEvents(props: ClassEventsProps) {
   const { setShowEvent } = props
   const [events, setEvents] = useState<keyable[]>([])
 
-  const url = 'api/v1/events'
+  const url = '/api/v1/events?is_festival=false'
 
   useEffect(() => {
     fetchApi(url, setEvents)
@@ -35,7 +35,22 @@ export function ClassEvents(props: ClassEventsProps) {
           </div>
           <div>
             {events
-              .filter((event: any) => event.type_event === 'Special Events')
+              .filter(
+                (event: any) => event.name === 'Liverpool Forró Festival 2024',
+              )
+              .map((event: any) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  setShowEvent={setShowEvent}
+                />
+              ))}
+            {events
+              .filter(
+                (event: any) =>
+                  event.type_event === 'Special Events' &&
+                  event.name !== 'Liverpool Forró Festival 2024',
+              )
               .map((event: any) => (
                 <EventCard
                   key={event.id}

@@ -46,7 +46,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def liverpool_question_params
-        params.require(:liverpool_questions).permit(:question, :answer)
+        params.require(:liverpool_questions).permit(:question, :answer, :is_festival)
       end
     end
   end
