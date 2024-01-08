@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_06_212837) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_08_150242) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_06_212837) do
     t.text "location", default: [], null: false, array: true
     t.string "date"
     t.string "time"
+    t.boolean "is_festival"
+    t.boolean "is_class"
   end
 
   create_table "festival_teachers", force: :cascade do |t|
@@ -84,6 +86,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_06_212837) do
     t.text "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_festival"
   end
 
   create_table "sitefestivals", force: :cascade do |t|

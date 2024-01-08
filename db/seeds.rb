@@ -35,66 +35,92 @@ events_data = [
   {
     name: 'Liverpool Forró Festival 2024',
     description: 'Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia. Check out our Instagram page for the latest events and news, like class cancellations or delays. No pre-purchase or registration necessary. Just show up and we will see you there!',
-    start_datetime: DateTime.now,
-    end_datetime: DateTime.now + 3.hours,
+    start_datetime: DateTime.now + 2.day,
+    end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: Faker::LoremFlickr.image,
-    image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
+    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg',
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Special Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
     date: '10-12 MAY',
-    time: '7pm Class, 8pm Social'
+    time: '7pm Class, 8pm Social',
+    is_festival: false,
+    is_class: false
   },
   {
     name: 'Forró Workshop with Luiz Henrique',
     description: 'Descrição do Evento 2',
-    start_datetime: DateTime.now,
-    end_datetime: DateTime.now + 3.hours,
+    start_datetime: DateTime.now + 2.day,
+    end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: Faker::LoremFlickr.image,
-    image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
+    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg',
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Special Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
     date: '10 MAY',
-    time: '7pm Class, 8pm Social'
+    time: '7pm Class, 8pm Social',
+    is_festival: true,
+    is_class: true
+  },
+  {
+    name: 'Forró Workshop with Luiz Henrique',
+    description: 'Descrição do Evento 2',
+    start_datetime: DateTime.now + 2.day,
+    end_datetime: DateTime.now + 2.day + 3.hours,
+    price: 20.0,
+    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg',
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
+    registration_start_datetime: DateTime.now - 1.day,
+    registration_end_datetime: DateTime.now + 1.day,
+    sell_site_number: SecureRandom.alphanumeric,
+    type_event: 'Special Events',
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
+    date: '10 MAY',
+    time: '7pm Class, 8pm Social',
+    is_festival: false,
+    is_class: true
   },
   {
     name: 'All Levels Forró classes',
     description: 'Descrição do Evento 3',
-    start_datetime: DateTime.now,
-    end_datetime: DateTime.now + 3.hours,
+    start_datetime: DateTime.now + 2.day,
+    end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: Faker::LoremFlickr.image,
-    image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
+    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg',
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
     date: 'MONDAYS',
-    time: '7pm Class, 8pm Social'
+    time: '7pm Class, 8pm Social',
+    is_festival: false,
+    is_class: true
   },
   {
     name: 'Forró and Chips',
     description: 'live forró music',
-    start_datetime: DateTime.now,
-    end_datetime: DateTime.now + 3.hours,
+    start_datetime: DateTime.now + 2.day,
+    end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: Faker::LoremFlickr.image,
-    image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image],
+    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg',
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
     sell_site_number: SecureRandom.alphanumeric,
     type_event: 'Regular Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF'],
+    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
     date: 'WEDNESDAYS',
-    time: '7pm Class, 8pm Social'
+    time: '7pm Class, 8pm Social',
+    is_festival: true,
+    is_class: false
   }
 ]
 
@@ -118,7 +144,7 @@ site = Site.new(
   description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
   frame: 'Liverpool forró festival 1st lot tickets',
   cover_image: 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660',
-  cover_video: 'https://www.gov.br/pt-br/midias-agorabrasil/video-fundo.mp4',
+  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/video.mp4',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
 )
 site.save!
@@ -128,15 +154,28 @@ Question.destroy_all
 questions_data = [
   {
     question: 'What is Forró?',
-    answer: 'Forró is culture from the northeast of Brazil that quickly spread to the rest of the country. It is a style of music, dance, and community events that are now celebrated all over the world. The music traditionally employs just 3 instruments: the accordion, the triangle, and the zabumba (a type of drum). Interested in taking a listen? Check out our Spotify playlist, Forró Liverpool.'
+    answer: 'Forró is culture from the northeast of Brazil that quickly spread to the rest of the country. It is a style of music, dance, and community events that are now celebrated all over the world. The music traditionally employs just 3 instruments: the accordion, the triangle, and the zabumba (a type of drum). Interested in taking a listen? Check out our Spotify playlist, Forró Liverpool.',
+    is_festival: false
   },
   {
     question: 'What style of forró do you teach?',
-    answer: 'We teach a mix of styles, with a focus on the roots of forró'
+    answer: 'We teach a mix of styles, with a focus on the roots of forró',
+    is_festival: false
   },
   {
     question: 'Is there any sort of registration process to sign up for classes?',
-    answer: 'Nope! Just show up to class and pay at the door. We accept cash and card.'
+    answer: 'Nope! Just show up to class and pay at the door. We accept cash and card.',
+    is_festival: false
+  },
+  {
+    question: 'Is any experience required to participate in the festival?',
+    answer: 'No, no experience is required.',
+    is_festival: true
+  },
+  {
+    question: 'What style of forró do you teach?',
+    answer: 'We teach a mix of styles, with a focus on the roots of forró',
+    is_festival: true
   }
 ]
 
@@ -171,7 +210,7 @@ liverpool_questions_data.map { |liverpool_question_data| LiverpoolQuestion.creat
 
 Community.destroy_all
 community = Community.new(
-  profile_image: ['https://avatars.githubusercontent.com/u/85016706?v=4', 'https://avatars.githubusercontent.com/u/85016706?v=4'],
+  profile_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/braga.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marina.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/comunidade.jpg'],
   name: ['Felipe Braga', 'Marina Cerqueira'],
   profile: "Growing up in Recife, Brazil, Marina and Filipe started dancing with their families at a very young age. They were regulars at many forró events in Pernambuco's capital city. They started Forró Liverpool in January 2020, where they teach regular classes, and bring incredible guest teachers, amazing bands, and their own Brazilian culture to the growing forró scene in the city.",
   description: 'We are proudly community-led, with many Liverpool forrozeiras stepping up to organize events, offer marketing support, and teach workshops. Our friendly community is a beautiful mix of Brazilians and folks from all over the world.'

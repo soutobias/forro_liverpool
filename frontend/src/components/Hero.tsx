@@ -35,7 +35,6 @@ export function Hero(props: HeroProps) {
               height="614"
               autoPlay
               loop
-              muted
               controls
               className="pt-4 pb-4 rounded-3xl overflow-hidden h-[614px] object-cover"
             >

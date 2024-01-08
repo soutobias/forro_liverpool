@@ -11,8 +11,16 @@ interface EventCardProps {
 export function EventCard(props: EventCardProps) {
   const { event, setShowEvent } = props
 
+  const generateEventUrl = () => {
+    if (event.name === 'Liverpool Forró Festival 2024') {
+      return '/lff2024'
+    } else {
+      return `/events/${event.id}`
+    }
+  }
+
   return (
-    <Link href={`/events/${event.id}`} passHref>
+    <Link href={generateEventUrl()} passHref>
       <div
         className={`${
           event.name === 'Liverpool Forró Festival 2024'
@@ -20,8 +28,7 @@ export function EventCard(props: EventCardProps) {
             : 'h-[12rem]'
         } bg-cover rounded-xl font-changa w-full mb-4`}
         style={{
-          backgroundImage:
-            'url(https://plus.unsplash.com/premium_photo-1668671069358-31e503a9a4d8?q=80&w=2017&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)',
+          backgroundImage: `url(${event.image[0]})`,
         }}
         // onClick={() =>
         //   setShowEvent({
@@ -41,7 +48,7 @@ export function EventCard(props: EventCardProps) {
           <div className="flex ml-4 pt-4 text-black">
             <LocationMarker />
             <div className="uppercase leading-5 pl-2 font-extrabold text-[1rem]">
-              {event.location}
+              <Link href={event.location[2]}>{event.location[0]}</Link>
             </div>
           </div>
         )}

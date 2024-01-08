@@ -1,12 +1,25 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useState, useEffect } from 'react'
 import { keyable } from './ClassEvent'
 import { EventCardLFF } from './EventCardLFF'
 import styles from './Bg.module.css'
+import { fetchApi } from '@/lib/api'
 import { H1 } from './H1'
 
-export function ClassEventsLFF(props: {
+interface ClassEventsLFFProps {
   setShowEvent: Dispatch<SetStateAction<keyable>>
-}) {
+}
+
+export function ClassEventsLFF(props: ClassEventsLFFProps) {
+  const { setShowEvent } = props
+  const [events, setEvents] = useState<keyable[]>([])
+
+  const url = '/api/v1/events?is_festival=true'
+
+  useEffect(() => {
+    fetchApi(url, setEvents)
+  }, [])
+  console.log(events, 'events')
+
   return (
     <div
       id="program"
@@ -19,7 +32,14 @@ export function ClassEventsLFF(props: {
         <H1 color="white" text="3 days of dance!" />
       </div>
       <div>
-        <EventCardLFF
+        {events.map((event: any) => (
+          <EventCardLFF
+            key={event.id}
+            event={event}
+            setShowEvent={setShowEvent}
+          />
+        ))}
+        {/* <EventCardLFF
           title={'Check back soon for the complete festival schedule!'}
           period={''}
           location={''}
@@ -32,7 +52,7 @@ export function ClassEventsLFF(props: {
           location={'Revolucion de Cuba'}
           eventType={'party'}
           setShowEvent={props.setShowEvent}
-        />
+        /> */}
         {/* <h2 className="text-center font-sans text-[1.5rem] leading-5 font-semibold pl-2 pt-16">
           Friday 10th
         </h2>

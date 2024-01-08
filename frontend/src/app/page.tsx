@@ -64,7 +64,7 @@ export default function Home() {
         <Hero site={site} />
         <ClassEvents setShowEvent={setShowEvent} />
         <Community />
-        <Faq siteType={'forro_liverpool'} />
+        <Faq isFestival={false} />
         <Footer siteFestival={siteFestival} />
         {Object.keys(showEvent).length > 0 && (
           <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />

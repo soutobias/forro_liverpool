@@ -11,6 +11,7 @@ interface CommunityProps {
 export function Community() {
   const [community, setCommunity] = useState<CommunityProps[]>([])
   const url = 'api/v1/communities'
+  console.log(community, 'community')
 
   useEffect(() => {
     fetchApi(url, setCommunity)
@@ -47,15 +48,15 @@ export function Community() {
         </p>
       </div>
       <div className="">
-        <Image
-          src={
-            'https://images.unsplash.com/photo-1699755094450-620e32ec86a6?q=80&w=1336&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          }
-          alt="illustration"
-          className="overflow-hidden"
-          width={1336}
-          height={360}
-        />
+        {community.length > 0 && (
+          <Image
+            src={community[0].profile_image[2]}
+            alt="illustration"
+            className="overflow-hidden"
+            width={1336}
+            height={360}
+          />
+        )}
         <p className="pt-8 text-[1rem] leading-6 font-changa font-semibold">
           {community.map((member) => (
             <p key={member.id}>{member.description}</p>

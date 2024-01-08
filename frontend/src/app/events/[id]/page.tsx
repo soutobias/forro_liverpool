@@ -17,6 +17,7 @@ import { EventCard } from '@/components/EventCard'
 import styles from '../../../components/Bg.module.css'
 import { LocationMarker } from '@/assets/location_marker'
 import { MainButton } from '@/components/MainButton'
+import Link from 'next/link'
 
 export default function EventDetails({ params }: { params: any }) {
   const [events, setEvents] = useState<keyable[]>([])
@@ -101,7 +102,12 @@ export default function EventDetails({ params }: { params: any }) {
                         <div className="flex text-black">
                           <LocationMarker />
                           <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold text-[1rem] font-sans">
-                            {selectedEvent.location[0]}
+                            <Link
+                              href={selectedEvent.location[2]}
+                              target="_blank"
+                            >
+                              {selectedEvent.location[0]}
+                            </Link>
                           </div>
                           <ArrowUpRight size={20} />
                         </div>
