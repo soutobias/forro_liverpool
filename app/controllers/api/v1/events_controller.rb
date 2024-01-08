@@ -7,9 +7,16 @@ module Api
 
       # GET /events
       def index
-        @events = Event.all
+        events = Event.where('start_datetime > ?', DateTime.now)
 
-        render json: @events
+        future_events = if params[:is_festival].present?
+                          is_festival_value = params[:is_festival].to_s.downcase == 'true'
+                          events.where(is_festival: is_festival_value)
+                        else
+                          events
+                        end
+
+        render json: future_events
       end
 
       # GET /events/1
@@ -52,7 +59,7 @@ module Api
       # Only allow a list of trusted parameters through.
       def event_params
         params.require(:event).permit(:name, :description, :start_datetime, :end_datetime, :price, :cover_image, :image,
-                                      :registration_start_datetime, :registration_end_datetime, :sell_site_number, :date, :time)
+                                      :registration_start_datetime, :registration_end_datetime, :sell_site_number, :date, :time, :is_festival, :is_class)
       end
     end
   end

@@ -10,7 +10,7 @@ import { Scroll } from '@/assets/scroll'
 export function HeroLFF(props: { siteFestival: any }) {
   return (
     <div
-      className={`w-full z-[59] font-changa relative px-4 md:px-[8.5rem] ${styles.blackBg}`}
+      className={`w-full z-[59] font-changa relative md:px-[8.5rem] ${styles.blackBg}`}
     >
       <div className="pt-[6.75rem]">
         <div>
@@ -27,7 +27,7 @@ export function HeroLFF(props: { siteFestival: any }) {
             <Image
               src={CrossWalk}
               alt="illustration"
-              className="overflow-hidden h-[5.25rem] w-auto object-cover md:hidden"
+              className="overflow-hidden h-[5.25rem] w-full object-cover md:hidden"
               width={1336}
               height={614}
             />
@@ -43,7 +43,7 @@ export function HeroLFF(props: { siteFestival: any }) {
           </div>
         </div>
         <div className="md:flex md:flex-col md:justify-center">
-          <div className="pr-4 pl-4">
+          <div className="px-4">
             <p className="text-center text-white pt-8 pb-0 pl-4 pr-4 text-[1.5rem] leading-5  font-extrabold">
               {props.siteFestival && props.siteFestival[0].data}
             </p>

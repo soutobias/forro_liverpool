@@ -16,6 +16,7 @@ import styles from '@/components/Bg.module.css'
 import { LocationMarker } from '@/assets/location_marker'
 import { MainButton } from '@/components/MainButton'
 import { useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 
 export default function EventDetails() {
   const [events, setEvents] = useState<keyable[]>([])
@@ -34,7 +35,6 @@ export default function EventDetails() {
 
   const paramsId = searchParams.get('id')
 
-  console.log(showEvent)
   useEffect(() => {
     fetchApi(url, setSite)
     fetchApi(urlFestival, setSiteFestival)
@@ -106,9 +106,15 @@ export default function EventDetails() {
                           <div className="flex text-black">
                             <LocationMarker />
                             <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold text-[1rem] font-sans">
-                              {selectedEvent.location[0]}
+                              <Link
+                                href={selectedEvent.location[2]}
+                                target="_blank"
+                                className="flex"
+                              >
+                                {selectedEvent.location[0]}
+                                <ArrowUpRight size={20} />
+                              </Link>
                             </div>
-                            <ArrowUpRight size={20} />
                           </div>
                           <div className="ml-4 mt-2 text-black">
                             <div className="text-black leading-4 pl-0 mt-1 font-normal text-[1rem] font-sans">

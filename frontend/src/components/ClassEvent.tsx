@@ -22,9 +22,7 @@ export function ClassEvent(props: {
       <div className="bg-white h-[80%] z-20 rounded-t-2xl">
         <div className="bg-gray-100 opacity-90">
           <Image
-            src={
-              'https://images.unsplash.com/photo-1699755094450-620e32ec86a6?q=80&w=1336&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-            }
+            src={props.showEvent.image}
             alt="illustration"
             className="rounded-t-2xl overflow-hidden"
             width={1336}
@@ -61,16 +59,22 @@ export function ClassEvent(props: {
                         className="h-4 pr-0 pt-1"
                       />
                       <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold text-[1rem] font-sans">
-                        {props.showEvent.location}
+                        {props.showEvent.location[0]}
+                        <Link
+                          href={props.showEvent.location[2]}
+                          target="_blank"
+                        >
+                          {props.showEvent.location[0]}
+                        </Link>
                       </div>
                       <ArrowUpRight size={20} />
                     </div>
                     <div className="ml-4 mt-2 text-black">
                       <div className="text-black leading-4 pl-0 mt-1 font-normal text-[1rem] font-sans">
-                        Unit 17, Albert Dock, Liverpool L3 4AF
+                        {props.showEvent.location[1]}
                       </div>
                       <div className="text-black leading-4 pl-0 mt-1 pt-3 font-normal text-[1rem] font-sans">
-                        7pm Class, 8pm Social
+                        {props.showEvent.time}
                       </div>
                     </div>
                   </div>
