@@ -7,7 +7,6 @@ import styles from './Bg.module.css'
 import { useEffect, useState } from 'react'
 import { fetchApi } from '@/lib/api'
 import { keyable } from './ClassEvent'
-import { ArrowUpRight } from 'phosphor-react'
 
 interface FaqProps {
   answer?: any
