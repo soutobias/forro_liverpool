@@ -14,7 +14,7 @@ export function ClassEvents(props: ClassEventsProps) {
   const { setShowEvent } = props
   const [events, setEvents] = useState<keyable[]>([])
 
-  const url = '/api/v1/events?is_festival=false'
+  const url = 'api/v1/events?is_festival=false'
 
   useEffect(() => {
     fetchApi(url, setEvents)

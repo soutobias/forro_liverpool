@@ -15,7 +15,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
 
   const [eventsEmpty, setEventsEmpty] = useState<boolean>(true)
 
-  const url = '/api/v1/events?is_festival=true'
+  const url = 'api/v1/events?is_festival=true'
 
   useEffect(() => {
     fetchApi(url, setEvents)
