@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import styles from './Bg.module.css'
 import { fetchApi } from '@/lib/api'
 import { H1 } from './H1'
+import { useLanguage } from '@/lib/language'
 
 interface CommunityProps {
   [key: string]: any
@@ -11,11 +12,25 @@ interface CommunityProps {
 
 export function Community() {
   const [community, setCommunity] = useState<CommunityProps[]>([])
-  const url = 'api/v1/communities'
+
+  const { language } = useLanguage()
+
+  const [url, setUrl] = useState<string>('')
 
   useEffect(() => {
-    fetchApi(url, setCommunity)
-  }, [])
+    if (language === 'en') {
+      setUrl('api/v1/communities')
+    } else {
+      setUrl('api/v1/community_translations')
+    }
+  }, [language])
+
+  useEffect(() => {
+    if (url) {
+      fetchApi(url, setCommunity)
+    }
+  }, [url])
+
   return (
     <div
       id="community"

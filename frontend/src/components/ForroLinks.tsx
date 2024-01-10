@@ -6,29 +6,30 @@ import forroLogo from '../assets/FL_logo_black.png'
 import LFFforroLogo from '../assets/LFF_Black.png'
 import { useEffect, useMemo, useState } from 'react'
 import styles from './NavBar.module.css'
+import { useLanguage } from '@/lib/language'
 
 export function ForroLinks(props: {
   setDropdown?: (dropDown: boolean) => void
   siteFestival: any
-  language?: any
-  setLanguage?: any
 }) {
   const [isChecked, setIsChecked] = useState(false)
 
+  const { language, setLanguage } = useLanguage()
+
   useEffect(() => {
-    if (props.language === 'pt') {
+    if (language === 'pt') {
       setIsChecked(true)
     } else {
       setIsChecked(false)
     }
-  }, [props.language])
+  }, [language])
 
   const LanguageToogle = useMemo(() => {
     function handleChangeLanguage() {
-      if (props.language === 'en') {
-        props.setLanguage('pt')
+      if (language === 'en') {
+        setLanguage('pt')
       } else {
-        props.setLanguage('en')
+        setLanguage('en')
       }
     }
     return (
@@ -43,17 +44,13 @@ export function ForroLinks(props: {
             className={`${styles.slider} ${styles.slider_animation}`}
           ></span>
           <div className="absolute z-[60] flex gap-6 -mt-[0.75rem] pl-3 text-gray-200">
-            <div className={props.language === 'en' ? 'text-black' : ''}>
-              EN
-            </div>
-            <div className={props.language === 'pt' ? 'text-black' : ''}>
-              PT
-            </div>
+            <div className={language === 'en' ? 'text-black' : ''}>EN</div>
+            <div className={language === 'pt' ? 'text-black' : ''}>PT</div>
           </div>
         </label>
       </div>
     )
-  }, [isChecked, props])
+  }, [language, isChecked, setLanguage])
 
   return (
     <div className="pt-12 text-center font-extrabold font-changa text-[1.25rem] px-4 md:px-[8.5rem]">

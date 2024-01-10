@@ -4,15 +4,27 @@ import styles from './Bg.module.css'
 import { fetchApi } from '@/lib/api'
 import { useEffect, useState } from 'react'
 import { keyable } from './ClassEvent'
+import { useLanguage } from '@/lib/language'
 
 export function Liverpool() {
   const [showLiverpool, setShowLiverpool] = useState<keyable[] | null>(null)
 
-  const urlLiverpool = 'api/v1/liverpool_questions'
+  const { language } = useLanguage()
+  const [url, setUrl] = useState<string>('')
 
   useEffect(() => {
-    fetchApi(urlLiverpool, setShowLiverpool)
-  }, [])
+    if (language === 'en') {
+      setUrl('api/v1/liverpool_questions')
+    } else {
+      setUrl('api/v1/liverpool_questions_translations')
+    }
+  }, [language])
+
+  useEffect(() => {
+    if (url) {
+      fetchApi(url, setShowLiverpool)
+    }
+  }, [url])
 
   return (
     <div

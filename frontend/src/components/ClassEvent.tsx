@@ -34,7 +34,7 @@ export function ClassEvent(props: {
           <FontAwesomeIcon
             icon={faXmark}
             className="text-2xl p-2"
-            onClick={() => props.setShowGDPR(addToken())}
+            onClick={() => props.setShowGDPR(addCookieAuth())}
           />
         </div> */}
           <div className="pt-0 pr-2">
@@ -96,7 +96,7 @@ export function ClassEvent(props: {
           </Link>
           {/* <div
           className="no-underline bg-white text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4"
-          onClick={() => props.setShowGDPR(addToken())}
+          onClick={() => props.setShowGDPR(addCookieAuth())}
         >
           Reject
         </div> */}

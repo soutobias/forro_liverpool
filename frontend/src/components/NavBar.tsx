@@ -13,13 +13,9 @@ import {
   faChevronDown,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons'
+import { useLanguage } from '@/lib/language'
 
-export function Navbar(props: {
-  language: any
-  setLanguage: any
-  plusColor?: string
-  siteFestival: any
-}) {
+export function Navbar(props: { plusColor?: string; siteFestival: any }) {
   const [dropdown, setDropdown] = useState(false)
   const [dropdownFestival, setDropdownFestival] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
@@ -28,6 +24,7 @@ export function Navbar(props: {
   const handleClick = () => {
     setDropdown(!dropdown)
   }
+  const { language, setLanguage } = useLanguage()
 
   useEffect(() => {
     if (dropdown) {
@@ -42,18 +39,18 @@ export function Navbar(props: {
   const closeMobileMenu = () => setDropdown(false)
 
   useEffect(() => {
-    if (props.language === 'pt') {
+    if (language === 'pt') {
       setIsChecked(true)
     } else {
       setIsChecked(false)
     }
-  }, [props.language])
+  }, [language])
   const LanguageToogle = useMemo(() => {
     function handleChangeLanguage() {
-      if (props.language === 'en') {
-        props.setLanguage('pt')
+      if (language === 'en') {
+        setLanguage('pt')
       } else {
-        props.setLanguage('en')
+        setLanguage('en')
       }
     }
     return (
@@ -68,12 +65,8 @@ export function Navbar(props: {
             className={`${styles.slider} ${styles.slider_animation}`}
           ></span>
           <div className="absolute z-[60] flex gap-6 -mt-[0.75rem] pl-3 text-gray-200">
-            <div className={props.language === 'en' ? 'text-black' : ''}>
-              EN
-            </div>
-            <div className={props.language === 'pt' ? 'text-black' : ''}>
-              PT
-            </div>
+            <div className={language === 'en' ? 'text-black' : ''}>EN</div>
+            <div className={language === 'pt' ? 'text-black' : ''}>PT</div>
           </div>
         </label>
       </div>

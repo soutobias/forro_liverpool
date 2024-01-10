@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie'
 
-export function getToken() {
-  const token = Cookies.get('cookieAccepted')
-  if (token) {
-    const expDate = new Date(parseInt(token))
+export function getCookieAuth() {
+  const cookieAuth = Cookies.get('cookieAccepted')
+  if (cookieAuth) {
+    const expDate = new Date(parseInt(cookieAuth))
     const dateNow = new Date()
     if (expDate > dateNow) {
       return false
@@ -12,7 +12,7 @@ export function getToken() {
   return true
 }
 
-export function addToken() {
+export function addCookieAuth() {
   const date = new Date()
   const cookieExpiresInSeconds = 60 * 60 * 1000
   Cookies.set('cookieAccepted', date.getTime() + cookieExpiresInSeconds, {
@@ -20,4 +20,22 @@ export function addToken() {
     expires: cookieExpiresInSeconds,
   })
   return false
+}
+
+export function getCookieLanguage() {
+  const cookieLanguage = Cookies.get('language')
+  if (cookieLanguage) {
+    return cookieLanguage
+  } else {
+    addCookieLanguage('en')
+    return 'en'
+  }
+}
+
+export function addCookieLanguage(language) {
+  const cookieExpiresInSeconds = 60 * 60 * 24 * 7 * 1000
+  Cookies.set('language', language, {
+    path: '/',
+    expires: cookieExpiresInSeconds,
+  })
 }

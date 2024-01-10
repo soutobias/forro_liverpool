@@ -5,14 +5,27 @@ import { useState, useEffect } from 'react'
 import { fetchApi } from '@/lib/api'
 import styles from './Bg.module.css'
 import { keyable } from './ClassEvent'
+import { useLanguage } from '@/lib/language'
 
 export function Teachers() {
   const [teachers, setTeachers] = useState<keyable[] | null>(null)
-  const url = 'api/v1/festival_teachers'
+
+  const { language } = useLanguage()
+  const [url, setUrl] = useState<string>('')
 
   useEffect(() => {
-    fetchApi(url, setTeachers)
-  }, [])
+    if (language === 'en') {
+      setUrl('api/v1/festival_teachers')
+    } else {
+      setUrl('api/v1/festival_teachers_translations')
+    }
+  }, [language])
+
+  useEffect(() => {
+    if (url) {
+      fetchApi(url, setTeachers)
+    }
+  }, [url])
 
   return (
     <div
