@@ -1,0 +1,2 @@
+class SiteFestivalTranslation < ApplicationRecord
+end
