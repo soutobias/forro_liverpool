@@ -15,6 +15,11 @@ Rails.application.routes.draw do
       resources :sitefestivals
       resources :festival_teachers
       resources :liverpool_questions
+      resources :site_translations
+      resources :question_translations
+      resources :liverpool_question_translations
+      resources :community_translations
+      resources :site_festival_translations
     end
   end
 

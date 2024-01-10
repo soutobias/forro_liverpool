@@ -1,0 +1,2 @@
+class FestivalTeacherTranslation < ApplicationRecord
+end
