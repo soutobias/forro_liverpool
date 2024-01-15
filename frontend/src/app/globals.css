@@ -5,9 +5,13 @@
 body{
   background-image: url('/images/BG-512px-White.jpg');
   background-repeat: repeat;
-  background-color: lightgray;  
+  background-color: lightgray;
+  color: #201E1E;
 }
 
+/* .widget_header{
+  display: none !important;
+} */
 /* .main-page{
   background-image: url(../assets/grunge-concrete-material-background-texture-wall-concept.jpg);
   height: 100vh;

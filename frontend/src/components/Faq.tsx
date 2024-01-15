@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { fetchApi } from '@/lib/api'
 import { keyable } from './ClassEvent'
 import { useLanguage } from '@/lib/language'
+import { H1 } from './H1'
 
 interface FaqProps {
   answer?: any
@@ -49,10 +50,12 @@ export function Faq(props: { isFestival: boolean }) {
 
   return (
     <div
-      className={`pt-20 pb-20 font-changa px-4 md:px-[23rem] md:pb-40 text-white ${styles.blackBg}`}
+      className={`pt-20 pb-20 font-changa px-4 md:px-[8rem] xl:px-[23rem] md:pb-40 text-white ${styles.blackBg}`}
       id="faq"
     >
-      <h1 className="pt-0 pb-12 text-[2rem] leading-10 font-extrabold">FAQ</h1>
+      <div className="pb-12 font-extrabold pt-20 text-left">
+        <H1 color="white" text="FAQ" />
+      </div>
       {filteredQuestions &&
         filteredQuestions.map((item: any, index: number) => (
           <FaqQuestion
@@ -93,7 +96,7 @@ export function FaqQuestion({ question, answer }: FaqProps) {
               <SpeechBubbles />
             </div>
             <div>
-              <p className="pl-4 text-[1.25rem] leading-6 font-extrabold">
+              <p className="pl-4 text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8 font-extrabold">
                 {question}
               </p>
             </div>
@@ -107,7 +110,7 @@ export function FaqQuestion({ question, answer }: FaqProps) {
           <div className="pt-4 flex">
             <div>
               <div
-                className="text-[1rem] leading-6 font-semibold font-sans"
+                className="text-[1rem] leading-6 md:text-[1.25rem] md:leading-7 font-semibold font-sans"
                 dangerouslySetInnerHTML={{ __html: formatAnswer(answer) }}
               />
             </div>

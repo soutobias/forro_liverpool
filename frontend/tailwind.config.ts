@@ -73,6 +73,9 @@ module.exports = {
           500: '#F7CF06',
         },
       },
+      aspectRatio: {
+        '2/1': '2 / 1',
+      },
       backgroundImage: {
         stripes:
           'linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 12.5%, transparent 12.5%, transparent)',

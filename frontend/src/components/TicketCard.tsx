@@ -24,10 +24,10 @@ export function TicketCard(props: {
     >
       <div className="flex justify-between items-center">
         <div className="text-white flex">
-          <div className="text-[1.25rem] font-extrabold leading-6 pe-4">
+          <div className="text-[1.25rem] md:text-[1.5rem] font-extrabold leading-6 md:leading-8 pe-4">
             {props.passType}
           </div>
-          <div className="text-[1rem] font-normal leading-6 font-sans">
+          <div className="text-[1rem] md:text-[1.25rem] font-normal leading-6 md:leading-7 font-sans">
             {props.lote}
           </div>
         </div>

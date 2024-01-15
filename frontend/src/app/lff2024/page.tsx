@@ -34,40 +34,46 @@ export default function Home() {
   const { language } = useLanguage()
 
   useEffect(() => {
-    setTimeout(() => {
-      const hash = window.location.hash
-      if (hash) {
-        const element = document.querySelector(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
+    if (siteFestival) {
+      setTimeout(() => {
+        const hash = window.location.hash
+        if (hash) {
+          const element = document.querySelector(hash)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
         }
-      }
-    }, 300)
-  }, [])
+      }, 500)
+    }
+  }, [siteFestival])
 
   const [urlFestival, setUrlFestival] = useState<string>('')
 
-  const [isNotVisible, setIsNotVisible] = useState(false)
-  const targetRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const targetRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0]
-        setIsNotVisible(!entry.isIntersecting)
-      },
-      { threshold: 0.1 },
-    ) // Adjust the threshold as needed
-
-    if (targetRef.current) {
-      observer.observe(targetRef.current)
-    }
-
-    return () => {
+    if (siteFestival) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setIsVisible(entry.isIntersecting)
+          })
+        },
+        { threshold: 0.1 },
+      )
       if (targetRef.current) {
-        observer.unobserve(targetRef.current)
+        observer.observe(targetRef.current)
+      }
+
+      // Clean up function
+      return () => {
+        if (targetRef.current) {
+          observer.unobserve(targetRef.current)
+        }
       }
     }
-  }, [])
+  }, [siteFestival])
 
   useEffect(() => {
     if (language === 'en') {
@@ -103,7 +109,9 @@ export default function Home() {
         {/* <FrameImportant text="early bird tickets now available!" /> */}
         {siteFestival && (
           <>
-            <Navbar plusColor="#EAEAEA" siteFestival={siteFestival}></Navbar>
+            <div ref={targetRef}>
+              <Navbar plusColor="#EAEAEA" siteFestival={siteFestival} />
+            </div>
             <HeroLFF siteFestival={siteFestival}></HeroLFF>
             <VideoIntro siteFestival={siteFestival}></VideoIntro>
           </>
@@ -119,7 +127,7 @@ export default function Home() {
         {/* {Object.keys(showEvent).length > 0 && (
         <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
       )} */}
-        <UpButton />
+        {!isVisible && <UpButton />}
       </div>
     </>
   )

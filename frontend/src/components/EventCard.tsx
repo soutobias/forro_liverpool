@@ -37,8 +37,8 @@ export function EventCard(props: EventCardProps) {
       <div
         className={`relative ${
           event.name[0] === 'Liverpool Forró Festival 2024'
-            ? 'h-[22.5rem] md:h-[22.5rem] text-white'
-            : 'h-[11rem] md:h-[22.5rem] text-black'
+            ? 'aspect-square text-white'
+            : 'aspect-2/1 md:aspect-2/1 text-black'
         } bg-cover rounded-xl font-changa w-full mb-4`}
         style={{
           backgroundImage: `url(${event.image[0]})`,
@@ -63,17 +63,17 @@ export function EventCard(props: EventCardProps) {
           </div>
         )}
 
-        <div className="text-[1.25rem] font-extrabold leading-6 pt-4 pl-4 pr-[9rem]">
+        <div className="text-[1.25rem] md:text-[1.5rem] leading-[1.625rem] font-extrabold md:leading-8 pt-4 pl-4 pr-[9rem] md:pr-[8rem]">
           {event.name[position]}
         </div>
-        <div className="bg-white uppercase text-black ml-4 mt-4 w-max pl-4 pr-4 rounded-2xl text-[1rem] font-extrabold pt-0 pb-0 leading-5 tracking-[0.05rem]">
+        <div className="bg-white uppercase text-black ml-4 mt-4 w-max pl-4 pr-4 rounded-2xl text-[1rem] md:text-[1.25rem] font-extrabold pt-0 pb-0 leading-4 md:leading-5 tracking-[0.05rem]">
           {event.date[position]}
         </div>
         {event.location &&
           event.name[0] !== 'Liverpool Forró Festival 2024' && (
             <div className="flex ml-4 pt-4">
               <LocationMarker />
-              <div className="uppercase leading-5 pl-2 font-extrabold text-[1rem]">
+              <div className="uppercase leading-4 md:leading-5 pl-2 font-extrabold text-[1rem] md:text-[1.25rem]">
                 {event.location[0]}
                 {/* <Link href={event.location[2]}>{event.location[0]}</Link> */}
               </div>

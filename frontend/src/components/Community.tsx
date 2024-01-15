@@ -64,7 +64,7 @@ export function Community() {
               </div>
             </div>
             <div className=" flex flex-col justify-center">
-              <p className="pt-8 pb-12 text-[1rem] md:text-[1.24rem] md:px-[10rem] leading-6 font-changa font-semibold">
+              <p className="pt-8 pb-12 text-[1rem] md:text-[1.25rem] md:px-[5rem] xl:px-[10rem] leading-6 font-sans font-semibold md:leading-7">
                 {community[0].profile}
               </p>
             </div>
@@ -76,12 +76,12 @@ export function Community() {
           <Image
             src={community[0].profile_image[2]}
             alt="illustration"
-            className="overflow-hidden"
-            width={1336}
+            className="overflow-hidden h-[20rem] object-cover"
+            width={450}
             height={360}
           />
         )}
-        <p className="pt-8 text-[1rem] md:text-[1.25rem] leading-6 font-changa font-semibold md:w-[40%]">
+        <p className="pt-8 text-[1rem] md:text-[1.25rem] leading-6 font-sans font-semibold md:w-[40%]">
           {community.length > 0 && community[0].description}
         </p>
       </div>

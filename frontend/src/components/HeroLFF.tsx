@@ -9,16 +9,45 @@ import { Scroll } from '@/assets/scroll'
 
 export function HeroLFF(props: { siteFestival: any }) {
   return (
-    <div
-      className={`w-full z-[59] font-changa relative md:px-[8.5rem] ${styles.blackBg}`}
-    >
+    <div className={`w-full z-[59] font-changa relative ${styles.blackBg}`}>
       <div className="pt-[6.75rem]">
         <div>
+          <div className="flex justify-center pl-4 pr-4">
+            <div className="hidden md:flex md:justify-around md:items-center uppercase w-full 2xl:w-[80%]">
+              {props.siteFestival && (
+                <div className="block">
+                  <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
+                    {props.siteFestival[0].data.split(',')[0].trim()}
+                  </p>
+                  <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
+                    {props.siteFestival[0].data.split(',')[1].trim()}
+                  </p>
+                </div>
+              )}
+              <Image
+                src={LFFLogo}
+                alt="illustration"
+                className="w-auto md:h-[30rem] xl:h-[35rem] 2xl:h-[38rem]"
+                width={1336}
+                height={614}
+              />
+              {props.siteFestival && (
+                <div className="block">
+                  <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
+                    {props.siteFestival[0].local.split(',')[0].trim()}
+                  </p>
+                  <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
+                    {props.siteFestival[0].local.split(',')[1].trim()}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
           <div className="flex justify-center pl-4 pr-4">
             <Image
               src={LFFLogo}
               alt="illustration"
-              className="h-[17rem] w-auto md:h-[30rem]"
+              className="h-[17rem] w-auto md:h-[25rem] xl:h-[30rem] md:hidden"
               width={1336}
               height={614}
             />
@@ -32,17 +61,20 @@ export function HeroLFF(props: { siteFestival: any }) {
               height={614}
             />
           </div>
-          <div className="pt-1 flex justify-center">
+          <div className="pt-1 flex justify-center w-full overflow-hidden">
             <Image
               src={CrossWalk1}
               alt="illustration"
-              className="overflow-hidden h-[4rem] w-auto object-cover md:block hidden"
+              className="xl:h-[9rem] md:h-[7rem] w-[130vw] max-w-[130vw] md:block hidden"
               width={1336}
               height={614}
             />
           </div>
+          <div className="-mt-[5rem] md:flex md:justify-center hidden">
+            <Scroll />
+          </div>
         </div>
-        <div className="md:flex md:flex-col md:justify-center">
+        <div className="md:hidden">
           <div className="px-4">
             <p className="text-center text-white pt-8 pb-0 pl-4 pr-4 text-[1.5rem] leading-5  font-extrabold">
               {props.siteFestival && props.siteFestival[0].data}
