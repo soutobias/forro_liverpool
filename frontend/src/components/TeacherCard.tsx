@@ -10,7 +10,7 @@ export function TeacherCard(props: {
   return (
     <div className={`rounded-lg p-4 pb-6  ${props.color}`}>
       <Image
-        src={props.image}
+        src={props.image[0]}
         alt="illustration"
         className="mb-0 rounded-2xl h-[8.75rem] md:h-[10.5rem] md:w-[18.75rem] object-cover"
         height={140}
