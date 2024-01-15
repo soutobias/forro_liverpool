@@ -34,7 +34,7 @@ events_data = [
     start_datetime: DateTime.now + 2.day,
     end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg',
+    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
@@ -52,7 +52,7 @@ events_data = [
     start_datetime: DateTime.now + 2.day,
     end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg',
+    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
@@ -70,7 +70,7 @@ events_data = [
     start_datetime: DateTime.now + 2.day,
     end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg',
+    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
@@ -88,7 +88,7 @@ events_data = [
     start_datetime: DateTime.now + 2.day,
     end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg',
+    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
@@ -106,7 +106,7 @@ events_data = [
     start_datetime: DateTime.now + 2.day,
     end_datetime: DateTime.now + 2.day + 3.hours,
     price: 20.0,
-    cover_image: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg',
+    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
@@ -128,7 +128,7 @@ site = Site.new(
   title: 'Brazilian forró classes & events in the heart of Liverpool',
   description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
   frame: 'Liverpool forró festival 1st lot tickets',
-  cover_image: 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660',
+  cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/video.mp4',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
 )
@@ -141,7 +141,7 @@ site_translation = SiteTranslation.new(
   description: 'Aulas de dança de forró para todos os níveis e eventos com música ao vivo no coração de Liverpool.
   Não é necessário ter um par. Todos são bem-vindos!',
   frame: 'Ingressos para o Festival de Forró de Liverpool 1º lote',
-  cover_image: 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660',
+  cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/video.mp4',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
 )
@@ -252,7 +252,7 @@ liverpool_question_translations_data = [
   }
 ]
 
-liverpool_question_translations_data.map { |liverpool_question_translation_data| LiverpoolQuestion.create(liverpool_question_translation_data) }
+liverpool_question_translations_data.map { |liverpool_question_translation_data| LiverpoolQuestionTranslation.create(liverpool_question_translation_data) }
 
 Community.destroy_all
 community = Community.new(
@@ -314,25 +314,25 @@ FestivalTeacher.destroy_all
 
 festival_teachers_data = [
   {
-    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: ['https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
     name: 'Yse Goes',
     location: 'Porto',
     function: 'Teacher'
   },
   {
-    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: ['https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
     name: 'Felipe e Marina',
     location: 'Liverpool',
     function: 'Teacher'
   },
   {
-    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: ['https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
     name: 'Band Name',
     location: 'Liverpool',
     function: 'Band'
   },
   {
-    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: ['https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
     name: 'Other band name',
     location: 'Liverpool',
     function: 'Band'
@@ -343,25 +343,25 @@ festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(fest
 
 festival_teacher_translations_data = [
   {
-    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: ['https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
     name: 'Yse Goes',
     location: 'Porto',
     function: 'Professor'
   },
   {
-    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: ['https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
     name: 'Felipe e Marina',
     location: 'Liverpool',
     function: 'Professor'
   },
   {
-    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: ['https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
     name: 'Band Name',
     location: 'Liverpool',
     function: 'Banda'
   },
   {
-    image: 'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: ['https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
     name: 'Other band name',
     location: 'Liverpool',
     function: 'Banda'

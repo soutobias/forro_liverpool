@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_14_212944) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_15_162923) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,7 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_14_212944) do
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.float "price"
-    t.text "cover_image"
     t.text "image", default: [], array: true
     t.datetime "registration_start_datetime"
     t.datetime "registration_end_datetime"
@@ -61,24 +60,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_14_212944) do
     t.boolean "is_festival"
     t.boolean "is_class"
     t.string "ticket_link"
+    t.text "cover_image", default: [], array: true
   end
 
   create_table "festival_teacher_translations", force: :cascade do |t|
     t.string "function"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.string "name"
     t.string "location"
+    t.text "image", default: [], array: true
   end
 
   create_table "festival_teachers", force: :cascade do |t|
-    t.string "image"
     t.string "name"
     t.string "location"
     t.string "function"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image", default: [], array: true
   end
 
   create_table "liverpool_question_translations", force: :cascade do |t|
@@ -140,9 +140,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_14_212944) do
     t.text "frame"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "cover_image"
     t.text "cover_video"
     t.text "image", default: [], array: true
+    t.text "cover_image", default: [], array: true
   end
 
   create_table "sitefestivals", force: :cascade do |t|
@@ -160,12 +160,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_14_212944) do
   create_table "sites", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.text "cover_image"
     t.text "cover_video"
     t.text "image", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "frame"
+    t.text "cover_image", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|

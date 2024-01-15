@@ -22,7 +22,7 @@ export function ClassEvent(props: {
       <div className="bg-white h-[80%] z-20 rounded-t-2xl">
         <div className="bg-gray-100 opacity-90">
           <Image
-            src={props.showEvent.image}
+            src={props.showEvent.image[0]}
             alt="illustration"
             className="rounded-t-2xl overflow-hidden"
             width={1336}

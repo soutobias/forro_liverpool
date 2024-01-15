@@ -50,7 +50,7 @@ export function Teachers() {
               .map((item) => (
                 <TeacherCard
                   key={item.id}
-                  image={item.image}
+                  image={item.image[0]}
                   title={item.name}
                   location={item.location}
                   action={item.function}
@@ -65,7 +65,7 @@ export function Teachers() {
               .map((item) => (
                 <TeacherCard
                   key={item.id}
-                  image={item.image}
+                  image={item.image[0]}
                   title={item.name}
                   location={item.location}
                   action={item.function}
@@ -80,7 +80,7 @@ export function Teachers() {
               .map((item) => (
                 <TeacherCard
                   key={item.id}
-                  image={item.image}
+                  image={item.image[0]}
                   title={item.name}
                   location={item.location}
                   action={item.function}
