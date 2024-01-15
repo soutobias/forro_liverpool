@@ -4,6 +4,7 @@ import { EventCardLFF } from './EventCardLFF'
 import styles from './Bg.module.css'
 import { fetchApi } from '@/lib/api'
 import { H1 } from './H1'
+import { useLanguage } from '@/lib/language'
 
 interface ClassEventsLFFProps {
   setShowEvent: Dispatch<SetStateAction<keyable>>
@@ -12,7 +13,7 @@ interface ClassEventsLFFProps {
 export function ClassEventsLFF(props: ClassEventsLFFProps) {
   const { setShowEvent } = props
   const [events, setEvents] = useState<keyable[]>([])
-
+  const { language } = useLanguage()
   const [eventsEmpty, setEventsEmpty] = useState<boolean>(true)
 
   const url = 'api/v1/events?is_festival=true'
@@ -37,7 +38,10 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
       />
       <div className=" px-2 md:px-[8.25rem]">
         <div className="pt-[10rem] md:pt-[25rem] pb-12 text-center">
-          <H1 color="white" text="3 days of dance!" />
+          <H1
+            color="white"
+            text={language === 'en' ? '3 days of dance!' : '3 dias de dança!'}
+          />
         </div>
         <div className="md:grid md:grid-cols-3 md:px-[8.5rem]">
           {eventsEmpty ? (
@@ -53,7 +57,18 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
           ) : (
             <div>
               <h2 className="text-center font-changa text-white text-[1.5rem] leading-5 font-semibold pl-2 pt-16">
-                Friday 10th
+                {language === 'en' ? 'Friday 10th' : 'Sexta-feira, dia 10'}
+              </h2>
+
+              {events.map((event: any) => (
+                <EventCardLFF
+                  key={event.id}
+                  event={event}
+                  setShowEvent={setShowEvent}
+                />
+              ))}
+              <h2 className="text-center font-changa text-white text-[1.5rem] leading-5 font-semibold pl-2 pt-16">
+                {language === 'en' ? 'Saturday 11th' : 'Sábado, dia 11'}
               </h2>
               {events.map((event: any) => (
                 <EventCardLFF
@@ -63,17 +78,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
                 />
               ))}
               <h2 className="text-center font-changa text-white text-[1.5rem] leading-5 font-semibold pl-2 pt-16">
-                Saturday 11th
-              </h2>
-              {events.map((event: any) => (
-                <EventCardLFF
-                  key={event.id}
-                  event={event}
-                  setShowEvent={setShowEvent}
-                />
-              ))}
-              <h2 className="text-center font-changa text-white text-[1.5rem] leading-5 font-semibold pl-2 pt-16">
-                Sunday 12th
+                {language === 'en' ? 'Sunday 12th' : 'Domingo, dia 12'}
               </h2>
               {events.map((event: any) => (
                 <EventCardLFF

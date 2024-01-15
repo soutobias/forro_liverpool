@@ -127,11 +127,12 @@ export function ForroLinks(props: {
 
             <div className="pt-6 z-[61] flex md:justify-start justify-center">
               <div className="flex justify-center text-1xl cursor-pointer md:pl-0 bg-white no-underline rounded-lg">
-                <p
+                <Link
+                  href="lff2024/tickets"
                   className={`text-black text-center text-[1rem] leading-5 uppercase font-extrabold w-full p-4`}
                 >
-                  TICKETS
-                </p>
+                  {language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+                </Link>
               </div>
             </div>
             <div className="pt-6 flex md:justify-start justify-center">

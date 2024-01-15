@@ -7,6 +7,7 @@ import CrossWalk1 from '../assets/images-lff-crosswalk-1.png'
 import { TicketCard } from './TicketCard'
 import { useEffect } from 'react'
 import { TicketWidget } from './TicketWidget'
+import { useLanguage } from '@/lib/language'
 
 export function HeroTickets() {
   useEffect(() => {
@@ -21,6 +22,7 @@ export function HeroTickets() {
       document.body.removeChild(script)
     }
   }, [])
+  const { language } = useLanguage()
 
   return (
     <div
@@ -59,14 +61,22 @@ export function HeroTickets() {
         <div className="md:flex md:flex-col md:justify-center">
           <div className="px-4">
             <p className="text-center text-white pt-8 pb-8 pl-4 pr-4 text-[2.0rem] leading-5 font-changa font-extrabold">
-              Tickets
+              {language === 'en' ? 'Tickets' : 'Ingressos'}
             </p>
             <p className="text-center text-white pt-8 pb-8 pl-4 pr-4 text-[1.5rem] leading-5 font-changa font-extrabold">
               Lote 1
             </p>
             <div className="text-center text-white pt-4 pb-8 pl-4 pr-4 text-[1.0rem] leading-6 font-sans">
-              <p>Available 17 January at 4pm GMT</p>
-              <p>Limited to 50 tickets per ticket type.</p>
+              <p>
+                {language === 'en'
+                  ? 'Available 17 January at 4pm GMT'
+                  : 'Disponível em 17 de janeiro, às 16h'}
+              </p>
+              <p>
+                {language === 'en'
+                  ? 'Limited to 50 tickets per ticket type.'
+                  : 'Limitado a 50 ingressos por tipo de ingresso'}
+              </p>
             </div>
             <TicketWidget />
           </div>
@@ -76,27 +86,33 @@ export function HeroTickets() {
               Lote 2
             </p>
             <div className="text-center text-white pt-4 pb-8 pl-4 pr-4 text-[1.0rem] leading-6 font-sans">
-              <p>Available soon</p>
-              <p>Limited to 50 tickets per ticket type.</p>
+              <p>
+                {language === 'en' ? 'Available soon' : 'Disponível em breve'}
+              </p>
+              <p>
+                {language === 'en'
+                  ? 'Limited to 50 tickets per ticket type.'
+                  : 'Limitado a 50 ingressos por tipo de ingresso'}
+              </p>
             </div>
           </div>
 
           <TicketCard
             color={styles.lightPinkBg}
-            passType="Full Pass"
+            passType={language === 'en' ? 'Full Pass' : 'Passe completo'}
             lote="Lote 2"
             price="£75"
-            classes="All Classes"
-            parties="All Parties"
+            classes={language === 'en' ? 'All Classes' : 'Todas as aulas'}
+            parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
             isDisabled={true}
           />
           <TicketCard
             color={styles.lightPinkBg}
-            passType="Party Pass"
+            passType={language === 'en' ? 'Party Pass' : 'Passe para festas'}
             lote="Lote 2"
             price="TBD"
             classes=""
-            parties="All Parties"
+            parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
             isDisabled={true}
           />
 
@@ -105,26 +121,28 @@ export function HeroTickets() {
               Lote 3
             </p>
             <div className="text-center text-white pt-4 pb-8 pl-4 pr-4 text-[1.0rem] leading-6 font-sans">
-              <p>Available soon</p>
+              <p>
+                {language === 'en' ? 'Available soon' : 'Disponível em breve'}
+              </p>
             </div>
           </div>
 
           <TicketCard
             color={styles.lightPinkBg}
-            passType="Full Pass"
-            lote="Lote 3"
+            passType={language === 'en' ? 'Full Pass' : 'Passe completo'}
+            lote="Lote 3 "
             price="£90"
-            classes="All Classes"
-            parties="All Parties"
+            classes={language === 'en' ? 'All Classes' : 'Todas as aulas'}
+            parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
             isDisabled={true}
           />
           <TicketCard
             color={styles.lightPinkBg}
-            passType="Party Pass"
-            lote="Lote 3"
+            passType={language === 'en' ? 'Party Pass' : 'Passe para festas'}
+            lote="Lote 3 "
             price="TBD"
             classes=""
-            parties="All Parties"
+            parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
             isDisabled={true}
           />
         </div>
