@@ -33,28 +33,31 @@ export default function Home() {
   const [url, setUrl] = useState<string>('')
   const [urlFestival, setUrlFestival] = useState<string>('')
 
-  const [isNotVisible, setIsNotVisible] = useState(false)
-  const targetRef = useRef(null)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0]
-        console.log('Is intersecting:', entry.isIntersecting)
-        setIsNotVisible(!entry.isIntersecting)
-      },
-      { threshold: 0.1 },
-    ) // Adjust the threshold as needed
-    console.log(observer)
-    if (targetRef.current) {
-      observer.observe(targetRef.current)
-    }
+  const [isVisible, setIsVisible] = useState(false)
+  const targetRef = useRef<HTMLDivElement>(null)
 
-    return () => {
+  useEffect(() => {
+    if (siteFestival) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setIsVisible(entry.isIntersecting)
+          })
+        },
+        { threshold: 0.1 },
+      )
       if (targetRef.current) {
-        observer.unobserve(targetRef.current)
+        observer.observe(targetRef.current)
+      }
+
+      // Clean up function
+      return () => {
+        if (targetRef.current) {
+          observer.unobserve(targetRef.current)
+        }
       }
     }
-  }, [])
+  }, [siteFestival])
 
   useEffect(() => {
     if (language === 'en') {
@@ -76,17 +79,23 @@ export default function Home() {
   useEffect(() => {
     setShowGDPR(getCookieAuth())
     setHasMounted(true)
-    setTimeout(() => {
-      const hash = window.location.hash
-      if (hash) {
-        const element = document.querySelector(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }
-      }
-    }, 300)
   }, [])
 
+  useEffect(() => {
+    if (siteFestival) {
+      setTimeout(() => {
+        const hash = window.location.hash
+        if (hash) {
+          const element = document.querySelector(hash)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }
+      }, 500)
+    }
+  }, [siteFestival])
+
+  console.log('site', isVisible)
   if (!hasMounted) {
     return null
   }
@@ -117,7 +126,7 @@ export default function Home() {
         {Object.keys(showEvent).length > 0 && (
           <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
         )}
-        {isNotVisible && <UpButton />}
+        {!isVisible && <UpButton />}
       </div>
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
     </>

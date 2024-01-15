@@ -7,6 +7,7 @@ import LFFforroLogo from '../assets/LFF_Black.png'
 import { useEffect, useMemo, useState } from 'react'
 import styles from './NavBar.module.css'
 import { useLanguage } from '@/lib/language'
+import { MainButton } from './MainButton'
 
 export function ForroLinks(props: {
   setDropdown?: (dropDown: boolean) => void
@@ -70,7 +71,7 @@ export function ForroLinks(props: {
   }, [language, isChecked, setLanguage])
 
   return (
-    <div className="pt-12 text-center font-extrabold font-changa text-[1.25rem] px-4 md:px-[8.5rem]">
+    <div className="pt-12 text-center font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8 px-4 md:px-[6rem] xl:px-[8.5rem]">
       {props.siteFestival && (
         <div className="md:flex md:justify-between">
           <div>
@@ -92,7 +93,7 @@ export function ForroLinks(props: {
             <div className="pt-6 flex md:justify-start justify-center">
               <Link
                 href="/#classes-events"
-                className="text-1xl no-underline cursor-pointer p-3 md:pl-0  sm:h-full sm:w-full md:h-max md:w-max"
+                className="no-underline cursor-pointer p-3 md:pl-0  sm:h-full sm:w-full md:h-max md:w-max"
                 onClick={scrollToSection}
               >
                 {props.siteFestival && props.siteFestival[0].navbar[1]}
@@ -101,7 +102,7 @@ export function ForroLinks(props: {
             <div className="pt-5 flex md:justify-start justify-center">
               <Link
                 href="/#community"
-                className="text-1xl no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
+                className="no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
                 onClick={scrollToSection}
               >
                 {props.siteFestival[0] && props.siteFestival[0].navbar[2]}
@@ -126,19 +127,19 @@ export function ForroLinks(props: {
             </div>
 
             <div className="pt-6 z-[61] flex md:justify-start justify-center">
-              <div className="flex justify-center text-1xl cursor-pointer md:pl-0 bg-white no-underline rounded-lg">
-                <Link
-                  href="lff2024/tickets"
-                  className={`text-black text-center text-[1rem] leading-5 uppercase font-extrabold w-full p-4`}
-                >
-                  {language === 'en' ? 'TICKETS' : 'INGRESSOS'}
-                </Link>
+              <div className="flex justify-center md:pl-0 no-underline rounded-lg">
+                <MainButton
+                  href="/lff2024/tickets"
+                  content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+                  bg="white"
+                  font="black"
+                />
               </div>
             </div>
             <div className="pt-6 flex md:justify-start justify-center">
               <Link
                 href="/lff2024#teachers"
-                className="text-1xl no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
+                className="no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
                 onClick={scrollToSection}
               >
                 {props.siteFestival[0] && props.siteFestival[0].navbar[5]}
@@ -147,7 +148,7 @@ export function ForroLinks(props: {
             <div className="pt-5 flex md:justify-start justify-center ">
               <Link
                 href="/lff2024#program"
-                className="text-1xl no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
+                className="no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
                 onClick={scrollToSection}
               >
                 {props.siteFestival[0] && props.siteFestival[0].navbar[6]}

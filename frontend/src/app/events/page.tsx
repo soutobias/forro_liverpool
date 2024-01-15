@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { keyable } from '@/components/ClassEvent'
 import { fetchApi } from '@/lib/api'
 import Image from 'next/image'
@@ -39,6 +39,32 @@ export default function EventDetails() {
   const searchParams = useSearchParams()
 
   const paramsId = searchParams.get('id')
+
+  const [isVisible, setIsVisible] = useState(false)
+  const targetRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (siteFestival) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setIsVisible(entry.isIntersecting)
+          })
+        },
+        { threshold: 0.1 },
+      )
+      if (targetRef.current) {
+        observer.observe(targetRef.current)
+      }
+
+      // Clean up function
+      return () => {
+        if (targetRef.current) {
+          observer.unobserve(targetRef.current)
+        }
+      }
+    }
+  }, [siteFestival])
 
   useEffect(() => {
     if (language === 'en') {
@@ -92,9 +118,9 @@ export default function EventDetails() {
       <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
         <FrameImportant site={site} />
         {siteFestival && (
-          <>
+          <div ref={targetRef}>
             <Navbar siteFestival={siteFestival} />
-          </>
+          </div>
         )}
         <div className={`w-full z-[59] relative ${styles.begeBg} pb-20`}>
           {selectedEvent && (
@@ -193,7 +219,7 @@ export default function EventDetails() {
         </div>
         <Footer siteFestival={siteFestival} />
         {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
-        <UpButton />
+        {!isVisible && <UpButton />}
       </div>
     </>
   )

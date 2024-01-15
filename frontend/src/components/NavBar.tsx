@@ -74,12 +74,12 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
   }, [isChecked, props])
   return (
     <nav
-      className={`h-23 align-middle text-xl w-full flex-shrink-0 transition-colors duration-500 absolute text-${
+      className={`h-23 align-middle text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8 leading w-full flex-shrink-0 transition-colors duration-500 absolute text-${
         props.plusColor ? 'white' : 'black'
       } ${dropdown ? 'z-[60] bg-yellow-500' : 'bg-transparent'}`}
     >
       <div
-        className={`${styles.container} h-[5rem] flex justify-between align-middle text-xl w-full flex-shrink-0 z-[60] relative`}
+        className={`${styles.container} h-[5rem] flex justify-between align-middle w-full flex-shrink-0 z-[60] relative`}
       >
         <div
           className={`md:block hidden w-full h-[1px] bg-${
@@ -113,7 +113,7 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
         >
           <PlusSign color={props.plusColor || '#201E1E'} />
         </div>
-        <ul className="items-center gap-10 hidden sm:flex text-center justify-end text-[1.25rem] font-semibold">
+        <ul className="items-center gap-10 hidden sm:flex text-center justify-end font-semibold">
           <li className="flex align-middle h-20">{LanguageToogle}</li>
           <li className="flex align-middle items-center h-20">
             <Link
@@ -147,7 +147,7 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
               </Link>
               <FontAwesomeIcon
                 icon={dropdownFestival ? faChevronDown : faChevronRight}
-                className="text-xl items-center p-4 w-4"
+                className="items-center p-4 w-4"
               />
             </div>
             {dropdownFestival && (

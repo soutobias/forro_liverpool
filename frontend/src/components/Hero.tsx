@@ -15,10 +15,10 @@ export function Hero(props: HeroProps) {
       <div className={`w-full z-[59] relative ${styles.heroBg}`}>
         <div className="px-4 md:grid md:grid-cols-2 pt-[6.75rem] md:gap-10 md:px-[8.5rem]">
           <div className="flex flex-col md:justify-center">
-            <div className=" text-[2rem] leading-10 font-extrabold font-changa">
-              <p>{props.site[0].title}</p>
+            <div className=" text-[2rem] md:text-[2.25rem] leading-10 md:leading-[3rem] font-extrabold font-changa">
+              <h1>{props.site[0].title}</h1>
             </div>
-            <div className="pt-4  pb-[7.25rem] md:pb-[5rem] text-[1rem] leading-6 font-sans font-normal">
+            <div className="pt-4 pb-[7.25rem] md:pb-[5rem] text-[1rem] md:text-[1.25rem] leading-6 md:leading-7 font-sans font-semibold">
               <p>{props.site[0].description}</p>
             </div>
             <div className="bg-black">

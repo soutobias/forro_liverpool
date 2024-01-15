@@ -2,7 +2,7 @@
 
 import { HeroTickets } from '@/components/HeroTickets'
 import { Navbar } from '@/components/NavBar'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { GDPR } from '@/components/GDPR'
 import { getCookieAuth } from '@/lib/handleCookie'
 import { Footer } from '@/components/Footer'
@@ -38,8 +38,35 @@ export default function Home() {
     }
   }, [urlFestival])
 
+  const [isVisible, setIsVisible] = useState(false)
+  const targetRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    setShowGDPR(getCookieAuth())
+    if (siteFestival) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            setIsVisible(entry.isIntersecting)
+          })
+        },
+        { threshold: 0.1 },
+      )
+      if (targetRef.current) {
+        observer.observe(targetRef.current)
+      }
+
+      // Clean up function
+      return () => {
+        if (targetRef.current) {
+          observer.unobserve(targetRef.current)
+        }
+      }
+    }
+  }, [siteFestival])
+
+  useEffect(() => {
+    setShowGDPR(false)
+    // setShowGDPR(getCookieAuth())
     setHasMounted(true)
   }, [])
 
@@ -55,13 +82,15 @@ export default function Home() {
       <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
         {siteFestival && (
           <>
-            <Navbar plusColor="#EAEAEA" siteFestival={siteFestival}></Navbar>
+            <div ref={targetRef}>
+              <Navbar plusColor="#EAEAEA" siteFestival={siteFestival}></Navbar>
+            </div>
             <HeroTickets></HeroTickets>
           </>
         )}
         <Footer siteFestival={siteFestival} />
         {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
-        <UpButton />
+        {!isVisible && <UpButton />}
       </div>
     </>
   )
