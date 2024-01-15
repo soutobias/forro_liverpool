@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :liverpool_question_translations
       resources :community_translations
       resources :site_festival_translations
+      resources :festival_teacher_translations
     end
   end
 

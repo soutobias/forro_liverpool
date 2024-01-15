@@ -6,8 +6,11 @@ import CrossWalk from '../assets/Images-LFF-Crosswalk.png'
 import CrossWalk1 from '../assets/images-lff-crosswalk-1.png'
 import { MainButton } from './MainButton'
 import { Scroll } from '@/assets/scroll'
+import { useLanguage } from '@/lib/language'
 
 export function HeroLFF(props: { siteFestival: any }) {
+  const { language } = useLanguage()
+  const keyForRerender = language
   return (
     <div className={`w-full z-[59] font-changa relative ${styles.blackBg}`}>
       <div className="pt-[6.75rem]">
@@ -84,15 +87,22 @@ export function HeroLFF(props: { siteFestival: any }) {
             </p>
             <div className="md:flex md:justify-center hidden">
               <MainButton
-                href="#"
-                content="TICKETS"
+                key={keyForRerender}
+                href="/lff2024/tickets"
+                content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
                 bg="white"
                 font="black"
                 width="50%"
               />
             </div>
             <div className="md:hidden">
-              <MainButton href="#" content="TICKETS" bg="white" font="black" />
+              <MainButton
+                key={keyForRerender}
+                href="/lff2024/tickets"
+                content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+                bg="white"
+                font="black"
+              />
             </div>
             <div className="pt-8 flex justify-center">
               <Scroll />

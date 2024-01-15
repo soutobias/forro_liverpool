@@ -16,7 +16,7 @@ export function Liverpool() {
     if (language === 'en') {
       setUrl('api/v1/liverpool_questions')
     } else {
-      setUrl('api/v1/liverpool_questions_translations')
+      setUrl('api/v1/liverpool_question_translations')
     }
   }, [language])
 
@@ -37,7 +37,10 @@ export function Liverpool() {
       <div className="px-4 md:px-[23.25rem] ">
         <div className="pt-[13rem] md:pt-[25rem] pb-10 text-center">
           <H1 color="white" text="Come Together" />
-          <H1 color="white" text="in Liverpool" />
+          <H1
+            color="white"
+            text={language === 'en' ? 'in Liverpool' : 'em Liverpool'}
+          />
         </div>
         {/* <PromoCard
         title="Special offer!"
@@ -46,7 +49,9 @@ export function Liverpool() {
       /> */}
         <div>
           <h2 className="text-center font-changa text-[1.5rem] leading-8 font-extrabold pl-2 pt-1 md:pt-10 pb-8 md:text-left md:pb-20">
-            Getting to Liverpool
+            {language === 'en'
+              ? 'Getting to Liverpool'
+              : 'Como chegar em Liverpool'}
           </h2>
           {showLiverpool &&
             showLiverpool.map((item: any, index: number) => (

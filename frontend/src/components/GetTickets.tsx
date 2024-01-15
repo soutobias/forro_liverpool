@@ -5,8 +5,11 @@ import Image from 'next/image'
 import triangle from '../assets/triangle.png'
 import zabumba from '../assets/zabumba.png'
 import sanfona from '../assets/sanfona.png'
+import { useLanguage } from '@/lib/language'
 
 export function GetTickets() {
+  const { language } = useLanguage()
+  const keyForRerender = language
   return (
     <div id="get_tickets" className="relative font-changa">
       <div className={`relative ${styles.purpleBg}`}>
@@ -14,16 +17,32 @@ export function GetTickets() {
           className={`absolute -top-[10rem] md:-top-[19rem] w-full h-[20rem] md:h-[30rem] ${styles.rainbowBg}`}
         />
         <div className="pt-[12rem] md:pt-[20rem] pb-10 relative z-[61] text-center">
-          <H1 color="white" text={'Are you ready to party?'} />
-          <H1 color="white" text={'Let’s forrozear!'} />
+          <H1
+            color="white"
+            text={
+              language === 'en'
+                ? 'Are you ready to party?'
+                : 'Você está pronto para a festa?'
+            }
+          />
+          <H1
+            color="white"
+            text={language === 'en' ? 'Let’s forrozear!' : 'Bora forrozear!'}
+          />
         </div>
         <div className="pl-4 pr-4 pt-8 z-[61] md:hidden">
-          <MainButton href="#" content="TICKETS" bg="white" font="black" />
+          <MainButton
+            href="/lff2024/tickets"
+            content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+            bg="white"
+            font="black"
+          />
         </div>
         <div className="pl-4 pr-4 pt-8 z-[61] md:flex md:justify-center hidden">
           <MainButton
-            href="#"
-            content="TICKETS"
+            key={keyForRerender}
+            href="/lff2024/tickets"
+            content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
             bg="white"
             font="black"
             width="50%"

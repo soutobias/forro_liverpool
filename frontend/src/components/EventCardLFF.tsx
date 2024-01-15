@@ -53,7 +53,7 @@ export function EventCardLFF(props: {
               href="#"
               className="rounded-2xl no-underline bg-pink-400 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full text-white"
             >
-              View Class Schedule
+              {language === 'en' ? 'View Class Schedule' : 'Ver programação'}
             </Link>
           </div>
         ) : (
@@ -62,7 +62,7 @@ export function EventCardLFF(props: {
               href="#"
               className="rounded-2xl no-underline bg-pink-400 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full text-white"
             >
-              See event details
+              {language === 'en' ? 'See event details' : 'Detalhes do evento'}
             </Link>
           </div>
         )}

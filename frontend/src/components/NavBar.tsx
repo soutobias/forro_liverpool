@@ -163,7 +163,9 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
                     <p
                       className={`text-black text-center text-[1rem] leading-5 uppercase font-extrabold p-2`}
                     >
-                      TICKETS
+                      <Link href="/lff2024/tickets">
+                        {language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+                      </Link>
                     </p>
                   </div>
                 </div>

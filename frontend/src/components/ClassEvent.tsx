@@ -88,7 +88,7 @@ export function ClassEvent(props: {
             </p>
           </div>
           <Link
-            href="/registration"
+            href="/lff2024/tickets"
             className="no-underline mr-2 flex bg-gray-60 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4 justify-center"
           >
             <div>Get Tickets</div>

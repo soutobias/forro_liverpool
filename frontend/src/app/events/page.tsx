@@ -186,7 +186,7 @@ export default function EventDetails() {
               {selectedEvent.type_event === 'Special Events' && (
                 <div className="pt-8 z-[61]">
                   <MainButton
-                    href="#"
+                    href="/lff2024/tickets"
                     content={
                       language === 'en' ? 'GET TICKETS' : 'COMPRE SEU INGRESSO'
                     }

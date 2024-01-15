@@ -1,4 +1,5 @@
 import { MainButton } from './MainButton'
+import { useLanguage } from '@/lib/language'
 
 export function TicketCard(props: {
   isDisabled?: boolean
@@ -16,6 +17,7 @@ export function TicketCard(props: {
     opacity: props.isDisabled ? 0.5 : 1,
     pointerEvents: props.isDisabled ? 'none' : 'auto',
   }
+  const { language } = useLanguage()
 
   return (
     <div
@@ -42,7 +44,12 @@ export function TicketCard(props: {
         {props.parties}
       </div>
       <div className="pl-4 pr-4 pt-8">
-        <MainButton href="#" content="ADD TO CART" bg="white" font="black" />
+        <MainButton
+          href="#"
+          content={language === 'en' ? 'ADD TO CART' : 'Adicione ao carrinho'}
+          bg="white"
+          font="black"
+        />
       </div>
     </div>
   )

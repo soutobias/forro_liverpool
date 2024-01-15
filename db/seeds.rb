@@ -228,7 +228,7 @@ liverpool_questions_data = [
     answer: 'XXX'
   },
   {
-    question: 'By BUS',
+    question: 'By bus',
     answer: 'XXX'
   }
 ]
@@ -340,6 +340,8 @@ festival_teachers_data = [
 ]
 
 festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(festival_teacher_data) }
+
+FestivalTeacherTranslation.destroy_all
 
 festival_teacher_translations_data = [
   {
