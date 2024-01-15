@@ -14,7 +14,7 @@ export function getCookieAuth() {
 
 export function addCookieAuth() {
   const date = new Date()
-  const cookieExpiresInSeconds = 60 * 60 * 1000
+  const cookieExpiresInSeconds = 60 * 60 * 24 * 30
   Cookies.set('cookieAccepted', date.getTime() + cookieExpiresInSeconds, {
     path: '/',
     expires: cookieExpiresInSeconds,

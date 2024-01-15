@@ -47,7 +47,7 @@ export default function EventDetails() {
       setPosition(0)
     } else {
       setUrl('api/v1/site_translations')
-      setUrlFestival('api/v1/sitefestival_translations')
+      setUrlFestival('api/v1/site_festival_translations')
       setPosition(1)
     }
   }, [language])
@@ -73,7 +73,8 @@ export default function EventDetails() {
   }, [events, paramsId])
 
   useEffect(() => {
-    setShowGDPR(getCookieAuth())
+    setShowGDPR(false)
+    // setShowGDPR(getCookieAuth())
     setHasMounted(true)
   }, [])
 
@@ -109,12 +110,12 @@ export default function EventDetails() {
                 <div className="pt-7 pb-8">
                   <div className="pt-0">
                     <h1 className="font-changa text-[2rem] leading-10 font-extrabold text-black">
-                      {selectedEvent.name[0]}
+                      {selectedEvent.name[position]}
                     </h1>
                     <div className="flex gap-16 justify-between w-full pb-6 pt-7">
                       <div className="">
                         <div className="bg-pink-400 uppercase text-white mb-4 w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
-                          {selectedEvent.date[0]}
+                          {selectedEvent.date[position]}
                         </div>
                         <div className="bg-pink-400 uppercase text-white w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
                           &pound;{selectedEvent.price}
@@ -141,7 +142,7 @@ export default function EventDetails() {
                                 {selectedEvent.location[1]}
                               </div>
                               <div className="text-black leading-4 pl-0 mt-1 pt-3 font-normal text-[1rem] font-sans">
-                                {selectedEvent.time[0]}
+                                {selectedEvent.time[position]}
                               </div>
                             </div>
                           </div>
@@ -150,7 +151,7 @@ export default function EventDetails() {
                     </div>
                     <div className="pt-8">
                       <p className="text-black text-[1rem] leading-6 font-sans font-semibold">
-                        {selectedEvent.description[0]}
+                        {selectedEvent.description[position]}
                       </p>
                     </div>
                   </div>
@@ -160,14 +161,18 @@ export default function EventDetails() {
                 <div className="pt-8 z-[61]">
                   <MainButton
                     href="#"
-                    content="GET TICKETS"
+                    content={
+                      language === 'en' ? 'GET TICKETS' : 'COMPRE SEU INGRESSO'
+                    }
                     bg="black"
                     font="white"
                   />
                 </div>
               )}
               <h1 className="font-changa text-[1.5rem] leading-10 font-extrabold text-black pt-12">
-                Plus, join us for...
+                {language === 'en'
+                  ? 'Plus, join us for...'
+                  : 'Além disso, junte-se a nós para...'}
               </h1>
               <div className="pt-8 md:grid md:grid-cols-2 md:gap-4">
                 {events &&

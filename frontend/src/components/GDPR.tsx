@@ -19,13 +19,13 @@ export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
         </div> */}
         <div className="pl-8 pt-12 pr-8">
           {language === 'en' ? (
-            <p className="pt-0 pb-7 text-black text-[1rem] leading-5 font-sans font-normal">
+            <p className="pt-0 pb-7 text-black text-[1rem] md:text-[1.25rem] leading-5 md:leading-6 font-sans font-normal">
               We use cookies to provide necessary site functionality and improve
               your experience. By browsing our website, you consent to our use
               of cookies.
             </p>
           ) : (
-            <p className="pt-0 pb-7 text-black text-[1rem] leading-5 font-sans font-normal">
+            <p className="pt-0 pb-7 text-black text-[1rem] md:text-[1.25rem] leading-5 md:leading-6 font-sans font-normal">
               Usamos cookies para fornecer as funcionalidades necessárias do
               site e melhorar sua experiência. Ao navegar no nosso site, você
               concorda com o uso de cookies.
@@ -35,7 +35,7 @@ export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
         <div className="mx-4 h-max">
           <div
             onClick={() => props.setShowGDPR(addCookieAuth())}
-            className={`flex justify-center bg-black no-underline cursor-pointer`}
+            className={`flex justify-center bg-black no-underline cursor-pointer text-changa`}
           >
             <p
               className={`text-white text-center text-[1rem] leading-5 uppercase font-extrabold w-full p-5`}

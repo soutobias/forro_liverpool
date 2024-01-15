@@ -64,7 +64,7 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
           <span
             className={`${styles.slider} ${styles.slider_animation}`}
           ></span>
-          <div className="absolute z-[60] flex gap-6 -mt-[0.75rem] pl-3 text-gray-200">
+          <div className="absolute z-[60] flex gap-8 -mt-[0.75rem] text-[1rem] pl-3 text-gray-200 font-changa">
             <div className={language === 'en' ? 'text-black' : ''}>EN</div>
             <div className={language === 'pt' ? 'text-black' : ''}>PT</div>
           </div>
@@ -98,8 +98,8 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
               src={forroLogo}
               alt="illustration"
               className="overflow-hidden"
-              width={100}
-              height={100}
+              width={200}
+              height={200}
               style={{ maxWidth: '7rem' }}
             />
           </Link>

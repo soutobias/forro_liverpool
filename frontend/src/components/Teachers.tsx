@@ -17,7 +17,7 @@ export function Teachers() {
     if (language === 'en') {
       setUrl('api/v1/festival_teachers')
     } else {
-      setUrl('api/v1/festival_teachers_translations')
+      setUrl('api/v1/festival_teacher_translations')
     }
   }, [language])
 
@@ -33,7 +33,14 @@ export function Teachers() {
       className={`pb-[15rem] md:pb-[25rem] md:px-[8.5rem] font-changa ${styles.blackBg}`}
     >
       <div className="pt-16 pb-10 text-center">
-        <H1 color="white" text="Amazing teachers & musicians" />
+        <H1
+          color="white"
+          text={
+            language === 'en'
+              ? 'Amazing teachers & musicians'
+              : 'Professores e músicos incríveis'
+          }
+        />
       </div>
       <div>
         <div className="p-4 flex gap-4 overflow-x-auto no-scrollbar">
@@ -83,12 +90,17 @@ export function Teachers() {
         </div>
       </div>
       <div className="pl-4 pr-4 pt-8 md:hidden">
-        <MainButton href="#" content="GET TICKETS" bg="white" font="black" />
+        <MainButton
+          href="#"
+          content={language === 'en' ? 'GET TICKETS' : 'TICKETS'}
+          bg="white"
+          font="black"
+        />
       </div>
       <div className="pl-4 pr-4 pt-8 md:flex md:justify-center hidden">
         <MainButton
           href="#"
-          content="GET TICKETS"
+          content={language === 'en' ? 'GET TICKETS' : 'TICKETS'}
           bg="white"
           font="black"
           width="50%"

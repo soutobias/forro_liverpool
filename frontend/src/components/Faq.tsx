@@ -27,7 +27,7 @@ export function Faq(props: { isFestival: boolean }) {
     if (language === 'en') {
       setUrl('api/v1/questions')
     } else {
-      setUrl('api/v1/questions_translations')
+      setUrl('api/v1/question_translations')
     }
   }, [language])
 
@@ -54,9 +54,9 @@ export function Faq(props: { isFestival: boolean }) {
     >
       <h1 className="pt-0 pb-12 text-[2rem] leading-10 font-extrabold">FAQ</h1>
       {filteredQuestions &&
-        filteredQuestions.map((item: any) => (
+        filteredQuestions.map((item: any, index: number) => (
           <FaqQuestion
-            key={item.id}
+            key={index}
             question={item.question}
             answer={item.answer}
           />

@@ -5,7 +5,7 @@ import { HeroLFF } from '@/components/HeroLFF'
 import { Faq } from '@/components/Faq'
 import { Navbar } from '@/components/NavBar'
 // import { FrameImportant } from '@/components/FrameImportant'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { GDPR } from '@/components/GDPR'
 import { getCookieAuth } from '@/lib/handleCookie'
 import { Footer } from '@/components/Footer'
@@ -19,6 +19,7 @@ import { GetTickets } from '@/components/GetTickets'
 import { fetchApi } from '@/lib/api'
 import { useLanguage } from '@/lib/language'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 export interface keyable {
   [key: string]: any
@@ -32,13 +33,47 @@ export default function Home() {
 
   const { language } = useLanguage()
 
+  useEffect(() => {
+    setTimeout(() => {
+      const hash = window.location.hash
+      if (hash) {
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    }, 300)
+  }, [])
+
   const [urlFestival, setUrlFestival] = useState<string>('')
+
+  const [isNotVisible, setIsNotVisible] = useState(false)
+  const targetRef = useRef(null)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        setIsNotVisible(!entry.isIntersecting)
+      },
+      { threshold: 0.1 },
+    ) // Adjust the threshold as needed
+
+    if (targetRef.current) {
+      observer.observe(targetRef.current)
+    }
+
+    return () => {
+      if (targetRef.current) {
+        observer.unobserve(targetRef.current)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     if (language === 'en') {
       setUrlFestival('api/v1/sitefestivals')
     } else {
-      setUrlFestival('api/v1/sitefestival_translations')
+      setUrlFestival('api/v1/site_festival_translations')
     }
   }, [language])
 
@@ -49,7 +84,8 @@ export default function Home() {
   }, [urlFestival])
 
   useEffect(() => {
-    setShowGDPR(getCookieAuth())
+    setShowGDPR(false)
+    // setShowGDPR(getCookieAuth())
     setHasMounted(true)
   }, [])
 
@@ -79,7 +115,7 @@ export default function Home() {
         {/* <LiverpoolEvents /> */}
         <Faq isFestival={true} />
         <Footer siteFestival={siteFestival} />
-        {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
+        {/* {showGDPR && <GDPR setShowGDPR={setShowGDPR} />} */}
         {/* {Object.keys(showEvent).length > 0 && (
         <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
       )} */}

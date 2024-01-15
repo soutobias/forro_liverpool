@@ -6,7 +6,7 @@ import { ClassEvents } from '@/components/ClassEvents'
 import { Community } from '@/components/Community'
 import { Navbar } from '@/components/NavBar'
 import { FrameImportant } from '@/components/FrameImportant'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { GDPR } from '@/components/GDPR'
 import { getCookieAuth } from '@/lib/handleCookie'
 import { ClassEvent } from '@/components/ClassEvent'
@@ -33,13 +33,36 @@ export default function Home() {
   const [url, setUrl] = useState<string>('')
   const [urlFestival, setUrlFestival] = useState<string>('')
 
+  const [isNotVisible, setIsNotVisible] = useState(false)
+  const targetRef = useRef(null)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        console.log('Is intersecting:', entry.isIntersecting)
+        setIsNotVisible(!entry.isIntersecting)
+      },
+      { threshold: 0.1 },
+    ) // Adjust the threshold as needed
+    console.log(observer)
+    if (targetRef.current) {
+      observer.observe(targetRef.current)
+    }
+
+    return () => {
+      if (targetRef.current) {
+        observer.unobserve(targetRef.current)
+      }
+    }
+  }, [])
+
   useEffect(() => {
     if (language === 'en') {
       setUrl('api/v1/sites')
       setUrlFestival('api/v1/sitefestivals')
     } else {
       setUrl('api/v1/site_translations')
-      setUrlFestival('api/v1/sitefestival_translations')
+      setUrlFestival('api/v1/site_festival_translations')
     }
   }, [language])
 
@@ -53,6 +76,15 @@ export default function Home() {
   useEffect(() => {
     setShowGDPR(getCookieAuth())
     setHasMounted(true)
+    setTimeout(() => {
+      const hash = window.location.hash
+      if (hash) {
+        const element = document.querySelector(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    }, 300)
   }, [])
 
   if (!hasMounted) {
@@ -73,9 +105,9 @@ export default function Home() {
       >
         <FrameImportant site={site} />
         {siteFestival && (
-          <>
+          <div ref={targetRef}>
             <Navbar siteFestival={siteFestival} />
-          </>
+          </div>
         )}
         <Hero site={site} />
         <ClassEvents setShowEvent={setShowEvent} />
@@ -85,7 +117,7 @@ export default function Home() {
         {Object.keys(showEvent).length > 0 && (
           <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
         )}
-        <UpButton />
+        {isNotVisible && <UpButton />}
       </div>
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
     </>

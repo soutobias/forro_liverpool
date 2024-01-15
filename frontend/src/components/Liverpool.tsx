@@ -49,9 +49,9 @@ export function Liverpool() {
             Getting to Liverpool
           </h2>
           {showLiverpool &&
-            showLiverpool.map((item: any) => (
+            showLiverpool.map((item: any, index: number) => (
               <FaqQuestion
-                key={item.id}
+                key={index}
                 question={item.question}
                 answer={item.answer}
               />

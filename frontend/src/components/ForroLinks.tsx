@@ -24,6 +24,23 @@ export function ForroLinks(props: {
     }
   }, [language])
 
+  function scrollToSection(e: any) {
+    props.setDropdown && props.setDropdown(false)
+    const href = e.currentTarget.getAttribute('href')
+    if (href) {
+      if (href.split('#')[0] === window.location.pathname) {
+        e.preventDefault()
+        const offsetTop = document.querySelector(
+          `#${href.split('#')[1]}`,
+        ).offsetTop
+
+        window.scroll({
+          top: offsetTop,
+          behavior: 'smooth',
+        })
+      }
+    }
+  }
   const LanguageToogle = useMemo(() => {
     function handleChangeLanguage() {
       if (language === 'en') {
@@ -43,7 +60,7 @@ export function ForroLinks(props: {
           <span
             className={`${styles.slider} ${styles.slider_animation}`}
           ></span>
-          <div className="absolute z-[60] flex gap-6 -mt-[0.75rem] pl-3 text-gray-200">
+          <div className="absolute z-[60] flex gap-8 -mt-[0.75rem] text-[1rem] pl-3 text-gray-200 font-changa">
             <div className={language === 'en' ? 'text-black' : ''}>EN</div>
             <div className={language === 'pt' ? 'text-black' : ''}>PT</div>
           </div>
@@ -61,7 +78,7 @@ export function ForroLinks(props: {
               <Link
                 href="/"
                 className="text-2xl no-underline h-full w-full cursor-pointer"
-                onClick={() => props.setDropdown && props.setDropdown(false)}
+                onClick={scrollToSection}
               >
                 <Image
                   src={forroLogo}
@@ -76,7 +93,7 @@ export function ForroLinks(props: {
               <Link
                 href="/#classes-events"
                 className="text-1xl no-underline cursor-pointer p-3 md:pl-0  sm:h-full sm:w-full md:h-max md:w-max"
-                onClick={() => props.setDropdown && props.setDropdown(false)}
+                onClick={scrollToSection}
               >
                 {props.siteFestival && props.siteFestival[0].navbar[1]}
               </Link>
@@ -85,7 +102,7 @@ export function ForroLinks(props: {
               <Link
                 href="/#community"
                 className="text-1xl no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
-                onClick={() => props.setDropdown && props.setDropdown(false)}
+                onClick={scrollToSection}
               >
                 {props.siteFestival[0] && props.siteFestival[0].navbar[2]}
               </Link>
@@ -96,7 +113,7 @@ export function ForroLinks(props: {
               <Link
                 href="/lff2024"
                 className="text-2xl no-underline cursor-pointer"
-                onClick={() => props.setDropdown && props.setDropdown(false)}
+                onClick={scrollToSection}
               >
                 <Image
                   src={LFFforroLogo}
@@ -121,7 +138,7 @@ export function ForroLinks(props: {
               <Link
                 href="/lff2024#teachers"
                 className="text-1xl no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
-                onClick={() => props.setDropdown && props.setDropdown(false)}
+                onClick={scrollToSection}
               >
                 {props.siteFestival[0] && props.siteFestival[0].navbar[5]}
               </Link>
@@ -130,7 +147,7 @@ export function ForroLinks(props: {
               <Link
                 href="/lff2024#program"
                 className="text-1xl no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
-                onClick={() => props.setDropdown && props.setDropdown(false)}
+                onClick={scrollToSection}
               >
                 {props.siteFestival[0] && props.siteFestival[0].navbar[6]}
               </Link>

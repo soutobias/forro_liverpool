@@ -18,12 +18,12 @@ export function GetTickets() {
           <H1 color="white" text={'Let’s forrozear!'} />
         </div>
         <div className="pl-4 pr-4 pt-8 z-[61] md:hidden">
-          <MainButton href="#" content="GET TICKETS" bg="white" font="black" />
+          <MainButton href="#" content="TICKETS" bg="white" font="black" />
         </div>
         <div className="pl-4 pr-4 pt-8 z-[61] md:flex md:justify-center hidden">
           <MainButton
             href="#"
-            content="GET TICKETS"
+            content="TICKETS"
             bg="white"
             font="black"
             width="50%"

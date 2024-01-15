@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_10_173901) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_14_212944) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_173901) do
     t.datetime "registration_end_datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type_event", default: [], array: true
+    t.string "type_event", default: "{}"
     t.text "location", default: [], null: false, array: true
     t.string "date", default: [], array: true
     t.string "time", default: [], array: true

@@ -120,18 +120,7 @@ events_data = [
   }
 ]
 
-events = events_data.map { |event_data| Event.create!(event_data) }
-
-events.each do |event|
-  5.times do
-    event_user = EventUser.new(
-      user_id: User.order('RANDOM()').limit(1)[0].id,
-      event_id: event.id,
-      relation_type: %w[booked wish].sample
-    )
-    event_user.save!
-  end
-end
+events_data.map { |event_data| Event.create!(event_data) }
 
 Site.destroy_all
 
@@ -225,7 +214,7 @@ question_translations_data = [
   }
 ]
 
-question_translations_data.map { |question_translation_data| Question.create(question_translation_data) }
+question_translations_data.map { |question_translation_data| QuestionTranslation.create(question_translation_data) }
 
 LiverpoolQuestion.destroy_all
 
@@ -304,7 +293,7 @@ sitefestival = Sitefestival.new(
 )
 sitefestival.save!
 
-Sitefestival.destroy_all
+SiteFestivalTranslation.destroy_all
 
 site_festival_translation = SiteFestivalTranslation.new(
   navbar: ['Festival de Forró de Liverpool', 'Aulas & Eventos', 'Nossa comunidade', 'Dúvidas', 'Ingressos',
