@@ -8,10 +8,10 @@ export function MainButton(props: {
   return (
     <a
       href={props.href}
-      className={`flex justify-center bg-${props.bg} no-underline w-[${props.width}]`}
+      className={`flex justify-center bg-${props.bg} no-underline w-[${props.width}] font-changa`}
     >
       <p
-        className={`text-${props.font} text-center text-[1rem] leading-5 uppercase font-extrabold w-full p-5`}
+        className={`text-${props.font} text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 uppercase font-extrabold w-full p-5`}
       >
         {props.content}
       </p>

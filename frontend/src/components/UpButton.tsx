@@ -1,3 +1,4 @@
+import { UpButtonIcon } from '@/assets/upButton'
 import { ArrowLineUp } from 'phosphor-react'
 
 export function UpButton() {
@@ -9,10 +10,10 @@ export function UpButton() {
   }
   return (
     <div
+      className="fixed z-[62] bottom-4 right-6 md:hidden"
       onClick={scrollToTop}
-      className="bg-yellow-500 p-3 rounded-full fixed z-[62] bottom-4 right-6 md:hidden"
     >
-      <ArrowLineUp size={44} />
+      <UpButtonIcon />
     </div>
   )
 }

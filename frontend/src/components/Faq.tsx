@@ -7,6 +7,7 @@ import styles from './Bg.module.css'
 import { useEffect, useState } from 'react'
 import { fetchApi } from '@/lib/api'
 import { keyable } from './ClassEvent'
+import { useLanguage } from '@/lib/language'
 
 interface FaqProps {
   answer?: any
@@ -16,17 +17,35 @@ interface FaqProps {
 export function Faq(props: { isFestival: boolean }) {
   const { isFestival } = props
 
-  const urlQuestions = 'api/v1/questions'
-
   const [questions, setQuestions] = useState<keyable[] | null>(null)
 
-  useEffect(() => {
-    fetchApi(urlQuestions, setQuestions)
-  }, [])
+  const { language } = useLanguage()
 
-  const filteredQuestions = questions?.filter(
-    (item) => item.is_festival === isFestival,
-  )
+  const [url, setUrl] = useState<string>('')
+
+  useEffect(() => {
+    if (language === 'en') {
+      setUrl('api/v1/questions')
+    } else {
+      setUrl('api/v1/question_translations')
+    }
+  }, [language])
+
+  useEffect(() => {
+    if (url) {
+      fetchApi(url, setQuestions)
+    }
+  }, [url])
+
+  const [filteredQuestions, setFilteredQuestions] = useState(questions)
+
+  useEffect(() => {
+    if (questions) {
+      setFilteredQuestions(
+        questions?.filter((item) => item.is_festival === isFestival),
+      )
+    }
+  }, [questions, isFestival])
 
   return (
     <div
@@ -35,9 +54,9 @@ export function Faq(props: { isFestival: boolean }) {
     >
       <h1 className="pt-0 pb-12 text-[2rem] leading-10 font-extrabold">FAQ</h1>
       {filteredQuestions &&
-        filteredQuestions.map((item: any) => (
+        filteredQuestions.map((item: any, index: number) => (
           <FaqQuestion
-            key={item.id}
+            key={index}
             question={item.question}
             answer={item.answer}
           />

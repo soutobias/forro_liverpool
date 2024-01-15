@@ -1,5 +1,6 @@
 'use client'
 
+import TicketTailorWidget from '@/components/TicketTailorWidget'
 import Link from 'next/link'
 
 export interface keyable {
@@ -12,6 +13,7 @@ export default function RegistrationSuccess() {
       <h1 className="text-[2rem] pt-[18rem] pb-0 leading-10 font-semibold">
         Congrats!
       </h1>
+      <TicketTailorWidget />
       <h1 className="text-[2rem] pt-0 leading-10 font-semibold">
         You made it to Eventbrite!
       </h1>

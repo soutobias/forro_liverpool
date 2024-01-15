@@ -8,7 +8,6 @@ module Api
       # GET /sites
       def index
         @sitefestivals = Sitefestival.all
-
         render json: @sitefestivals
       end
 

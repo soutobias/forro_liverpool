@@ -43,10 +43,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 40px;
-  width: 40px;
-  left: 4px;
-  bottom: 4px;
+  height: 42px;
+  width: 42px;
+  left: 3px;
+  bottom: 3px;
   background-color: #EAEAEA;
 }
 .slider_animation:before{
@@ -64,9 +64,9 @@ input:checked + .slider_animation:before {
 }
 input:checked + .slider:before {
   animation: slide-in .3s ease-in;
-  -webkit-transform: translateX(46px);
-  -ms-transform: translateX(46px);
-  transform: translateX(46px);
+  -webkit-transform: translateX(48px);
+  -ms-transform: translateX(48px);
+  transform: translateX(48px);
 }
 
 .turn{

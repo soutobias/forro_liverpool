@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_08_150242) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_14_212944) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_08_150242) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "community_translations", force: :cascade do |t|
+    t.text "profile"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "profile_image", default: [], array: true
+    t.string "name", default: [], array: true
   end
 
   create_table "event_users", force: :cascade do |t|
@@ -34,8 +43,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_08_150242) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.string "name", default: [], array: true
+    t.string "description", default: [], array: true
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.float "price"
@@ -43,15 +52,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_08_150242) do
     t.text "image", default: [], array: true
     t.datetime "registration_start_datetime"
     t.datetime "registration_end_datetime"
-    t.string "sell_site_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type_event"
+    t.string "type_event", default: "{}"
     t.text "location", default: [], null: false, array: true
-    t.string "date"
-    t.string "time"
+    t.string "date", default: [], array: true
+    t.string "time", default: [], array: true
     t.boolean "is_festival"
     t.boolean "is_class"
+    t.string "ticket_link"
+  end
+
+  create_table "festival_teacher_translations", force: :cascade do |t|
+    t.string "function"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+    t.string "name"
+    t.string "location"
   end
 
   create_table "festival_teachers", force: :cascade do |t|
@@ -59,6 +77,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_08_150242) do
     t.string "name"
     t.string "location"
     t.string "function"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "liverpool_question_translations", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,12 +106,43 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_08_150242) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "question_translations", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "is_festival"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "question"
     t.text "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_festival"
+  end
+
+  create_table "site_festival_translations", force: :cascade do |t|
+    t.text "navbar", default: [], array: true
+    t.string "data"
+    t.string "local"
+    t.string "textvideo"
+    t.string "titlevideo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "image", default: [], array: true
+    t.string "video"
+  end
+
+  create_table "site_translations", force: :cascade do |t|
+    t.text "title"
+    t.text "description"
+    t.text "frame"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "cover_image"
+    t.text "cover_video"
+    t.text "image", default: [], array: true
   end
 
   create_table "sitefestivals", force: :cascade do |t|
