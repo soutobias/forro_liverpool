@@ -5,9 +5,15 @@ export function MainButton(props: {
   font: any
   width?: any
 }) {
+  const buttonStyle = {
+    width: props.width || 'auto', // Use a largura fornecida ou 'auto' se não for especificada
+    // Outros estilos aqui
+  }
+
   return (
     <a
       href={props.href}
+      style={buttonStyle}
       className={`flex justify-center bg-${props.bg} no-underline w-[${props.width}] font-changa`}
     >
       <p

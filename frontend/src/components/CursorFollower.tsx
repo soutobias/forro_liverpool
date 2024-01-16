@@ -35,7 +35,7 @@ export function CursorFollower(props: { isVisible: boolean }) {
     >
       <MainButton
         href="/lff2024/tickets"
-        content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+        content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
         bg="white"
         font="black"
       />

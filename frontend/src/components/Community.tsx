@@ -59,7 +59,7 @@ export function Community() {
                   key={1}
                   image={community[0].profile_image[1]}
                   name={community[0].name[1]}
-                  action={language === 'en' ? 'Teacher' : 'Professor'}
+                  action={language === 'en' ? 'Teacher' : 'Professora'}
                 />
               </div>
             </div>

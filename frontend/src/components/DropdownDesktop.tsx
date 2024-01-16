@@ -110,7 +110,7 @@ export function DropdownDesktop(props: {
               <div className="flex justify-center md:pl-0 no-underline rounded-lg">
                 <MainButton
                   href="/lff2024/tickets"
-                  content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+                  content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
                   bg="white"
                   font="black"
                 />

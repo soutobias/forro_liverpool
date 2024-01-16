@@ -65,7 +65,7 @@ export function Teachers() {
               text={
                 language === 'en'
                   ? 'Amazing teachers & musicians'
-                  : 'Professores e músicos incríveis'
+                  : 'Professores e bandas incríveis'
               }
             />
           </div>
@@ -78,7 +78,12 @@ export function Teachers() {
               {teachers &&
                 teachers
                   .filter(
-                    (item: any) => item.function === 'Teacher' || 'Professor',
+                    (item: any) =>
+                      item.function === 'Teacher' ||
+                      item.function === 'Professor' ||
+                      item.function === 'Professora' ||
+                      item.function === 'Professores' ||
+                      item.function === 'Teachers',
                   )
                   .map((item) => (
                     <TeacherCard
@@ -99,7 +104,9 @@ export function Teachers() {
               {teachers.length > 0 &&
                 teachers
                   .filter(
-                    (item: any) => item.function === 'Teacher' || 'Professor',
+                    (item: any) =>
+                      item.function === 'Banda' ||
+                      item.function === 'Live Band',
                   )
                   .map((item) => (
                     <TeacherCard
@@ -119,9 +126,7 @@ export function Teachers() {
             >
               {teachers &&
                 teachers
-                  .filter(
-                    (item: any) => item.function === 'Teacher' || 'Professor',
-                  )
+                  .filter((item: any) => item.function === 'DJ')
                   .map((item) => (
                     <TeacherCard
                       key={item.id}
@@ -137,7 +142,7 @@ export function Teachers() {
           <div className="pl-4 pr-4 pt-8 md:hidden">
             <MainButton
               href="lff2024/tickets"
-              content={language === 'en' ? 'GET TICKETS' : 'INGRESSOS'}
+              content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
               bg="white"
               font="black"
             />
@@ -145,10 +150,10 @@ export function Teachers() {
           <div className="pl-4 pr-4 pt-8 md:flex md:justify-center hidden">
             <MainButton
               href="lff2024/tickets"
-              content={language === 'en' ? 'GET TICKETS' : 'INGRESSOS'}
+              content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
               bg="white"
               font="black"
-              width="50%"
+              width="457px"
             />
           </div>
         </>

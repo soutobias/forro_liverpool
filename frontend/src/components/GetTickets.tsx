@@ -33,7 +33,7 @@ export function GetTickets() {
         <div className="pl-4 pr-4 pt-8 z-[61] md:hidden">
           <MainButton
             href="/lff2024/tickets"
-            content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+            content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
             bg="white"
             font="black"
           />
@@ -42,10 +42,10 @@ export function GetTickets() {
           <MainButton
             key={keyForRerender}
             href="/lff2024/tickets"
-            content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+            content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
             bg="white"
             font="black"
-            width="50%"
+            width="457px"
           />
         </div>
         <Image

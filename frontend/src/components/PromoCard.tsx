@@ -2,6 +2,7 @@ export function PromoCard(props: {
   title: string
   description: string
   code: string
+  observation?: string
 }) {
   return (
     <div className="m-2 h-[15rem] rounded-2xl border-blue-200 border-2 text-center">
