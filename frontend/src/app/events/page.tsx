@@ -143,7 +143,7 @@ export default function EventDetails() {
                           {selectedEvent.date[position]}
                         </div>
                         <div className="bg-pink-400 uppercase text-white w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
-                          &pound;{selectedEvent.price}
+                          {selectedEvent.price}
                         </div>
                       </div>
                       <div>
