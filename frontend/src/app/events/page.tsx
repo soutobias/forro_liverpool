@@ -186,9 +186,7 @@ export default function EventDetails() {
                 <div className="pt-8 z-[61]">
                   <MainButton
                     href="/lff2024/tickets"
-                    content={
-                      language === 'en' ? 'GET TICKETS' : 'COMPRE SEU INGRESSO'
-                    }
+                    content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
                     bg="black"
                     font="white"
                   />

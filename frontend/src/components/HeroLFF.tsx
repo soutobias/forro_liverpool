@@ -100,17 +100,17 @@ export function HeroLFF(props: { siteFestival: any }) {
               <MainButton
                 key={keyForRerender}
                 href="/lff2024/tickets"
-                content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+                content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
                 bg="white"
                 font="black"
-                width="50%"
+                width="457px"
               />
             </div>
             <div className="md:hidden">
               <MainButton
                 key={keyForRerender}
                 href="/lff2024/tickets"
-                content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+                content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
                 bg="white"
                 font="black"
               />

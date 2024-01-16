@@ -40,7 +40,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
         <div className="pt-[10rem] md:pt-[25rem] pb-12 text-center">
           <H1
             color="white"
-            text={language === 'en' ? '3 days of dance!' : '3 dias de dança!'}
+            text={language === 'en' ? '3 Days of Dance!' : '3 Dias de Dança!'}
           />
         </div>
         <div className="">
@@ -57,7 +57,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
           ) : (
             <div className="">
               <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-16">
-                {language === 'en' ? 'Friday 10th' : 'Sexta-feira, dia 10'}
+                {language === 'en' ? 'Friday, 10 May' : 'Sexta-feira, dia 10'}
               </h2>
               <div className="block h-max gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
                 {events.map((event: any) => (
@@ -69,7 +69,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
                 ))}
               </div>
               <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-16">
-                {language === 'en' ? 'Saturday 11th' : 'Sábado, dia 11'}
+                {language === 'en' ? 'Saturday, 11 May' : 'Sábado, dia 11'}
               </h2>
               <div className="block gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
                 {events.map((event: any) => (
@@ -81,7 +81,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
                 ))}
               </div>
               <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-16">
-                {language === 'en' ? 'Sunday 12th' : 'Domingo, dia 12'}
+                {language === 'en' ? 'Sunday, 12 May' : 'Domingo, dia 12'}
               </h2>
               <div className="block gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
                 {events.map((event: any) => (

@@ -27,7 +27,7 @@ export function Hero(props: HeroProps) {
                 content={
                   language === 'en'
                     ? 'Come dance with us'
-                    : 'Vem dançar com a gente'
+                    : 'Bora dançar com a gente'
                 }
                 bg="black"
                 font="white"

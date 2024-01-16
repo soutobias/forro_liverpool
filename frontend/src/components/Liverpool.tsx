@@ -5,6 +5,8 @@ import { fetchApi } from '@/lib/api'
 import { useEffect, useState } from 'react'
 import { keyable } from './ClassEvent'
 import { useLanguage } from '@/lib/language'
+import { PromoCard } from './PromoCard'
+import { Link } from 'phosphor-react'
 
 export function Liverpool() {
   const [showLiverpool, setShowLiverpool] = useState<keyable[] | null>(null)
@@ -43,10 +45,23 @@ export function Liverpool() {
           />
         </div>
         {/* <PromoCard
-        title="Special offer!"
-        description="Save 30% on accomodation at Selina Liverpool!"
-        code="Use code FORRO30 on Selina.com to take advantage of this special offer for Liverpool Forró Festival 2024 attendees!"
-      /> */}
+          title={language === 'en' ? 'Special Offer!' : 'Promoção'}
+          description={
+            language === 'en'
+              ? 'Save 30% on accomodation at Selina Liverpool!'
+              : 'Desconto de 30% na sua estadia com Selina!'
+          }
+          code={
+            language === 'en'
+              ? 'Use code FORRO30 on Selina.com to take advantage of this special offer for Liverpool Forró Festival 2024 attendees!'
+              : 'Use o código FORRO30 em Selina.com pra aproveitar essa oferta especial para participantes do Festival.'
+          }
+          observation={
+            language === 'en'
+              ? 'Limited to first 50 guests.'
+              : 'Apenas para os 50 primeiros inscritos'
+          }
+        /> */}
         <div>
           <h2 className="text-center font-changa text-[1.5rem] leading-6 md:leading-8 md:text-[2rem] font-extrabold pl-2 pt-1 md:pt-10 pb-8 md:text-left md:pb-20">
             {language === 'en'

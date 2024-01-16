@@ -58,7 +58,7 @@ export function CursorTrail(props: { isVisible: boolean }) {
         >
           <MainButton
             href="/lff2024/tickets"
-            content={language === 'en' ? 'TICKETS' : 'INGRESSOS'}
+            content={language === 'en' ? 'Get tickets' : 'Ingressos'}
             bg="white"
             font="black"
           />
