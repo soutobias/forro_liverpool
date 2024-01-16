@@ -1,7 +1,7 @@
 import { H1 } from './H1'
 import { MainButton } from './MainButton'
 import { TeacherCard } from './TeacherCard'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { fetchApi } from '@/lib/api'
 import styles from './Bg.module.css'
 import { keyable } from './ClassEvent'
@@ -27,16 +27,39 @@ export function Teachers() {
     }
   }, [url])
 
-  console.log(teachers, 'teachers')
+  const scrollContainerRef1 = useRef(null)
+  const scrollContainerRef2 = useRef(null)
+  const scrollContainerRef3 = useRef(null)
+
+  const handleMouseEnter = (e: any, ref: any) => {
+    const speed = 10 // Adjust this value for different scrolling speeds
+    const element = ref.current
+
+    const move = (e: any) => {
+      const containerWidth = element.offsetWidth
+      const positionX = e.clientX - element.getBoundingClientRect().left
+      const scrollAmount = (positionX / containerWidth - 0.5) * 2 // Adjust scroll direction and speed
+
+      element.scrollLeft += scrollAmount * speed
+    }
+
+    element.addEventListener('mousemove', move)
+
+    const handleMouseLeave = () => {
+      element.removeEventListener('mousemove', move)
+    }
+
+    element.addEventListener('mouseleave', handleMouseLeave)
+  }
 
   return (
     <div
       id="teachers"
-      className={`pb-[15rem] md:pb-[25rem] md:px-[8.5rem] font-changa ${styles.blackBg}`}
+      className={`pb-[15rem] md:pb-[25rem] font-changa ${styles.blackBg}`}
     >
       {teachers && (
         <>
-          <div className="pt-16 pb-10 text-center">
+          <div className="pt-16 pb-10 text-center md:px-[8.5rem]">
             <H1
               color="white"
               text={
@@ -47,7 +70,11 @@ export function Teachers() {
             />
           </div>
           <div>
-            <div className="p-4 flex gap-4 overflow-x-auto no-scrollbar">
+            <div
+              className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+              ref={scrollContainerRef1}
+              onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef1)}
+            >
               {teachers &&
                 teachers
                   .filter(
@@ -64,7 +91,11 @@ export function Teachers() {
                     />
                   ))}
             </div>
-            <div className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse">
+            <div
+              className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
+              ref={scrollContainerRef2}
+              onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
+            >
               {teachers.length > 0 &&
                 teachers
                   .filter(
@@ -81,7 +112,11 @@ export function Teachers() {
                     />
                   ))}
             </div>
-            <div className="p-4 flex gap-4 overflow-x-auto no-scrollbar">
+            <div
+              className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+              ref={scrollContainerRef3}
+              onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
+            >
               {teachers &&
                 teachers
                   .filter(

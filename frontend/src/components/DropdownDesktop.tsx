@@ -1,15 +1,18 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useMemo, useState } from 'react'
-import styles from './NavBar.module.css'
+import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/language'
 import { MainButton } from './MainButton'
+import stylesLocal from './DropDownDesktop.module.css'
 import { FLLogoForroLinks } from '@/assets/fl_logo_forro_links'
-import { LFFLogoForroLinks } from '@/assets/lff_logo_forro_links'
-export function ForroLinks(props: {
-  setDropdown?: (dropDown: boolean) => void
+import { LFFLogoForroLinksWhite } from '@/assets/lff_logo_forro_links_white'
+
+export function DropdownDesktop(props: {
+  setDropdown: (dropDown: boolean) => void
   siteFestival: any
+  slideOutBottom: boolean
+  slideOutTop: boolean
 }) {
   const [isChecked, setIsChecked] = useState(false)
 
@@ -39,50 +42,32 @@ export function ForroLinks(props: {
       }
     }
   }
-  const LanguageToogle = useMemo(() => {
-    function handleChangeLanguage() {
-      if (language === 'en') {
-        setLanguage('pt')
-      } else {
-        setLanguage('en')
-      }
-    }
-    return (
-      <div className="text-[1rem] font-extrabold leading-6 uppercase pt-3">
-        <label className={`${styles.switch} relative`}>
-          <input
-            type="checkbox"
-            checked={isChecked}
-            onChange={handleChangeLanguage}
-          />
-          <span
-            className={`${styles.slider} ${styles.slider_animation}`}
-          ></span>
-          <div className="absolute z-[60] flex gap-8 -mt-[0.75rem] text-[1rem] pl-3 text-gray-200 font-changa">
-            <div className={language === 'en' ? 'text-black' : 'text-white'}>
-              EN
-            </div>
-            <div className={language === 'pt' ? 'text-black' : 'text-white'}>
-              PT
-            </div>
-          </div>
-        </label>
-      </div>
-    )
-  }, [language, isChecked, setLanguage])
 
   return (
-    <div className="pt-12 text-center font-extrabold font-changa text-[1.25rem] text-black md:text-[1.5rem] leading-6 md:leading-8 px-4 md:px-[6rem] xl:px-[8.5rem]">
+    <div className="absolute w-screen h-screen z-[61] text-center font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8 left-0">
       {props.siteFestival && (
-        <div className="md:flex md:justify-between">
-          <div>
+        <div className="w-screen flex h-full">
+          <div
+            className={`${
+              props.slideOutTop
+                ? stylesLocal.slide_in_top1
+                : stylesLocal.slide_in_top
+            } w-[50%] bg-yellow-500 h-full  flex flex-col pt-[10%] pl-[10%]`}
+          >
             <div className="pt-0 flex md:justify-start">
               <Link
                 href="/"
                 className="text-2xl no-underline h-full w-full cursor-pointer"
                 onClick={scrollToSection}
               >
-                <FLLogoForroLinks width="179" height="94" />
+                <FLLogoForroLinks />
+                {/* <Image
+                  src={forroLogo}
+                  alt="illustration"
+                  className="overflow-hidden"
+                  width={292}
+                  height={153}
+                /> */}
               </Link>
             </div>
             <div className="pt-6 flex md:justify-start justify-center">
@@ -104,14 +89,20 @@ export function ForroLinks(props: {
               </Link>
             </div>
           </div>
-          <div>
+          <div
+            className={`${
+              props.slideOutBottom
+                ? stylesLocal.slide_in_bottom1
+                : stylesLocal.slide_in_bottom
+            } w-[50%] bg-black text-white h-full flex flex-col pt-[10%] pl-[10%]`}
+          >
             <div className="pt-[3.5rem] md:pt-0">
               <Link
                 href="/lff2024"
-                className="text-2xl no-underline cursor-pointer"
+                className="text-2xl no-underline cursor-pointer text-white"
                 onClick={scrollToSection}
               >
-                <LFFLogoForroLinks width="179" height="94" color="#201E1E" />
+                <LFFLogoForroLinksWhite />
               </Link>
             </div>
 
@@ -144,7 +135,6 @@ export function ForroLinks(props: {
               </Link>
             </div>
           </div>
-          <div className="hidden md:block">{LanguageToogle}</div>
         </div>
       )}
     </div>

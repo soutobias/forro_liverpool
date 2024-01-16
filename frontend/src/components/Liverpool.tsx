@@ -32,7 +32,7 @@ export function Liverpool() {
       className={`pb-[15rem] md:pb-[25rem] text-white relative ${styles.blackBg}`}
     >
       <div
-        className={`absolute -top-[10rem] md:-top-[25rem] w-full h-[20rem] md:h-[45rem] ${styles.circlesBg1}`}
+        className={`absolute -top-[10rem] md:-top-[14rem] lg:-top-[16rem] xl:-top-[19rem]  2xl:-top-[20rem] w-full min-h-[20rem] md:min-h-[25rem] lg:min-h-[30rem] xl:min-h-[35rem] 2xl:min-h-[40rem] ${styles.circlesBg1}`}
       />
       <div className="px-4 md:px-[23.25rem] ">
         <div className="pt-[13rem] md:pt-[25rem] pb-10 text-center">
@@ -48,7 +48,7 @@ export function Liverpool() {
         code="Use code FORRO30 on Selina.com to take advantage of this special offer for Liverpool Forró Festival 2024 attendees!"
       /> */}
         <div>
-          <h2 className="text-center font-changa text-[1.5rem] leading-8 font-extrabold pl-2 pt-1 md:pt-10 pb-8 md:text-left md:pb-20">
+          <h2 className="text-center font-changa text-[1.5rem] leading-6 md:leading-8 md:text-[2rem] font-extrabold pl-2 pt-1 md:pt-10 pb-8 md:text-left md:pb-20">
             {language === 'en'
               ? 'Getting to Liverpool'
               : 'Como chegar em Liverpool'}

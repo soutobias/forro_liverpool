@@ -126,6 +126,7 @@
   .circlesBg2{
     background-image: url('/images/Images-LFF-CirclesBorder.png');
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: left 50% top 0%;
   }
 

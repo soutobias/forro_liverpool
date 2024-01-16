@@ -13,6 +13,9 @@ module.exports = {
         'fadeInOut-300': 'fadeInOut 2s 300ms infinite',
         'spin-slow': 'spin 3s linear infinite',
       },
+      boxShadow: {
+        custom: '0px 0px 8px 0px rgba(32, 30, 30, 0.40)',
+      },
       keyframes: {
         fadeInOut: {
           '0%': { opacity: '0' },

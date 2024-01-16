@@ -19,6 +19,7 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Head from 'next/head'
 import { useLanguage } from '@/lib/language'
+import { H1 } from '@/components/H1'
 
 export default function EventDetails() {
   const [events, setEvents] = useState<keyable[]>([])
@@ -135,9 +136,7 @@ export default function EventDetails() {
                 />
                 <div className="pt-7 pb-8">
                   <div className="pt-0">
-                    <h1 className="font-changa text-[2rem] leading-10 font-extrabold text-black">
-                      {selectedEvent.name[position]}
-                    </h1>
+                    <H1 color="black" text={selectedEvent.name[position]} />
                     <div className="flex gap-16 justify-between w-full pb-6 pt-7">
                       <div className="">
                         <div className="bg-pink-400 uppercase text-white mb-4 w-max pl-3 font-bold pr-3 rounded-2xl text-[1rem] font-sans">
@@ -152,7 +151,7 @@ export default function EventDetails() {
                           <div>
                             <div className="flex text-black">
                               <LocationMarker />
-                              <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-bold text-[1rem] font-sans">
+                              <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-extrabold text-[1rem] md:text-[1.25rem] font-sans">
                                 <Link
                                   href={selectedEvent.location[2]}
                                   target="_blank"
@@ -164,10 +163,10 @@ export default function EventDetails() {
                               </div>
                             </div>
                             <div className="ml-4 mt-2 text-black">
-                              <div className="text-black leading-4 pl-0 mt-1 font-normal text-[1rem] font-sans">
+                              <div className="text-black leading-4 pl-0 mt-1 font-semibold text-[1rem] md:text-[1.25rem] font-sans">
                                 {selectedEvent.location[1]}
                               </div>
-                              <div className="text-black leading-4 pl-0 mt-1 pt-3 font-normal text-[1rem] font-sans">
+                              <div className="text-black leading-4 pl-0 mt-1 pt-3 font-semibold text-[1rem]  md:text-[1.25rem] font-sans">
                                 {selectedEvent.time[position]}
                               </div>
                             </div>
@@ -176,7 +175,7 @@ export default function EventDetails() {
                       </div>
                     </div>
                     <div className="pt-8">
-                      <p className="text-black text-[1rem] leading-6 font-sans font-semibold">
+                      <p className="text-black text-[1rem] md:text-[1.25rem] leading-6 font-sans font-semibold">
                         {selectedEvent.description[position]}
                       </p>
                     </div>

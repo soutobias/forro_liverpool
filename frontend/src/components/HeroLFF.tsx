@@ -7,16 +7,27 @@ import CrossWalk1 from '../assets/images-lff-crosswalk-1.png'
 import { MainButton } from './MainButton'
 import { Scroll } from '@/assets/scroll'
 import { useLanguage } from '@/lib/language'
+import { CursorFollower } from './CursorFollower'
+import { CursorTrail } from './CursorTrail'
+import { useState } from 'react'
 
 export function HeroLFF(props: { siteFestival: any }) {
   const { language } = useLanguage()
   const keyForRerender = language
+  const [isCursorInDiv, setIsCursorInDiv] = useState(false)
+
   return (
-    <div className={`w-full z-[59] font-changa relative ${styles.blackBg}`}>
+    <div
+      className={`w-full z-[59] font-changa relative ${styles.blackBg}`}
+      onMouseEnter={() => setIsCursorInDiv(true)}
+      onMouseLeave={() => setIsCursorInDiv(false)}
+    >
+      {/* <CursorFollower isVisible={isCursorInDiv} /> */}
+      <CursorTrail isVisible={isCursorInDiv} />
       <div className="pt-[6.75rem]">
         <div>
           <div className="flex justify-center pl-4 pr-4">
-            <div className="hidden md:flex md:justify-around md:items-center uppercase w-full 2xl:w-[80%]">
+            <div className="hidden sm:flex sm:justify-around sm:items-center uppercase w-full 2xl:w-[80%]">
               {props.siteFestival && (
                 <div className="block">
                   <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">

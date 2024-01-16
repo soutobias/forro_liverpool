@@ -14,7 +14,7 @@ export function Dropdown(props: {
   siteFestival: any
 }) {
   return (
-    <div className="absolute bg-yellow-500 w-full z-20 pb-20">
+    <div className="absolute bg-yellow-500 w-full z-20 pb-20 border-0 border-opacity-0">
       <ForroLinks
         setDropdown={props.setDropdown}
         siteFestival={props.siteFestival}

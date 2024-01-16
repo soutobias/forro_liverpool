@@ -2,11 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes fadeOutTrail {
+  to {
+    opacity: 0;
+    transform: scale(0.5);  /* Optional: makes the trail shrink */
+  }
+}
+
 body{
   background-image: url('/images/BG-512px-White.jpg');
   background-repeat: repeat;
   background-color: lightgray;
   color: #201E1E;
+}
+.no-scroll {
+  overflow: hidden;
+}
+
+.cursor-trail {
+  /* Define size, color, etc. */
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 1s, transform 1s;
+}
+
+.cursor-trail {
+  animation: fadeOutTrail 1s forwards;
 }
 
 /* .widget_header{

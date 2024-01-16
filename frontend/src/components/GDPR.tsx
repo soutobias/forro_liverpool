@@ -7,7 +7,7 @@ export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
 
   return (
     <div
-      className={`w-full z-[64] bottom-0 fixed pointer-events-auto opacity-100 ${styles.begeBg}`}
+      className={`w-full shadow-custom md:w-[50%] md:p-10 md:flex md:justify-center z-[64] md:bottom-[25%] md:left-[25%] bottom-0 fixed pointer-events-auto opacity-100 ${styles.begeBg}`}
     >
       <div className="pb-12">
         {/* <div className="flex justify-end">

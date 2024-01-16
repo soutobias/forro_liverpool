@@ -4,15 +4,15 @@
 }
 
 @keyframes slide-out {
-  0% { transform: translateX(46px); }
+  0% { transform: translateX(42px); }
   100% { transform: translateX(0); }
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 96px;
-  height: 48px;
+  width: 94px;
+  height: 47px;
   transition: all .3s ease-in-out;
 }
 
@@ -45,8 +45,8 @@
   content: "";
   height: 42px;
   width: 42px;
-  left: 3px;
-  bottom: 3px;
+  left: 2px;
+  bottom: 2px;
   background-color: #EAEAEA;
 }
 .slider_animation:before{

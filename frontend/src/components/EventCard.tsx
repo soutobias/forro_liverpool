@@ -39,7 +39,7 @@ export function EventCard(props: EventCardProps) {
           event.name[0] === 'Liverpool Forró Festival 2024'
             ? 'aspect-square text-white'
             : 'aspect-2/1 md:aspect-2/1 text-black'
-        } bg-cover rounded-xl font-changa w-full mb-4`}
+        } bg-cover rounded-xl font-changa w-full mb-4 shadow-custom`}
         style={{
           backgroundImage: `url(${event.image[0]})`,
         }}
