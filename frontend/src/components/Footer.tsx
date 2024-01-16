@@ -9,7 +9,7 @@ export function Footer(props: { siteFestival: any }) {
   const { language } = useLanguage()
 
   return (
-    <div className={`w-full z-20 pb-6 ${styles.communityBg}`}>
+    <div className={`w-full z-20 pb-6 bg-yellow-500`}>
       <ForroLinks siteFestival={props.siteFestival} />
       <div className="flex justify-center gap-8 pt-10 pb-8">
         <Link

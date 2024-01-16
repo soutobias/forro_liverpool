@@ -178,8 +178,8 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
             />
           </div>
         </div>
-        <div className="flex gap-4">
-          <div className="flex align-middle h-20 hidden sm:block">
+        <div className="sm:flex hidden gap-4">
+          <div className="align-middle h-20 hidden sm:block">
             {LanguageToogle}
           </div>
           <div

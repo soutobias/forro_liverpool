@@ -15,6 +15,7 @@ module.exports = {
       },
       boxShadow: {
         custom: '0px 0px 8px 0px rgba(32, 30, 30, 0.40)',
+        customCommunity: '0px 3px 6px 0px rgba(32, 30, 30, 0.40)',
       },
       keyframes: {
         fadeInOut: {
@@ -66,6 +67,7 @@ module.exports = {
           800: '#027435',
           900: '#025929',
         },
+        white: '#EAEAEA',
         pink: {
           400: '#F62C99',
           500: '#F453AF',
@@ -78,6 +80,7 @@ module.exports = {
       },
       aspectRatio: {
         '2/1': '2 / 1',
+        '300/168': '300 / 168',
       },
       backgroundImage: {
         stripes:

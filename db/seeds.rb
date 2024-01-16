@@ -46,42 +46,42 @@ events_data = [
     is_class: false,
     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
   },
-  {
-    name: ['Forró Workshop with Luiz Henrique', 'Workshop de Forró com Luiz Henrique'],
-    description: ['Even Description 1', 'Descrição do Evento 1'],
-    start_datetime: DateTime.now + 2.day,
-    end_datetime: DateTime.now + 2.day + 3.hours,
-    price: 20.0,
-    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
-    registration_start_datetime: DateTime.now - 1.day,
-    registration_end_datetime: DateTime.now + 1.day,
-    type_event: 'Special Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
-    date: ['10-12 MAY', '10-12 MAIO'],
-    time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
-    is_festival: true,
-    is_class: true,
-    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-  },
-  {
-    name: ['Forró Workshop with Luiz Henrique', 'Workshop de Forró com Luiz Henrique'],
-    description: ['Even Description 2', 'Descrição do Evento 2'],
-    start_datetime: DateTime.now + 2.day,
-    end_datetime: DateTime.now + 2.day + 3.hours,
-    price: 20.0,
-    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
-    registration_start_datetime: DateTime.now - 1.day,
-    registration_end_datetime: DateTime.now + 1.day,
-    type_event: 'Special Events',
-    location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
-    date: ['10-12 MAY', '10-12 MAIO'],
-    time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
-    is_festival: false,
-    is_class: true,
-    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-  },
+  # {
+  #   name: ['Forró Workshop with Luiz Henrique', 'Workshop de Forró com Luiz Henrique'],
+  #   description: ['Even Description 1', 'Descrição do Evento 1'],
+  #   start_datetime: DateTime.now + 2.day,
+  #   end_datetime: DateTime.now + 2.day + 3.hours,
+  #   price: 20.0,
+  #   cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
+  #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
+  #   registration_start_datetime: DateTime.now - 1.day,
+  #   registration_end_datetime: DateTime.now + 1.day,
+  #   type_event: 'Special Events',
+  #   location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
+  #   date: ['10-12 MAY', '10-12 MAIO'],
+  #   time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
+  #   is_festival: true,
+  #   is_class: true,
+  #   ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+  # },
+  # {
+  #   name: ['Forró Workshop with Luiz Henrique', 'Workshop de Forró com Luiz Henrique'],
+  #   description: ['Even Description 2', 'Descrição do Evento 2'],
+  #   start_datetime: DateTime.now + 2.day,
+  #   end_datetime: DateTime.now + 2.day + 3.hours,
+  #   price: 20.0,
+  #   cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
+  #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/luis.jpg'],
+  #   registration_start_datetime: DateTime.now - 1.day,
+  #   registration_end_datetime: DateTime.now + 1.day,
+  #   type_event: 'Special Events',
+  #   location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
+  #   date: ['10-12 MAY', '10-12 MAIO'],
+  #   time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
+  #   is_festival: false,
+  #   is_class: true,
+  #   ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+  # },
   {
     name: ['All-levels Forró Classes', 'Aulas de Forró - Todos níveis '],
     description: ['Forró classes in the heart of Liverpool. Check out our Instagram page for the latest events. ', 'Aulas de Forró pé-de-serra em Liverpool. Dá uma olhada no nosso Instagram pra saber mais sobre o grupo.', 'No pre-purchase or registration necessary. Just show up and we will see you there!', 'Não precisa de reserva. É só aparece. Nos vemos no Forró!'],
@@ -129,7 +129,7 @@ site = Site.new(
   description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
   frame: 'Liverpool forró festival 1st lot tickets',
   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
-  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.mp4',
+  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
 )
 site.save!
@@ -141,7 +141,7 @@ site_translation = SiteTranslation.new(
   description: 'Aulas de Forró para todos os níveis, workshops e bandas brasileiras aqui em Liverpool. Não precisa trazer parceiro. Todos são bem-vindos!',
   frame: 'Ingressos para o Festival de Forró de Liverpool 1º lote',
   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
-  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.mp4',
+  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
 )
 site_translation.save!
@@ -393,7 +393,7 @@ liverpool_question_translations_data.map { |liverpool_question_translation_data|
 
 Community.destroy_all
 community = Community.new(
-  profile_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/braga.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marina.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/community.jpeg'],
+  profile_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/braga.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marina.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/community.jpg'],
   name: ['Filipe Braga', 'Marina Cerqueira'],
   profile: "Growing up in Recife, Marina and Filipe started dancing with their mothers and grandparents since a very young age. They were regulars at many Forró events in Pernambuco's capital city, such as Xin Xin da Bahiana, Casbah and Casa Astral, where they met. They share a passion for Forró, Maracatu, Frevo, Coco and Cavalo Marinho. They started Forró Liverpool in January 2020 where they mix elements of Brazilian culture and bring guest teachers and bands to grow the Forró scene in the city.",
   description: 'We are proudly community-led, with many Liverpool forrozeiras stepping up to organize events, offer marketing support, and teach workshops. Our friendly community is a beautiful mix of Brazilians and folks from all over the world.'
@@ -402,7 +402,7 @@ community.save!
 
 CommunityTranslation.destroy_all
 community_translation = CommunityTranslation.new(
-  profile_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/braga.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marina.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/community.jpeg'],
+  profile_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/braga.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marina.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/community.jpg'],
   name: ['Filipe Braga', 'Marina Cerqueira'],
   profile: 'Nascidos em Recife, Filipe e Marina sempre dançaram Forró com seus familiares desde de pequenos. Eles eram figurinhas carimbadas nos Forrós Pernambucanos, como Xin Xin da Bahiana, Casbah e Casa Astral, onde eles se conheceram. Apaixonados por Maracatu, Frevo, Coco e Cavalo Marinho, eles integram cultura regional no seu Forró. O grupo Forró Liverpool foi criado com o intuito de espalhar essa cultura que eles tanto amam por aqui.',
   description: 'Nosso grupo é baseado no conceito de comunidade com várias forrozeiras locais organizando eventos, criando uma identidade para o grupo e dando workshops. No nosso grupo todo mundo é bem-vindo, com gente do Brasil e mundo afora.'
@@ -445,19 +445,19 @@ FestivalTeacher.destroy_all
 
 festival_teachers_data = [
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpeg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpg'],
     name: 'Yes Goes',
     location: 'Porto',
     function: 'Teacher'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Marilia.jpeg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Marilia.jpg'],
     name: 'Marilia Cervi',
     location: 'Lyon',
     function: 'Teacher'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpeg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpg'],
     name: 'Zeu Azevedo',
     location: 'London',
     function: 'Live Band'
@@ -469,7 +469,7 @@ festival_teachers_data = [
     function: 'Teachers'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpeg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
     name: 'DJ Pastel',
     location: 'Porto',
     function: 'DJ'
@@ -482,19 +482,19 @@ FestivalTeacherTranslation.destroy_all
 
 festival_teacher_translations_data = [
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpeg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpg'],
     name: 'Yes Goes',
     location: 'Porto',
     function: 'Professora'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Marilia.jpeg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Marilia.jpg'],
     name: 'Marilia Cervi',
     location: 'Lyon',
     function: 'Professora'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpeg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpg'],
     name: 'Zeu Azevedo',
     location: 'London',
     function: 'Banda'
@@ -506,7 +506,7 @@ festival_teacher_translations_data = [
     function: 'Professores'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpeg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
     name: 'DJ Pastel',
     location: 'Porto',
     function: 'DJ'

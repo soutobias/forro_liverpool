@@ -1,9 +1,10 @@
-export const Line1 = () => {
+export const Line1 = (props: { width: string }) => {
+  const { width } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="168"
-      height="9"
+      width={width}
+      height={width}
       viewBox="0 0 168 9"
       fill="none"
     >

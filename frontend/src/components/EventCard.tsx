@@ -38,7 +38,7 @@ export function EventCard(props: EventCardProps) {
         className={`relative ${
           event.name[0] === 'Liverpool Forró Festival 2024'
             ? 'aspect-square text-white'
-            : 'aspect-2/1 md:aspect-2/1 text-black'
+            : 'aspect-300/168 md:aspect-300/168 text-black'
         } bg-cover rounded-xl font-changa w-full mb-4 shadow-custom`}
         style={{
           backgroundImage: `url(${event.image[0]})`,
@@ -56,9 +56,9 @@ export function EventCard(props: EventCardProps) {
             <Image
               src={flag}
               alt="illustration"
-              className=""
+              className="w-6 md:w-8 lg:w-10 xl:w-12"
               width={24}
-              height={37}
+              height={1}
             />
           </div>
         )}

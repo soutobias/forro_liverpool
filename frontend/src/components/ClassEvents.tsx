@@ -30,13 +30,13 @@ export function ClassEvents(props: ClassEventsProps) {
           text={language === 'en' ? 'Classes & Events' : 'Classes e Eventos'}
         />
       </div>
-      <div className="md:grid md:grid-cols-2 md:gap-5 lg:gap-10 xl:gap-[15rem]">
+      <div className="md:grid md:grid-cols-2 md:gap-5 lg:gap-10 xl:gap-[15rem] md:pt-10">
         <div>
-          <div className="pt-5 pb-8 flex justify-between items-center">
-            <h2 className="text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold text-black">
+          <div className="pt-5 pb-8 flex justify-between items-center gap-3 md:gap-10">
+            <h2 className="text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold text-black whitespace-nowrap">
               {language === 'en' ? 'Special Events' : 'Eventos Especiais'}
             </h2>
-            <Line1 />
+            <Line1 width="100%" />
           </div>
           <div>
             {events
@@ -67,11 +67,11 @@ export function ClassEvents(props: ClassEventsProps) {
           </div>
         </div>
         <div>
-          <div className="pt-5 pb-8 flex justify-between items-center">
-            <h2 className="text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold">
+          <div className="pt-5 pb-8 flex justify-between items-center gap-3 md:gap-10">
+            <h2 className="text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold whitespace-nowrap">
               {language === 'en' ? 'Regular Events' : 'Eventos Regulares'}
             </h2>
-            <Line2 />
+            <Line2 width="100%" />
           </div>
           <div>
             {events
