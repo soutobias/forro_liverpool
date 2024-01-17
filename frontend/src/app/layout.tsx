@@ -1,5 +1,6 @@
 'use client'
 
+// eslint-disable-next-line camelcase
 import {
   Roboto_Flex as Roboto,
   Inter,
@@ -27,6 +28,7 @@ const changa = Changa({ subsets: ['latin'], variable: '--font-changa' })
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
+// eslint-disable-next-line camelcase
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
 
 export default function RootLayout({ children }: { children: ReactNode }) {

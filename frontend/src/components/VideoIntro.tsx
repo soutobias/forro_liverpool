@@ -33,11 +33,11 @@ export function VideoIntro(props: { siteFestival: any }) {
   }, [])
   return (
     <div
-      className={`pt-16 md:pt-32 font-semibold text-center font-changa px-4 md:px-[8rem] lg:px-[15.75rem] text-white ${styles.blackBg}`}
+      className={`pt-16 md:pt-32 font-semibold text-center font-changa px-4 md:px-[8rem] lg:px-[13rem]  2xl:px-[20rem] text-white ${styles.blackBg}`}
     >
-      <div className="md:flex md:justify-center md:gap-10 lg:gap-20 xl:gap-40">
-        <div className="md:pt-[7rem]">
-          <h2 className="pb-12 px-12 text-[1.5rem] md:text-[2rem] md:pt-[4.75rem] leading-8 md:leading-10 font-extrabold md:text-left">
+      <div className="md:flex md:justify-center md:gap-10 lg:gap-10 xl:gap-40">
+        <div className="sm:pt-[0] xl:pt-[7rem]">
+          <h2 className="pb-12 sm:pb-0 px-12 text-[1.5rem] md:text-[2rem] sm:pt-0 lg:pt-16 leading-8 md:leading-10 font-extrabold md:text-left">
             {props.siteFestival && props.siteFestival[0].titlevideo}
           </h2>
           <p className="pt-12 pb-10 text-[1rem] md:text-[1.25rem] md:leading-6 font-sans text-justify md:text-left font-semibold leading-7 hidden md:block">
