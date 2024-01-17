@@ -108,7 +108,7 @@ export default function Home() {
         <title>Forro Liverpool</title>
         <meta name="description" content="Forro Liverpool" />
         {/* Other metadata tags */}
-        <script
+        {/* <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-DQR97THJN6"
         ></script>
@@ -119,7 +119,7 @@ export default function Home() {
           gtag('js', new Date());
           gtag('config', 'G-DQR97THJN6');
         `}
-        </script>
+        </script> */}
       </Head>
       <div
         className={
