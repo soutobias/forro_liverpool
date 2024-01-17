@@ -7,23 +7,46 @@ import CrossWalk1 from '../assets/images-lff-crosswalk-1.png'
 import { MainButton } from './MainButton'
 import { Scroll } from '@/assets/scroll'
 import { useLanguage } from '@/lib/language'
-import { CursorFollower } from './CursorFollower'
+// import { CursorFollower } from './CursorFollower'
 import { CursorTrail } from './CursorTrail'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export function HeroLFF(props: { siteFestival: any }) {
   const { language } = useLanguage()
   const keyForRerender = language
-  const [isCursorInDiv, setIsCursorInDiv] = useState(false)
+  const [trail, setTrail] = useState<any>([])
 
+  const handleMouseMove = (e: any) => {
+    setTrail((currentTrail: any) => [
+      ...currentTrail,
+      { x: e.pageX, y: e.pageY - 40, key: Date.now() * Math.random() },
+    ])
+  }
+
+  const handleMouseLeave = () => {
+    setTrail([])
+  }
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTrail((currentTrail: any) => {
+        if (currentTrail.length > 0) {
+          return currentTrail.slice(1)
+        }
+        return currentTrail
+      })
+    }, 20) // Adjust for trail duration
+
+    return () => clearInterval(intervalId)
+  }, [])
   return (
     <div
       className={`w-full z-[59] font-changa relative ${styles.blackBg}`}
-      onMouseEnter={() => setIsCursorInDiv(true)}
-      onMouseLeave={() => setIsCursorInDiv(false)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
       {/* <CursorFollower isVisible={isCursorInDiv} /> */}
-      <CursorTrail isVisible={isCursorInDiv} />
+      <CursorTrail trail={trail} />
       <div className="pt-[6.75rem]">
         <div>
           <div className="flex justify-center pl-4 pr-4">
@@ -66,7 +89,7 @@ export function HeroLFF(props: { siteFestival: any }) {
               height={614}
             />
           </div>
-          <div className="pt-1 flex justify-center">
+          <div className="pt-3 flex justify-center">
             <Image
               src={CrossWalk}
               alt="illustration"
@@ -85,12 +108,23 @@ export function HeroLFF(props: { siteFestival: any }) {
             />
           </div>
           <div className="-mt-[5rem] md:flex md:justify-center hidden">
-            <Scroll />
+            {/* <Scroll /> */}
+            <div className="justify-center">
+              <div className="p-0 mt-0 animate-fadeInOut-100">
+                <Scroll />
+              </div>
+              <div className="p-0 -mt-5 animate-fadeInOut-200">
+                <Scroll />
+              </div>
+              <div className="p-0 -mt-5 animate-fadeInOut-300">
+                <Scroll />
+              </div>
+            </div>
           </div>
         </div>
         <div className="md:hidden">
           <div className="px-4">
-            <p className="text-center text-white pt-8 pb-0 pl-4 pr-4 text-[1.5rem] leading-5  font-extrabold">
+            <p className="text-center uppercase text-white pt-8 pb-0 pl-4 pr-4 text-[1.5rem] leading-5  font-extrabold">
               {props.siteFestival && props.siteFestival[0].data}
             </p>
             <p className="text-center text-white uppercase font-changa pt-2 pb-8 pl-3 pr-3 text-[1rem] leading-5 font-extrabold">
@@ -116,7 +150,17 @@ export function HeroLFF(props: { siteFestival: any }) {
               />
             </div>
             <div className="pt-8 flex justify-center">
-              <Scroll />
+              <div className="justify-center">
+                <div className="p-0 mt-0 animate-fadeInOut-100">
+                  <Scroll />
+                </div>
+                <div className="p-0 -mt-5 animate-fadeInOut-200">
+                  <Scroll />
+                </div>
+                <div className="p-0 -mt-5 animate-fadeInOut-300">
+                  <Scroll />
+                </div>
+              </div>
             </div>
           </div>
         </div>

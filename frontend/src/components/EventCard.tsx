@@ -8,11 +8,12 @@ import { useLanguage } from '@/lib/language'
 
 interface EventCardProps {
   event: keyable
-  setShowEvent: Dispatch<SetStateAction<keyable>>
+  setShowEvent?: Dispatch<SetStateAction<keyable>>
+  aspectRatio?: string
 }
 
 export function EventCard(props: EventCardProps) {
-  const { event, setShowEvent } = props
+  const { event, aspectRatio } = props
 
   const { language } = useLanguage()
   const [position, setPosition] = useState<number>(0)
@@ -37,11 +38,14 @@ export function EventCard(props: EventCardProps) {
       <div
         className={`relative ${
           event.name[0] === 'Liverpool Forró Festival 2024'
-            ? 'aspect-square text-white'
+            ? `aspect-square md:${aspectRatio || 'aspect-square'} text-white`
             : 'aspect-300/168 md:aspect-300/168 text-black'
         } bg-cover rounded-xl font-changa w-full mb-4 shadow-custom`}
         style={{
           backgroundImage: `url(${event.image[0]})`,
+          backgroundPosition: 'bottom', // Centers the background image
+          backgroundSize: 'cover', // Ensures the image covers the entire element
+          backgroundRepeat: 'no-repeat', // Prevents the image from repeating
         }}
         // onClick={() =>
         //   setShowEvent({
@@ -56,7 +60,7 @@ export function EventCard(props: EventCardProps) {
             <Image
               src={flag}
               alt="illustration"
-              className="w-6 md:w-8 lg:w-10 xl:w-12"
+              className="w-8 md:w-8 lg:w-10 xl:w-12"
               width={24}
               height={1}
             />

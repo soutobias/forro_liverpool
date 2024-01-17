@@ -46,14 +46,15 @@ export default function Home() {
         },
         { threshold: 0.1 },
       )
-      if (targetRef.current) {
-        observer.observe(targetRef.current)
+      const targetEl = targetRef.current
+      if (targetEl) {
+        observer.observe(targetEl)
       }
 
       // Clean up function
       return () => {
-        if (targetRef.current) {
-          observer.unobserve(targetRef.current)
+        if (targetEl) {
+          observer.unobserve(targetEl)
         }
       }
     }
@@ -95,7 +96,6 @@ export default function Home() {
     }
   }, [siteFestival])
 
-  console.log('site', isVisible)
   if (!hasMounted) {
     return null
   }

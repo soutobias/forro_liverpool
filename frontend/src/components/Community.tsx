@@ -71,19 +71,19 @@ export function Community() {
           </div>
         )}
       </div>
-      <div className="lg:pt-[4rem] lg:flex lg:justify-center sm:gap-5 lg:gap-8 xl:gap-12">
-        <div className="flex justify-center h-max w-max sm:px-[2rem]">
+      <div className="lg:pt-[4rem] lg:flex lg:justify-center sm:gap-5 lg:gap-8 xl:gap-12 sm:px-[2rem] md:px-[3rem] xl:px-[10rem]">
+        <div className="flex justify-center h-max w-full sm:px-[2rem]">
           {community.length > 0 && (
             <Image
               src={community[0].profile_image[2]}
               alt="illustration"
-              className="overflow-hidden h-[20rem] w-auto object-cover rounded-xl"
+              className="overflow-hidden h-[20rem] object-cover rounded-xl"
               width={450}
               height={1}
             />
           )}
         </div>
-        <p className="pt-8 text-[1rem] sm:px-[2rem] md:text-[1.25rem] leading-6 font-sans font-semibold lg:w-[40%]">
+        <p className="pt-8 text-[1rem] sm:px-[2rem] md:text-[1.25rem] leading-6 font-sans font-semibold lg:w-[80%]">
           {community.length > 0 && community[0].description}
         </p>
       </div>

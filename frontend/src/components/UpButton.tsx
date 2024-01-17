@@ -1,5 +1,4 @@
 import { UpButtonIcon } from '@/assets/upButton'
-import { ArrowLineUp } from 'phosphor-react'
 
 export function UpButton() {
   const scrollToTop = () => {

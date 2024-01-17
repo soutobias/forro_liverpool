@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 import { useLanguage } from '@/lib/language'
 import { MainButton } from './MainButton'
 import stylesLocal from './DropDownDesktop.module.css'
@@ -14,17 +13,7 @@ export function DropdownDesktop(props: {
   slideOutBottom: boolean
   slideOutTop: boolean
 }) {
-  const [isChecked, setIsChecked] = useState(false)
-
-  const { language, setLanguage } = useLanguage()
-
-  useEffect(() => {
-    if (language === 'pt') {
-      setIsChecked(true)
-    } else {
-      setIsChecked(false)
-    }
-  }, [language])
+  const { language } = useLanguage()
 
   function scrollToSection(e: any) {
     props.setDropdown && props.setDropdown(false)
@@ -52,7 +41,7 @@ export function DropdownDesktop(props: {
               props.slideOutTop
                 ? stylesLocal.slide_in_top1
                 : stylesLocal.slide_in_top
-            } w-[50%] bg-yellow-500 h-full  flex flex-col pt-[10%] pl-[10%]`}
+            } w-[50%] bg-yellow-500 h-full  flex flex-col pt-[10%] pl-[10%] text-black`}
           >
             <div className="pt-0 flex md:justify-start">
               <Link

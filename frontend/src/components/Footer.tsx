@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { ForroLinks } from './ForroLinks'
-import styles from './Bg.module.css'
 import { InstagramLogo } from '@/assets/instagram_logo'
 import { FacebookLogo } from '@/assets/facebook_logo'
 import { useLanguage } from '@/lib/language'

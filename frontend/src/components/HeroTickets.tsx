@@ -1,13 +1,13 @@
 import styles from './Bg.module.css'
 // import { LFFLogo } from '@/assets/lff_logo'
 import Image from 'next/image'
-import LFFLogo from '../assets/LFF_Logo.png'
-import CrossWalk from '../assets/Images-LFF-Crosswalk.png'
-import CrossWalk1 from '../assets/images-lff-crosswalk-1.png'
+import TicketImage from '../assets/LFF-Tickets-Hero-800px.png'
+
 import { TicketCard } from './TicketCard'
 import { useEffect } from 'react'
 import { TicketWidget } from './TicketWidget'
 import { useLanguage } from '@/lib/language'
+import { H1 } from './H1'
 
 export function HeroTickets() {
   useEffect(() => {
@@ -26,47 +26,34 @@ export function HeroTickets() {
 
   return (
     <div
-      className={`w-full z-[59] font-changa relative md:px-[8.5rem] ${styles.blackBg}`}
+      className={`w-full z-[59] font-changa relative md:px-[8.5rem] pb-20 ${styles.blackBg}`}
     >
       <div className="pt-[6.75rem]">
         <div>
-          <div className="flex justify-center pl-4 pr-4">
-            <Image
-              src={LFFLogo}
-              alt="illustration"
-              className="h-[17rem] w-auto md:h-[30rem]"
-              width={1336}
-              height={614}
-            />
-          </div>
-          <div className="pt-1 flex justify-center">
-            <Image
-              src={CrossWalk}
-              alt="illustration"
-              className="overflow-hidden h-[5.25rem] w-full object-cover md:hidden"
-              width={1336}
-              height={614}
-            />
-          </div>
-          <div className="pt-1 flex justify-center">
-            <Image
-              src={CrossWalk1}
-              alt="illustration"
-              className="overflow-hidden h-[4rem] w-auto object-cover md:block hidden"
-              width={1336}
-              height={614}
-            />
+          <div className="relative h-[20rem] sm:h-[30rem] flex justify-center pl-4 pr-4 items-center">
+            <div className="z-[62] pt-[4rem] sm:pt-20">
+              <H1
+                color="black"
+                text={language === 'en' ? 'Tickets' : 'Ingressos'}
+              />
+            </div>
+            <div className="absolute top-0 flex justify-center z-[40]">
+              <Image
+                src={TicketImage}
+                alt="illustration"
+                className="h-[20rem] w-auto sm:h-[30rem]"
+                width={1336}
+                height={614}
+              />
+            </div>
           </div>
         </div>
         <div className="md:flex md:flex-col md:justify-center">
           <div className="px-4">
-            <p className="text-center text-white pt-8 pb-8 pl-4 pr-4 text-[2.0rem] leading-5 font-changa font-extrabold">
-              {language === 'en' ? 'Tickets' : 'Ingressos'}
-            </p>
-            <p className="text-center text-white pt-8 pb-8 pl-4 pr-4 text-[1.5rem] leading-5 font-changa font-extrabold">
+            <h2 className="font-changa text-center text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-16">
               Lote 1
-            </p>
-            <div className="text-center text-white pt-4 pb-8 pl-4 pr-4 text-[1.0rem] leading-6 font-sans">
+            </h2>
+            <div className="pt-12 pb-10 text-center text-white font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8">
               <p>
                 {language === 'en'
                   ? 'Available 17 January at 4pm GMT'
@@ -80,14 +67,15 @@ export function HeroTickets() {
             </div>
             <TicketWidget />
           </div>
-
           <div className="px-4">
-            <p className="text-center text-white pt-8 pb-8 pl-4 pr-4 text-[1.5rem] leading-5 font-changa font-extrabold">
+            <h2 className="font-changa text-center text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-0">
               Lote 2
-            </p>
-            <div className="text-center text-white pt-4 pb-8 pl-4 pr-4 text-[1.0rem] leading-6 font-sans">
+            </h2>
+            <div className="pt-12 pb-10 text-center text-white font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8">
               <p>
-                {language === 'en' ? 'Available soon' : 'Disponível em breve'}
+                {language === 'en'
+                  ? 'Available 14 February at 4pm GMT'
+                  : 'Disponível em 14 de fevereiro, às 16h'}
               </p>
               <p>
                 {language === 'en'
@@ -117,10 +105,10 @@ export function HeroTickets() {
           />
 
           <div className="px-4">
-            <p className="text-center text-white pt-8 pb-8 pl-4 pr-4 text-[1.5rem] leading-5 font-changa font-extrabold">
+            <h2 className="font-changa text-center text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-16">
               {language === 'en' ? 'General Admission' : 'Admissão geral'}
-            </p>
-            <div className="text-center text-white pt-4 pb-8 pl-4 pr-4 text-[1.0rem] leading-6 font-sans">
+            </h2>
+            <div className="pt-12 pb-10 text-center text-white font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8">
               <p>
                 {language === 'en'
                   ? 'Available 15 March at 3pm GMT'

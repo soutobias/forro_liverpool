@@ -116,12 +116,13 @@ export function ForroLinks(props: {
             </div>
 
             <div className="pt-6 z-[61] flex md:justify-start justify-center">
-              <div className="flex justify-center md:pl-0 no-underline rounded-lg">
+              <div className="md:pl-0 no-underline w-full">
                 <MainButton
                   href="/lff2024/tickets"
                   content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
                   bg="white"
                   font="black"
+                  width="100%"
                 />
               </div>
             </div>

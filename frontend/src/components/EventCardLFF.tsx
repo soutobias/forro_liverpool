@@ -9,7 +9,7 @@ import { MainButton } from './MainButton'
 export function EventCardLFF(props: {
   size?: string
   event: keyable
-  setShowEvent: Dispatch<SetStateAction<keyable>>
+  setShowEvent?: Dispatch<SetStateAction<keyable>>
   eventType?: string
 }) {
   const { event } = props

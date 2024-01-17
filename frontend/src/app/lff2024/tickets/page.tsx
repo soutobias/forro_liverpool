@@ -4,7 +4,6 @@ import { HeroTickets } from '@/components/HeroTickets'
 import { Navbar } from '@/components/NavBar'
 import { useEffect, useRef, useState } from 'react'
 import { GDPR } from '@/components/GDPR'
-import { getCookieAuth } from '@/lib/handleCookie'
 import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
 import { fetchApi } from '@/lib/api'
@@ -51,14 +50,15 @@ export default function Home() {
         },
         { threshold: 0.1 },
       )
-      if (targetRef.current) {
-        observer.observe(targetRef.current)
+      const targetEl = targetRef.current
+      if (targetEl) {
+        observer.observe(targetEl)
       }
 
       // Clean up function
       return () => {
-        if (targetRef.current) {
-          observer.unobserve(targetRef.current)
+        if (targetEl) {
+          observer.unobserve(targetEl)
         }
       }
     }

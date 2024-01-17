@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import { keyable } from '@/components/ClassEvent'
 import { fetchApi } from '@/lib/api'
 import Image from 'next/image'
-import { ArrowUpRight } from 'phosphor-react'
+// import { ArrowUpRight } from 'phosphor-react'
+import { ArrowUpRight } from '@/assets/arrow_up_right'
 import { FrameImportant } from '@/components/FrameImportant'
 import { Navbar } from '@/components/NavBar'
-import { getCookieAuth } from '@/lib/handleCookie'
 import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
 import { GDPR } from '@/components/GDPR'
@@ -23,7 +23,7 @@ import { H1 } from '@/components/H1'
 
 export default function EventDetails() {
   const [events, setEvents] = useState<keyable[]>([])
-  const [showEvent, setShowEvent] = useState<keyable>({})
+  // const [showEvent, setShowEvent] = useState<keyable>({})
   const [selectedEvent, setSelectedEvent] = useState<keyable | null>(null)
   const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
   const [site, setSite] = useState<keyable[] | null>(null)
@@ -54,14 +54,15 @@ export default function EventDetails() {
         },
         { threshold: 0.1 },
       )
-      if (targetRef.current) {
-        observer.observe(targetRef.current)
+      const targetEl = targetRef.current
+      if (targetEl) {
+        observer.observe(targetEl)
       }
 
       // Clean up function
       return () => {
-        if (targetRef.current) {
-          observer.unobserve(targetRef.current)
+        if (targetEl) {
+          observer.unobserve(targetEl)
         }
       }
     }
@@ -108,7 +109,6 @@ export default function EventDetails() {
   if (!hasMounted) {
     return null
   }
-
   return (
     <>
       <Head>
@@ -158,15 +158,15 @@ export default function EventDetails() {
                                   className="flex"
                                 >
                                   {selectedEvent.location[0]}
-                                  <ArrowUpRight size={20} />
+                                  <ArrowUpRight />
                                 </Link>
                               </div>
                             </div>
                             <div className="ml-4 mt-2 text-black">
-                              <div className="text-black leading-4 pl-0 mt-1 font-semibold text-[1rem] md:text-[1.25rem] font-sans">
+                              <div className="text-black leading-5 md:leading-6 pl-0 mt-1 font-semibold text-[1rem] md:text-[1.25rem] font-sans">
                                 {selectedEvent.location[1]}
                               </div>
-                              <div className="text-black leading-4 pl-0 mt-1 pt-3 font-semibold text-[1rem]  md:text-[1.25rem] font-sans">
+                              <div className="text-black leading-4 pl-0 mt-1 pt-5 md:pt-7 font-semibold text-[1rem]  md:text-[1.25rem] font-sans">
                                 {selectedEvent.time[position]}
                               </div>
                             </div>
@@ -192,11 +192,11 @@ export default function EventDetails() {
                   />
                 </div>
               )}
-              <h1 className="font-changa text-[1.5rem] leading-10 font-extrabold text-black pt-12">
+              <h2 className="font-changa text-black text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-16">
                 {language === 'en'
                   ? 'Plus, join us for...'
                   : 'Além disso, junte-se a nós para...'}
-              </h1>
+              </h2>
               <div className="pt-8 md:grid md:grid-cols-2 md:gap-4">
                 {events &&
                   events.length > 0 &&
@@ -206,7 +206,7 @@ export default function EventDetails() {
                         <EventCard
                           key={event.id}
                           event={event}
-                          setShowEvent={setShowEvent}
+                          aspectRatio="aspect-300/168"
                         />
                       ),
                   )}

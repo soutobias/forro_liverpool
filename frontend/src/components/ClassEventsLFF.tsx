@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { keyable } from './ClassEvent'
 import { EventCardLFF } from './EventCardLFF'
 import styles from './Bg.module.css'
@@ -6,12 +6,11 @@ import { fetchApi } from '@/lib/api'
 import { H1 } from './H1'
 import { useLanguage } from '@/lib/language'
 
-interface ClassEventsLFFProps {
-  setShowEvent: Dispatch<SetStateAction<keyable>>
-}
+// interface ClassEventsLFFProps {
+//   setShowEvent?: Dispatch<SetStateAction<keyable>>
+// }
 
-export function ClassEventsLFF(props: ClassEventsLFFProps) {
-  const { setShowEvent } = props
+export function ClassEventsLFF() {
   const [events, setEvents] = useState<keyable[]>([])
   const { language } = useLanguage()
   const [eventsEmpty, setEventsEmpty] = useState<boolean>(true)
@@ -61,11 +60,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
               </h2>
               <div className="block h-max gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
                 {events.map((event: any) => (
-                  <EventCardLFF
-                    key={event.id}
-                    event={event}
-                    setShowEvent={setShowEvent}
-                  />
+                  <EventCardLFF key={event.id} event={event} />
                 ))}
               </div>
               <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-16">
@@ -73,11 +68,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
               </h2>
               <div className="block gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
                 {events.map((event: any) => (
-                  <EventCardLFF
-                    key={event.id}
-                    event={event}
-                    setShowEvent={setShowEvent}
-                  />
+                  <EventCardLFF key={event.id} event={event} />
                 ))}
               </div>
               <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-16">
@@ -85,11 +76,7 @@ export function ClassEventsLFF(props: ClassEventsLFFProps) {
               </h2>
               <div className="block gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
                 {events.map((event: any) => (
-                  <EventCardLFF
-                    key={event.id}
-                    event={event}
-                    setShowEvent={setShowEvent}
-                  />
+                  <EventCardLFF key={event.id} event={event} />
                 ))}
               </div>
             </div>

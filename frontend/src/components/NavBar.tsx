@@ -61,7 +61,7 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
       document.body.style.overflow = originalStyle
       document.body.style.paddingRight = '0px'
     }
-  }, [dropdownDesktop])
+  }, [dropdownDesktop, scrollbarWidth])
 
   const handleClickMobile = () => {
     setDropdown(!dropdown)
@@ -137,7 +137,7 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
         </label>
       </div>
     )
-  }, [isChecked, props])
+  }, [isChecked, language, setLanguage])
   return (
     <nav
       className={`h-23 align-middle text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8 leading w-full transition-colors duration-500 absolute text-${
@@ -191,7 +191,9 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
             }}
             onClick={handleClickDesktop}
           >
-            <PlusSign color={dropdownDesktop ? '#EAEAEA' : '#201E1E'} />
+            <PlusSign
+              color={dropdownDesktop ? '#EAEAEA' : props.plusColor || '#201E1E'}
+            />
           </div>
         </div>
         {dropdownDesktop && (

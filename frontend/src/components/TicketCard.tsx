@@ -14,7 +14,7 @@ export function TicketCard(props: {
     maxWidth: '343px',
     maxHeight: '262px',
     width: '100%',
-    opacity: props.isDisabled ? 0.5 : 1,
+    opacity: props.isDisabled ? 0.8 : 1,
     pointerEvents: props.isDisabled ? 'none' : 'auto',
   }
   const { language } = useLanguage()
@@ -43,10 +43,10 @@ export function TicketCard(props: {
       <div className=" text-white text-[1rem] font-normal leading-6 font-sans">
         {props.parties}
       </div>
-      <div className="pl-4 pr-4 pt-8">
+      <div className="pl-4 pr-4 pt-8 uppercase">
         <MainButton
           href="#"
-          content={language === 'en' ? 'ADD TO CART' : 'Adicione ao carrinho'}
+          content={language === 'en' ? 'AVAILABLE SOON' : 'Disponível em breve'}
           bg="white"
           font="black"
         />

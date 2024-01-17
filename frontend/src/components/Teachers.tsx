@@ -69,9 +69,9 @@ export function Teachers() {
               }
             />
           </div>
-          <div>
+          <div className="md:px-[2rem] lg:px-[4rem] xl:px-[8rem] 2xl:px-[16rem]">
             <div
-              className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+              className="p-4 flex gap-4 overflow-x-auto no-scrollbar sm:justify-center"
               ref={scrollContainerRef1}
               onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef1)}
             >
@@ -97,7 +97,8 @@ export function Teachers() {
                   ))}
             </div>
             <div
-              className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
+              // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
+              className="p-4 flex sm:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row"
               ref={scrollContainerRef2}
               onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
             >
@@ -115,12 +116,13 @@ export function Teachers() {
                       title={item.name}
                       location={item.location}
                       action={item.function}
-                      color={styles.lightPinkBg}
+                      color={styles.pinkBg}
                     />
                   ))}
             </div>
             <div
-              className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+              // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+              className="p-4 flex sm:justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar"
               ref={scrollContainerRef3}
               onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
             >
@@ -134,26 +136,31 @@ export function Teachers() {
                       title={item.name}
                       location={item.location}
                       action={item.function}
-                      color={styles.lightPinkBg}
+                      color={styles.purpleBg}
                     />
                   ))}
             </div>
           </div>
+          <h2 className=" text-center text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold text-white py-5">
+            {language === 'en'
+              ? 'Check back soon for more talent announcements!'
+              : 'Volte em breve para mais anúncios de talentos!'}
+          </h2>
           <div className="pl-4 pr-4 pt-8 md:hidden">
             <MainButton
-              href="lff2024/tickets"
+              href="/lff2024/tickets"
               content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
               bg="white"
               font="black"
             />
           </div>
-          <div className="pl-4 pr-4 pt-8 md:flex md:justify-center hidden">
+          <div className="pl-4 pr-4 pt-8 md:flex w-full md:justify-center hidden">
             <MainButton
-              href="lff2024/tickets"
+              href="/lff2024/tickets"
               content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
               bg="white"
               font="black"
-              width="457px"
+              width="50%"
             />
           </div>
         </>

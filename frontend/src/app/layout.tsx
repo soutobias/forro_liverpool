@@ -1,5 +1,5 @@
 'use client'
-import type { Metadata } from 'next'
+
 import { Roboto_Flex as Roboto, Inter, Changa } from 'next/font/google'
 import './globals.css'
 import { ReactNode } from 'react'

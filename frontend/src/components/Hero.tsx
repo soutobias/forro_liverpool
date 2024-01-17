@@ -1,8 +1,7 @@
-import { MainButton } from './MainButton'
 import styles from './Bg.module.css'
 import { keyable } from './ClassEvent'
 import { useLanguage } from '@/lib/language'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface HeroProps {
   site: keyable[] | null
@@ -40,7 +39,21 @@ export function Hero(props: HeroProps) {
       }
     }
   }, [])
+  function scrollToSection(e: any) {
+    const href = e.currentTarget.getAttribute('href')
+    if (href) {
+      if (href.split('#')[0] === window.location.pathname) {
+        e.preventDefault()
+        const element = document.querySelector(`#${href.split('#')[1]}`)
+        const offsetTop = element instanceof HTMLElement ? element.offsetTop : 0
 
+        window.scroll({
+          top: offsetTop,
+          behavior: 'smooth',
+        })
+      }
+    }
+  }
   return (
     props.site && (
       <div className={`w-full z-[59] relative ${styles.heroBg} sm:pb-20`}>
@@ -52,17 +65,20 @@ export function Hero(props: HeroProps) {
             <div className="pt-4 pb-[7.25rem] sm:pb-[5rem] text-[1rem] sm:text-[1.25rem] leading-6 sm:leading-7 font-sans font-semibold">
               <p>{props.site[0].description}</p>
             </div>
-            <div className="bg-black">
-              <MainButton
+            <div className="">
+              <a
                 href="/#classes-events"
-                content={
-                  language === 'en'
+                className="flex justify-center bg-black no-underline w-[100%] font-changa rounded-xl"
+                onClick={scrollToSection}
+              >
+                <p
+                  className={`text-white text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 uppercase font-extrabold w-full p-5`}
+                >
+                  {language === 'en'
                     ? 'Come dance with us'
-                    : 'Bora dançar com a gente'
-                }
-                bg="black"
-                font="white"
-              />
+                    : 'Bora dançar com a gente'}
+                </p>
+              </a>
             </div>
           </div>
           <div className="pt-4 pb-4 h-max flex justify-center items-center">

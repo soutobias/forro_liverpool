@@ -6,8 +6,6 @@ import { Faq } from '@/components/Faq'
 import { Navbar } from '@/components/NavBar'
 // import { FrameImportant } from '@/components/FrameImportant'
 import { useEffect, useRef, useState } from 'react'
-import { GDPR } from '@/components/GDPR'
-import { getCookieAuth } from '@/lib/handleCookie'
 import { Footer } from '@/components/Footer'
 import { UpButton } from '@/components/UpButton'
 import { VideoIntro } from '@/components/VideoIntro'
@@ -19,7 +17,6 @@ import { GetTickets } from '@/components/GetTickets'
 import { fetchApi } from '@/lib/api'
 import { useLanguage } from '@/lib/language'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 
 export interface keyable {
   [key: string]: any
@@ -28,7 +25,6 @@ export interface keyable {
 export default function Home() {
   const [showGDPR, setShowGDPR] = useState(false)
   const [hasMounted, setHasMounted] = useState(false)
-  const [showEvent, setShowEvent] = useState<keyable>({})
   const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
 
   const { language } = useLanguage()
@@ -62,14 +58,15 @@ export default function Home() {
         },
         { threshold: 0.1 },
       )
-      if (targetRef.current) {
-        observer.observe(targetRef.current)
+      const targetEl = targetRef.current
+      if (targetEl) {
+        observer.observe(targetEl)
       }
 
       // Clean up function
       return () => {
-        if (targetRef.current) {
-          observer.unobserve(targetRef.current)
+        if (targetEl) {
+          observer.unobserve(targetEl)
         }
       }
     }
@@ -117,7 +114,7 @@ export default function Home() {
           </>
         )}
         <Teachers></Teachers>
-        <ClassEventsLFF setShowEvent={setShowEvent}></ClassEventsLFF>
+        <ClassEventsLFF></ClassEventsLFF>
         <Liverpool />
         <GetTickets />
         {/* <LiverpoolEvents /> */}

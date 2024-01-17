@@ -5,8 +5,7 @@ import { fetchApi } from '@/lib/api'
 import { useEffect, useState } from 'react'
 import { keyable } from './ClassEvent'
 import { useLanguage } from '@/lib/language'
-import { PromoCard } from './PromoCard'
-import { Link } from 'phosphor-react'
+// import { PromoCard } from './PromoCard'
 
 export function Liverpool() {
   const [showLiverpool, setShowLiverpool] = useState<keyable[] | null>(null)

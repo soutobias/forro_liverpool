@@ -30,7 +30,7 @@ export function ClassEvents(props: ClassEventsProps) {
           text={language === 'en' ? 'Classes & Events' : 'Classes e Eventos'}
         />
       </div>
-      <div className="md:grid md:grid-cols-2 md:gap-5 lg:gap-10 xl:gap-[15rem] md:pt-10">
+      <div className="md:grid md:grid-cols-2 md:gap-5 lg:gap-10 xl:gap-[15rem] pt-10">
         <div>
           <div className="pt-5 pb-8 flex justify-between items-center gap-3 md:gap-10">
             <h2 className="text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold text-black whitespace-nowrap">
@@ -67,7 +67,7 @@ export function ClassEvents(props: ClassEventsProps) {
           </div>
         </div>
         <div>
-          <div className="pt-5 pb-8 flex justify-between items-center gap-3 md:gap-10">
+          <div className="pt-10 sm:pt-5 pb-8 flex justify-between items-center gap-3 md:gap-10">
             <h2 className="text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold whitespace-nowrap">
               {language === 'en' ? 'Regular Events' : 'Eventos Regulares'}
             </h2>

@@ -23,7 +23,7 @@ Event.destroy_all
 
 events_data = [
   {
-    name: ['Liverpool Forró Festival 2024', 'Festiva de Forró de Liverpool 2024'],
+    name: ['Liverpool Forró Festival 2024', 'Festival de Forró de Liverpool 2024'],
     description: ['Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia.
     Check out our Instagram page for the latest events and news, like class cancellations or delays.
     No pre-purchase or registration necessary. Just show up and we will see you there!',
@@ -48,7 +48,11 @@ events_data = [
   },
   {
     name: ['All-levels Forró Classes', 'Aulas de Forró - Todos níveis '],
-    description: ['Forró classes in the heart of Liverpool. Check out our Instagram page for the latest events. ', 'Aulas de Forró pé-de-serra em Liverpool. Dá uma olhada no nosso Instagram pra saber mais sobre o grupo.', 'No pre-purchase or registration necessary. Just show up and we will see you there!', 'Não precisa de reserva. É só aparece. Nos vemos no Forró!'],
+    description: ['Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia.
+    Check out our Instagram page for the latest events and news, like class cancellations or delays.
+    No pre-purchase or registration necessary. Just show up and we will see you there!',
+                  'Aulas de Forró no coração de Liverpool. Estamos esperando por você no andar de cima do Caledonia. Fique de olho na nossa página do Instagram para os últimos eventos e notícias, como cancelamentos ou atrasos de aulas.
+      Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!'],
     start_datetime: DateTime.now + 2.day,
     end_datetime: DateTime.now + 2.day + 3.hours,
     price: '£ 3',
@@ -426,12 +430,12 @@ festival_teachers_data = [
     location: 'London',
     function: 'Live Band'
   },
-  {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-    name: 'Filipe e Marina',
-    location: 'Liverpool',
-    function: 'Teachers'
-  },
+  # {
+  #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+  #   name: 'Filipe e Marina',
+  #   location: 'Liverpool',
+  #   function: 'Teachers'
+  # },
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
     name: 'DJ Pastel',
@@ -463,12 +467,12 @@ festival_teacher_translations_data = [
     location: 'London',
     function: 'Banda'
   },
-  {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-    name: 'Filipe e Marina',
-    location: 'Liverpool',
-    function: 'Professores'
-  },
+  # {
+  #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+  #   name: 'Filipe e Marina',
+  #   location: 'Liverpool',
+  #   function: 'Professores'
+  # },
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
     name: 'DJ Pastel',

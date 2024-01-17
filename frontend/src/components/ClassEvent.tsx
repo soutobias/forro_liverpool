@@ -2,7 +2,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowUpRight } from 'phosphor-react'
+import { ArrowUpRight } from '@/assets/arrow_up_right'
 import { Dispatch, SetStateAction } from 'react'
 import { useLanguage } from '@/lib/language'
 
@@ -69,7 +69,7 @@ export function ClassEvent(props: {
                           {props.showEvent.location[0]}
                         </Link>
                       </div>
-                      <ArrowUpRight size={20} />
+                      <ArrowUpRight />
                     </div>
                     <div className="ml-4 mt-2 text-black">
                       <div className="text-black leading-4 pl-0 mt-1 font-normal text-[1rem] font-sans">
@@ -94,7 +94,7 @@ export function ClassEvent(props: {
             className="no-underline mr-2 flex bg-gray-60 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4 justify-center"
           >
             <div> {language === 'en' ? 'Get Tickets' : 'Ingressos'}</div>
-            <ArrowUpRight size={20} />
+            <ArrowUpRight />
           </Link>
           {/* <div
           className="no-underline bg-white text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4"
