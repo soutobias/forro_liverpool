@@ -49,7 +49,9 @@ export function ClassEventsLFF() {
             >
               <div className="w-full h-full flex justify-center align-middle items-center">
                 <div className="text-black text-[1.5rem] md:text-[2rem] text-center font-extrabold leading-8 md:leading-10 pl-16 pr-16">
-                  Check back soon for the complete festival schedule!
+                  {language === 'en'
+                    ? 'Check back soon for the complete festival schedule!'
+                    : 'Volte em breve para conferir a programação completa do festival'}
                 </div>
               </div>
             </div>
