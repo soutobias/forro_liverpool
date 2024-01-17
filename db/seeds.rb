@@ -224,7 +224,7 @@ QuestionTranslation.destroy_all
 question_translations_data = [
   {
     question: 'O que é Forró??',
-    answer: 'Forró é uma manifestação cultural do povo nordestino que rapidamente se espalhou pelo Brasil. É um estilo musical, uma dança e uma festa que faz parte da identidade nacional. Tradicionalmente, a música é composta da harmonia da sanfona, do grava da zabumba e da percussão aguda do triângulo. Ficou curioso? Dá uma sacada então nessa <a class="flex gap-1" href="https://open.spotify.com/playlist/6Luuh8cKFXtEY8t2MIL2P4?si=EEAc2-uQQaarFD1_m5MsjA&pi=e-qxmnaQS7QNSJ&nd=1&dlsi=6f2d3024fc934803">playlist do Forró Liverpool</a>. ',
+    answer: 'Forró é uma manifestação cultural do povo nordestino que rapidamente se espalhou pelo Brasil. É um estilo musical, uma dança e uma festa que faz parte da identidade nacional. Tradicionalmente, a música é composta da harmonia da sanfona, do grava da zabumba e da percussão aguda do triângulo. Ficou curioso? Dá uma sacada então nessa playlist do Forró Liverpool.',
     is_festival: false
   },
   {
@@ -239,7 +239,7 @@ question_translations_data = [
   },
   {
     question: 'Precisa se registrar para fazer a aula?',
-    answer: 'Não, é só chegar! Nossas aulas regulares são Segunda-Feira a noite 7pm no pub The Caledonia. Para eventos especials, com professores ou bandas convidadas, você pode encontrar os detalhes em Eventos Especiais, onde o registro antecipado é opcional ou você também pode pagar no dia do evento.',
+    answer: 'Não, é só chegar! Nossas aulas regulares são Segunda-Feira a noite 7pm no pub The Caledonia. Para eventos especiais, com professores ou bandas convidadas, você pode encontrar os detalhes em Eventos Especiais, onde o registro antecipado é opcional ou você também pode pagar no dia do evento.',
     is_festival: false
   },
   {
@@ -330,7 +330,7 @@ liverpool_questions_data = [
   },
   {
     question: 'By train',
-    answer: 'Book tickets on thetrainline.com to Liverpool Lime Street.'
+    answer: 'Book tickets on the trainline.com to Liverpool Lime Street.'
   },
   {
     question: 'By bus',
