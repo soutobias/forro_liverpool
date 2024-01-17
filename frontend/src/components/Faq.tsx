@@ -17,11 +17,8 @@ interface FaqProps {
 
 export function Faq(props: { isFestival: boolean }) {
   const { isFestival } = props
-
   const [questions, setQuestions] = useState<keyable[] | null>(null)
-
   const { language } = useLanguage()
-
   const [url, setUrl] = useState<string>('')
 
   useEffect(() => {
@@ -70,26 +67,51 @@ export function Faq(props: { isFestival: boolean }) {
 
 export function FaqQuestion({ question, answer }: FaqProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const formatAnswer = (answer: string) => {
-    if (answer.includes('Spotify playlist')) {
-      return answer.replace(
-        'Spotify playlist, Forró Liverpool.',
-        '<a class="flex gap-1 underline-animation" href="https://open.spotify.com/playlist/6Luuh8cKFXtEY8t2MIL2P4?si=EEAc2-uQQaarFD1_m5MsjA&pi=e-qxmnaQS7QNSJ&nd=1&dlsi=6f2d3024fc934803" target="_blank">Spotify playlist, Forró Liverpool<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="64" y1="192" x2="192" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><polyline points="88 64 192 64 192 168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg><span></a>',
-      )
-    } else {
-      return answer
-    }
-  }
 
-  function handleToogleQuestion() {
+  function handleToggleQuestion() {
     setIsOpen(!isOpen)
   }
+
+  // Função para substituir o texto por links
+  const replaceTextWithLinks = (text: string) => {
+    const replacedText = text
+      .replace(
+        'Forró Liverpool.',
+        `<a style="text-decoration: underline; display: inline-flex; align-items: center;" href="https://open.spotify.com/playlist/6Luuh8cKFXtEY8t2MIL2P4?si=EEAc2-uQQaarFD1_m5MsjA&pi=e-qxmnaQS7QNSJ&nd=1&dlsi=6f2d3024fc934803" target="_blank">
+          <span style="margin-right: 4px;">Forró Liverpool</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" style="vertical-align: middle;">
+            <rect width="256" height="256" fill="none"></rect>
+            <line x1="64" y1="192" x2="192" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+            <polyline points="88 64 192 64 192 168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+          </svg>
+        </a>`,
+      )
+      .replace(
+        /thetrainline\.com/g,
+        '<a style="text-decoration: underline; display: inline-flex; align-items: center;" href="http://trainline.com/" target="_blank">trainline.com<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" style="vertical-align: middle;"><rect width="256" height="256" fill="none"></rect><line x1="64" y1="192" x2="192" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><polyline points="88 64 192 64 192 168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg></a>',
+      )
+      .replace(
+        /nationalexpress\.co\.uk/g,
+        '<a style="text-decoration: underline; display: inline-flex; align-items: center;" href="https://www.nationalexpress.com/en" target="_blank">nationalexpress.co.uk<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" style="vertical-align: middle;"><rect width="256" height="256" fill="none"></rect><line x1="64" y1="192" x2="192" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><polyline points="88 64 192 64 192 168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg></a>',
+      )
+      .replace(
+        /hello@forroliverpool\.co\.uk/g,
+        '<a style="text-decoration: underline; display: inline-flex; align-items: center;" href="mailto:hello@forroliverpool.co.uk">hello@forroliverpool.co.uk<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" style="vertical-align: middle;"><rect width="256" height="256" fill="none"></rect><line x1="64" y1="192" x2="192" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><polyline points="88 64 192 64 192 168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg></a>',
+      )
+      .replace(
+        /@forro\.liverpool/g,
+        '<a style="text-decoration: underline; display: inline-flex; align-items: center;" href="https://www.instagram.com/forroliverpool/" target="_blank">@forro.liverpool<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" style="vertical-align: middle;"><rect width="256" height="256" fill="none"></rect><line x1="64" y1="192" x2="192" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><polyline points="88 64 192 64 192 168" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg></a>',
+      )
+
+    return { __html: replacedText }
+  }
+
   return (
     <div className="pt-4">
       <div className="border-b-2 pb-4 border-b-gray-100">
         <div
           className="flex justify-between items-center cursor-pointer"
-          onClick={handleToogleQuestion}
+          onClick={handleToggleQuestion}
         >
           <div className="flex justify-left w-10/12 items-center">
             <div>
@@ -111,7 +133,7 @@ export function FaqQuestion({ question, answer }: FaqProps) {
             <div>
               <div
                 className="text-[1rem] leading-6 md:text-[1.25rem] md:leading-7 font-semibold font-sans"
-                dangerouslySetInnerHTML={{ __html: answer }}
+                dangerouslySetInnerHTML={replaceTextWithLinks(answer)}
               />
             </div>
           </div>
