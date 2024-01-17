@@ -111,7 +111,7 @@ export function FaqQuestion({ question, answer }: FaqProps) {
             <div>
               <div
                 className="text-[1rem] leading-6 md:text-[1.25rem] md:leading-7 font-semibold font-sans"
-                dangerouslySetInnerHTML={{ __html: formatAnswer(answer) }}
+                dangerouslySetInnerHTML={{ __html: answer }}
               />
             </div>
           </div>

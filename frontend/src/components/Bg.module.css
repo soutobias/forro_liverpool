@@ -138,7 +138,7 @@
 
   .heroBg{
     background-image: url('/images/bg_hero1.jpg'), url('/images/BG-512px-white.jpg');
-    background-size: contain, auto;
+    background-size: 100% auto, auto;
     background-repeat: no-repeat, repeat;
     background-color: lightgray, lightgray;
   }
