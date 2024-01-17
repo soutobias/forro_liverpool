@@ -16,6 +16,7 @@ import { fetchApi } from '@/lib/api'
 import { Faq } from '@/components/Faq'
 import Head from 'next/head'
 import { useLanguage } from '@/lib/language'
+import Script from 'next/script'
 
 export interface keyable {
   [key: string]: any
@@ -107,6 +108,10 @@ export default function Home() {
         <meta name="description" content="Forro Liverpool" />
         {/* Other metadata tags */}
       </Head>
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtm.js?id=GTM-KDDM2JJQ`}
+      />
       <div
         className={
           showGDPR ? 'overflow-hidden pointer-events-none opacity-20' : ''
@@ -128,6 +133,12 @@ export default function Home() {
         )}
         {!isVisible && <UpButton />}
       </div>
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDDM2JJQ"
+                 height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      />
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
     </>
   )

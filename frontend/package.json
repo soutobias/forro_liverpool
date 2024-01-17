@@ -17,7 +17,8 @@
     "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",
-    "react-fontawesome": "^1.7.1"
+    "react-fontawesome": "^1.7.1",
+    "next/script": "1.0.0-canary.14"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
