@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/next-script-for-ga */
 'use client'
 
 import { Hero } from '@/components/Hero'
@@ -103,23 +104,22 @@ export default function Home() {
 
   return (
     <>
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-DQR97THJN6"
-      />
-
-      <Script strategy="lazyOnload" id="gtag-setup">
-        {`
+      <Head>
+        <title>Forro Liverpool</title>
+        <meta name="description" content="Forro Liverpool" />
+        {/* Other metadata tags */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DQR97THJN6"
+        ></script>
+        <script>
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-DQR97THJN6');
         `}
-      </Script>
-      <Head>
-        <title>Forro Liverpool</title>
-        <meta name="description" content="Forro Liverpool" />
-        {/* Other metadata tags */}
+        </script>
       </Head>
       <div
         className={
