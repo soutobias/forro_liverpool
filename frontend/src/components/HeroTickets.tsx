@@ -71,7 +71,7 @@ export function HeroTickets() {
             <h2 className="font-changa text-center text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-0">
               Lote 2
             </h2>
-            <div className="pt-12 pb-10 text-center text-white font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8">
+            {/* <div className="pt-12 pb-10 text-center text-white font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8">
               <p>
                 {language === 'en'
                   ? 'Available 14 February at 4pm GMT'
@@ -82,9 +82,8 @@ export function HeroTickets() {
                   ? 'Limited to 50 tickets per ticket type.'
                   : 'Limitado a 50 ingressos por tipo de ingresso'}
               </p>
-            </div>
+            </div> */}
           </div>
-
           <TicketCard
             color={styles.lightPinkBg}
             passType={language === 'en' ? 'Full Pass' : 'Passe completo'}
@@ -106,21 +105,21 @@ export function HeroTickets() {
 
           <div className="px-4">
             <h2 className="font-changa text-center text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-16">
-              {language === 'en' ? 'General Admission' : 'Admissão geral'}
+              {language === 'en' ? 'Lote 3' : 'Lote 3'}
             </h2>
-            <div className="pt-12 pb-10 text-center text-white font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8">
+            {/* <div className="pt-12 pb-10 text-center text-white font-extrabold font-changa text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8">
               <p>
                 {language === 'en'
                   ? 'Available 15 March at 3pm GMT'
                   : 'Disponível a partir de 15 de março, às 15h'}
               </p>
-            </div>
+            </div> */}
           </div>
 
           <TicketCard
             color={styles.lightPinkBg}
             passType={language === 'en' ? 'Full Pass' : 'Passe completo'}
-            lote={language === 'en' ? 'General Admission' : 'Admissão geral'}
+            lote={language === 'en' ? 'Lote 3' : 'Lote 3'}
             price="£90"
             classes={language === 'en' ? 'All Classes' : 'Todas as aulas'}
             parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
@@ -129,7 +128,7 @@ export function HeroTickets() {
           <TicketCard
             color={styles.lightPinkBg}
             passType={language === 'en' ? 'Party Pass' : 'Passe para festas'}
-            lote={language === 'en' ? 'General Admission' : 'Admissão geral'}
+            lote={language === 'en' ? 'Lote 3' : 'Lote 3'}
             price="TBD"
             classes=""
             parties={language === 'en' ? 'All Parties' : 'Todas as festas'}

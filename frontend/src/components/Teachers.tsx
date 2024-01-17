@@ -119,13 +119,7 @@ export function Teachers() {
                       color={styles.pinkBg}
                     />
                   ))}
-            </div>
-            <div
-              // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
-              className="p-4 flex sm:justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar"
-              ref={scrollContainerRef3}
-              onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
-            >
+              {/* <div className="hidden sm:block"> */}
               {teachers &&
                 teachers
                   .filter((item: any) => item.function === 'DJ')
@@ -139,6 +133,29 @@ export function Teachers() {
                       color={styles.purpleBg}
                     />
                   ))}
+              {/* </div> */}
+            </div>
+            <div className="hidden">
+              <div
+                // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+                className="p-4 flex sm:hidden sm:justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar"
+                ref={scrollContainerRef3}
+                onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
+              >
+                {teachers &&
+                  teachers
+                    .filter((item: any) => item.function === 'DJ')
+                    .map((item) => (
+                      <TeacherCard
+                        key={item.id}
+                        image={item.image}
+                        title={item.name}
+                        location={item.location}
+                        action={item.function}
+                        color={styles.purpleBg}
+                      />
+                    ))}
+              </div>
             </div>
           </div>
           <h2 className=" text-center text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold text-white py-5">

@@ -29,9 +29,9 @@ export function TicketCard(props: {
           <div className="text-[1.25rem] md:text-[1.5rem] font-extrabold leading-6 md:leading-8 pe-4">
             {props.passType}
           </div>
-          <div className="text-[1rem] md:text-[1.25rem] font-normal leading-6 md:leading-7 font-sans">
+          <h2 className="font-changa text-center text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-16">
             {props.lote}
-          </div>
+          </h2>
         </div>
         <div className="bg-white uppercase text-black w-max pl-4 pr-4 rounded-2xl text-[1rem] font-extrabold">
           {props.price}

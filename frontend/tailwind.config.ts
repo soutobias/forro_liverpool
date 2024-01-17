@@ -25,7 +25,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: 'var(--font-inter)',
+        sans: 'var(--font-open-sans)',
         alt: 'var(--font-pieches)',
         changa: 'var(--font-changa)',
       },

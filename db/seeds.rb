@@ -95,7 +95,7 @@ Site.destroy_all
 site = Site.new(
   title: 'Brazilian forró classes & events in the heart of Liverpool',
   description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
-  frame: 'Liverpool forró festival 1st lot tickets',
+  frame: 'Liverpool Forró Festival Lote 1 Tickets now available! - Get Tickets! - ',
   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
@@ -107,7 +107,7 @@ SiteTranslation.destroy_all
 site_translation = SiteTranslation.new(
   title: 'Aulas de Forró no coração de Liverpool',
   description: 'Aulas de Forró para todos os níveis, workshops e bandas brasileiras aqui em Liverpool. Não precisa trazer parceiro. Todos são bem-vindos!',
-  frame: 'Ingressos para o Festival de Forró de Liverpool 1º lote',
+  frame: 'Liverpool Forró Festival - Ingressos do Lote 1 agora disponíveis! - Compre Ingressos! - ',
   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
