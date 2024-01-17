@@ -2,11 +2,8 @@ import Cookies from 'js-cookie'
 
 export function getCookieAuth() {
   const cookieAuth = Cookies.get('cookieAccepted')
-  console.log(cookieAuth, 'cookieAuth')
   if (cookieAuth) {
     const expDate = new Date(parseInt(cookieAuth))
-    console.log(expDate)
-    console.log(new Date())
     const dateNow = new Date()
     if (expDate > dateNow) {
       return false
