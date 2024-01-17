@@ -128,7 +128,21 @@ export default function Home() {
           showGDPR ? 'overflow-hidden pointer-events-none opacity-20' : ''
         }
       >
-        {/* Seu código JSX existente aqui */}
+        <FrameImportant site={site} />
+        {siteFestival && (
+          <div ref={targetRef}>
+            <Navbar siteFestival={siteFestival} />
+          </div>
+        )}
+        <Hero site={site} />
+        <ClassEvents setShowEvent={setShowEvent} />
+        <Community />
+        <Faq isFestival={false} />
+        <Footer siteFestival={siteFestival} />
+        {Object.keys(showEvent).length > 0 && (
+          <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
+        )}
+        {!isVisible && <UpButton />}
       </div>
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
     </>
