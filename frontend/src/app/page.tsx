@@ -17,7 +17,7 @@ import { fetchApi } from '@/lib/api'
 import { Faq } from '@/components/Faq'
 import Head from 'next/head'
 import { useLanguage } from '@/lib/language'
-import Script from 'next/script'
+// import Script from 'next/script'
 
 export interface keyable {
   [key: string]: any

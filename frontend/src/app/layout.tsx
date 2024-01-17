@@ -65,7 +65,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <meta
           property="og:image"
-          content="https://www.forroliverpool.co.uk/images/meta_image1.png"
+          content="https://www.forroliverpool.co.uk/images/hero-placeholder.png"
         />
 
         <meta property="og:type" content="website" />
