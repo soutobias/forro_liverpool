@@ -83,7 +83,7 @@ export const FaqQuestion = ({ question, answer }: FaqProps) => {
         const links: Record<string, string> = {
           'Forró Liverpool.':
             'https://open.spotify.com/playlist/6Luuh8cKFXtEY8t2MIL2P4?si=EEAc2-uQQaarFD1_m5MsjA&pi=e-qxmnaQS7QNSJ&nd=1&dlsi=6f2d3024fc934803',
-          'thetrainline.com': 'http://trainline.com/',
+          'trainline.com': 'http://trainline.com/',
           'nationalexpress.co.uk': 'https://www.nationalexpress.com/en',
           'hello@forroliverpool.co.uk': 'mailto:hello@forroliverpool.co.uk',
           '@forro.liverpool':
