@@ -353,7 +353,7 @@ liverpool_question_translations_data = [
   },
   {
     question: 'De ônibus',
-    answer: 'Compre as passagens em nationalexpress. para a estação Liverpool One.'
+    answer: 'Compre as passagens em nationalexpress.co.uk para a estação Liverpool One.'
   }
 ]
 
