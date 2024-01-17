@@ -108,37 +108,28 @@ export default function Home() {
         <meta name="description" content="Forro Liverpool" />
         {/* Other metadata tags */}
       </Head>
+
+      {/* Adicione a tag de script principal do Google Analytics usando next/script */}
       <Script
         strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtm.js?id=GTM-KDDM2JJQ`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-DQR97THJN6`}
       />
+      <Script id="gtag-setup" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-DQR97THJN6');
+        `}
+      </Script>
+
       <div
         className={
           showGDPR ? 'overflow-hidden pointer-events-none opacity-20' : ''
         }
       >
-        <FrameImportant site={site} />
-        {siteFestival && (
-          <div ref={targetRef}>
-            <Navbar siteFestival={siteFestival} />
-          </div>
-        )}
-        <Hero site={site} />
-        <ClassEvents setShowEvent={setShowEvent} />
-        <Community />
-        <Faq isFestival={false} />
-        <Footer siteFestival={siteFestival} />
-        {Object.keys(showEvent).length > 0 && (
-          <ClassEvent showEvent={showEvent} setShowEvent={setShowEvent} />
-        )}
-        {!isVisible && <UpButton />}
+        {/* Seu código JSX existente aqui */}
       </div>
-      <noscript
-        dangerouslySetInnerHTML={{
-          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDDM2JJQ"
-                 height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-        }}
-      />
       {showGDPR && <GDPR setShowGDPR={setShowGDPR} />}
     </>
   )
