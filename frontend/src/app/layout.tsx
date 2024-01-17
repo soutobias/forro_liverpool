@@ -1,4 +1,5 @@
 'use client'
+import Script from 'next/script'
 
 // eslint-disable-next-line camelcase
 import {
@@ -12,8 +13,6 @@ import { ReactNode } from 'react'
 import localFont from '@next/font/local'
 // import { NavBar } from '@/components/NavBar'
 import { LanguageProvider } from '@/lib/language'
-import Script from 'next/script'
-import forroLogoInstagram from '@/assets/fl_logo_instagram.png'
 
 const pieches = localFont({
   src: [
@@ -37,6 +36,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DQR97THJN6"
+          strategy="afterInteractive"
+          id="ga_analytics"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+       gtag('config', 'G-DQR97THJN6');
+       `}
+        </Script>
         <title>Forro Liverpool</title>
         <link rel="icon" type="image/png" href="/images/fl_logo.png" />
         <meta
