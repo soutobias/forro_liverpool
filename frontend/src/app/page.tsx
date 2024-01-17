@@ -103,18 +103,12 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Forro Liverpool</title>
-        <meta name="description" content="Forro Liverpool" />
-        {/* Other metadata tags */}
-      </Head>
-
-      {/* Adicione a tag de script principal do Google Analytics usando next/script */}
       <Script
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=G-DQR97THJN6`}
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-DQR97THJN6"
       />
-      <Script id="gtag-setup" strategy="lazyOnload">
+
+      <Script strategy="lazyOnload" id="gtag-setup">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -122,7 +116,11 @@ export default function Home() {
           gtag('config', 'G-DQR97THJN6');
         `}
       </Script>
-
+      <Head>
+        <title>Forro Liverpool</title>
+        <meta name="description" content="Forro Liverpool" />
+        {/* Other metadata tags */}
+      </Head>
       <div
         className={
           showGDPR ? 'overflow-hidden pointer-events-none opacity-20' : ''
