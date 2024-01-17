@@ -49,7 +49,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           property="og:description"
           content="Brazilian forró classes & events in the heart of Liverpool"
         />
-        <meta property="og:image" content="/images/meta_image1.png" />
+        <meta
+          property="og:image"
+          content="https://www.forroliverpool.co.uk/images/meta_image1.png"
+        />
 
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en-GB" />
