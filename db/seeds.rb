@@ -31,8 +31,8 @@ events_data = [
     Fique de olho na nossa página do Instagram para os últimos eventos e notícias,
     como cancelamentos ou atrasos de aulas.
     Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!'],
-    start_datetime: DateTime.now + 2.day,
-    end_datetime: DateTime.now + 2.day + 3.hours,
+    start_datetime: DateTime.new(2024, 5, 15),
+    end_datetime: DateTime.new(2024, 5, 15),
     price: '£ 20',
     cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
@@ -53,8 +53,8 @@ events_data = [
     No pre-purchase or registration necessary. Just show up and we will see you there!',
                   'Aulas de Forró no coração de Liverpool. Estamos esperando por você no andar de cima do Caledonia. Fique de olho na nossa página do Instagram para os últimos eventos e notícias, como cancelamentos ou atrasos de aulas.
       Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!'],
-    start_datetime: DateTime.now + 2.day,
-    end_datetime: DateTime.now + 2.day + 3.hours,
+    start_datetime: DateTime.now + 2.year,
+    end_datetime: DateTime.now + 2.year + 3.hours,
     price: '£ 3',
     cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
