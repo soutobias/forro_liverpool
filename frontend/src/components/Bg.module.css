@@ -54,13 +54,13 @@
 }
 
 .rainbowBg{
-  background-image: url('/images/rainbow.png');
+  background-image: url('/images/rainbow2.png');
   background-size: 100% 100%;
   background-position: left 95% top 0%;
 }
 
 .heroBg{
-  background-image: url('/images/bg_hero1.jpg'), url('/images/BG-512px-white.jpg');
+  background-image: url('/images/bg_hero3.jpg'), url('/images/BG-512px-white.jpg');
   background-size: cover, auto;
   background-repeat: no-repeat, repeat;
   background-color: lightgray, lightgray;
@@ -72,6 +72,16 @@
   background-repeat: repeat;
   background-color: lightgray;
 }
+
+@media (max-width: 1024px) {
+  .heroBg{
+    background-image: url('/images/bg_hero1.jpg'), url('/images/BG-512px-white.jpg');
+    background-size: 100% auto, auto;
+    background-repeat: no-repeat, repeat;
+    background-color: lightgray, lightgray;
+  }
+}
+
 
 @media (max-width: 640px) {
   .blackBg{

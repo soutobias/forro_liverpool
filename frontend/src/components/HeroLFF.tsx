@@ -10,11 +10,13 @@ import { useLanguage } from '@/lib/language'
 // import { CursorFollower } from './CursorFollower'
 import { CursorTrail } from './CursorTrail'
 import { useEffect, useState } from 'react'
+import { CursorFollower } from './CursorFollower'
 
 export function HeroLFF(props: { siteFestival: any }) {
   const { language } = useLanguage()
   const keyForRerender = language
   const [trail, setTrail] = useState<any>([])
+  const [isCursorInDiv, setIsCursorInDiv] = useState(false)
 
   const handleMouseMove = (e: any) => {
     setTrail((currentTrail: any) => [
@@ -25,6 +27,12 @@ export function HeroLFF(props: { siteFestival: any }) {
 
   const handleMouseLeave = () => {
     setTrail([])
+    setIsCursorInDiv(false)
+  }
+
+  const handleMouseEnter = () => {
+    setTrail([])
+    setIsCursorInDiv(true)
   }
 
   useEffect(() => {
@@ -44,13 +52,14 @@ export function HeroLFF(props: { siteFestival: any }) {
       className={`w-full z-[59] font-changa relative ${styles.blackBg}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
     >
-      {/* <CursorFollower isVisible={isCursorInDiv} /> */}
       <CursorTrail trail={trail} />
+      <CursorFollower isVisible={isCursorInDiv} />
       <div className="pt-[6.75rem]">
         <div>
           <div className="flex justify-center pl-4 pr-4">
-            <div className="hidden sm:flex sm:justify-around sm:items-center uppercase w-full 2xl:w-[80%]">
+            <div className="hidden md:flex md:justify-around md:items-center uppercase w-full 2xl:w-[80%]">
               {props.siteFestival && (
                 <div className="block">
                   <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
@@ -64,7 +73,7 @@ export function HeroLFF(props: { siteFestival: any }) {
               <Image
                 src={LFFLogo}
                 alt="illustration"
-                className="w-auto md:h-[30rem] xl:h-[35rem] 2xl:h-[38rem]"
+                className="w-auto sm:h-[20rem] md:h-[25rem]  lg:h-[30rem] xl:h-[35rem] 2xl:h-[38rem]"
                 width={1336}
                 height={614}
               />
@@ -84,7 +93,7 @@ export function HeroLFF(props: { siteFestival: any }) {
             <Image
               src={LFFLogo}
               alt="illustration"
-              className="h-[17rem] w-auto md:h-[25rem] xl:h-[30rem] md:hidden"
+              className="h-[17rem] w-auto md:hidden"
               width={1336}
               height={614}
             />

@@ -98,7 +98,7 @@ export function Teachers() {
             </div>
             <div
               // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-              className="p-4 flex sm:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row"
+              className="p-4 sm:flex sm:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
               ref={scrollContainerRef2}
               onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
             >
@@ -135,7 +135,33 @@ export function Teachers() {
                   ))}
               {/* </div> */}
             </div>
-            <div className="hidden">
+            <div className="">
+              <div
+                // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+                className="p-4 flex sm:hidden sm:justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
+                ref={scrollContainerRef3}
+                onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
+              >
+                {teachers.length > 0 &&
+                  teachers
+                    .filter(
+                      (item: any) =>
+                        item.function === 'Banda' ||
+                        item.function === 'Live Band',
+                    )
+                    .map((item) => (
+                      <TeacherCard
+                        key={item.id}
+                        image={item.image}
+                        title={item.name}
+                        location={item.location}
+                        action={item.function}
+                        color={styles.pinkBg}
+                      />
+                    ))}
+              </div>
+            </div>
+            <div className="">
               <div
                 // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
                 className="p-4 flex sm:hidden sm:justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar"
@@ -158,7 +184,7 @@ export function Teachers() {
               </div>
             </div>
           </div>
-          <h2 className=" text-center text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 font-extrabold text-white py-5">
+          <h2 className=" text-center text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8 font-extrabold text-white py-5">
             {language === 'en'
               ? 'Check back soon for more talent announcements!'
               : 'Volte em breve para mais anúncios de talentos!'}

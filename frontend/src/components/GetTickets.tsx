@@ -42,7 +42,7 @@ export function GetTickets() {
       <div id="get_tickets" className="relative font-changa">
         <div className={`relative ${styles.purpleBg}`}>
           <div
-            className={`absolute -top-[10rem] md:-top-[19rem] w-full h-[20rem] md:h-[30rem] ${styles.rainbowBg}`}
+            className={`absolute -top-[10rem] sm:-top-[15rem] md:-top-[19rem] w-full h-[20rem] md:h-[30rem] ${styles.rainbowBg}`}
           />
           <div className="pt-[12rem] md:pt-[20rem]  relative z-[61] text-center">
             <H1
@@ -75,7 +75,7 @@ export function GetTickets() {
             </div>
 
             <div className="sm:hidden">
-              <div className="pl-4 pr-4 pt-8 z-[61] md:hidden">
+              <div className="pl-4 pr-4 pt-8 z-[61] sm:hidden">
                 <MainButton
                   href="/lff2024/tickets"
                   content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
@@ -94,7 +94,7 @@ export function GetTickets() {
                 }
               />
             </div>
-            <div className="pl-4 pr-4 pt-8 z-[61] md:flex md:justify-center hidden">
+            <div className="pl-4 pr-4 pt-8 z-[61] sm:flex sm:justify-center hidden">
               <MainButton
                 key={keyForRerender}
                 href="/lff2024/tickets"
@@ -107,7 +107,7 @@ export function GetTickets() {
             <Image
               src={zabumba}
               alt="illustration"
-              className={`absolute top-[30%] left-[50%] z-[60] w-[9rem] ${animationClass}`}
+              className={`absolute top-[30%] left-[50%] xl:left-[70%] z-[60] w-[9rem] ${animationClass}`}
               width={100}
               height={100}
               style={{ maxWidth: '10rem' }}
@@ -115,7 +115,7 @@ export function GetTickets() {
             <Image
               src={sanfona}
               alt="illustration"
-              className={`absolute top-[50%] left-[10%] z-[60] w-[11rem] ${animationClass}`}
+              className={`absolute top-[50%] left-[10%] xl:left-[30%] z-[60] w-[11rem] ${animationClass}`}
               width={100}
               height={100}
               style={{ maxWidth: '10rem' }}

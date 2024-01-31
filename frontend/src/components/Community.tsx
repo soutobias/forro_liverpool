@@ -64,7 +64,7 @@ export function Community() {
               </div>
             </div>
             <div className=" flex flex-col justify-center">
-              <p className="pt-8 sm:pt-16 pb-12 text-[1rem] md:text-[1.25rem] sm:px-[2rem] md:px-[3rem] xl:px-[10rem] leading-6 font-sans font-semibold md:leading-7">
+              <p className="pt-8 sm:pt-16 pb-12 text-[1rem] md:text-[1.25rem] sm:px-[2rem] md:px-[3rem] lg:px-[10rem] xl:px-[15rem] leading-6 font-sans font-semibold md:leading-7">
                 {community[0].profile}
               </p>
             </div>
@@ -83,7 +83,7 @@ export function Community() {
             />
           )}
         </div>
-        <p className="pt-8 text-[1rem] sm:px-[2rem] md:text-[1.25rem] leading-6 font-sans font-semibold lg:w-[80%]">
+        <p className="pt-8 text-[1rem] sm:px-[2rem] md:text-[1.25rem] leading-7 font-sans font-semibold lg:w-[80%]">
           {community.length > 0 && community[0].description}
         </p>
       </div>

@@ -35,7 +35,7 @@ export function Liverpool() {
       <div
         className={`absolute -top-[10rem] md:-top-[14rem] lg:-top-[16rem] xl:-top-[19rem]  2xl:-top-[20rem] w-full min-h-[20rem] md:min-h-[25rem] lg:min-h-[30rem] xl:min-h-[35rem] 2xl:min-h-[40rem] ${styles.circlesBg1}`}
       />
-      <div className="px-4 md:px-[23.25rem] ">
+      <div className="px-4 md:px-[8rem] xl:px-[23rem] ">
         <div className="pt-[13rem] md:pt-[25rem] pb-10 text-center">
           <H1 color="white" text="Come Together" />
           <H1

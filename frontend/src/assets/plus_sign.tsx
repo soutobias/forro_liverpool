@@ -1,10 +1,14 @@
-export const PlusSign = (props: { color: string }) => {
+export const PlusSign = (props: {
+  color: string
+  width?: string
+  height?: string
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="60"
-      height="60"
-      viewBox="0 0 60 60"
+      width={props.width ? props.width : '60'}
+      height={props.height ? props.height : '60'}
+      viewBox={`0 0 60 60`}
       fill="none"
     >
       <path

@@ -18,7 +18,7 @@ export function CommunityCard(props: {
         width={600}
       />
       <div className="flex justify-center -mt-[6.5rem] z-[59]">
-        <div className="bg-white pt-[7.5rem] w-10/12 pl-4 md:pl-8">
+        <div className="bg-white pt-[7.5rem] w-10/12 pl-4 md:pl-8 rounded-xl">
           <div className="md:flex md:gap-2 md:pb-4">
             <p className="text-black text-[1.25rem] md:text-[1.5rem] font-extrabold leading-6 md:leading-8 pt-3 font-changa">
               {nameParts[0]}
@@ -27,7 +27,7 @@ export function CommunityCard(props: {
               {nameParts[1]}
             </p>
           </div>
-          <p className="text-black text-[1rem]  md:text-[1.5rem] font-extrabold leading-6 pt-2 md:pt-0 pb-4 md:leading-8 font-changa uppercase">
+          <p className="text-black text-[1rem]  md:text-[1.5rem] font-extrabold leading-6 pt-2 md:pt-0 pb-8 md:leading-8 font-changa uppercase">
             {props.action}
           </p>
         </div>

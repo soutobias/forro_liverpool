@@ -24,12 +24,9 @@ Event.destroy_all
 events_data = [
   {
     name: ['Liverpool Forró Festival 2024', 'Festival de Forró de Liverpool 2024'],
-    description: ['Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia.
-    Check out our Instagram page for the latest events and news, like class cancellations or delays.
+    description: ['Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia. Check out our Instagram page for the latest events and news, like class cancellations or delays.
     No pre-purchase or registration necessary. Just show up and we will see you there!',
-                  'Aulas de Forró no coração de Liverpool. Estamos esperando por você no andar de cima do Caledonia.
-    Fique de olho na nossa página do Instagram para os últimos eventos e notícias,
-    como cancelamentos ou atrasos de aulas.
+                  'Aulas de Forró no coração de Liverpool. Estamos esperando por você no andar de cima do Caledonia. Fique de olho na nossa página do Instagram para os últimos eventos e notícias, como cancelamentos ou atrasos de aulas.
     Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!'],
     start_datetime: DateTime.new(2024, 5, 15),
     end_datetime: DateTime.new(2024, 5, 15),
@@ -48,11 +45,10 @@ events_data = [
   },
   {
     name: ['All-levels Forró Classes', 'Aulas de Forró - Todos níveis '],
-    description: ['Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia.
-    Check out our Instagram page for the latest events and news, like class cancellations or delays.
+    description: ['Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia. Check out our Instagram page for the latest events and news, like class cancellations or delays.
     No pre-purchase or registration necessary. Just show up and we will see you there!',
                   'Aulas de Forró no coração de Liverpool. Estamos esperando por você no andar de cima do Caledonia. Fique de olho na nossa página do Instagram para os últimos eventos e notícias, como cancelamentos ou atrasos de aulas.
-      Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!'],
+    Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!'],
     start_datetime: DateTime.now + 2.year,
     end_datetime: DateTime.now + 2.year + 3.hours,
     price: '£ 3',
@@ -330,7 +326,7 @@ liverpool_questions_data = [
   },
   {
     question: 'By train',
-    answer: 'Book tickets on the trainline.com to Liverpool Lime Street.'
+    answer: 'Book tickets on the thetrainline.com to Liverpool Lime Street.'
   },
   {
     question: 'By bus',
@@ -349,7 +345,7 @@ liverpool_question_translations_data = [
   },
   {
     question: 'De trem',
-    answer: 'Compre as passagems em trainline.com para a estação Liverpool Lime st'
+    answer: 'Compre as passagems em thetrainline.com para a estação Liverpool Lime Street.'
   },
   {
     question: 'De ônibus',
@@ -363,7 +359,7 @@ Community.destroy_all
 community = Community.new(
   profile_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/braga.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marina.png', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/community.jpg'],
   name: ['Filipe Braga', 'Marina Cerqueira'],
-  profile: "Growing up in Recife, Marina and Filipe started dancing with their mothers and grandparents since a very young age. They were regulars at many Forró events in Pernambuco's capital city, such as Xin Xin da Bahiana, Casbah and Casa Astral, where they met. They share a passion for Forró, Maracatu, Frevo, Coco and Cavalo Marinho. They started Forró Liverpool in January 2020 where they mix elements of Brazilian culture and bring guest teachers and bands to grow the Forró scene in the city.",
+  profile: "Growing up in Recife, Brazil, Marina and Filipe started dancing with their families at a very young age. They were regulars at many forró events in Pernambuco's capital city. They started Forró Liverpool in January 2020, where they teach regular classes, and bring incredible guest teachers, amazing bands, and their own Brazilian culture to the growing forró scene in the city.",
   description: 'We are proudly community-led, with many Liverpool forrozeiras stepping up to organize events, offer marketing support, and teach workshops. Our friendly community is a beautiful mix of Brazilians and folks from all over the world.'
 )
 community.save!
@@ -401,10 +397,10 @@ site_festival_translation = SiteFestivalTranslation.new(
   image: [
     'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660', 'https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'
   ],
-  data: '10 a 12 de Maio, 2024',
+  data: '10-12 de Maio, 2024',
   local: 'Liverpool, Inglaterra',
   video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/video.mp4',
-  textvideo: 'Três dias cheios de aulas e festas com artistas incríveis do mundoa afora. Vem curtir com a gente esse festival de cultura brasileira na cidade natal dos Beatles.',
+  textvideo: 'Três dias cheios de aulas e festas com artistas incríveis do mundo afora. Vem curtir com a gente esse festival de cultura brasileira na cidade natal dos Beatles.',
   titlevideo: 'Forró na cidade mais musical da Inglaterra'
 )
 site_festival_translation.save!
@@ -414,7 +410,7 @@ FestivalTeacher.destroy_all
 festival_teachers_data = [
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpg'],
-    name: 'Yes Goes',
+    name: 'Yse Góes',
     location: 'Porto',
     function: 'Teacher'
   },
@@ -428,6 +424,12 @@ festival_teachers_data = [
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpg'],
     name: 'Zeu Azevedo',
     location: 'London',
+    function: 'Live Band'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
+    name: 'Abner Brasil',
+    location: 'Liverpool',
     function: 'Live Band'
   },
   # {
@@ -451,7 +453,7 @@ FestivalTeacherTranslation.destroy_all
 festival_teacher_translations_data = [
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpg'],
-    name: 'Yes Goes',
+    name: 'Yse Góes',
     location: 'Porto',
     function: 'Professora'
   },
@@ -464,7 +466,13 @@ festival_teacher_translations_data = [
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpg'],
     name: 'Zeu Azevedo',
-    location: 'London',
+    location: 'Londres',
+    function: 'Banda'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
+    name: 'Abner Brasil',
+    location: 'Liverpool',
     function: 'Banda'
   },
   # {

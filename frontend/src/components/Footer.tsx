@@ -13,12 +13,14 @@ export function Footer(props: { siteFestival: any }) {
       <div className="flex justify-center gap-8 pt-10 pb-8">
         <Link
           href="https://www.instagram.com/forro.liverpool/"
+          target="_blank"
           className="text-1xl no-underline h-full cursor-pointer"
         >
           <InstagramLogo />
         </Link>
         <Link
           href="https://www.facebook.com/forroliverpool/"
+          target="_blank"
           className="text-1xl no-underline h-full cursor-pointer"
         >
           <FacebookLogo />

@@ -42,8 +42,8 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
 
   const getScrollbarWidth = () =>
     window.innerWidth - document.documentElement.clientWidth
-
   const [scrollbarWidth, setScrollbarWidth] = useState(getScrollbarWidth())
+
   useEffect(() => {
     const originalStyle = window.getComputedStyle(document.body).overflow
     if (dropdownDesktop) {
@@ -152,7 +152,7 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
         >
           <Link
             href="/"
-            className="font-semibold cursor-pointer no-underline pt-2"
+            className="font-semibold cursor-pointer no-underline pt-2 sm:hidden block"
             onClick={closeMobileMenu}
           >
             <Image
@@ -164,11 +164,25 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
               style={{ maxWidth: '7rem' }}
             />
           </Link>
+          <Link
+            href="/"
+            className="font-semibold cursor-pointer no-underline pt-2 hidden sm:block"
+            onClick={closeMobileMenu}
+          >
+            <Image
+              src={forroLogo}
+              alt="illustration"
+              className="overflow-hidden"
+              width={400}
+              height={400}
+              style={{ maxWidth: '9rem' }}
+            />
+          </Link>
         </div>
         {dropdown ? LanguageToogle : <div></div>}
         <div className="flex">
           <div
-            className={`sm:hidden justify-self-end align-middle h-max w-max ${
+            className={`sm:hidden justify-self-end align-middle h-max w-max cursor-pointer ${
               dropdown ? styles.turn : styles.original
             }`}
             onClick={handleClickMobile}
@@ -183,7 +197,7 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
             {LanguageToogle}
           </div>
           <div
-            className={`hidden sm:block justify-self-end align-middle h-max w-max z-[62] ${
+            className={`cursor-pointer hidden sm:block justify-self-end align-middle h-max w-max z-[62] -mt-2 ${
               dropdownDesktop ? styles.turn : styles.original
             }`}
             style={{
@@ -193,6 +207,8 @@ export function Navbar(props: { plusColor?: string; siteFestival: any }) {
           >
             <PlusSign
               color={dropdownDesktop ? '#EAEAEA' : props.plusColor || '#201E1E'}
+              width="90"
+              height="90"
             />
           </div>
         </div>

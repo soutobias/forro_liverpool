@@ -37,10 +37,10 @@ export function VideoIntro(props: { siteFestival: any }) {
     >
       <div className="md:flex md:justify-center md:gap-10 lg:gap-10 xl:gap-40">
         <div className="sm:pt-[0] xl:pt-[7rem]">
-          <h2 className="pb-12 sm:pb-0 px-12 text-[1.5rem] md:text-[2rem] sm:pt-0 lg:pt-16 leading-8 md:leading-10 font-extrabold md:text-left">
+          <h2 className="pb-12 sm:pb-0 text-[1.5rem] md:text-[2rem] sm:pt-0 lg:pt-16 leading-8 md:leading-10 font-extrabold md:text-left">
             {props.siteFestival && props.siteFestival[0].titlevideo}
           </h2>
-          <p className="pt-12 pb-10 text-[1rem] md:text-[1.25rem] md:leading-6 font-sans text-justify md:text-left font-semibold leading-7 hidden md:block">
+          <p className="pt-12 pb-10 text-[1rem] md:text-[1.25rem] md:leading-6 font-sans text-justify md:text-left font-semibold leading-8 hidden md:block">
             {props.siteFestival && props.siteFestival[0].textvideo}
           </p>
         </div>
@@ -67,7 +67,7 @@ export function VideoIntro(props: { siteFestival: any }) {
               /> */}
           </video>
         </div>
-        <p className="pt-12 pb-10 text-[1rem] font-sans text-justify font-semibolf leading-6 md:hidden">
+        <p className="pt-12 pb-10 text-[1rem] font-sans text-left font-semibolf leading-6 md:hidden">
           {props.siteFestival && props.siteFestival[0].textvideo}
         </p>
       </div>

@@ -42,13 +42,13 @@ export function ClassEventsLFF() {
             text={language === 'en' ? '3 Days of Dance!' : '3 Dias de Dança!'}
           />
         </div>
-        <div className="">
+        <div className="flex justify-center">
           {eventsEmpty ? (
             <div
-              className={`h-[15rem] font-changa rounded-2xl border-black border-4 ${styles.begeBg}`}
+              className={`h-[15rem] lg:h-[18rem] xl:h-[20rem] font-changa rounded-2xl border-black border-4 aspect-3/2 ${styles.begeBg}`}
             >
-              <div className="w-full h-full flex justify-center align-middle items-center">
-                <div className="text-black text-[1.5rem] md:text-[2rem] text-center font-extrabold leading-8 md:leading-10 pl-16 pr-16">
+              <div className="w-full h-full flex justify-center align-middle items-center aspect-2/1">
+                <div className="text-black text-[1.5rem] md:text-[2rem] text-center font-extrabold leading-8 md:leading-10 px-10">
                   {language === 'en'
                     ? 'Check back soon for the complete festival schedule!'
                     : 'Volte em breve para conferir a programação completa do festival'}

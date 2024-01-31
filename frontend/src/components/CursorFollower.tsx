@@ -1,6 +1,7 @@
 import { useState, useEffect, CSSProperties } from 'react'
 import { MainButton } from './MainButton'
 import { useLanguage } from '@/lib/language'
+import styles from '@/components/Bg.module.css'
 
 export function CursorFollower(props: { isVisible: boolean }) {
   const { language } = useLanguage()
@@ -8,7 +9,7 @@ export function CursorFollower(props: { isVisible: boolean }) {
   const { isVisible } = props
   useEffect(() => {
     const handleMouseMove = (e: any) => {
-      setCursorPos({ x: e.pageX, y: e.pageY })
+      setCursorPos({ x: e.pageX - 130, y: e.pageY - 40 })
     }
 
     if (isVisible) {
@@ -24,21 +25,23 @@ export function CursorFollower(props: { isVisible: boolean }) {
   }
   const followerStyle: CSSProperties = {
     position: 'absolute',
-    left: cursorPos.x - 50,
-    top: cursorPos.y - 40,
+    left: cursorPos.x,
+    top: cursorPos.y,
     // Add more styles as needed, e.g., width, height, etc.
   }
   return (
     <div
+      className="sm:flex sm:justify-center hidden w-max h-max whitespace-nowrap"
       style={followerStyle}
-      className="sm:flex sm:justify-center hidden w-max"
     >
-      <MainButton
+      <a
         href="/lff2024/tickets"
-        content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
-        bg="white"
-        font="black"
-      />
+        className={`flex justify-center ${styles.pinkBg} h-max no-underline font-changa rounded-xl border-solid border-4 border-black`}
+      >
+        <h2 className="text-white text-center text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 uppercase font-extrabold w-full sm:p-5 md:p-6 lg:p-7 xl:p-8 sm:px-8 md:px-9 lg:px-10 xl:px-12">
+          {language === 'en' ? 'Get tickets' : 'Ingressos'}
+        </h2>
+      </a>
     </div>
   )
 }

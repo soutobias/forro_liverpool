@@ -81,6 +81,7 @@ module.exports = {
       aspectRatio: {
         '2/1': '2 / 1',
         '300/168': '300 / 168',
+        '3/2': '3 / 2',
       },
       backgroundImage: {
         stripes:

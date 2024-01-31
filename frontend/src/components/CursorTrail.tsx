@@ -20,9 +20,9 @@ export function CursorTrail(props: { trail: any }) {
             href="/lff2024/tickets"
             className={`flex justify-center ${styles.pinkBg} h-max no-underline font-changa rounded-xl border-solid border-4 border-black`}
           >
-            <p className="text-white text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 uppercase font-extrabold w-full p-5">
+            <h2 className="text-white text-center text-[1.5rem] md:text-[2rem] leading-8 md:leading-9 uppercase font-extrabold w-full sm:p-5 md:p-6 lg:p-7 xl:p-8 sm:px-8 md:px-9 lg:px-10 xl:px-12">
               {language === 'en' ? 'Get tickets' : 'Ingressos'}
-            </p>
+            </h2>
           </a>
         </div>
       ))}

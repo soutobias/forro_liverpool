@@ -175,7 +175,7 @@ export default function EventDetails() {
                       </div>
                     </div>
                     <div className="pt-8">
-                      <p className="text-black text-[1rem] md:text-[1.25rem] leading-6 font-sans font-semibold">
+                      <p className="text-black text-[1rem] md:text-[1.25rem] leading-7 font-sans font-semibold whitespace-pre-line">
                         {selectedEvent.description[position]}
                       </p>
                     </div>

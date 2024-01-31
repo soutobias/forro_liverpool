@@ -75,15 +75,15 @@ export const FaqQuestion = ({ question, answer }: FaqProps) => {
   // Função para substituir o texto por links
   const replaceTextWithLinks = (text: string) => {
     const parts = text.split(
-      /(Forró Liverpool\.|trainline\.com|nationalexpress\.co\.uk|hello@forroliverpool\.co\.uk|@forro\.liverpool)/g,
+      /(Forró Liverpool\.|thetrainline\.com|nationalexpress\.co\.uk|hello@forroliverpool\.co\.uk|@forro\.liverpool)/g,
     )
 
     return parts.map((part, index) => {
       if (index % 2 === 1) {
         const links: Record<string, string> = {
           'Forró Liverpool.':
-            'https://open.spotify.com/playlist/6Luuh8cKFXtEY8t2MIL2P4?si=EEAc2-uQQaarFD1_m5MsjA&pi=e-qxmnaQS7QNSJ&nd=1&dlsi=6f2d3024fc934803',
-          'trainline.com': 'http://trainline.com/',
+            'https://open.spotify.com/playlist/2kvMQYobMtnhGnkggHc5QE',
+          'thetrainline.com': 'https://thetrainline.com/',
           'nationalexpress.co.uk': 'https://www.nationalexpress.com/en',
           'hello@forroliverpool.co.uk': 'mailto:hello@forroliverpool.co.uk',
           '@forro.liverpool':
@@ -184,6 +184,13 @@ export const Faq = (props: { isFestival: boolean }) => {
             answer={item.answer}
           />
         ))}
+      {isFestival && (
+        <div className="text-white pt-10 text-[1.5rem] md:text-[2rem] text-center font-extrabold leading-8 md:leading-10 px-10">
+          {language === 'en'
+            ? 'Liverpool Forró Festival 2024 was organized by Felipe Ortega, Filipe Braga, and Molly Cichy. Simbora!'
+            : 'Liverpool Forró Festival 2024 é organizado por Felipe Ortega, Filipe Braga, e Molly Cichy. Simbora!'}
+        </div>
+      )}
     </div>
   )
 }
