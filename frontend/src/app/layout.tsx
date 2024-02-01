@@ -33,7 +33,6 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const rout = window.location.href.split('/').pop()
   return (
     <html lang="en">
       <head>
@@ -52,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
        gtag('config', 'G-DQR97THJN6');
        `}
         </Script>
-        <title>{rout !== 'lff2024' ? 'Forró Liverpool' : 'LFF2024'}</title>
+        <title>Forró Liverpool</title>
         <link rel="icon" type="image/png" href="/images/favicon.png" />
         <meta
           name="description"
@@ -66,11 +65,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <meta
           property="og:image"
-          content={
-            rout !== 'lff2024'
-              ? 'https://www.forroliverpool.co.uk/images/fl_meta_image.png'
-              : 'https://www.forroliverpool.co.uk/images/fl_meta_image_lff.png'
-          }
+          content="https://www.forroliverpool.co.uk/images/fl_meta_image.png"
         />
 
         <meta property="og:type" content="website" />
