@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
        gtag('config', 'G-DQR97THJN6');
        `}
         </Script>
-        <title>Forró Liverpool</title>
+        <title>{rout !== 'lff2024' ? 'Forró Liverpool' : 'LFF2024'}</title>
         <link rel="icon" type="image/png" href="/images/favicon.png" />
         <meta
           name="description"
