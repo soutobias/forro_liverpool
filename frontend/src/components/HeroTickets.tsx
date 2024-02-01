@@ -80,7 +80,7 @@ export function HeroTickets() {
             </h2>
             <div className="pt-5 pb-10 font-sans text-white text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 font-semibold w-full p-5">
               <p>
-                {language === 'en' ? 'Available soon' : 'Dispónivel em breve'}
+                {language === 'en' ? 'Available soon' : 'Disponível em breve'}
               </p>
               <p>
                 {language === 'en'
@@ -127,7 +127,7 @@ export function HeroTickets() {
             </h2>
             <div className="pt-5 pb-10 font-sans text-white text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 font-semibold w-full p-5">
               <p>
-                {language === 'en' ? 'Available soon' : 'Dispónivel em breve'}
+                {language === 'en' ? 'Available soon' : 'Disponível em breve'}
               </p>
               <p>
                 {language === 'en'
