@@ -100,7 +100,7 @@ export function Hero(props: HeroProps) {
               /> */}
               <source
                 src={
-                  props.site && props.site[0].cover_video.slice(0, -4) + '.mp4'
+                  props.site && props.site[0].cover_video.slice(0, -4) + 'mp4'
                 }
                 type="video/mp4"
               />
