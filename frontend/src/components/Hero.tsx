@@ -94,14 +94,17 @@ export function Hero(props: HeroProps) {
               style={{ borderRadius: '16px', overflow: 'hidden' }}
               // poster={path-to-poster.jpg}
             >
-              <source
-                src={props.site && props.site[0].cover_video}
-                type="video/webm"
-              />
               {/* <source
                 src={props.site && props.site[0].cover_video}
-                type="video/mp4"
+                type="video/webm"
               /> */}
+              <source
+                src={
+                  props.site && props.site[0].cover_video.split('.')[0] + '.mp4'
+                }
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
             </video>
           </div>
         </div>
