@@ -182,16 +182,17 @@ export default function EventDetails() {
                   </div>
                 </div>
               </div>
-              {selectedEvent.type_event === 'Special Events' && (
-                <div className="pt-8 z-[61]">
-                  <MainButton
-                    href="/lff2024/tickets"
-                    content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
-                    bg="black"
-                    font="white"
-                  />
-                </div>
-              )}
+              {selectedEvent.type_event === 'Special Events' &&
+                selectedEvent.ticket_link && (
+                  <div className="pt-8 z-[61]">
+                    <MainButton
+                      href="/lff2024/tickets"
+                      content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+                      bg="black"
+                      font="white"
+                    />
+                  </div>
+                )}
               <h2 className="font-changa text-black text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-16">
                 {language === 'en'
                   ? 'Plus, join us for...'
