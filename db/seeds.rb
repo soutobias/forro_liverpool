@@ -508,7 +508,7 @@ festival_teacher_translations_data = [
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/sanguim.jpg'],
     name: 'DJ Sanguim',
-    location: 'London',
+    location: 'Londres',
     function: 'DJ'
   }
 ]
