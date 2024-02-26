@@ -69,7 +69,7 @@ export function Teachers() {
               }
             />
           </div>
-          <div className="md:px-[2rem] lg:px-[4rem] xl:px-[8rem] 2xl:px-[16rem]">
+          <div className="">
             <div
               className="p-4 flex gap-4 overflow-x-auto no-scrollbar sm:justify-center"
               ref={scrollContainerRef1}
