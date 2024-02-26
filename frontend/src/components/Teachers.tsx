@@ -119,7 +119,13 @@ export function Teachers() {
                       color={styles.pinkBg}
                     />
                   ))}
-              {/* <div className="hidden sm:block"> */}
+            </div>
+            <div
+              // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
+              className="p-4 sm:flex sm:justify-left gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
+              ref={scrollContainerRef2}
+              onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
+            >
               {teachers &&
                 teachers
                   .filter((item: any) => item.function === 'DJ')
@@ -133,12 +139,11 @@ export function Teachers() {
                       color={styles.purpleBg}
                     />
                   ))}
-              {/* </div> */}
             </div>
             <div className="">
               <div
                 // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
-                className="p-4 flex sm:hidden sm:justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
+                className="p-4 flex sm:hidden justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
                 ref={scrollContainerRef3}
                 onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
               >
@@ -164,7 +169,7 @@ export function Teachers() {
             <div className="">
               <div
                 // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
-                className="p-4 flex sm:hidden sm:justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar"
+                className="p-4 flex sm:hidden justify-right md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar"
                 ref={scrollContainerRef3}
                 onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
               >
