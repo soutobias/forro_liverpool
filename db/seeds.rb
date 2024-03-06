@@ -86,7 +86,7 @@
 
 # events_data.map { |event_data| Event.create!(event_data) }
 
-events_data = [
+# events_data = [
   # {
   #   name: ['Liverpool Forró Festival 2024', 'Festival de Forró de Liverpool 2024'],
   #   description: ['Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia. Check out our Instagram page for the latest events and news, like class cancellations or delays.
@@ -108,27 +108,27 @@ events_data = [
   #   is_class: false,
   #   ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
   # },
-  {
-    name: ['Forró Workshop with Juzinha', 'Forró Workshop com Juzinha'],
-    description: ["Join us for a very special workshop with Juzinha, Pé Descalço's most senior follower! Beginning to dance forró at the age of 8, by 12 she had already achieved the highest level possible within the school. Today, she has partial ownership of Pé Descalço Jardim in Belo Horizonte, Brazil, and is known for her strong presence, technique, and musicality. Through her classes, she motivates and inspires both leaders and followers to bring these attributes out in their own dance.
-    No pre-purchase or registration necessary. Just show up and we will see you there!",
-                  "Junte-se a nós para um workshop muito especial com Juzinha, a conduzida mais experiente do Pé Descalço! Começou a dançar forró aos 8 anos e, aos 12 já alcançou o nível mais alto possível dentro da escola. Hoje é proprietária parcial do Pé Descalço Jardim, em Belo Horizonte, Brasil, e é conhecida por sua forte presença, técnica e musicalidade. Através de suas aulas, ela motiva e inspira condutores e conduzidos a trazer esses atributos à tona em sua própria dança.
-    Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!"],
-    start_datetime: DateTime.new(2024, 3, 27, 19, 0, 0),
-    end_datetime: DateTime.new(2024, 3, 27, 23, 0, 0),
-    price: '£ 7',
-    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg'],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg'],
-    registration_start_datetime: DateTime.now - 1.day,
-    registration_end_datetime: DateTime.new(2024, 3, 27, 19, 0, 0),
-    type_event: 'Special Events',
-    location: ['Revolution de Cuba', 'Unit 17, Albert Dock, Liverpool l3 4AF', 'https://maps.app.goo.gl/YzdfS5oGJPXYkReH6'],
-    date: ['27 Mar', '27 Mar'],
-    time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
-    is_festival: false,
-    is_class: true
-    # ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-  }
+  # {
+  #   name: ['Forró Workshop with Juzinha', 'Forró Workshop com Juzinha'],
+  #   description: ["Join us for a very special workshop with Juzinha, Pé Descalço's most senior follower! Beginning to dance forró at the age of 8, by 12 she had already achieved the highest level possible within the school. Today, she has partial ownership of Pé Descalço Jardim in Belo Horizonte, Brazil, and is known for her strong presence, technique, and musicality. Through her classes, she motivates and inspires both leaders and followers to bring these attributes out in their own dance.
+  #   No pre-purchase or registration necessary. Just show up and we will see you there!",
+  #                 "Junte-se a nós para um workshop muito especial com Juzinha, a conduzida mais experiente do Pé Descalço! Começou a dançar forró aos 8 anos e, aos 12 já alcançou o nível mais alto possível dentro da escola. Hoje é proprietária parcial do Pé Descalço Jardim, em Belo Horizonte, Brasil, e é conhecida por sua forte presença, técnica e musicalidade. Através de suas aulas, ela motiva e inspira condutores e conduzidos a trazer esses atributos à tona em sua própria dança.
+  #   Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!"],
+  #   start_datetime: DateTime.new(2024, 3, 27, 19, 0, 0),
+  #   end_datetime: DateTime.new(2024, 3, 27, 23, 0, 0),
+  #   price: '£ 7',
+  #   cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg'],
+  #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg'],
+  #   registration_start_datetime: DateTime.now - 1.day,
+  #   registration_end_datetime: DateTime.new(2024, 3, 27, 19, 0, 0),
+  #   type_event: 'Special Events',
+  #   location: ['Revolution de Cuba', 'Unit 17, Albert Dock, Liverpool l3 4AF', 'https://maps.app.goo.gl/YzdfS5oGJPXYkReH6'],
+  #   date: ['27 Mar', '27 Mar'],
+  #   time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
+  #   is_festival: false,
+  #   is_class: true
+  #   # ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+  # }
   # {
   #   name: ['Forró and Chips', 'Forró e Batata Frita'],
   #   description: ['Live forró music', 'Forró ao vivo'],
@@ -147,33 +147,33 @@ events_data = [
   #   is_class: false,
   #   ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
   # }
-]
+# ]
 
-events_data.map { |event_data| Event.create!(event_data) }
+# events_data.map { |event_data| Event.create!(event_data) }
 
-# Site.destroy_all
+Site.destroy_all
 
-# site = Site.new(
-#   title: 'Brazilian forró classes & events in the heart of Liverpool',
-#   description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
-#   frame: 'Liverpool Forró Festival Lote 1 Tickets now available! - Get Tickets! - ',
-#   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
-#   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
-#   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
-# )
-# site.save!
+site = Site.new(
+  title: 'Brazilian forró classes & events in the heart of Liverpool',
+  description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
+  frame: 'Liverpool Forró Festival Lote 2 Tickets now available! - Get Tickets! - ',
+  cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
+  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
+  image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
+)
+site.save!
 
-# SiteTranslation.destroy_all
+SiteTranslation.destroy_all
 
-# site_translation = SiteTranslation.new(
-#   title: 'Aulas de Forró no coração de Liverpool',
-#   description: 'Aulas de Forró para todos os níveis, workshops e bandas brasileiras aqui em Liverpool. Não precisa trazer parceiro. Todos são bem-vindos!',
-#   frame: 'Liverpool Forró Festival - Ingressos do Lote 1 agora disponíveis! - Compre Ingressos! - ',
-#   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
-#   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
-#   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
-# )
-# site_translation.save!
+site_translation = SiteTranslation.new(
+  title: 'Aulas de Forró no coração de Liverpool',
+  description: 'Aulas de Forró para todos os níveis, workshops e bandas brasileiras aqui em Liverpool. Não precisa trazer parceiro. Todos são bem-vindos!',
+  frame: 'Liverpool Forró Festival - Ingressos do Lote 2 agora disponíveis! - Compre Ingressos! - ',
+  cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
+  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
+  image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
+)
+site_translation.save!
 
 # Question.destroy_all
 

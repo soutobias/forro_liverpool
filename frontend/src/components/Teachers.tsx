@@ -122,7 +122,7 @@ export function Teachers() {
             </div>
             <div
               // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-              className="p-4 sm:flex sm:justify-left gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
+              className="p-4 sm:flex sm:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
               ref={scrollContainerRef2}
               onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
             >
