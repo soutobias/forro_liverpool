@@ -151,29 +151,29 @@
 
 # events_data.map { |event_data| Event.create!(event_data) }
 
-Site.destroy_all
+# Site.destroy_all
 
-site = Site.new(
-  title: 'Brazilian forró classes & events in the heart of Liverpool',
-  description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
-  frame: 'Liverpool Forró Festival Lote 2 Tickets now available! - Get Tickets! - ',
-  cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
-  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
-  image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
-)
-site.save!
+# site = Site.new(
+#   title: 'Brazilian forró classes & events in the heart of Liverpool',
+#   description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
+#   frame: 'Liverpool Forró Festival Lote 2 Tickets now available! - Get Tickets! - ',
+#   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
+#   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
+#   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
+# )
+# site.save!
 
-SiteTranslation.destroy_all
+# SiteTranslation.destroy_all
 
-site_translation = SiteTranslation.new(
-  title: 'Aulas de Forró no coração de Liverpool',
-  description: 'Aulas de Forró para todos os níveis, workshops e bandas brasileiras aqui em Liverpool. Não precisa trazer parceiro. Todos são bem-vindos!',
-  frame: 'Liverpool Forró Festival - Ingressos do Lote 2 agora disponíveis! - Compre Ingressos! - ',
-  cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
-  cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
-  image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
-)
-site_translation.save!
+# site_translation = SiteTranslation.new(
+#   title: 'Aulas de Forró no coração de Liverpool',
+#   description: 'Aulas de Forró para todos os níveis, workshops e bandas brasileiras aqui em Liverpool. Não precisa trazer parceiro. Todos são bem-vindos!',
+#   frame: 'Liverpool Forró Festival - Ingressos do Lote 2 agora disponíveis! - Compre Ingressos! - ',
+#   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
+#   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
+#   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
+# )
+# site_translation.save!
 
 # Question.destroy_all
 
@@ -470,112 +470,124 @@ site_translation.save!
 # )
 # site_festival_translation.save!
 
-# FestivalTeacher.destroy_all
+FestivalTeacher.destroy_all
 
-# festival_teachers_data = [
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpg'],
-#     name: 'Yse Góes',
-#     location: 'Porto',
-#     function: 'Teacher'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Marilia.jpg'],
-#     name: 'Marilia Cervi',
-#     location: 'Lyon',
-#     function: 'Teacher'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpg'],
-#     name: 'Zeu Azevedo',
-#     location: 'London',
-#     function: 'Live Band'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
-#     name: 'Abner Brasil',
-#     location: 'Liverpool',
-#     function: 'Live Band'
-#   },
-#   # {
-#   #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-#   #   name: 'Filipe e Marina',
-#   #   location: 'Liverpool',
-#   #   function: 'Teachers'
-#   # },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
-#     name: 'DJ Pastel',
-#     location: 'Porto',
-#     function: 'DJ'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
-#     name: 'David Bosco & Isabelle Monti',
-#     location: 'Barcelona',
-#     function: 'Teachers'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/sanguim.jpg'],
-#     name: 'DJ Sanguim',
-#     location: 'London',
-#     function: 'DJ'
-#   }
-# ]
+festival_teachers_data = [
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpg'],
+    name: 'Yse Góes',
+    location: 'Porto',
+    function: 'Teacher'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Marilia.jpg'],
+    name: 'Marilia Cervi',
+    location: 'Lyon',
+    function: 'Teacher'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpg'],
+    name: 'Zeu Azevedo',
+    location: 'London',
+    function: 'Live Band'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
+    name: 'Abner Brasil',
+    location: 'Liverpool',
+    function: 'Live Band'
+  },
+  # {
+  #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+  #   name: 'Filipe e Marina',
+  #   location: 'Liverpool',
+  #   function: 'Teachers'
+  # },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
+    name: 'DJ Pastel',
+    location: 'Porto',
+    function: 'DJ'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
+    name: 'David Bosco & Isabelle Monti',
+    location: 'Barcelona',
+    function: 'Teachers'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/sanguim.jpg'],
+    name: 'DJ Sanguim',
+    location: 'London',
+    function: 'DJ'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Artistas-Marines-600px.jpg'],
+    name: 'DJ Marinês',
+    location: 'Turin',
+    function: 'DJ'
+  }
+]
 
-# festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(festival_teacher_data) }
+festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(festival_teacher_data) }
 
-# FestivalTeacherTranslation.destroy_all
+FestivalTeacherTranslation.destroy_all
 
-# festival_teacher_translations_data = [
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpg'],
-#     name: 'Yse Góes',
-#     location: 'Porto',
-#     function: 'Professora'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Marilia.jpg'],
-#     name: 'Marilia Cervi',
-#     location: 'Lyon',
-#     function: 'Professora'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpg'],
-#     name: 'Zeu Azevedo',
-#     location: 'Londres',
-#     function: 'Banda'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
-#     name: 'Abner Brasil',
-#     location: 'Liverpool',
-#     function: 'Banda'
-#   },
-#   # {
-#   #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-#   #   name: 'Filipe e Marina',
-#   #   location: 'Liverpool',
-#   #   function: 'Professores'
-#   # },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
-#     name: 'DJ Pastel',
-#     location: 'Porto',
-#     function: 'DJ'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
-#     name: 'David Bosco & Isabelle Monti',
-#     location: 'Barcelona',
-#     function: 'Professores'
-#   },
-#   {
-#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/sanguim.jpg'],
-#     name: 'DJ Sanguim',
-#     location: 'Londres',
-#     function: 'DJ'
-#   }
-# ]
+festival_teacher_translations_data = [
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Yse.jpg'],
+    name: 'Yse Góes',
+    location: 'Porto',
+    function: 'Professora'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Marilia.jpg'],
+    name: 'Marilia Cervi',
+    location: 'Lyon',
+    function: 'Professora'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Zeu.jpg'],
+    name: 'Zeu Azevedo',
+    location: 'Londres',
+    function: 'Banda'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
+    name: 'Abner Brasil',
+    location: 'Liverpool',
+    function: 'Banda'
+  },
+  # {
+  #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+  #   name: 'Filipe e Marina',
+  #   location: 'Liverpool',
+  #   function: 'Professores'
+  # },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
+    name: 'DJ Pastel',
+    location: 'Porto',
+    function: 'DJ'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
+    name: 'David Bosco & Isabelle Monti',
+    location: 'Barcelona',
+    function: 'Professores'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/sanguim.jpg'],
+    name: 'DJ Sanguim',
+    location: 'Londres',
+    function: 'DJ'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Artistas-Marines-600px.jpg'],
+    name: 'DJ Marinês',
+    location: 'Torino',
+    function: 'DJ'
+  }
+]
 
-# festival_teacher_translations_data.map { |festival_teacher_translation_data| FestivalTeacherTranslation.create(festival_teacher_translation_data) }
+festival_teacher_translations_data.map { |festival_teacher_translation_data| FestivalTeacherTranslation.create(festival_teacher_translation_data) }
