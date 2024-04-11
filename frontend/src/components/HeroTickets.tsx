@@ -100,15 +100,33 @@ export function HeroTickets() {
                   ? 'Available March 6th at 4pm GMT'
                   : 'Disponível em 6 de março, às 16h'}
               </p>
-              <p>
-                {language === 'en'
-                  ? 'Limited quantities available.'
-                  : 'Quantidades limitadas'}
-              </p>
             </div>
-            <TicketWidget />
+            {/* <div className="block md:flex md:justify-center md:gap-4">
+              <TicketCard
+                color={styles.lightPinkBg}
+                passType={language === 'en' ? 'Full Pass' : 'Passe completo'}
+                lote="Lote 1"
+                price="£60"
+                classes={language === 'en' ? 'All Classes' : 'Todas as aulas'}
+                parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
+                isDisabled={true}
+                isSoldOut={language === 'en' ? 'SOLD OUT' : 'ESGOTADO'}
+              />
+              <TicketCard
+                color={styles.lightPinkBg}
+                passType={
+                  language === 'en' ? 'Party Pass' : 'Passe para festas'
+                }
+                lote="Lote 1"
+                price="£40"
+                classes=""
+                parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
+                isDisabled={true}
+                isSoldOut={language === 'en' ? 'SOLD OUT' : 'ESGOTADO'}
+              />
+            </div>  */}
           </div>
-          {/* <div className="block md:flex md:justify-center md:gap-4">
+          <div className="block md:flex md:justify-center md:gap-4">
             <TicketCard
               color={styles.lightPinkBg}
               passType={language === 'en' ? 'Full Pass' : 'Passe completo'}
@@ -116,25 +134,29 @@ export function HeroTickets() {
               price="£75"
               classes={language === 'en' ? 'All Classes' : 'Todas as aulas'}
               parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
-              isDisabled={false}
+              isDisabled={true}
+              isSoldOut={language === 'en' ? 'SOLD OUT' : 'ESGOTADO'}
             />
             <TicketCard
               color={styles.lightPinkBg}
               passType={language === 'en' ? 'Party Pass' : 'Passe para festas'}
               lote="Lote 2"
-              price="TBD"
+              price="£50"
               classes=""
               parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
-              isDisabled={false}
+              isDisabled={true}
+              isSoldOut={language === 'en' ? 'SOLD OUT' : 'ESGOTADO'}
             />
-          </div> */}
-          <div className="">
+          </div>
+          <div className="pt-16">
             <h2 className="font-changa text-center text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-0">
               {language === 'en' ? 'Lote 3' : 'Lote 3'}
             </h2>
             <div className="pt-5 pb-10 font-sans text-white text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 font-semibold w-full p-5">
               <p>
-                {language === 'en' ? 'Available soon' : 'Disponível em breve'}
+                {language === 'en'
+                  ? 'Available April 11th at 4pm GMT'
+                  : 'Disponível em 11 de Abril, às 16h'}
               </p>
               <p>
                 {language === 'en'
@@ -150,6 +172,8 @@ export function HeroTickets() {
               </p>
             </div> */}
           </div>
+          <TicketWidget />
+          {/* 
           <div className="block md:flex md:justify-center md:gap-4">
             <TicketCard
               color={styles.lightPinkBg}
@@ -169,7 +193,7 @@ export function HeroTickets() {
               parties={language === 'en' ? 'All Parties' : 'Todas as festas'}
               isDisabled={false}
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
