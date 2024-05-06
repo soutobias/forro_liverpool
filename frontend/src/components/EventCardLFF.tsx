@@ -31,18 +31,18 @@ export function EventCardLFF(props: {
   }
   return (
     <div
-      className={`mb-2 pb-2 font-changa w-full h-full rounded-2xl md:w-[22rem] md:h-[16rem] aspect-343/223 border-black border-4 ${styles.begeBg}`}
+      className={`mb-2 pb-2 font-changa w-full h-full rounded-2xl xl:w-[23rem] xl:h-[16rem] lg:w-[20rem] lg:h-[18rem]  aspect-343/223 border-black border-4 lg:relative ${styles.begeBg}`}
     >
-      <div className="pl-3 pt-4 pr-3 font-changa w-full">
+      <div className="pl-5 pt-4 pr-5 font-changa w-full">
         <h2 className="font-changa text-black text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold">
           {event.name[position]}
         </h2>
         {/* <div className="text-black text-[1.5rem] md:text-[2rem] font-extrabold leading-8 md:leading-9 ont-changa">
           {event.name[position]}
         </div> */}
-        <div className="grid grid-cols-2 pt-6 gap-2 justify-start">
+        <div className="grid grid-cols-2 pt-6 gap-2 justify-start font-changa">
           <div>
-            <div className="bg-pink-600 uppercase text-white align-middle items-center text-[1rem] md:text-[1.25rem] font-extrabold pl-3 pr-3 py-0 rounded-2xl font-sans leading-6 md:leading-7 w-max">
+            <div className="bg-pink-600 uppercase text-white align-middle items-center text-[1rem] md:text-[1.25rem] font-extrabold pl-3 pr-3 py-0 rounded-2xl leading-6 md:leading-7 w-max">
               {event.time[position]}
             </div>
           </div>
@@ -51,7 +51,7 @@ export function EventCardLFF(props: {
               <div>
                 <LocationMarker />
               </div>
-              <div className="text-black uppercase pl-0 ml-1 font-extrabold pr-2 md:pr-0 text-[1rem] font-changa leading-6 md:leading-7 md:text-[1.25rem]">
+              <div className="text-black uppercase pl-0 ml-1 font-extrabold pr-2 md:pr-0 text-[1rem] font-changa leading-4 md:leading-5 md:text-[1.25rem]">
                 {event.location.length === 1
                   ? `${event.location[0][0]}`
                   : `${event.location[0][0]} & ${event.location[1][0]}`}
@@ -60,7 +60,10 @@ export function EventCardLFF(props: {
           </div>
         </div>
         {event.is_class === true ? (
-          <div className="flex justify-center pt-4 w-full">
+          <div
+            className="flex lg:absolute bottom-2 justify-center lg:pr-10 w-full pt-4 lg:pt-0"
+            id="last-button"
+          >
             <MainButton
               href={generateEventUrl()}
               content={
@@ -74,7 +77,10 @@ export function EventCardLFF(props: {
             />
           </div>
         ) : (
-          <div className="flex justify-center pt-4 w-full">
+          <div
+            className="flex lg:absolute bottom-2 justify-center lg:pr-10 w-full  pt-4 lg:pt-0"
+            id="last-button"
+          >
             <MainButton
               href={generateEventUrl()}
               content={

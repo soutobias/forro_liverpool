@@ -30,15 +30,17 @@ export function Teachers() {
   const scrollContainerRef1 = useRef(null)
   const scrollContainerRef2 = useRef(null)
   const scrollContainerRef3 = useRef(null)
+  const scrollContainerRef4 = useRef(null)
+  const scrollContainerRef5 = useRef(null)
 
   const handleMouseEnter = (e: any, ref: any) => {
-    const speed = 10 // Adjust this value for different scrolling speeds
+    const speed = 10
     const element = ref.current
 
     const move = (e: any) => {
       const containerWidth = element.offsetWidth
       const positionX = e.clientX - element.getBoundingClientRect().left
-      const scrollAmount = (positionX / containerWidth - 0.5) * 2 // Adjust scroll direction and speed
+      const scrollAmount = (positionX / containerWidth - 0.5) * 2
 
       element.scrollLeft += scrollAmount * speed
     }
@@ -71,7 +73,7 @@ export function Teachers() {
           </div>
           <div className="">
             <div
-              className="p-4 flex gap-4 overflow-x-auto no-scrollbar sm:justify-center"
+              className="w-full p-4 flex gap-4 overflow-x-auto no-scrollbar 2xl:justify-center"
               ref={scrollContainerRef1}
               onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef1)}
             >
@@ -98,7 +100,8 @@ export function Teachers() {
             </div>
             <div
               // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-              className="p-4 sm:flex sm:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
+              className="w-full p-4 sm:flex gap-4 overflow-x-auto no-scrollbar xl:justify-center flex-reverse hidden"
+              // className="p-4 sm:flex 2xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row "
               ref={scrollContainerRef2}
               onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
             >
@@ -122,9 +125,9 @@ export function Teachers() {
             </div>
             <div
               // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-              className="p-4 sm:flex sm:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
-              ref={scrollContainerRef2}
-              onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
+              className="w-full p-4 sm:flex xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
+              ref={scrollContainerRef3}
+              onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
             >
               {teachers &&
                 teachers
@@ -144,8 +147,8 @@ export function Teachers() {
               <div
                 // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
                 className="p-4 flex sm:hidden justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-                ref={scrollContainerRef3}
-                onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
+                ref={scrollContainerRef4}
+                onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef4)}
               >
                 {teachers.length > 0 &&
                   teachers
@@ -170,8 +173,8 @@ export function Teachers() {
               <div
                 // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
                 className="p-4 flex sm:hidden justify-right md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar"
-                ref={scrollContainerRef3}
-                onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
+                ref={scrollContainerRef5}
+                onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef5)}
               >
                 {teachers &&
                   teachers
@@ -189,11 +192,6 @@ export function Teachers() {
               </div>
             </div>
           </div>
-          <h2 className=" text-center text-[1.25rem] md:text-[1.5rem] leading-6 md:leading-8 font-extrabold text-white py-5">
-            {language === 'en'
-              ? 'Check back soon for more talent announcements!'
-              : 'Volte em breve para mais anúncios de talentos!'}
-          </h2>
           <div className="pl-4 pr-4 pt-8 md:hidden">
             <MainButton
               href="/lff2024/tickets"

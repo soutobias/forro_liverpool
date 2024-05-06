@@ -56,8 +56,8 @@ export function ClassEventsLFF() {
               </div>
             </div>
           ) : (
-            <div className="block md:flex md:justify-center md:gap-12">
-              <div>
+            <div className="block lg:flex lg:justify-center lg:gap-3 xl:gap-4">
+              <div className="pl-2 pt-12 pb-8 md:pl-0 md:pt-0">
                 <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-0 pb-8">
                   {language === 'en'
                     ? 'Friday, 10th May'
@@ -71,7 +71,7 @@ export function ClassEventsLFF() {
                     ))}
                 </div>
               </div>
-              <div className="pl-2 pt-12 pb-8 md:pb-8 md:pl-0 md:pt-0">
+              <div className="pl-2 pt-12 pb-8 md:pl-0 md:pt-0">
                 <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-0 pb-8">
                   {language === 'en'
                     ? 'Saturday, 11th May'
