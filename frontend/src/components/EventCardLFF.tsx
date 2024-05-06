@@ -5,6 +5,7 @@ import styles from './Bg.module.css'
 import { LocationMarker } from '@/assets/location_marker'
 import { useLanguage } from '@/lib/language'
 import { MainButton } from './MainButton'
+import { H1 } from './H1'
 
 export function EventCardLFF(props: {
   size?: string
@@ -29,24 +30,40 @@ export function EventCardLFF(props: {
     <div
       className={`mb-2 pb-2 h-full w-full font-changa rounded-2xl border-black border-4 ${styles.begeBg}`}
     >
-      <div className="pl-3 pt-5 pr-3">
-        <div className="text-black text-[1.5rem] md:text-[2rem] font-extrabold leading-8 md:leading-9 ont-changa">
+      <div className="pl-3 pt-5 pr-3 font-changa">
+        <H1 color="black" text={event.name[position]} />
+        {/* <div className="text-black text-[1.5rem] md:text-[2rem] font-extrabold leading-8 md:leading-9 ont-changa">
           {event.name[position]}
-        </div>
+        </div> */}
         <div className="flex pt-6">
           <div>
             <div className="bg-pink-400 uppercase text-white align-middle items-center font-bold pl-4 pr-4 py-0 rounded-2xl text-[1rem] md:text-[1.25rem] font-sans leading-6 md:leading-7">
-              {event.date[position]}
+              {event.time[position]}
             </div>
           </div>
-          <div className="flex ml-6 mt-2 text-black">
-            <LocationMarker />
-            <div className="text-black uppercase pl-0 ml-1 font-extrabold pr-2 text-[1rem] font-changa leading-6 md:leading-7 md:text-[1.25rem]">
-              <Link href={event.location[2]} target="_blank">
-                {event.location[0]}
-              </Link>
+          {typeof event.location[0] === 'string' ? (
+            <div className="flex ml-6 mt-2 text-black">
+              <LocationMarker />
+              <div className="text-black uppercase pl-0 ml-1 font-extrabold pr-2 text-[1rem] font-changa leading-6 md:leading-7 md:text-[1.25rem]">
+                <Link href={event.location[2]} target="_blank">
+                  {event.location[0]}
+                </Link>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div>
+              {event.location.map((location: string[], index: number) => (
+                <div className="flex ml-6 mt-2 text-black" key={index}>
+                  <LocationMarker />
+                  <div className="text-black uppercase pl-0 ml-1 font-extrabold pr-2 text-[1rem] font-changa leading-6 md:leading-7 md:text-[1.25rem]">
+                    <Link href={location[2]} target="_blank">
+                      {location[0]}
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         {event.is_class === true ? (
           <div className="flex justify-center pt-4">
