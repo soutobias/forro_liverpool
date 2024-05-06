@@ -224,8 +224,8 @@ export default function EventDetails() {
                   href={selectedEvent.schedule[0]}
                   content={
                     language === 'en'
-                      ? 'Download Class Schedule'
-                      : 'Download programação'
+                      ? 'Class Schedule - Available Soon'
+                      : 'Programação - Disponível em breve'
                   }
                   bg="white"
                   font="black"
