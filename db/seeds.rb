@@ -97,7 +97,7 @@ events_data = [
     is_festival: true,
     is_class: true,
     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501',
-    schedule: ['#']
+    schedule: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/LFF24-WorkshopSchedule.jpg']
   },
   {
     name: ['Twist & Shout Party', 'Festa Twist & Shout'],
