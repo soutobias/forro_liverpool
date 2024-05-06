@@ -29,7 +29,7 @@ export function TeacherCard(props: {
     ...(screenWidth >= mdBreakpoint && screenWidth < xlBreakpoint
       ? { maxWidth: '18.75rem' }
       : {}),
-    ...(screenWidth < mdBreakpoint ? { maxWidth: '16rem' } : {}), // Example for smaller than md
+    ...(screenWidth < mdBreakpoint ? { maxWidth: '16rem' } : {}),
   }
 
   return (

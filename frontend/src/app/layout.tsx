@@ -10,7 +10,7 @@ import {
 } from 'next/font/google'
 import './globals.css'
 import { ReactNode } from 'react'
-import localFont from '@next/font/local'
+import localFont from 'next/font/local'
 // import { NavBar } from '@/components/NavBar'
 import { LanguageProvider } from '@/lib/language'
 

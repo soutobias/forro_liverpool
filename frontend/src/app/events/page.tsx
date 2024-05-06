@@ -201,16 +201,18 @@ export default function EventDetails() {
               <div className="pt-8 md:grid md:grid-cols-2 md:gap-4">
                 {events &&
                   events.length > 0 &&
-                  events.map(
-                    (event: any) =>
-                      String(event.id) !== paramsId && (
-                        <EventCard
-                          key={event.id}
-                          event={event}
-                          aspectRatio="aspect-300/168"
-                        />
-                      ),
-                  )}
+                  events
+                    .filter((event: any) => !event.is_festival)
+                    .map(
+                      (event: any) =>
+                        String(event.id) !== paramsId && (
+                          <EventCard
+                            key={event.id}
+                            event={event}
+                            aspectRatio="aspect-300/168"
+                          />
+                        ),
+                    )}
               </div>
             </div>
           )}

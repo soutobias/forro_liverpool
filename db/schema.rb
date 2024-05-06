@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_06_051620) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_06_155042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_051620) do
     t.boolean "is_class"
     t.string "ticket_link"
     t.text "cover_image", default: [], array: true
-    t.string "schedule"
+    t.string "schedule", default: [], array: true
   end
 
   create_table "festival_teacher_translations", force: :cascade do |t|

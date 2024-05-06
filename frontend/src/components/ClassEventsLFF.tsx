@@ -56,30 +56,48 @@ export function ClassEventsLFF() {
               </div>
             </div>
           ) : (
-            <div className="">
-              <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-16">
-                {language === 'en' ? 'Friday, 10 May' : 'Sexta-feira, dia 10'}
-              </h2>
-              <div className="block h-max gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
-                {events.map((event: any) => (
-                  <EventCardLFF key={event.id} event={event} />
-                ))}
+            <div className="block md:flex md:justify-center md:gap-12">
+              <div>
+                <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-0 pb-8">
+                  {language === 'en'
+                    ? 'Friday, 10th May'
+                    : 'Sexta-feira, 10 de Maio'}
+                </h2>
+                <div className="block justify-items-center">
+                  {events
+                    .filter((event: any) => event.date[0] === 'Friday')
+                    .map((event: any) => (
+                      <EventCardLFF key={event.id} event={event} />
+                    ))}
+                </div>
               </div>
-              <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-16">
-                {language === 'en' ? 'Saturday, 11 May' : 'Sábado, dia 11'}
-              </h2>
-              <div className="block gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
-                {events.map((event: any) => (
-                  <EventCardLFF key={event.id} event={event} />
-                ))}
+              <div className="pl-2 pt-12 pb-8 md:pb-8 md:pl-0 md:pt-0">
+                <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-0 pb-8">
+                  {language === 'en'
+                    ? 'Saturday, 11th May'
+                    : 'Sábado, 11 de Maio'}
+                </h2>
+                <div className="block justify-items-center">
+                  {events
+                    .filter((event: any) => event.date[0] === 'Saturday')
+                    .map((event: any) => (
+                      <EventCardLFF key={event.id} event={event} />
+                    ))}
+                </div>
               </div>
-              <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-16">
-                {language === 'en' ? 'Sunday, 12 May' : 'Domingo, dia 12'}
-              </h2>
-              <div className="block gap-3 md:grid md:grid-cols-[repeat(auto-fit,_40%)] md:justify-center xl:grid-cols-[repeat(auto-fit,_33.33%)] justify-items-center">
-                {events.map((event: any) => (
-                  <EventCardLFF key={event.id} event={event} />
-                ))}
+              <div className="pl-2 pt-12 pb-8 md:pl-0 md:pt-0">
+                <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-0 pb-8">
+                  {language === 'en'
+                    ? 'Sunday, 12th May'
+                    : 'Domingo, 12 de Maio'}
+                </h2>
+                <div className="block justify-items-center">
+                  {events
+                    .filter((event: any) => event.date[0] === 'Sunday')
+                    .map((event: any) => (
+                      <EventCardLFF key={event.id} event={event} />
+                    ))}
+                </div>
               </div>
             </div>
           )}

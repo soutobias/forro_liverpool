@@ -23,16 +23,12 @@ require 'faker'
 
 events_data = [
   {
-    name: ['Come Together Party', 'Come Together, a Festa'],
-    description: ['Join us for our opening party!
-    10pm-12am DJ Marinês
-    12am-3am DJ Sanguim', 'Junte-se a nós para a nossa festa de abertura!
-    22h-00h DJ Marinês
-    00h-03h DJ Sanguim'],
+    name: ['Come Together Party', 'Festa Come Together'],
+    description: ['Join us for our opening party!', 'Junte-se a nós para a nossa festa de abertura!'],
     start_datetime: DateTime.new(2024, 5, 10),
     end_datetime: DateTime.new(2024, 5, 10) + 2.years,
     price: '£ 3',
-    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+    cover_image: [''],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
@@ -42,28 +38,94 @@ events_data = [
     time: ['10pm-03am', '22h-03h'],
     is_festival: true,
     is_class: false,
+    schedule: [[['10pm-12am', 'DJ Marinês'], ['12am-3am', 'DJ Sanguim']], [['22h-00h', 'DJ Marinês'], ['00h-03h', 'DJ Sanguim']]],
     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
   },
   {
-    name: ['Sunday Workshops', 'Workshops de Domingo'],
+    name: ['Workshops', 'Workshops'],
+    description: ['Join us for our opening party', 'Junte-se a nós para a nossa festa de abertura'],
+    start_datetime: DateTime.new(2024,05,11),
+    end_datetime: DateTime.new(2024,05,11) + 2.years,
+    price: '£ 3',
+    cover_image: [''],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+    registration_start_datetime: DateTime.now - 1.day,
+    registration_end_datetime: DateTime.now + 1.day,
+    type_event: 'Workshop',
+    location: [['Liverpool Arts Bar', '22 Hope St, Liverpool L1 9BY', 'https://maps.app.goo.gl/AmXKKzQqRjPU6b8t8']],
+    date: %w[Saturday Sábado],
+    time: ['2-6pm', '14h-18h'],
+    is_festival: true,
+    is_class: true,
+    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501',
+    schedule: '#'
+  },
+  {
+    name: ['Yellow Submarine Party', 'Festa Yellow Submarine'],
+    description: ['Join us for our headline party! We’re starting out with an amazing coco de roda from our friends at Capoeira For All, followed by  amazing live bands and DJs. Come dressed in your best ’70’s Beatles costume! Check out our style guide below and get inspired!', 'Junte-se a nós em nossa festa principal! Começaremos com um incrível coco de roda dos nossos amigos do Capoeira For All, seguido de incríveis bandas ao vivo e DJs. Venha vestido com sua melhor fantasia dos Beatles dos anos 70! Confira nosso guia de estilo abaixo e inspire-se!'],
+    start_datetime: DateTime.new(2024, 5, 11),
+    end_datetime: DateTime.new(2024, 5, 11) + 2.years,
+    price: '£ 3',
+    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/yellow_submarine.jpg'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+    registration_start_datetime: DateTime.now - 1.day,
+    registration_end_datetime: DateTime.now + 1.day,
+    type_event: 'Party',
+    location: [['Invisible Wind Factory', '3 Regent Rd, Liverpool L3 7DS', 'https://maps.app.goo.gl/kPq9utDpQTu9RYsD6']],
+    date: %w[Saturday Sábado],
+    time: ['10pm-04am', '22h-04h'],
+    is_festival: true,
+    is_class: false,
+    schedule: [[['10-11pm', 'Coco de roda'], ['11pm-12am', 'DJ Marinês'], ['12-2am', 'Zeu Azevedo & Abner Brasil'], ['2-4am', 'DJ Pastel']], [['22h-23h', 'Coco de roda'], ['23h-00h', 'DJ Marinês'], ['00h-02h', 'Zeu Azevedo & Abner Brasil'], ['02h-04h', 'DJ Pastel']]],
+    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+  },
+
+  {
+    name: ['Workshops', 'Workshops'],
     description: ['Join us for our opening party', 'Junte-se a nós para a nossa festa de abertura'],
     start_datetime: DateTime.new(2024,05,12),
     end_datetime: DateTime.new(2024,05,12) + 2.years,
     price: '£ 3',
-    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+    cover_image: [''],
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
-    type_event: 'WorkshopParty',
+    type_event: 'Workshop',
     location: [['24 Hope St Studios', '24 Hope St, Liverpool L1 9BX', 'https://maps.app.goo.gl/MEGs4t7yPkYsi37f9'], ['The Annexe', '13 Hope St, Liverpool L1 9BQ', 'https://maps.app.goo.gl/VKYN4PqD6mr5VdXg8']],
     date: %w[Sunday Domingo],
     time: ['2-5pm', '14h-17h'],
     is_festival: true,
-    is_class: false,
+    is_class: true,
     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501',
-    schedule: ''
+    schedule: ['#']
+  },
+  {
+    name: ['Twist & Shout Party', 'Festa Twist & Shout'],
+    description: ["Let's close out our festival with even more amazing live music and an excellent DJ set.",
+                  'Vamos encerrar o nosso festival com música ao vivo ainda mais incrível e um excelente DJ set.'],
+    start_datetime: DateTime.new(2024, 5, 12),
+    end_datetime: DateTime.new(2024, 5, 12) + 2.years,
+    price: '£ 3',
+    cover_image: [''],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+    registration_start_datetime: DateTime.now - 1.day,
+    registration_end_datetime: DateTime.now + 1.day,
+    type_event: 'Party',
+    location: [['Revolution de Cuba', 'Unit 17, Albert Dock, Liverpool l3 4AF', 'https://maps.app.goo.gl/YzdfS5oGJPXYkReH6']],
+    date: %w[Sunday Domingo],
+    time: ['08pm-12am', '20h-00h'],
+    is_festival: true,
+    is_class: false,
+    schedule: [[['8-10pm', 'Forró & Chips live forró band'], ['10pm-12am', 'DJ Pastel']], [['20h-22h', 'Forró & Chips banda'], ['22h-00h', 'DJ Pastel']]],
+    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
   }
 ]
+
+# description: ["Let's close out our festival with even more amazing live music and an excellent DJ set".
+# 8-10pm \t Forró & Chips live forró band
+# 10pm-12am \t DJ Pastel", 'Vamos encerrar o nosso festival com música ao vivo ainda mais incrível e um excelente DJ set.
+# 20h-22h \t Forró & Chips banda
+# 22h-12h \t DJ Pastel'],
 
 events_data.map { |event_data| Event.create!(event_data) }
 
