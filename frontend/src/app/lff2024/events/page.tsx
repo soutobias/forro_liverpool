@@ -227,6 +227,7 @@ export default function EventDetails() {
                             bg="white"
                             font="black"
                             rounded="none"
+                            newTab="true"
                           />
                         </div>
                       )}
