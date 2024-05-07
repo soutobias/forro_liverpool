@@ -7,7 +7,7 @@ module Api
 
       # GET /events
       def index
-        events = Event.where('start_datetime > ?', DateTime.now)
+        events = Event.where('start_datetime > ?', DateTime.now).order(:id)
 
         future_events = if params[:is_festival].present?
                           is_festival_value = params[:is_festival].to_s.downcase == 'true'
