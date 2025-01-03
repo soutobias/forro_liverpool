@@ -15,9 +15,9 @@ export function Teachers2025() {
 
   useEffect(() => {
     if (language === "en") {
-      setUrl("api/v1/festival_teachers");
+      setUrl("api/v1/festival2025_teachers");
     } else {
-      setUrl("api/v1/festival_teacher_translations");
+      setUrl("api/v1/festival2025_teacher_translations");
     }
   }, [language]);
 

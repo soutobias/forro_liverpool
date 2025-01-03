@@ -2,11 +2,11 @@
 
 module Api
   module V1
-    class FestivalTeachersController < ApplicationController
+    class Festival2025TeachersController < ApplicationController
       before_action :set_site, only: %i[show update destroy]
 
       def index
-        @festival_teachers = FestivalTeacher.all
+        @festival_teachers = Festival2025Teacher.all
 
         render json: @festival_teachers
       end
@@ -17,7 +17,7 @@ module Api
 
       # POST /sites
       def create
-        @festival_teacher = FestivalTeacher.new(festival_teacher_params)
+        @festival_teacher = Festival2025Teacher.new(festival_teacher_params)
 
         if @festival_teacher.save
           render json: @festival_teacher, status: :created, location: @festival_teacher
@@ -44,7 +44,7 @@ module Api
 
       # Use callbacks to share common setup or constraints between actions.
       def set_site
-        @festival_teacher = FestivalTeacher.find(params[:id])
+        @festival_teacher = Festival2025Teacher.find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.
