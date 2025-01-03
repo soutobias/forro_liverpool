@@ -7,10 +7,14 @@ module Api
 
       # GET /events
       def index
-        events = Event.where('start_datetime > ?', DateTime.now).order(:id)
-
+        if params[:all_events].present?
+          events = Event.all.order(:id)
+        else
+          events = Event.where('start_datetime > ?', DateTime.now).order(:id)
+        end
         future_events = if params[:is_festival].present?
-                          is_festival_value = params[:is_festival].to_s.downcase == 'true'
+                          is_festival_value = params[:is_festival]
+                          puts "is_festival_value: #{is_festival_value}"
                           events.where(is_festival: is_festival_value)
                         else
                           events
@@ -60,7 +64,7 @@ module Api
       def event_params
         params.require(:event).permit(:name, :description, :start_datetime, :end_datetime, :price, :cover_image, :image,
                                       :registration_start_datetime, :registration_end_datetime, :date,
-                                      :time, :is_festival, :is_class, :ticket_link)
+                                      :time, :is_festival, :is_class, :ticket_link, :schedule, :schedule_translation)
       end
     end
   end

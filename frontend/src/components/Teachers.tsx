@@ -1,58 +1,58 @@
-import { H1 } from './H1'
-import { MainButton } from './MainButton'
-import { TeacherCard } from './TeacherCard'
-import { useState, useEffect, useRef } from 'react'
-import { fetchApi } from '@/lib/api'
-import styles from './Bg.module.css'
-import { keyable } from './ClassEvent'
-import { useLanguage } from '@/lib/language'
+import { H1 } from "./H1";
+import { MainButton } from "./MainButton";
+import { TeacherCard } from "./TeacherCard";
+import { useState, useEffect, useRef } from "react";
+import { fetchApi } from "@/lib/api";
+import styles from "./Bg.module.css";
+import { keyable } from "./ClassEvent";
+import { useLanguage } from "@/lib/language";
 
 export function Teachers() {
-  const [teachers, setTeachers] = useState<keyable[] | null>(null)
+  const [teachers, setTeachers] = useState<keyable[] | null>(null);
 
-  const { language } = useLanguage()
-  const [url, setUrl] = useState<string>('')
+  const { language } = useLanguage();
+  const [url, setUrl] = useState<string>("");
 
   useEffect(() => {
-    if (language === 'en') {
-      setUrl('api/v1/festival_teachers')
+    if (language === "en") {
+      setUrl("api/v1/festival_teachers");
     } else {
-      setUrl('api/v1/festival_teacher_translations')
+      setUrl("api/v1/festival_teacher_translations");
     }
-  }, [language])
+  }, [language]);
 
   useEffect(() => {
     if (url) {
-      fetchApi(url, setTeachers)
+      fetchApi(url, setTeachers);
     }
-  }, [url])
+  }, [url]);
 
-  const scrollContainerRef1 = useRef(null)
-  const scrollContainerRef2 = useRef(null)
-  const scrollContainerRef3 = useRef(null)
-  const scrollContainerRef4 = useRef(null)
-  const scrollContainerRef5 = useRef(null)
+  const scrollContainerRef1 = useRef(null);
+  const scrollContainerRef2 = useRef(null);
+  const scrollContainerRef3 = useRef(null);
+  const scrollContainerRef4 = useRef(null);
+  const scrollContainerRef5 = useRef(null);
 
   const handleMouseEnter = (e: any, ref: any) => {
-    const speed = 10
-    const element = ref.current
+    const speed = 10;
+    const element = ref.current;
 
     const move = (e: any) => {
-      const containerWidth = element.offsetWidth
-      const positionX = e.clientX - element.getBoundingClientRect().left
-      const scrollAmount = (positionX / containerWidth - 0.5) * 2
+      const containerWidth = element.offsetWidth;
+      const positionX = e.clientX - element.getBoundingClientRect().left;
+      const scrollAmount = (positionX / containerWidth - 0.5) * 2;
 
-      element.scrollLeft += scrollAmount * speed
-    }
+      element.scrollLeft += scrollAmount * speed;
+    };
 
-    element.addEventListener('mousemove', move)
+    element.addEventListener("mousemove", move);
 
     const handleMouseLeave = () => {
-      element.removeEventListener('mousemove', move)
-    }
+      element.removeEventListener("mousemove", move);
+    };
 
-    element.addEventListener('mouseleave', handleMouseLeave)
-  }
+    element.addEventListener("mouseleave", handleMouseLeave);
+  };
 
   return (
     <div
@@ -65,9 +65,9 @@ export function Teachers() {
             <H1
               color="white"
               text={
-                language === 'en'
-                  ? 'Amazing teachers & musicians'
-                  : 'Professores e bandas incríveis'
+                language === "en"
+                  ? "Amazing teachers & musicians"
+                  : "Professores e bandas incríveis"
               }
             />
           </div>
@@ -81,11 +81,11 @@ export function Teachers() {
                 teachers
                   .filter(
                     (item: any) =>
-                      item.function === 'Teacher' ||
-                      item.function === 'Professor' ||
-                      item.function === 'Professora' ||
-                      item.function === 'Professores' ||
-                      item.function === 'Teachers',
+                      item.function === "Teacher" ||
+                      item.function === "Professor" ||
+                      item.function === "Professora" ||
+                      item.function === "Professores" ||
+                      item.function === "Teachers",
                   )
                   .map((item) => (
                     <TeacherCard
@@ -109,8 +109,8 @@ export function Teachers() {
                 teachers
                   .filter(
                     (item: any) =>
-                      item.function === 'Banda' ||
-                      item.function === 'Live Band',
+                      item.function === "Banda" ||
+                      item.function === "Live Band",
                   )
                   .map((item) => (
                     <TeacherCard
@@ -131,7 +131,7 @@ export function Teachers() {
             >
               {teachers &&
                 teachers
-                  .filter((item: any) => item.function === 'DJ')
+                  .filter((item: any) => item.function === "DJ")
                   .map((item) => (
                     <TeacherCard
                       key={item.id}
@@ -154,8 +154,8 @@ export function Teachers() {
                   teachers
                     .filter(
                       (item: any) =>
-                        item.function === 'Banda' ||
-                        item.function === 'Live Band',
+                        item.function === "Banda" ||
+                        item.function === "Live Band",
                     )
                     .map((item) => (
                       <TeacherCard
@@ -178,7 +178,7 @@ export function Teachers() {
               >
                 {teachers &&
                   teachers
-                    .filter((item: any) => item.function === 'DJ')
+                    .filter((item: any) => item.function === "DJ")
                     .map((item) => (
                       <TeacherCard
                         key={item.id}
@@ -194,16 +194,16 @@ export function Teachers() {
           </div>
           <div className="pl-4 pr-4 pt-8 md:hidden">
             <MainButton
-              href="/lff2024/tickets"
-              content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+              href="/lff2025/tickets"
+              content={language === "en" ? "Get Tickets" : "Ingressos"}
               bg="white"
               font="black"
             />
           </div>
           <div className="pl-4 pr-4 pt-8 md:flex w-full md:justify-center hidden">
             <MainButton
-              href="/lff2024/tickets"
-              content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+              href="/lff2025/tickets"
+              content={language === "en" ? "Get Tickets" : "Ingressos"}
               bg="white"
               font="black"
               width="50%"
@@ -212,5 +212,5 @@ export function Teachers() {
         </>
       )}
     </div>
-  )
+  );
 }

@@ -51,7 +51,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def community_params
-        params.require(:community).permit(:profile_image, :name, :profile, :description)
+        params.require(:community).permit(profile_image: [], name: [])
       end
     end
   end

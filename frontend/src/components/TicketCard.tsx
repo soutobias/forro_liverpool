@@ -1,19 +1,19 @@
-import { MainButton } from './MainButton'
+import { MainButton } from "./MainButton";
 
 export function TicketCard(props: {
-  isDisabled?: boolean
-  isSoldOut?: string
-  color: string
-  passType: string
-  lote: string
-  price: string
-  classes: string
-  parties: string
+  isDisabled?: boolean;
+  isSoldOut?: string;
+  color: string;
+  passType: string;
+  lote: string;
+  price: string;
+  classes: string;
+  parties: string;
 }) {
   const cardStyle: React.CSSProperties = {
     opacity: props.isDisabled ? 0.6 : 1,
-    pointerEvents: props.isDisabled ? 'none' : 'auto',
-  }
+    pointerEvents: props.isDisabled ? "none" : "auto",
+  };
 
   // .sold-out {
   //   position: absolute;
@@ -62,7 +62,7 @@ export function TicketCard(props: {
       <div>
         {props.isSoldOut && (
           <MainButton
-            href="/lff2024/tickets"
+            href="/lff2025/tickets"
             content={props.isSoldOut}
             bg="white"
             font="black"
@@ -70,5 +70,5 @@ export function TicketCard(props: {
         )}
       </div>
     </div>
-  )
+  );
 }

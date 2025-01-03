@@ -2,8 +2,8 @@
 
 require 'faker'
 
-# EventUser.destroy_all
-# User.destroy_all
+EventUser.destroy_all
+User.destroy_all
 
 # first = true
 # 10.times do
@@ -21,178 +21,200 @@ require 'faker'
 
 # Event.destroy_all
 
-events_data = [
-  {
-    name: ['Come Together Party', 'Festa Come Together'],
-    description: ['Join us for our opening party!', 'Junte-se a nós para a nossa festa de abertura!'],
-    start_datetime: DateTime.new(2024, 5, 10),
-    end_datetime: DateTime.new(2024, 5, 10) + 2.years,
-    price: '£ 3',
-    cover_image: [''],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-    registration_start_datetime: DateTime.now - 1.day,
-    registration_end_datetime: DateTime.now + 1.day,
-    type_event: 'Party',
-    location: [['Revolución de Cuba', 'Unit 17, Albert Dock, Liverpool l3 4AF', 'https://maps.app.goo.gl/YzdfS5oGJPXYkReH6']],
-    date: %w[Friday Sexta-feira],
-    time: ['10pm-3am', '22h-03h'],
-    is_festival: true,
-    is_class: false,
-    schedule: [[['10pm-12am', 'DJ Marinês'], ['12am-3am', 'DJ Sanguim']], [['22h-00h', 'DJ Marinês'], ['00h-03h', 'DJ Sanguim']]],
-    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-  },
-  {
-    name: ['Workshops', 'Workshops'],
-    description: ['Join us for our opening party', 'Junte-se a nós para a nossa festa de abertura'],
-    start_datetime: DateTime.new(2024,05,11),
-    end_datetime: DateTime.new(2024,05,11) + 2.years,
-    price: '£ 3',
-    cover_image: [''],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-    registration_start_datetime: DateTime.now - 1.day,
-    registration_end_datetime: DateTime.now + 1.day,
-    type_event: 'Workshop',
-    location: [['Liverpool Arts Bar', '22 Hope St, Liverpool L1 9BY', 'https://maps.app.goo.gl/AmXKKzQqRjPU6b8t8']],
-    date: %w[Saturday Sábado],
-    time: ['2-6pm', '14h-18h'],
-    is_festival: true,
-    is_class: true,
-    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501',
-    schedule: '#'
-  },
-  {
-    name: ['Yellow Submarine Party', 'Festa Yellow Submarine'],
-    description: ['Join us for our headline party! We’re starting out with an amazing coco de roda from our friends at Capoeira For All, followed by  amazing live bands and DJs. Come dressed in your best ’70’s Beatles costume! Check out our style guide below and get inspired!', 'Junte-se a nós em nossa festa principal! Começaremos com um incrível coco de roda dos nossos amigos do Capoeira For All, seguido de incríveis bandas ao vivo e DJs. Venha vestido com sua melhor fantasia dos Beatles dos anos 70! Confira nosso guia de estilo abaixo e inspire-se!'],
-    start_datetime: DateTime.new(2024, 5, 11),
-    end_datetime: DateTime.new(2024, 5, 11) + 2.years,
-    price: '£ 3',
-    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/yellow_submarine.jpg'],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-    registration_start_datetime: DateTime.now - 1.day,
-    registration_end_datetime: DateTime.now + 1.day,
-    type_event: 'Party',
-    location: [['Invisible Wind Factory', '3 Regent Rd, Liverpool L3 7DS', 'https://maps.app.goo.gl/kPq9utDpQTu9RYsD6']],
-    date: %w[Saturday Sábado],
-    time: ['10pm-4am', '22h-04h'],
-    is_festival: true,
-    is_class: false,
-    schedule: [[['10-11pm', 'Coco de roda'], ['11pm-12am', 'DJ Marinês'], ['12-2am', 'Zeu Azevedo & Abner Brasil'], ['2-4am', 'DJ Pastel']], [['22h-23h', 'Coco de roda'], ['23h-00h', 'DJ Marinês'], ['00h-02h', 'Zeu Azevedo & Abner Brasil'], ['02h-04h', 'DJ Pastel']]],
-    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-  },
+# events_data = [
+#   {
+#     name: ['Come Together Party', 'Festa Come Together'],
+#     description: ['Join us for our opening party!', 'Junte-se a nós para a nossa festa de abertura!'],
+#     start_datetime: DateTime.new(2024, 5, 10),
+#     end_datetime: DateTime.new(2024, 5, 10) + 2.years,
+#     price: '£ 3',
+#     cover_image: [''],
+#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+#     type_event: 'Party',
+#     location: ['Revolución de Cuba;Unit 17, Albert Dock, Liverpool l3 4AF;https://maps.app.goo.gl/YzdfS5oGJPXYkReH6'],
+#     date: %w[Friday Sexta-feira],
+#     time: ['10pm-3am', '22h-03h'],
+#     is_festival: "2024",
+#     is_class: false,
+#     schedule: ['10pm-12am;DJ Marinês', '12am-3am;DJ Sanguim'],
+#     schedule_translation: ['22h-00h;DJ Marinês', '00h-03h;DJ Sanguim'],
+#     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+#   },
+#   {
+#     name: ['Workshops', 'Workshops'],
+#     description: ['', ''],
+#     start_datetime: DateTime.new(2024,05,11),
+#     end_datetime: DateTime.new(2024,05,11) + 2.years,
+#     price: '£ 3',
+#     cover_image: [''],
+#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+#     type_event: 'Workshop',
+#     location: ['Liverpool Arts Bar;22 Hope St, Liverpool L1 9BY;https://maps.app.goo.gl/AmXKKzQqRjPU6b8t8'],
+#     date: %w[Saturday Sábado],
+#     time: ['2-6pm', '14h-18h'],
+#     is_festival: "2024",
+#     is_class: true,
+#     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501',
+#     schedule: '#'
+#   },
+#   {
+#     name: ['Yellow Submarine Party', 'Festa Yellow Submarine'],
+#     description: ['Join us for our headline party! We’re starting out with an amazing coco de roda from our friends at Capoeira For All, followed by  amazing live bands and DJs. Come dressed in your best ’70’s Beatles costume! Check out our style guide below and get inspired!', 'Junte-se a nós em nossa festa principal! Começaremos com um incrível coco de roda dos nossos amigos do Capoeira For All, seguido de incríveis bandas ao vivo e DJs. Venha vestido com sua melhor fantasia dos Beatles dos anos 70! Confira nosso guia de estilo abaixo e inspire-se!'],
+#     start_datetime: DateTime.new(2024, 5, 11),
+#     end_datetime: DateTime.new(2024, 5, 11) + 2.years,
+#     price: '£ 3',
+#     cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/yellow_submarine.jpg'],
+#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+#     type_event: 'Party',
+#     location: ['Invisible Wind Factory;3 Regent Rd, Liverpool L3 7DS;https://maps.app.goo.gl/kPq9utDpQTu9RYsD6'],
+#     date: %w[Saturday Sábado],
+#     time: ['10pm-4am', '22h-04h'],
+#     is_festival: "2024",
+#     is_class: false,
+#     schedule: ['10-11pm;Coco de roda', '11pm-12am;DJ Marinês', '12-2am;Zeu Azevedo & Abner Brasil', '2-4am;DJ Pastel'],
+#     schedule_translation: ['22h-23h;Coco de roda', '23h-00h;DJ Marinês', '00h-02h;Zeu Azevedo & Abner Brasil', '02h-04h;DJ Pastel'],
+#     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+#   },
+#   {
+#     name: ['Workshops', 'Workshops'],
+#     description: ['Join us for our opening party', 'Junte-se a nós para a nossa festa de abertura'],
+#     start_datetime: DateTime.new(2024,05,12),
+#     end_datetime: DateTime.new(2024,05,12) + 2.years,
+#     price: '£ 3',
+#     cover_image: [''],
+#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+#     registration_start_datetime: DateTime.now - 1.day,
+#     registration_end_datetime: DateTime.now + 1.day,
+#     type_event: 'Workshop',
+#     location: ['24 Hope St Studios;24 Hope St, Liverpool L1 9BX;https://maps.app.goo.gl/MEGs4t7yPkYsi37f9', 'The Annexe;13 Hope St, Liverpool L1 9BQ;https://maps.app.goo.gl/VKYN4PqD6mr5VdXg8'],
+#     date: %w[Sunday Domingo],
+#     time: ['2-5pm', '14h-17h'],
+#     is_festival: "2024",
+#     is_class: true,
+#     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501',
+#     schedule: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/LFF24-WorkshopSchedule.jpg']
+#   },
+#   {
+#     name: ['Twist & Shout Party', 'Festa Twist & Shout'],
+#     description: ["Let's close out our festival with even more amazing live music and an excellent DJ set.",
+#                   'Vamos encerrar o nosso festival com música ao vivo ainda mais incrível e um excelente DJ set.'],
+#     start_datetime: DateTime.new(2024, 5, 12),
+#     end_datetime: DateTime.new(2024, 5, 12) + 2.years,
+#     price: '£ 3',
+#     cover_image: [''],
+#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
+#     registration_start_datetime: DateTime.now - 1.day,
+#     registration_end_datetime: DateTime.now + 1.day,
+#     type_event: 'Party',
+#     location: ['Revolución de Cuba;Unit 17, Albert Dock, Liverpool l3 4AF;https://maps.app.goo.gl/YzdfS5oGJPXYkReH6'],
+#     date: %w[Sunday Domingo],
+#     time: ['8pm-12am', '20h-00h'],
+#     is_festival: "2024",
+#     is_class: false,
+#     schedule: ['8-10pm;Forró & Chips live forró band', '10pm-12am;DJ Pastel'],
+#     schedule_translation: ['20h-22h;Forró & Chips banda', '22h-00h;DJ Pastel'],
+#     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+#   }
+# ]
 
-  {
-    name: ['Workshops', 'Workshops'],
-    description: ['Join us for our opening party', 'Junte-se a nós para a nossa festa de abertura'],
-    start_datetime: DateTime.new(2024,05,12),
-    end_datetime: DateTime.new(2024,05,12) + 2.years,
-    price: '£ 3',
-    cover_image: [''],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-    registration_start_datetime: DateTime.now - 1.day,
-    registration_end_datetime: DateTime.now + 1.day,
-    type_event: 'Workshop',
-    location: [['24 Hope St Studios', '24 Hope St, Liverpool L1 9BX', 'https://maps.app.goo.gl/MEGs4t7yPkYsi37f9'], ['The Annexe', '13 Hope St, Liverpool L1 9BQ', 'https://maps.app.goo.gl/VKYN4PqD6mr5VdXg8']],
-    date: %w[Sunday Domingo],
-    time: ['2-5pm', '14h-17h'],
-    is_festival: true,
-    is_class: true,
-    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501',
-    schedule: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/LFF24-WorkshopSchedule.jpg']
-  },
-  {
-    name: ['Twist & Shout Party', 'Festa Twist & Shout'],
-    description: ["Let's close out our festival with even more amazing live music and an excellent DJ set.",
-                  'Vamos encerrar o nosso festival com música ao vivo ainda mais incrível e um excelente DJ set.'],
-    start_datetime: DateTime.new(2024, 5, 12),
-    end_datetime: DateTime.new(2024, 5, 12) + 2.years,
-    price: '£ 3',
-    cover_image: [''],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-    registration_start_datetime: DateTime.now - 1.day,
-    registration_end_datetime: DateTime.now + 1.day,
-    type_event: 'Party',
-    location: [['Revolución de Cuba', 'Unit 17, Albert Dock, Liverpool l3 4AF', 'https://maps.app.goo.gl/YzdfS5oGJPXYkReH6']],
-    date: %w[Sunday Domingo],
-    time: ['8pm-12am', '20h-00h'],
-    is_festival: true,
-    is_class: false,
-    schedule: [[['8-10pm', 'Forró & Chips live forró band'], ['10pm-12am', 'DJ Pastel']], [['20h-22h', 'Forró & Chips banda'], ['22h-00h', 'DJ Pastel']]],
-    ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-  }
-]
+# events_data.map { |event_data| Event.create!(event_data) }
 
-# description: ["Let's close out our festival with even more amazing live music and an excellent DJ set".
-# 8-10pm \t Forró & Chips live forró band
-# 10pm-12am \t DJ Pastel", 'Vamos encerrar o nosso festival com música ao vivo ainda mais incrível e um excelente DJ set.
-# 20h-22h \t Forró & Chips banda
-# 22h-12h \t DJ Pastel'],
+# events_data = [
+#   {
+#     name: ['Liverpool Forró Festival 2024', 'Festival de Forró de Liverpool 2024'],
+#     description: ['',''],
+#     start_datetime: DateTime.new(2024, 5, 15),
+#     end_datetime: DateTime.new(2024, 5, 18),
+#     price: '£ 70',
+#     cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
+#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
+#     registration_start_datetime: DateTime.now - 1.day,
+#     registration_end_datetime: DateTime.now + 1.day,
+#     type_event: 'Special Events',
+#     date: ['10-12 MAY', '10-12 MAIO'],
+#     time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
+#     is_festival: "no",
+#     is_class: false,
+#     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+#   },
+#   {
+#     name: ['Forró Workshop with Juzinha', 'Forró Workshop com Juzinha'],
+#     description: ["Join us for a very special workshop with Juzinha, Pé Descalço's most senior follower! Beginning to dance forró at the age of 8, by 12 she had already achieved the highest level possible within the school. Today, she has partial ownership of Pé Descalço Jardim in Belo Horizonte, Brazil, and is known for her strong presence, technique, and musicality. Through her classes, she motivates and inspires both leaders and followers to bring these attributes out in their own dance.
+#     No pre-purchase or registration necessary. Just show up and we will see you there!",
+#                   "Junte-se a nós para um workshop muito especial com Juzinha, a conduzida mais experiente do Pé Descalço! Começou a dançar forró aos 8 anos e, aos 12 já alcançou o nível mais alto possível dentro da escola. Hoje é proprietária parcial do Pé Descalço Jardim, em Belo Horizonte, Brasil, e é conhecida por sua forte presença, técnica e musicalidade. Através de suas aulas, ela motiva e inspira condutores e conduzidos a trazer esses atributos à tona em sua própria dança.
+#     Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!"],
+#     start_datetime: DateTime.new(2024, 3, 27, 19, 0, 0),
+#     end_datetime: DateTime.new(2024, 3, 27, 23, 0, 0),
+#     price: '£ 7',
+#     cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg'],
+#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg'],
+#     registration_start_datetime: DateTime.now - 1.day,
+#     registration_end_datetime: DateTime.new(2024, 3, 27, 19, 0, 0),
+#     type_event: 'Special Events',
+#     location: ['Revolution de Cuba;Unit 17, Albert Dock, Liverpool l3 4AF;https://maps.app.goo.gl/YzdfS5oGJPXYkReH6'],
+#     date: ['27 Mar', '27 Mar'],
+#     time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
+#     is_festival: "no",
+#     is_class: true
+#     # ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+#   },
+#   {
+#     name: ['Forró and Chips', 'Forró e Batata Frita'],
+#     description: ['Live forró music', 'Forró ao vivo'],
+#     start_datetime: DateTime.now + 2.day,
+#     end_datetime: DateTime.now + 2.day + 3.hours,
+#     price: '£20',
+#     cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
+#     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
+#     registration_start_datetime: DateTime.now - 1.day,
+#     registration_end_datetime: DateTime.now + 1.day,
+#     type_event: 'Regular Events',
+#     location: ['The Caledonia;Unit 17, Albert Dock, Liverpool L3 4AF;https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
+#     date: ['10-12 MAY', '10-12 MAIO'],
+#     time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
+#     is_festival: true,
+#     is_class: false,
+#     ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
+#   },
+#   {
+#     name: [
+#       "All-levels Forró Classes",
+#       "Aulas de Forró - Todos níveis "
+#     ],
+#     description: [
+#       "Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia. Check out our Instagram page for the latest events and news, like class cancellations or delays.\n    No pre-purchase or registration necessary. Just show up and we will see you there!",
+#       "Aulas de Forró no coração de Liverpool. Estamos esperando por você no andar de cima do Caledonia. Fique de olho na nossa página do Instagram para os últimos eventos e notícias, como cancelamentos ou atrasos de aulas.\n    Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!"
+#     ],
+#     start_datetime: "2035-02-01T13:25:56.874Z",
+#     end_datetime: "2035-02-01T16:25:56.874Z",
+#     price: "£ 3",
+#     image: [
+#       "https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg",
+#       "https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg"
+#     ],
+#     registration_start_datetime: "2024-01-31T13:25:56.874Z",
+#     registration_end_datetime: "2024-02-02T13:25:56.874Z",
+#     type_event: "Regular Events",
+#     location: [
+#       "The Caledonia;22 Caledonia St, Liverpool L7 7DX;https://maps.app.goo.gl/UqS38KGdwpfPwagt5"
+#     ],
+#     date: [
+#       "Mondays",
+#       "Segunda-feira"
+#     ],
+#     time: [
+#       "7pm class, 8pm social",
+#       "Aula as 19:00, baile as 20:00"
+#     ],
+#     is_festival: "no",
+#     is_class: true,
+#     cover_image: [
+#       "https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg"
+#     ]
+#   }
+# ]
 
-events_data.map { |event_data| Event.create!(event_data) }
-
-# # events_data = [
-#   # {
-#   #   name: ['Liverpool Forró Festival 2024', 'Festival de Forró de Liverpool 2024'],
-#   #   description: ['Forró classes in the heart of Liverpool. Find us upstairs above the Caledonia. Check out our Instagram page for the latest events and news, like class cancellations or delays.
-#   #   No pre-purchase or registration necessary. Just show up and we will see you there!',
-#   #                 'Aulas de Forró no coração de Liverpool. Estamos esperando por você no andar de cima do Caledonia. Fique de olho na nossa página do Instagram para os últimos eventos e notícias, como cancelamentos ou atrasos de aulas.
-#   #   Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!'],
-#   #   start_datetime: DateTime.new(2024, 5, 15),
-#   #   end_datetime: DateTime.new(2024, 5, 15),
-#   #   price: '£ 20',
-#   #   cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
-#   #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/festival.jpg'],
-#   #   registration_start_datetime: DateTime.now - 1.day,
-#   #   registration_end_datetime: DateTime.now + 1.day,
-#   #   type_event: 'Special Events',
-#   #   location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
-#   #   date: ['10-12 MAY', '10-12 MAIO'],
-#   #   time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
-#   #   is_festival: false,
-#   #   is_class: false,
-#   #   ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-#   # },
-#   # {
-#   #   name: ['Forró Workshop with Juzinha', 'Forró Workshop com Juzinha'],
-#   #   description: ["Join us for a very special workshop with Juzinha, Pé Descalço's most senior follower! Beginning to dance forró at the age of 8, by 12 she had already achieved the highest level possible within the school. Today, she has partial ownership of Pé Descalço Jardim in Belo Horizonte, Brazil, and is known for her strong presence, technique, and musicality. Through her classes, she motivates and inspires both leaders and followers to bring these attributes out in their own dance.
-#   #   No pre-purchase or registration necessary. Just show up and we will see you there!",
-#   #                 "Junte-se a nós para um workshop muito especial com Juzinha, a conduzida mais experiente do Pé Descalço! Começou a dançar forró aos 8 anos e, aos 12 já alcançou o nível mais alto possível dentro da escola. Hoje é proprietária parcial do Pé Descalço Jardim, em Belo Horizonte, Brasil, e é conhecida por sua forte presença, técnica e musicalidade. Através de suas aulas, ela motiva e inspira condutores e conduzidos a trazer esses atributos à tona em sua própria dança.
-#   #   Não é necessário pré-compra ou registro. É só aparecer e nos vemos lá!"],
-#   #   start_datetime: DateTime.new(2024, 3, 27, 19, 0, 0),
-#   #   end_datetime: DateTime.new(2024, 3, 27, 23, 0, 0),
-#   #   price: '£ 7',
-#   #   cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg'],
-#   #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/juzinha.jpg'],
-#   #   registration_start_datetime: DateTime.now - 1.day,
-#   #   registration_end_datetime: DateTime.new(2024, 3, 27, 19, 0, 0),
-#   #   type_event: 'Special Events',
-#   #   location: ['Revolution de Cuba', 'Unit 17, Albert Dock, Liverpool l3 4AF', 'https://maps.app.goo.gl/YzdfS5oGJPXYkReH6'],
-#   #   date: ['27 Mar', '27 Mar'],
-#   #   time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
-#   #   is_festival: false,
-#   #   is_class: true
-#   #   # ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-#   # }
-#   # {
-#   #   name: ['Forró and Chips', 'Forró e Batata Frita'],
-#   #   description: ['Live forró music', 'Forró ao vivo'],
-#   #   start_datetime: DateTime.now + 2.day,
-#   #   end_datetime: DateTime.now + 2.day + 3.hours,
-#   #   price: '£20',
-#   #   cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
-#   #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/abner.jpg'],
-#   #   registration_start_datetime: DateTime.now - 1.day,
-#   #   registration_end_datetime: DateTime.now + 1.day,
-#   #   type_event: 'Regular Events',
-#   #   location: ['The Caledonia', 'Unit 17, Albert Dock, Liverpool L3 4AF', 'https://maps.app.goo.gl/UqS38KGdwpfPwagt5'],
-#   #   date: ['10-12 MAY', '10-12 MAIO'],
-#   #   time: ['7pm Class, 8pm Social', 'Aula 19h, Social 20h'],
-#   #   is_festival: true,
-#   #   is_class: false,
-#   #   ticket_link: 'https://www.tickettailor.com/events/labellewinery/972501'
-#   # }
-# # ]
-
-# # events_data.map { |event_data| Event.create!(event_data) }
+# events_data.map { |event_data| Event.create!(event_data) }
 
 # Site.destroy_all
 
@@ -513,6 +535,39 @@ events_data.map { |event_data| Event.create!(event_data) }
 # )
 # site_festival_translation.save!
 
+Site2025Festival.destroy_all
+
+sitefestival = Site2025Festival.new(
+  navbar: ['Liverpool Forró Festival', 'Classes & Events', 'Our Community', 'FAQ', 'Tickets',
+           'Teachers & Musicians', 'Program', 'FAQ', 'Tickets', 'Teachers & Musicians', 'Program', 'Liverpol', 'Festival FAQ'],
+  image: [
+    'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/21idj12pofld4m00xiybfvogq7kb', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/21idj12pofld4m00xiybfvogq7kb'
+  ],
+  data: '16-18 May, 2025',
+  local: 'Liverpool, England',
+  video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/video.mp4',
+  textvideo: "3 days of dance classes and parties with incredible forró teachers and musicians from around the world. Come celebrate Brazilian culture in the heart of the UK's music scene.",
+  titlevideo: "Forró in the heart of the UK's music scene"
+)
+sitefestival.save!
+
+Site2025FestivalTranslation.destroy_all
+
+site_festival_translation = Site2025FestivalTranslation.new(
+  navbar: ['Festival de Forró de Liverpool', 'Aulas & Eventos', 'Nossa comunidade', 'Dúvidas', 'Ingressos',
+           'Professores & Músicos', 'Programação', 'Dúvidas', 'Ingressos', 'Professores & Músicos', 'Programação', 'Liverpool', 'Dúvidas do Festival'],
+  image: [
+    'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/21idj12pofld4m00xiybfvogq7kb', 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/21idj12pofld4m00xiybfvogq7kb'
+  ],
+  data: '16-18 de Maio, 2025',
+  local: 'Liverpool, Inglaterra',
+  video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/video.mp4',
+  textvideo: 'Três dias cheios de aulas e festas com artistas incríveis do mundo afora. Vem curtir com a gente esse festival de cultura brasileira na cidade natal dos Beatles.',
+  titlevideo: 'Forró na cidade mais musical da Inglaterra'
+)
+site_festival_translation.save!
+
+
 # FestivalTeacher.destroy_all
 
 # festival_teachers_data = [
@@ -670,3 +725,4 @@ events_data.map { |event_data| Event.create!(event_data) }
 # ]
 
 # festival_teacher_translations_data.map { |festival_teacher_translation_data| FestivalTeacherTranslation.create(festival_teacher_translation_data) }
+puts 'Seed done'

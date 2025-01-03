@@ -1,61 +1,63 @@
-import styles from './Bg.module.css'
-import { keyable } from './ClassEvent'
-import { useLanguage } from '@/lib/language'
-import { useEffect, useRef } from 'react'
+import styles from "./Bg.module.css";
+import { keyable } from "./ClassEvent";
+import { useLanguage } from "@/lib/language";
+import { useEffect, useRef } from "react";
 
 interface HeroProps {
-  site: keyable[] | null
+  site: keyable[] | null;
 }
 
 export function Hero(props: HeroProps) {
-  const { language } = useLanguage()
+  const { language } = useLanguage();
 
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const video = videoRef.current
+        const video = videoRef.current;
         if (entries[0].isIntersecting) {
           if (video) {
-            video.play()
+            video.play();
           }
         } else {
           if (video) {
-            video.pause()
+            video.pause();
           }
         }
       },
       { threshold: 0.25 },
-    )
-    const video = videoRef.current
+    );
+    const video = videoRef.current;
     if (video) {
-      observer.observe(videoRef.current)
+      observer.observe(videoRef.current);
     }
 
     return () => {
       if (video) {
-        observer.unobserve(video)
+        observer.unobserve(video);
       }
-    }
-  }, [])
+    };
+  }, []);
   function scrollToSection(e: any) {
-    const href = e.currentTarget.getAttribute('href')
+    const href = e.currentTarget.getAttribute("href");
     if (href) {
-      if (href.split('#')[0] === window.location.pathname) {
-        e.preventDefault()
-        const element = document.querySelector(`#${href.split('#')[1]}`)
-        const offsetTop = element instanceof HTMLElement ? element.offsetTop : 0
+      if (href.split("#")[0] === window.location.pathname) {
+        e.preventDefault();
+        const element = document.querySelector(`#${href.split("#")[1]}`);
+        const offsetTop =
+          element instanceof HTMLElement ? element.offsetTop : 0;
 
         window.scroll({
           top: offsetTop,
-          behavior: 'smooth',
-        })
+          behavior: "smooth",
+        });
       }
     }
   }
   return (
-    props.site && (
+    props.site &&
+    props.site.length > 0 && (
       <div className={`w-full z-[59] relative ${styles.heroBg} sm:pb-20`}>
         <div className="px-4 sm:flex sm:justify around pt-[6.75rem] sm:gap-[1rem] sm:px-[2rem] md:gap-[3rem] md:px-[3rem] lg:gap-[4rem] lg:px-[6rem] xl:gap-[6rem] xl:px-[8.5rem]">
           <div className="flex flex-col sm:justify-center sm:w-[50%]">
@@ -74,9 +76,9 @@ export function Hero(props: HeroProps) {
                 <p
                   className={`text-white text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 uppercase font-extrabold w-full p-5`}
                 >
-                  {language === 'en'
-                    ? 'Come dance with us'
-                    : 'Bora dançar com a gente'}
+                  {language === "en"
+                    ? "Come dance with us"
+                    : "Bora dançar com a gente"}
                 </p>
               </a>
             </div>
@@ -91,7 +93,7 @@ export function Hero(props: HeroProps) {
               muted
               controls
               className="rounded-2xl overflow-hidden"
-              style={{ borderRadius: '16px', overflow: 'hidden' }}
+              style={{ borderRadius: "16px", overflow: "hidden" }}
               // poster={path-to-poster.jpg}
             >
               {/* <source
@@ -100,7 +102,7 @@ export function Hero(props: HeroProps) {
               /> */}
               <source
                 src={
-                  props.site && props.site[0].cover_video.slice(0, -4) + 'mp4'
+                  props.site && props.site[0].cover_video.slice(0, -4) + "mp4"
                 }
                 type="video/mp4"
               />
@@ -110,5 +112,5 @@ export function Hero(props: HeroProps) {
         </div>
       </div>
     )
-  )
+  );
 }

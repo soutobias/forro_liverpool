@@ -23,7 +23,24 @@ gem 'faker'
 
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'sass-rails', '~> 6.0'
 
+gem 'dotenv-rails'
+
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+gem 'bcrypt', '~> 3.1.7'
+
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+gem 'image_processing', '~> 1.2'
+
+# Use Active Storage for file uploads [https://guides.rubyonrails.org/active_storage_overview.html]
+gem 'activestorage', '~> 7.0'
+
+# Use Redis adapter to run Action Cable in production
+gem 'redis', '>= 4.0.1'
+gem "aws-sdk-s3", require: false
+
+# Use Kredis to get higher-level data types in Redis [
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -47,6 +64,7 @@ gem 'bootsnap', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
+gem "administrate"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

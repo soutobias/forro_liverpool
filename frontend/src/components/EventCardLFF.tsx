@@ -1,34 +1,36 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
-import { keyable } from './ClassEvent'
-import Link from 'next/link'
-import styles from './Bg.module.css'
-import { LocationMarker } from '@/assets/location_marker'
-import { useLanguage } from '@/lib/language'
-import { MainButton } from './MainButton'
-import { H1 } from './H1'
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { keyable } from "./ClassEvent";
+import Link from "next/link";
+import styles from "./Bg.module.css";
+import { LocationMarker } from "@/assets/location_marker";
+import { useLanguage } from "@/lib/language";
+import { MainButton } from "./MainButton";
+import { H1 } from "./H1";
 
 export function EventCardLFF(props: {
-  size?: string
-  event: keyable
-  setShowEvent?: Dispatch<SetStateAction<keyable>>
-  eventType?: string
+  size?: string;
+  event: keyable;
+  year: number;
+  setShowEvent?: Dispatch<SetStateAction<keyable>>;
+  eventType?: string;
 }) {
-  const { event } = props
+  const { event, year } = props;
 
-  const { language } = useLanguage()
-  const [position, setPosition] = useState<number>(0)
+  const { language } = useLanguage();
+  const [position, setPosition] = useState<number>(0);
 
   useEffect(() => {
-    if (language === 'en') {
-      setPosition(0)
+    if (language === "en") {
+      setPosition(0);
     } else {
-      setPosition(1)
+      setPosition(1);
     }
-  }, [language])
+  }, [language]);
 
   const generateEventUrl = () => {
-    return `/lff2024/events?id=${event.id}`
-  }
+    return `/lff${year}/events?id=${event.id}`;
+  };
+  console.log("event", event);
   return (
     <div
       className={`mb-2 pb-2 font-changa w-full h-full rounded-2xl xl:w-[23rem] xl:h-[16rem] lg:w-[20rem] lg:h-[18rem]  aspect-343/223 border-black border-4 lg:relative ${styles.begeBg}`}
@@ -53,8 +55,10 @@ export function EventCardLFF(props: {
               </div>
               <div className="text-black uppercase pl-0 ml-1 font-extrabold pr-2 md:pr-0 text-[1rem] font-changa leading-4 md:leading-5 md:text-[1.25rem]">
                 {event.location.length === 1
-                  ? `${event.location[0][0]}`
-                  : `${event.location[0][0]} & ${event.location[1][0]}`}
+                  ? `${event.location[0].split(";")[0]}`
+                  : `${event.location[0].split(";")[0]} & ${
+                      event.location[1].split(";")[0]
+                    }`}
               </div>
             </div>
           </div>
@@ -67,9 +71,9 @@ export function EventCardLFF(props: {
             <MainButton
               href={generateEventUrl()}
               content={
-                language === 'en'
-                  ? 'Download Class Schedule'
-                  : 'Download programação'
+                language === "en"
+                  ? "Download Class Schedule"
+                  : "Download programação"
               }
               bg="pink-600"
               font="white"
@@ -84,7 +88,7 @@ export function EventCardLFF(props: {
             <MainButton
               href={generateEventUrl()}
               content={
-                language === 'en' ? 'See event details' : 'Detalhes do evento'
+                language === "en" ? "See event details" : "Detalhes do evento"
               }
               bg="pink-600"
               font="white"
@@ -94,5 +98,5 @@ export function EventCardLFF(props: {
         )}
       </div>
     </div>
-  )
+  );
 }

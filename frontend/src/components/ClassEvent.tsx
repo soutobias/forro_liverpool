@@ -1,20 +1,20 @@
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowUpRight } from '@/assets/arrow_up_right'
-import { Dispatch, SetStateAction } from 'react'
-import { useLanguage } from '@/lib/language'
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "@/assets/arrow_up_right";
+import { Dispatch, SetStateAction } from "react";
+import { useLanguage } from "@/lib/language";
 
 export interface keyable {
-  [key: string]: any
+  [key: string]: any;
 }
 
 export function ClassEvent(props: {
-  showEvent: keyable
-  setShowEvent: Dispatch<SetStateAction<keyable>>
+  showEvent: keyable;
+  setShowEvent: Dispatch<SetStateAction<keyable>>;
 }) {
-  const { language } = useLanguage()
+  const { language } = useLanguage();
   return (
     <div className=" h-full w-full z-20 bottom-0 fixed pointer-events-auto">
       <div
@@ -90,10 +90,10 @@ export function ClassEvent(props: {
             </p>
           </div>
           <Link
-            href="/lff2024/tickets"
+            href="/lff2025/tickets"
             className="no-underline mr-2 flex bg-gray-60 text-center text-[1rem] leading-5 uppercase font-bold p-5 w-full mt-4 justify-center"
           >
-            <div> {language === 'en' ? 'Get Tickets' : 'Ingressos'}</div>
+            <div> {language === "en" ? "Get Tickets" : "Ingressos"}</div>
             <ArrowUpRight />
           </Link>
           {/* <div
@@ -105,5 +105,5 @@ export function ClassEvent(props: {
         </div>
       </div>
     </div>
-  )
+  );
 }
