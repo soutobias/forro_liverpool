@@ -13,6 +13,7 @@ class EventDashboard < Administrate::BaseDashboard
     name: ArrayField,
     date: ArrayField,
     description: ArrayField,
+    start_datetime: Field::DateTime,
     end_datetime: Field::DateTime,
     image: ArrayField,
     is_class: Field::Boolean,
@@ -20,12 +21,8 @@ class EventDashboard < Administrate::BaseDashboard
     location: ArrayField,
     price: Field::String,
     cover_image: ArrayField,
-    registration_end_datetime: Field::DateTime,
-    registration_start_datetime: Field::DateTime,
     schedule: ArrayField,
     schedule_translation: ArrayField,
-    start_datetime: Field::DateTime,
-    ticket_link: Field::String,
     time: ArrayField,
     type_event: Field::String,
     created_at: Field::DateTime,
@@ -41,6 +38,8 @@ class EventDashboard < Administrate::BaseDashboard
     id
     name
     date
+    start_datetime
+    end_datetime
     is_festival
     description
   ].freeze
@@ -52,6 +51,7 @@ class EventDashboard < Administrate::BaseDashboard
     name
     date
     description
+    start_datetime
     end_datetime
     image
     is_class
@@ -59,12 +59,8 @@ class EventDashboard < Administrate::BaseDashboard
     location
     price
     cover_image
-    registration_end_datetime
-    registration_start_datetime
     schedule
     schedule_translation
-    start_datetime
-    ticket_link
     time
     type_event
     created_at
@@ -78,19 +74,16 @@ class EventDashboard < Administrate::BaseDashboard
     name
     date
     description
+    start_datetime
     end_datetime
     image
     is_class
     is_festival
     location
     price
-    registration_end_datetime
-    registration_start_datetime
     schedule
     schedule_translation
-    start_datetime
     cover_image
-    ticket_link
     time
     type_event
   ].freeze

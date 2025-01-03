@@ -80,7 +80,7 @@ export function HeroLFF2025(props: { siteFestival: any; year: string }) {
                 }
                 alt="illustration"
                 // className="w-full !h-auto"
-                className="w-auto sm:h-[20rem] md:h-[25rem]  lg:h-[30rem] xl:h-[35rem] 2xl:h-[38rem]"
+                className="w-auto sm:h-[20rem] md:h-[25rem]  lg:h-[30rem] xl:h-[35rem] 2xl:h-[50rem]"
                 width={1336}
                 height={1000}
               />
@@ -106,33 +106,11 @@ export function HeroLFF2025(props: { siteFestival: any; year: string }) {
                   : LFFLogo
               }
               alt="illustration"
-              // className="h-[17rem] w-auto md:hidden"
+              className="w-auto md:hidden"
               width={1336}
               height={614}
             />
           </div>
-          {props.year === "2024" && (
-            <div className="pt-3 flex justify-center">
-              <Image
-                src={CrossWalk}
-                alt="illustration"
-                className="overflow-hidden h-[5.25rem] w-full object-cover md:hidden"
-                width={1336}
-                height={614}
-              />
-            </div>
-          )}
-          {props.year === "2024" && (
-            <div className="pt-1 flex justify-center w-full overflow-hidden">
-              <Image
-                src={CrossWalk1}
-                alt="illustration"
-                className="xl:h-[9rem] md:h-[7rem] w-[130vw] max-w-[130vw] md:block hidden"
-                width={1336}
-                height={614}
-              />
-            </div>
-          )}
           <div className="-mt-[5rem] md:flex md:justify-center hidden">
             {/* <Scroll /> */}
             <div className="justify-center">

@@ -15,18 +15,6 @@ export function TicketCard(props: {
     pointerEvents: props.isDisabled ? "none" : "auto",
   };
 
-  // .sold-out {
-  //   position: absolute;
-  //   width: 100%;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%) rotate(-45deg);
-  //   transform-origin: center;
-  //   background-color: red; /* Background of the "Sold Out" text */
-  //   color: white; /* Color of the "Sold Out" text */
-  //   text-align: center;
-  //   font-size: 20px; /* Example font size */
-
   return (
     <div
       style={cardStyle}

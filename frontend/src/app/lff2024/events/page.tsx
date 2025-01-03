@@ -79,7 +79,6 @@ export default function EventDetails() {
       fetchApi(urlFestival, setSiteFestival);
     }
   }, [urlFestival]);
-  console.log("selectedEvent", selectedEvent);
   useEffect(() => {
     fetchApi(`${urlEvents}/${paramsId}`, setSelectedEvent);
   }, [selectedEvent, paramsId]);

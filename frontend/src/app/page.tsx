@@ -101,8 +101,6 @@ export default function Home() {
   if (!hasMounted) {
     return null;
   }
-  console.log("siteFestival", siteFestival);
-
   return (
     <>
       <Head>

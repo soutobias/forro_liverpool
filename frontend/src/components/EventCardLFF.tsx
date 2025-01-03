@@ -30,7 +30,6 @@ export function EventCardLFF(props: {
   const generateEventUrl = () => {
     return `/lff${year}/events?id=${event.id}`;
   };
-  console.log("event", event);
   return (
     <div
       className={`mb-2 pb-2 font-changa w-full h-full rounded-2xl xl:w-[23rem] xl:h-[16rem] lg:w-[20rem] lg:h-[18rem]  aspect-343/223 border-black border-4 lg:relative ${styles.begeBg}`}

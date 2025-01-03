@@ -7,7 +7,7 @@ module Api
 
       # GET /lotes
       def index
-        @lotes = Lote.all
+        @lotes = Lote.all.order(:lote_number)
 
         render json: @lotes
       end

@@ -1,47 +1,37 @@
 import styles from "./Bg.module.css";
-import { useLanguage } from "@/lib/language";
 import { useState } from "react";
 import { Gallery } from "react-grid-gallery";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
-import { Image } from "react-grid-gallery";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 import { images, CustomImage } from "../data/images";
+import Download from "yet-another-react-lightbox/plugins/download";
+import Share from "yet-another-react-lightbox/plugins/share";
+
+const slides = images.map(({ original, width, height }) => ({
+  src: original,
+  width,
+  height,
+}));
+
 export function FestivalPhotos() {
   const [index, setIndex] = useState(-1);
 
-  const currentImage = images[index];
-  const nextIndex = (index + 1) % images.length;
-  const nextImage = images[nextIndex] || currentImage;
-  const prevIndex = (index + images.length - 1) % images.length;
-  const prevImage = images[prevIndex] || currentImage;
-
   const handleClick = (index: number, item: CustomImage) => setIndex(index);
-  const handleClose = () => setIndex(-1);
-  const handleMovePrev = () => setIndex(prevIndex);
-  const handleMoveNext = () => setIndex(nextIndex);
 
   return (
-    <div>
+    <div className={`p-2 ${styles.blackBg}`}>
       <Gallery
         images={images}
         onClick={handleClick}
         enableImageSelection={false}
       />
-      {!!currentImage && (
-        /* @ts-ignore */
-        <Lightbox
-          mainSrc={currentImage.original}
-          // imageTitle={currentImage.caption}
-          mainSrcThumbnail={currentImage.src}
-          nextSrc={nextImage.original}
-          nextSrcThumbnail={nextImage.src}
-          prevSrc={prevImage.original}
-          prevSrcThumbnail={prevImage.src}
-          onCloseRequest={handleClose}
-          onMovePrevRequest={handleMovePrev}
-          onMoveNextRequest={handleMoveNext}
-        />
-      )}
+      <Lightbox
+        slides={slides}
+        open={index >= 0}
+        index={index}
+        close={() => setIndex(-1)}
+        plugins={[Download, Share]}
+      />
     </div>
   );
 }
