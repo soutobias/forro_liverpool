@@ -76,7 +76,7 @@ export default function EventDetails() {
         ),
       );
     }
-  }, [events]);
+  }, [events, paramsId]);
 
   useEffect(() => {
     if (language === "en") {

@@ -20,7 +20,7 @@ export function ClassEventsLFF(props: { year: number }) {
 
   useEffect(() => {
     fetchApi(url, setEvents);
-  }, []);
+  }, [url]);
 
   useEffect(() => {
     if (events.length > 0) {
