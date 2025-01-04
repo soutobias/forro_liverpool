@@ -55,8 +55,9 @@ export function LoteSection(props: {
             ? `Lote ${lote.lote_number}`
             : `Lote ${lote.lote_number}`}
         </h2>
-        <div className="pt-5 pb-10 font-sans text-white text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 font-semibold w-full p-5">
+        <div className="pt-5 pb-8 font-sans text-white text-center text-[1rem] md:text-[1.25rem] leading-4 md:leading-5 font-semibold w-full p-5">
           <p>{lote.status[position]}</p>
+          <p className="pt-2">{lote.status2[position]}</p>
         </div>
       </div>
       <div className="block md:flex md:justify-center md:gap-4">

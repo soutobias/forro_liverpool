@@ -217,7 +217,7 @@ export default function EventDetails() {
                         </div>
                       )}
                       <div className="pt-6 z-[61]">
-                        <MainButton
+                        {/* <MainButton
                           href="/lff2024/tickets"
                           content={
                             language === "en" ? "Get Tickets" : "Ingressos"
@@ -225,7 +225,7 @@ export default function EventDetails() {
                           bg="white"
                           font="black"
                           rounded="none"
-                        />
+                        /> */}
                       </div>
                     </div>
                   </div>

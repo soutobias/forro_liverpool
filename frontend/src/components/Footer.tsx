@@ -6,11 +6,20 @@ import { useLanguage } from "@/lib/language";
 
 export function Footer(props: { siteFestival: any }) {
   const { language } = useLanguage();
+  const url = window.location.href;
+
+  const pagePath = url.split("/").pop();
 
   return (
-    <div className={`w-full z-20 pb-6 bg-yellow-500`}>
+    <div
+      className={`w-full z-20 pb-6 bg-yellow-500 ${
+        pagePath === "lff2024"
+          ? "pt-20 sm:pt-28 md:pt-32 lg:pt-36 xl:pt-60 2xl:pt-72"
+          : ""
+      }`}
+    >
       <ForroLinks siteFestival={props.siteFestival} />
-      <div className="flex justify-center gap-8 pt-8 pb-8">
+      <div className="flex justify-center gap-8 pt-6 pb-8">
         <Link
           href="https://www.instagram.com/forro.liverpool/"
           target="_blank"
@@ -32,7 +41,7 @@ export function Footer(props: { siteFestival: any }) {
         </p>
       </div>
 
-      <div>
+      <div className="px-4">
         <p className="justify-center text-center text-black text-[0.75rem] leading-4 font-sans font-normal pb-4">
           © 2024 Forró Liverpool
         </p>

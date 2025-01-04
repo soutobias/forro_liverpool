@@ -173,7 +173,11 @@ export const Faq = (props: { isFestival: boolean }) => {
 
   return (
     <div
-      className={`pt-20 pb-20 font-changa px-4 md:px-[8rem] xl:px-[23rem] md:pb-40 text-white ${styles.blackBgFull}`}
+      className={`${
+        isFestival ? "pt-20" : "pt-50"
+      } pb-20 font-changa px-4 md:px-[8rem] xl:px-[23rem] md:pb-40 text-white ${
+        isFestival ? styles.blackBgFull : styles.blackBg
+      }`}
       id="faq"
     >
       <div className="pb-12 font-extrabold pt-20 text-left">
@@ -187,13 +191,13 @@ export const Faq = (props: { isFestival: boolean }) => {
             answer={item.answer}
           />
         ))}
-      {isFestival && (
+      {/* {isFestival && (
         <div className="text-white pt-10 text-[1.5rem] md:text-[2rem] text-center font-extrabold leading-8 md:leading-10 px-10">
           {language === "en"
             ? "Liverpool Forró Festival 2024 was organized by Felipe Ortega, Filipe Braga, and Molly Cichy. Simbora!"
             : "Liverpool Forró Festival 2024 é organizado por Felipe Ortega, Filipe Braga, e Molly Cichy. Simbora!"}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

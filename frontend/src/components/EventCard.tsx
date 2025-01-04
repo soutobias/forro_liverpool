@@ -30,7 +30,7 @@ export function EventCard(props: EventCardProps) {
     if (event.name[0] === "Liverpool Forró Festival 2024") {
       return "/lff2024";
     } else if (event.name[0] === "Liverpool Forró Festival 2025") {
-      return "/lff2023";
+      return "/lff2025";
     } else {
       return `/events?id=${event.id}`;
     }
@@ -39,7 +39,10 @@ export function EventCard(props: EventCardProps) {
     <Link href={generateEventUrl()} passHref>
       <div
         className={`relative ${
-          event.name[0] === "Liverpool Forró Festival 2024"
+          [
+            "Liverpool Forró Festival 2024",
+            "Liverpool Forró Festival 2025",
+          ].includes(event.name[0])
             ? `aspect-square md:${aspectRatio || "aspect-square"} text-white`
             : "aspect-300/168 md:aspect-300/168 text-black"
         } bg-cover rounded-xl font-changa w-full mb-4 shadow-custom`}
@@ -57,7 +60,10 @@ export function EventCard(props: EventCardProps) {
         //   })
         // }
       >
-        {event.name[0] === "Liverpool Forró Festival 2024" && (
+        {[
+          "Liverpool Forró Festival 2024",
+          "Liverpool Forró Festival 2025",
+        ].includes(event.name[0]) && (
           <div className="absolute right-5 top-0">
             <Image
               src={flag}
@@ -76,7 +82,10 @@ export function EventCard(props: EventCardProps) {
           {event.date[position]}
         </div>
         {event.location &&
-          event.name[0] !== "Liverpool Forró Festival 2024" &&
+          ![
+            "Liverpool Forró Festival 2024",
+            "Liverpool Forró Festival 2025",
+          ].includes(event.name[0]) &&
           event.location.map((location: string, index: number) => (
             <div key="index" className="flex ml-4 pt-4">
               <LocationMarker />

@@ -124,6 +124,14 @@ export function DropdownDesktop(props: {
                 {props.siteFestival[0] && props.siteFestival[0].navbar[6]}
               </Link>
             </div>
+            <div className="pt-5 flex md:justify-start justify-center ">
+              <Link
+                href="/lff2024"
+                className="font-sans no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0 text-sm"
+              >
+                2024 Festival Archive
+              </Link>
+            </div>
           </div>
         </div>
       )}

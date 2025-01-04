@@ -1,8 +1,8 @@
 "use client";
 
+import styles from "../../components/Bg.module.css";
 import { HeroLFF } from "@/components/HeroLFF";
 // import { VideoIntro } from '@/components/VideoIntro'
-import { Faq } from "@/components/Faq";
 import { Navbar } from "@/components/NavBar";
 // import { FrameImportant } from '@/components/FrameImportant'
 import { useEffect, useRef, useState } from "react";
@@ -11,9 +11,7 @@ import { UpButton } from "@/components/UpButton";
 import { VideoIntro } from "@/components/VideoIntro";
 import { Teachers } from "@/components/Teachers";
 import { ClassEventsLFF } from "@/components/ClassEventsLFF";
-import { Liverpool } from "@/components/Liverpool";
 // import { LiverpoolEvents } from '@/components/LiverpoolEvents'
-import { GetTickets } from "@/components/GetTickets";
 import { fetchApi } from "@/lib/api";
 import { useLanguage } from "@/lib/language";
 import Head from "next/head";
@@ -27,7 +25,6 @@ export default function Home() {
   const [showGDPR, setShowGDPR] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
   const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null);
-
   const { language } = useLanguage();
 
   useEffect(() => {
@@ -111,17 +108,19 @@ export default function Home() {
               <Navbar plusColor="#EAEAEA" siteFestival={siteFestival} />
             </div>
             <HeroLFF year={"2024"} siteFestival={siteFestival}></HeroLFF>
-            <FestivalPhotos></FestivalPhotos>
+            <div className={`md:pt-20 ${styles.blackBg}`}>
+              <FestivalPhotos />
+            </div>
 
             <VideoIntro siteFestival={siteFestival}></VideoIntro>
           </>
         )}
         <Teachers></Teachers>
         <ClassEventsLFF year={2024}></ClassEventsLFF>
-        <Liverpool />
-        <GetTickets />
+        {/* <Liverpool />
+        <GetTickets /> */}
         {/* <LiverpoolEvents /> */}
-        <Faq isFestival={true} />
+        {/* <Faq isFestival={true} /> */}
         <Footer siteFestival={siteFestival} />
         {/* {showGDPR && <GDPR setShowGDPR={setShowGDPR} />} */}
         {/* {Object.keys(showEvent).length > 0 && (

@@ -22,7 +22,7 @@ export function VideoIntro2025(props: { siteFestival: any }) {
     );
     const video = videoRef.current;
     if (video) {
-      observer.observe(videoRef.current);
+      observer.observe(video);
     }
 
     return () => {
@@ -33,18 +33,18 @@ export function VideoIntro2025(props: { siteFestival: any }) {
   }, []);
   return (
     <div
-      className={`pt-16 md:pt-32 font-semibold text-center font-changa px-4 md:px-[8rem] lg:px-[13rem]  2xl:px-[20rem] text-white ${styles.blackBgFull}`}
+      className={`pt-10 md:pt-32 font-semibold text-center font-changa px-4 md:px-[8rem] lg:px-[13rem]  2xl:px-[20rem] text-white ${styles.blackBgFull}`}
     >
       <div className="md:flex md:justify-center md:gap-10 lg:gap-10 xl:gap-40">
         <div className="sm:pt-[0] xl:pt-[7rem]">
           <h2 className="pb-12 sm:pb-0 text-[1.5rem] md:text-[2rem] sm:pt-0 lg:pt-16 leading-8 md:leading-10 font-extrabold md:text-left">
             {props.siteFestival && props.siteFestival[0].titlevideo}
           </h2>
-          <p className="pt-12 pb-10 text-[1rem] md:text-[1.25rem] md:leading-6 font-sans text-justify md:text-left font-semibold leading-8 hidden md:block">
+          <p className="pt-12 pb-5 text-[1rem] md:text-[1.25rem] md:leading-6 font-sans text-justify md:text-left font-semibold leading-8 hidden md:block">
             {props.siteFestival && props.siteFestival[0].textvideo}
           </p>
         </div>
-        <p className="pt-12 pb-10 text-[1rem] font-sans text-justify font-semibolf leading-6 md:hidden">
+        <p className="px-4 pt-0 pb-0 text-[1rem] font-sans text-justify font-semibold leading-6 md:hidden">
           {props.siteFestival && props.siteFestival[0].textvideo}
         </p>
       </div>

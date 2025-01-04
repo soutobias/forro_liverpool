@@ -49,7 +49,7 @@ export function ClassEvents(props: ClassEventsProps) {
               {events
                 .filter(
                   (event: any) =>
-                    event.name[0] === "Liverpool Forró Festival 2024",
+                    event.name[0] === "Liverpool Forró Festival 2025",
                 )
                 .map((event: any, index: number) => (
                   <EventCard
@@ -62,7 +62,7 @@ export function ClassEvents(props: ClassEventsProps) {
                 .filter(
                   (event: any) =>
                     event.type_event === "Special Events" &&
-                    event.name[0] !== "Liverpool Forró Festival 2024",
+                    event.name[0] !== "Liverpool Forró Festival 2025",
                 )
                 .map((event: any, index: number) => (
                   <EventCard

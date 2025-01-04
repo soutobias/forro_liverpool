@@ -110,6 +110,9 @@ export function ClassEventsLFF(props: { year: number }) {
           )}
         </div>
       </div>
+      <div
+        className={`absolute -bottom-30 sm:-bottom-[8rem] md:-bottom-[10rem] lg:-bottom-[11rem] xl:-bottom-[15rem]  2xl:-bottom-[15rem] w-full min-h-[20rem] md:min-h-[25rem] lg:min-h-[30rem] xl:min-h-[35rem] 2xl:min-h-[40rem] ${styles.circlesBg1}`}
+      />
     </div>
   );
 }

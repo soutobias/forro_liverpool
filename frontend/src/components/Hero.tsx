@@ -30,7 +30,7 @@ export function Hero(props: HeroProps) {
     );
     const video = videoRef.current;
     if (video) {
-      observer.observe(videoRef.current);
+      observer.observe(video);
     }
 
     return () => {
@@ -64,7 +64,7 @@ export function Hero(props: HeroProps) {
             <div className="text-[2rem] sm:text-[2.25rem] leading-10 sm:leading-[3rem] font-extrabold font-changa">
               <h1>{props.site[0].title}</h1>
             </div>
-            <div className="pt-4 pb-[7.25rem] sm:pb-[5rem] text-[1rem] sm:text-[1.25rem] leading-6 sm:leading-7 font-sans font-semibold">
+            <div className="pt-4 pb-[7.25rem] sm:pb-[5rem] text-[1rem] sm:text-[1.25rem] leading-6 sm:leading-7 font-sans font-semibold text-justify">
               <p>{props.site[0].description}</p>
             </div>
             <div className="">

@@ -58,13 +58,13 @@ export function GetTickets2025() {
             <Image
               src={triangle}
               alt="illustration"
-              className={`absolute top-[10%] left-[25%] z-[60] w-[8rem] ${animationClass}`}
+              className={`absolute top-[20%] left-[25%] z-[60] w-[8rem] ${animationClass}`}
               width={100}
               height={100}
               style={{ maxWidth: "10rem" }}
             />
           </div>
-          <div className={`relative h-[40rem] ${styles.purpleBgGrad}`}>
+          <div className={`relative h-[20rem] ${styles.purpleBgGrad}`}>
             <div className="sm:hidden flex justify-center">
               <H1
                 color="white"
@@ -107,7 +107,7 @@ export function GetTickets2025() {
             <Image
               src={zabumba}
               alt="illustration"
-              className={`absolute top-[30%] left-[50%] xl:left-[70%] z-[60] w-[9rem] ${animationClass}`}
+              className={`absolute top-[50%] left-[50%] xl:left-[70%] z-[60] w-[9rem] ${animationClass}`}
               width={100}
               height={100}
               style={{ maxWidth: "10rem" }}
@@ -115,7 +115,7 @@ export function GetTickets2025() {
             <Image
               src={sanfona}
               alt="illustration"
-              className={`absolute top-[50%] left-[10%] xl:left-[30%] z-[60] w-[11rem] ${animationClass}`}
+              className={`absolute top-[70%] left-[5%] sm:left-[10%] xl:left-[30%] z-[60] w-[11rem] ${animationClass}`}
               width={100}
               height={100}
               style={{ maxWidth: "10rem" }}

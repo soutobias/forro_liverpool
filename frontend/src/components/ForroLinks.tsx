@@ -77,10 +77,10 @@ export function ForroLinks(props: {
       {props.siteFestival && props.siteFestival.length > 0 && (
         <div className="md:flex md:justify-between">
           <div>
-            <div className="pt-0 flex md:justify-start">
+            <div className="pt-0 flex justify-center">
               <Link
                 href="/"
-                className="text-2xl no-underline h-full w-full cursor-pointer"
+                className="text-2xl no-underline h-full w-full cursor-pointer flex justify-center"
                 onClick={scrollToSection}
               >
                 <FLLogoForroLinks width="179" height="94" />
@@ -95,7 +95,7 @@ export function ForroLinks(props: {
                 {props.siteFestival && props.siteFestival[0].navbar[1]}
               </Link>
             </div>
-            <div className="pt-5 flex md:justify-start justify-center">
+            <div className="pt-2 flex md:justify-start justify-center">
               <Link
                 href="/#community"
                 className="no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
@@ -105,11 +105,14 @@ export function ForroLinks(props: {
               </Link>
             </div>
           </div>
+          <div className="p-4 py-8">
+            <div className="border-t-4 border-black"></div>
+          </div>
           <div>
-            <div className="pt-[3.5rem] md:pt-0">
+            <div className="pt-0">
               <Link
                 href="/lff2025"
-                className="text-2xl no-underline cursor-pointer"
+                className="text-2xl no-underline cursor-pointer flex justify-center"
                 onClick={scrollToSection}
               >
                 <LFFLogoForroLinks width="179" height="94" color="#201E1E" />
@@ -120,9 +123,9 @@ export function ForroLinks(props: {
               <div className="md:pl-0 no-underline w-full">
                 <MainButton
                   href="/lff2025/tickets"
-                  content={language === "en" ? "Get Tickets" : "Ingressos"}
-                  bg="white"
-                  font="black"
+                  content={language === "en" ? "Tickets" : "Ingressos"}
+                  bg="black"
+                  font="white"
                   width="100%"
                 />
               </div>
@@ -136,7 +139,7 @@ export function ForroLinks(props: {
                 {props.siteFestival[0] && props.siteFestival[0].navbar[5]}
               </Link>
             </div>
-            <div className="pt-5 flex md:justify-start justify-center ">
+            <div className="pt-2 flex md:justify-start justify-center ">
               <Link
                 href="/lff2025#program"
                 className="no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-2 md:pl-0"
@@ -148,7 +151,7 @@ export function ForroLinks(props: {
             <div className="flex justify-center">
               <Link
                 href="/lff2024"
-                className="font-sans text-[1rem] font-semibold leading-6 p-3 pb-0 justify-center"
+                className="font-sans text-[1rem] font-semibold leading-6 p-3 pb-0 pt-4 justify-center"
               >
                 2024 Festival Archive
               </Link>

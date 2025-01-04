@@ -192,23 +192,6 @@ export function Teachers() {
               </div>
             </div>
           </div>
-          <div className="pl-4 pr-4 pt-8 md:hidden">
-            <MainButton
-              href="/lff2025/tickets"
-              content={language === "en" ? "Get Tickets" : "Ingressos"}
-              bg="white"
-              font="black"
-            />
-          </div>
-          <div className="pl-4 pr-4 pt-8 md:flex w-full md:justify-center hidden">
-            <MainButton
-              href="/lff2025/tickets"
-              content={language === "en" ? "Get Tickets" : "Ingressos"}
-              bg="white"
-              font="black"
-              width="50%"
-            />
-          </div>
         </>
       )}
     </div>
