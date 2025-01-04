@@ -1,6 +1,8 @@
 export async function fetchApi(url, setState) {
-  const path = "http://localhost:3000/";
-  // const path = '/'
+  // set path based on the environment
+  // const path = process.env.NEXT_PUBLIC_API_PATH;
+  // const path = process.env.NEXT_PUBLIC_API_PATH;
+  const path = "/";
 
   try {
     const response = await fetch(`${path}${url}`);
