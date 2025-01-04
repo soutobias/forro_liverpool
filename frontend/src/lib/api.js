@@ -1,8 +1,8 @@
 export async function fetchApi(url, setState) {
   // set path based on the environment
   // const path = process.env.NEXT_PUBLIC_API_PATH;
-  // const path = process.env.NEXT_PUBLIC_API_PATH;
-  const path = "/";
+  const path = process.env.NEXT_PUBLIC_API_PATH;
+  // const path = "/";
 
   try {
     const response = await fetch(`${path}${url}`);

@@ -40,6 +40,8 @@ export function FestivalPhotos() {
   const zoomRef = useRef(null);
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1024px)" }); // Check if screen is large or larger
   const [showFlashMessage, setShowFlashMessage] = useState<any>(null);
+  const downloadUrl = `${process.env.NEXT_PUBLIC_API_PATH}download_images/`;
+  const showUrl = `${process.env.NEXT_PUBLIC_API_PATH}show_images/`;
 
   useEffect(() => {
     if (copied) {
@@ -48,10 +50,24 @@ export function FestivalPhotos() {
     }
   }, [copied]);
 
-  const handleShare = (platform: string) => {
+  const handleShare = async (platform: string) => {
+    const shareTextString =
+      language === "en"
+        ? "Check out this amazing photo from Liverpool Forro Festival 2024! Photo by Dan Polari."
+        : "Confira essa foto incrível do Liverpool Forro Festival 2024! Foto por Dan Polari.";
     const currentImage = slides[index]?.src;
-    const shareText = encodeURIComponent("Check out this amazing photo!");
-    const shareUrl = encodeURIComponent(currentImage);
+    const shareText = encodeURIComponent(shareTextString);
+    let shareUrl = encodeURIComponent(currentImage);
+    let downloadLocalUrl = currentImage;
+    const imageName = currentImage.split("/").pop();
+    if (imageName) {
+      const imageExtension = imageName.split(".")[1];
+      const currentImageUrl = imageName.split(".")[0];
+      shareUrl = encodeURIComponent(
+        `${showUrl}${currentImageUrl}?extension=${imageExtension}`,
+      );
+      downloadLocalUrl = `${downloadUrl}${currentImageUrl}?extension=${imageExtension}`;
+    }
 
     if (platform === "instagramDirect") {
       window.open(
@@ -82,24 +98,27 @@ export function FestivalPhotos() {
         messageTranslation: "Foto copiada para a área de transferência!",
         messageType: "success",
       });
-      navigator.clipboard.writeText(currentImage);
+      navigator.clipboard.writeText(decodeURIComponent(shareUrl));
     } else if (platform === "whatsapp") {
       window.open(
         `https://api.whatsapp.com/send?text=${shareText}%20${shareUrl}`,
         "_blank",
       );
+    } else if (platform === "download") {
+      handleDownload(downloadLocalUrl);
     }
   };
 
-  const handleDownload = () => {
-    const currentImage = slides[index]?.src;
-    if (currentImage) {
-      const link = document.createElement("a");
-      link.href = currentImage;
-      link.target = "_blank"; // Open in a new tab
-      link.download = `image-${index + 1}.jpg`;
-      link.click();
-    }
+  const handleDownload = (downloadLocalUrl: any) => {
+    const link = document.createElement("a");
+    link.href = downloadLocalUrl;
+    // link.download = `image-${index + 1}.jpg`;
+    link.click();
+    setShowFlashMessage({
+      message: "Photo downloaded!",
+      messageTranslation: "Foto baixada!",
+      messageType: "success",
+    });
   };
 
   return (
@@ -152,14 +171,17 @@ export function FestivalPhotos() {
                     <Copy color="#EAEAEA" size={32} />
                   )}
                 </button>
-                <button title="Download" onClick={handleDownload}>
+                <button
+                  title="Download"
+                  onClick={() => handleShare("download")}
+                >
                   <DownloadSimple color="#EAEAEA" size={32} />
                 </button>
               </div>
               {showFlashMessage && (
                 <FlashMessages
                   duration={3000}
-                  position={"bleft"}
+                  position={"tleft"}
                   width={"medium"}
                   showFlashMessage={showFlashMessage}
                   setShowFlashMessage={setShowFlashMessage}

@@ -2,31 +2,33 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-      resources :communities
-      resources :community_translations
-      resources :events
-      # resources :event_users
-      resources :festival_teachers
-      resources :festival_teacher_translations
-      resources :festival2025_teachers
-      resources :festival2025_teacher_translations
-      resources :liverpool_questions
-      resources :liverpool_question_translations
-      # resources :posts
-      resources :questions
-      resources :question_translations
-      resources :sites
-      resources :site_festival_translations
-      resources :site_translations
-      resources :sitefestivals
-      resources :site2025_festival_translations
-      resources :site2025_festivals
-      # resources :users
-      resources :tickets
-      resources :lotes
-      resources :uploads, only: [:new, :create]
-      root to: "events#index"
-    end
+    resources :communities
+    resources :community_translations
+    resources :events
+    # resources :event_users
+    resources :festival_teachers
+    resources :festival_teacher_translations
+    resources :festival2025_teachers
+    resources :festival2025_teacher_translations
+    resources :liverpool_questions
+    resources :liverpool_question_translations
+    # resources :posts
+    resources :questions
+    resources :question_translations
+    resources :sites
+    resources :site_festival_translations
+    resources :site_translations
+    resources :sitefestivals
+    resources :site2025_festival_translations
+    resources :site2025_festivals
+    # resources :users
+    resources :tickets
+    resources :lotes
+    resources :uploads, only: [:new, :create]
+    root to: "events#index"
+  end
+  get 'download_images/:image_name', to: 'files#download', as: 'download_file'
+  get 'show_images/:image_name', to: 'files#show', as: 'show_file'
   mount Rswag::Api::Engine => '/api-docs'
   mount Rswag::Ui::Engine => '/api-docs'
   namespace :api do
