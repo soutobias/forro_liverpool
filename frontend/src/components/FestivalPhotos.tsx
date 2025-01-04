@@ -22,7 +22,7 @@ import { useLanguage } from "@/lib/language";
 const slides = images.map((image) => {
   const imageFilename = image.original.split("/").pop();
   const imageName = imageFilename?.split(".")[0];
-  const imageExtension = imageName?.split(".")[1];
+  const imageExtension = imageFilename?.split(".")[1];
   const newImageUrl = `${process.env.NEXT_PUBLIC_API_PATH}show_images/${imageName}?extension=${imageExtension}`;
   return {
     src: image.original,
