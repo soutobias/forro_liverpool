@@ -5,6 +5,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { images, CustomImage } from "../data/images";
 import Share from "yet-another-react-lightbox/plugins/share";
+import Download from "yet-another-react-lightbox/plugins/download";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import { useMediaQuery } from "react-responsive";
 
@@ -24,6 +25,8 @@ const slides = images.map((image) => {
   const imageName = imageFilename?.split(".")[0];
   const imageExtension = imageFilename?.split(".")[1];
   const newImageUrl = `${process.env.NEXT_PUBLIC_API_PATH}show_images/${imageName}?extension=${imageExtension}`;
+  const newImageDownloadUrl = `${process.env.NEXT_PUBLIC_API_PATH}download_images/${imageName}?extension=${imageExtension}`;
+
   return {
     src: image.original,
     width: image.width * 3,
@@ -34,6 +37,7 @@ const slides = images.map((image) => {
       title:
         "Check out this amazing photo from Liverpool Forro Festival 2024! Photo by Dan Polari",
     },
+    download: newImageDownloadUrl,
   };
 });
 
@@ -205,7 +209,7 @@ export function FestivalPhotos() {
             </div>
           ),
         }}
-        plugins={isShareSupported ? [Share] : [Zoom]}
+        plugins={isShareSupported ? [Share, Download] : [Zoom]}
       />
     </div>
   );
