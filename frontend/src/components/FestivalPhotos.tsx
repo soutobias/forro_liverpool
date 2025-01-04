@@ -19,12 +19,23 @@ import {
 import { FlashMessages } from "./FlashMessages";
 import { useLanguage } from "@/lib/language";
 
-const slides = images.map(({ original, width, height }) => ({
-  src: original,
-  width: width * 3,
-  height: height * 3,
-  description: "Photos by Dan Polari!",
-}));
+const slides = images.map((image) => {
+  const imageFilename = image.original.split("/").pop();
+  const imageName = imageFilename?.split(".")[0];
+  const imageExtension = imageName?.split(".")[1];
+  const newImageUrl = `${process.env.NEXT_PUBLIC_API_PATH}show_images/${imageName}?extension=${imageExtension}`;
+  return {
+    src: image.original,
+    width: image.width * 3,
+    height: image.height * 3,
+    description: "Photos by Dan Polari!",
+    share: {
+      url: newImageUrl,
+      title:
+        "Check out this amazing photo from Liverpool Forro Festival 2024! Photo by Dan Polari",
+    },
+  };
+});
 
 const imagesLarge = images.map((image) => ({
   ...image,
@@ -42,6 +53,8 @@ export function FestivalPhotos() {
   const [showFlashMessage, setShowFlashMessage] = useState<any>(null);
   const downloadUrl = `${process.env.NEXT_PUBLIC_API_PATH}download_images/`;
   const showUrl = `${process.env.NEXT_PUBLIC_API_PATH}show_images/`;
+
+  const isShareSupported = typeof navigator.share === "function";
 
   useEffect(() => {
     if (copied) {
@@ -115,8 +128,8 @@ export function FestivalPhotos() {
     // link.download = `image-${index + 1}.jpg`;
     link.click();
     setShowFlashMessage({
-      message: "Photo downloaded!",
-      messageTranslation: "Foto baixada!",
+      message: "Photo will be downloaded!",
+      messageTranslation: "Foto será baixada!",
       messageType: "success",
     });
   };
@@ -142,42 +155,44 @@ export function FestivalPhotos() {
                   ? "Photos by Dan Polari"
                   : "Fotos por Dan Polari"}
               </div>
-              <div className="absolute bottom-3 right-4 flex flex-wrap gap-3">
-                <button
-                  title="Share on Facebook"
-                  onClick={() => handleShare("facebookPost")}
-                >
-                  <FacebookLogo color="#EAEAEA" size={32} />
-                </button>
-                <button
-                  title="Share on Email"
-                  onClick={() => handleShare("email")}
-                >
-                  <EnvelopeSimple color="#EAEAEA" size={32} />
-                </button>
-                <button
-                  title="Share on Whatsapp"
-                  onClick={() => handleShare("whatsapp")}
-                >
-                  <WhatsappLogo color="#EAEAEA" size={32} />
-                </button>
-                <button
-                  title="Copy Link"
-                  onClick={() => handleShare("copyLink")}
-                >
-                  {copied ? (
-                    <CheckSquare color="#EAEAEA" size={32} />
-                  ) : (
-                    <Copy color="#EAEAEA" size={32} />
-                  )}
-                </button>
-                <button
-                  title="Download"
-                  onClick={() => handleShare("download")}
-                >
-                  <DownloadSimple color="#EAEAEA" size={32} />
-                </button>
-              </div>
+              {!isShareSupported && (
+                <div className="absolute bottom-3 right-4 flex flex-wrap gap-3">
+                  <button
+                    title="Share on Facebook"
+                    onClick={() => handleShare("facebookPost")}
+                  >
+                    <FacebookLogo color="#EAEAEA" size={32} />
+                  </button>
+                  <button
+                    title="Share on Email"
+                    onClick={() => handleShare("email")}
+                  >
+                    <EnvelopeSimple color="#EAEAEA" size={32} />
+                  </button>
+                  <button
+                    title="Share on Whatsapp"
+                    onClick={() => handleShare("whatsapp")}
+                  >
+                    <WhatsappLogo color="#EAEAEA" size={32} />
+                  </button>
+                  <button
+                    title="Copy Link"
+                    onClick={() => handleShare("copyLink")}
+                  >
+                    {copied ? (
+                      <CheckSquare color="#EAEAEA" size={32} />
+                    ) : (
+                      <Copy color="#EAEAEA" size={32} />
+                    )}
+                  </button>
+                  <button
+                    title="Download"
+                    onClick={() => handleShare("download")}
+                  >
+                    <DownloadSimple color="#EAEAEA" size={32} />
+                  </button>
+                </div>
+              )}
               {showFlashMessage && (
                 <FlashMessages
                   duration={3000}
@@ -190,7 +205,7 @@ export function FestivalPhotos() {
             </div>
           ),
         }}
-        plugins={[Share, Zoom]}
+        plugins={isShareSupported ? [Share] : [Zoom]}
       />
     </div>
   );
