@@ -1,19 +1,21 @@
 export function MainButton(props: {
-  href: any
-  content: any
-  bg: any
-  font: any
-  width?: any
-  rounded?: any
-  newTab?: any
+  href: any;
+  content: any;
+  bg: any;
+  font: any;
+  width?: any;
+  rounded?: any;
+  newTab?: any;
+  onClick?: any;
 }) {
   return (
     <a
       href={props.href}
+      onClick={props.onClick ? props.onClick : () => {}}
       className={`flex justify-center bg-${props.bg} no-underline w-[${
         props.width
-      }] font-changa rounded-${props.rounded || 'xl'}`}
-      target={props.newTab ? '_blank' : ''}
+      }] font-changa rounded-${props.rounded || "xl"}`}
+      target={props.newTab ? "_blank" : ""}
       rel="noreferrer"
     >
       <p
@@ -22,5 +24,5 @@ export function MainButton(props: {
         {props.content}
       </p>
     </a>
-  )
+  );
 }

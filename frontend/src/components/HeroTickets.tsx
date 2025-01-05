@@ -27,7 +27,7 @@ export function HeroTickets(props: {
         <div>
           <Link
             href="/lff2025"
-            className="font-semibold cursor-pointer no-underline pt-2 block lg:-pl-[2rem] md:pt-4 text-[1rem] md:text-[1.5rem] text-white"
+            className="font-semibold cursor-pointer no-underline pt-2 pl-2 block lg:-pl-[2rem] md:pt-4 text-[1rem] md:text-[1.5rem] text-white"
           >
             <p>&#60; Liverpool Forró Festival</p>
           </Link>

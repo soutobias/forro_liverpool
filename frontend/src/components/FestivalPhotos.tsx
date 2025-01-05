@@ -19,6 +19,8 @@ import {
 } from "phosphor-react";
 import { FlashMessages } from "./FlashMessages";
 import { useLanguage } from "@/lib/language";
+import { ArrowNext } from "@/assets/arrow_next";
+import { ArrowPrev } from "@/assets/arrow_prev";
 
 const slides = images.map((image) => {
   const imageFilename = image.original.split("/").pop();
@@ -139,7 +141,7 @@ export function FestivalPhotos() {
   };
 
   return (
-    <div className={`p-2 md:p-10 ${styles.blackBg}`}>
+    <div className={`p-2 md:p-10 ${styles.blackBg}`} id="gallery">
       <Gallery
         images={isLargeScreen ? imagesLarge : images}
         onClick={handleClick}
@@ -152,6 +154,8 @@ export function FestivalPhotos() {
         close={() => setIndex(-1)}
         zoom={{ ref: zoomRef }}
         render={{
+          iconPrev: () => <ArrowPrev onClick={() => setIndex(index - 1)} />,
+          iconNext: () => <ArrowNext onClick={() => setIndex(index + 1)} />,
           controls: () => (
             <div>
               <div className="absolute bottom-20 md:left-10 left-[32%] !text-white">

@@ -47,6 +47,20 @@ export function HeroLFF(props: { siteFestival: any; year: string }) {
 
     return () => clearInterval(intervalId);
   }, []);
+
+  function scrollToSection(e: any) {
+    const href = e.currentTarget.getAttribute("href");
+    if (href) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      const offsetTop = element instanceof HTMLElement ? element.offsetTop : 0;
+      window.scroll({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  }
+
   return (
     <div
       className={`w-full z-[59] font-changa relative ${styles.blackBg}`}
@@ -156,7 +170,8 @@ export function HeroLFF(props: { siteFestival: any; year: string }) {
             <div className="md:flex md:justify-center hidden">
               <MainButton
                 key={keyForRerender}
-                href={"/lff2024/#festival-photos"}
+                href={"#gallery"}
+                onClick={scrollToSection}
                 content={
                   language === "en"
                     ? "CHECK OUT THE PHOTOS"
@@ -170,12 +185,13 @@ export function HeroLFF(props: { siteFestival: any; year: string }) {
             <div className="md:hidden">
               <MainButton
                 key={keyForRerender}
-                href={"/lff2024/#festival-photos"}
+                href={"#gallery"}
                 content={
                   language === "en"
                     ? "CHECK OUT THE PHOTOS"
                     : "CONFIRA AS FOTOS"
                 }
+                onClick={scrollToSection}
                 bg="white"
                 font="black"
               />
