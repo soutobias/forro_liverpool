@@ -143,8 +143,8 @@ events_data = [
     start_datetime: DateTime.new(2025, 5, 16),
     end_datetime: DateTime.new(2025, 5, 18),
     price: '£ 70',
-    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/21idj12pofld4m00xiybfvogq7kb'],
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/21idj12pofld4m00xiybfvogq7kb'],
+    cover_image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/cw4ycz0rhzjjtpvmhmwvxbii545x'],
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/cw4ycz0rhzjjtpvmhmwvxbii545x'],
     registration_start_datetime: DateTime.now - 1.day,
     registration_end_datetime: DateTime.now + 1.day,
     type_event: 'Special Events',
@@ -745,4 +745,81 @@ festival_teacher_translations_data = [
 festival_teacher_translations_data.map { |festival_teacher_translation_data| FestivalTeacherTranslation.create(festival_teacher_translation_data) }
 festival_teacher_translations_data.map { |festival_teacher_translation_data| Festival2025TeacherTranslation.create(festival_teacher_translation_data) }
 
-puts 'Seed done'
+
+Lote.destroy_all
+
+lote_data = [
+  {
+    lote_number: 3,
+    start_datetime: 'Tue, 01 Apr 2025 16:00:00.000000000 UTC +00:00',
+    end_datetime: 'Mon, 19 May 2025 00:00:00.000000000 UTC +00:00',
+    status: ['Available 1 April at 4pm GMT', 'Disponível em 1 de Abril, às 16h'],
+    status2: ['Limited quantities available.', 'Quantidades limitadas.']
+  },
+  {
+    lote_number: 2,
+    start_datetime: 'Fri, 01 Mar 2024 16:00:00.000000000 UTC +00:00',
+    end_datetime: 'Tue, 01 Apr 2025 16:00:00.000000000 UTC +00:00',
+    status: ['Available 1 March at 4pm GMT', 'Disponível em 1 de Março, às 16h'],
+    status2: ['Limited quantities available.', 'Quantidades limitadas.'],
+  },
+  {
+    lote_number: 1,
+    start_datetime: 'Wed, 17 Jan 2024 16:00:00.000000000 UTC +00:00',
+    end_datetime: 'Fri, 01 Mar 2024 16:00:00.000000000 UTC +00:00',
+    status:
+    ['Available 17 January at 4pm GMT', 'Disponível em 17 de Janeiro, às 16h'],
+    status2: ['Limited quantities available.', 'Quantidades limitadas.']
+  }
+]
+
+lote_data.map { |lote| Lote.create(lote) }
+
+Ticket.destroy_all
+
+ticket_data = [
+  {
+    price: 40.0,
+    ticket_type: ['Party Pass', 'Passe para festas'],
+    forro_class: [],
+    forro_party: ['All Parties', 'Todas as festas'],
+    lote: 1
+  },
+  {
+    price: 60.0,
+    ticket_type: ['Full Pass', 'Passe Completo'],
+    forro_class: ['All Classes', 'Todas as aulas'],
+    forro_party: ['All Parties', 'Todas as festas'],
+    lote: 1
+  },
+  {
+    price: 70.0,
+    ticket_type: ['Full Pass', 'Passe completo'],
+    forro_class: ['All Classes', 'Todas as aulas'],
+    forro_party: ['All Parties', 'Todas as festas'],
+    lote: 2
+  },
+  {
+    price: 60.0,
+    ticket_type: ['Party Pass', 'Passe para festas'],
+    forro_class: [],
+    forro_party: ['All Parties', 'Todas as festas'],
+    lote: 2
+  },
+  {
+    price: 90.0,
+    ticket_type: ['Full Pass', 'Passe Completo'],
+    forro_class: ['All Classes', 'Todas as aulas'],
+    forro_party: ['All Parties', 'Todas as festas'],
+    lote: 3
+  },
+  {
+    price: 70.0,
+    ticket_type: ['Party Pass', 'Passe para festas'],
+    forro_class: [],
+    forro_party: ['All Parties', 'Todas as festas'],
+    lote: 3
+  }
+]
+
+ticket_data.map { |ticket| Ticket.create(ticket) }
