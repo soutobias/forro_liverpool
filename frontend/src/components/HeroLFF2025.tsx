@@ -56,16 +56,16 @@ export function HeroLFF2025(props: { siteFestival: any; year: string }) {
     >
       <CursorTrail trail={trail} />
       <CursorFollower isVisible={isCursorInDiv} />
-      <div className="pt-[6.75rem]">
+      <div className="pt-[6.75rem] md:pt-[5rem] lg:pt-[4.5rem] xl:pt-[4rem]">
         <div>
           <div className="flex justify-center">
             <div className="hidden md:flex md:justify-around md:items-center uppercase w-full 2xl:w-[80%]">
               {props.siteFestival && (
                 <div className="block">
-                  <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
+                  <p className="text-center text-white text-[2rem]  md:text-[1.5rem] lg:text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
                     {props.siteFestival[0].data.split(",")[0].trim()}
                   </p>
-                  <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
+                  <p className="text-center text-white text-[2rem]   md:text-[1.5rem]  lg:text-[2rem]  leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
                     {props.siteFestival[0].data.split(",")[1].trim()}
                   </p>
                 </div>
@@ -80,16 +80,16 @@ export function HeroLFF2025(props: { siteFestival: any; year: string }) {
                 }
                 alt="illustration"
                 // className="w-full !h-auto"
-                className="w-auto sm:h-[20rem] md:h-[25rem]  lg:h-[30rem] xl:h-[35rem] 2xl:h-[50rem]"
+                className="w-auto sm:h-[20rem] md:h-[30rem] lg:h-[40rem] xl:h-[45rem] 2xl:h-[50rem]"
                 width={1336}
                 height={1000}
               />
               {props.siteFestival && (
                 <div className="block">
-                  <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
+                  <p className="text-center text-white text-[2rem] leading-10 md:text-[1.5rem] xl:text-[2.5rem] xl:leading-[3rem] font-extrabold  lg:text-[2rem] ">
                     {props.siteFestival[0].local.split(",")[0].trim()}
                   </p>
-                  <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
+                  <p className="text-center text-white text-[2rem] leading-10 md:text-[1.5rem] xl:text-[2.5rem] xl:leading-[3rem] font-extrabold  lg:text-[2rem] ">
                     {props.siteFestival[0].local.split(",")[1].trim()}
                   </p>
                 </div>
@@ -111,7 +111,7 @@ export function HeroLFF2025(props: { siteFestival: any; year: string }) {
               height={614}
             />
           </div>
-          <div className="-mt-[5rem] md:flex md:justify-center hidden">
+          <div className="mt-[1.5rem] md:flex md:justify-center hidden">
             {/* <Scroll /> */}
             <div className="justify-center">
               <div className="p-0 mt-0 animate-fadeInOut-100">

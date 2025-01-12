@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_02_025806) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_12_013757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -251,13 +251,13 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_02_025806) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.decimal "price"
     t.string "ticket_type", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "forro_class", default: [], array: true
     t.string "forro_party", default: [], array: true
     t.integer "lote"
+    t.integer "price"
   end
 
   create_table "users", force: :cascade do |t|

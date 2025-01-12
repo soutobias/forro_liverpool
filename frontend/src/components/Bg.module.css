@@ -88,7 +88,7 @@
 }
 
 .heroBg {
-  background-image: url("/images/bg_hero3.jpg"),
+  background-image: url("/images/bg_hero5.jpg"),
     url("/images/BG-512px-white.jpg");
   background-size: cover, auto;
   background-repeat: no-repeat, repeat;
@@ -106,9 +106,33 @@
   animation: swing 3s infinite;
 }
 
+@media (max-width: 1224px) {
+  .heroBg {
+    background-image: url("/images/bg_hero4.jpg"),
+      url("/images/BG-512px-white.jpg");
+    background-size:
+      100% auto,
+      auto;
+    background-repeat: no-repeat, repeat;
+    background-color: lightgray, lightgray;
+  }
+}
+
 @media (max-width: 1024px) {
   .heroBg {
-    background-image: url("/images/bg_hero1.jpg"),
+    background-image: url("/images/bg_hero3.jpg"),
+      url("/images/BG-512px-white.jpg");
+    background-size:
+      100% auto,
+      auto;
+    background-repeat: no-repeat, repeat;
+    background-color: lightgray, lightgray;
+  }
+}
+
+@media (max-width: 800px) {
+  .heroBg {
+    background-image: url("/images/bg_hero3.jpg"),
       url("/images/BG-512px-white.jpg");
     background-size:
       100% auto,

@@ -27,8 +27,6 @@ const slides = images.map((image) => {
   const imageName = imageFilename?.split(".")[0];
   const imageExtension = imageFilename?.split(".")[1];
   const newImageUrl = `${process.env.NEXT_PUBLIC_API_PATH}show_images/${imageName}?extension=${imageExtension}`;
-  const newImageDownloadUrl = `${process.env.NEXT_PUBLIC_API_PATH}download_images/${imageName}?extension=${imageExtension}`;
-
   return {
     src: image.original,
     width: image.width * 3,
@@ -39,7 +37,7 @@ const slides = images.map((image) => {
       title:
         "Check out this amazing photo from Liverpool Forro Festival 2024! Photo by Dan Polari",
     },
-    download: newImageDownloadUrl,
+    download: image.hd,
   };
 });
 
@@ -55,7 +53,7 @@ export function FestivalPhotos() {
   const [copied, setCopied] = useState(false);
   const handleClick = (index: number, item: CustomImage) => setIndex(index);
   const zoomRef = useRef(null);
-  const isLargeScreen = useMediaQuery({ query: "(min-width: 1024px)" }); // Check if screen is large or larger
+  const isLargeScreen = useMediaQuery({ query: "(min-width: 1024px)" });
   const [showFlashMessage, setShowFlashMessage] = useState<any>(null);
   const downloadUrl = `${process.env.NEXT_PUBLIC_API_PATH}download_images/`;
   const showUrl = `${process.env.NEXT_PUBLIC_API_PATH}show_images/`;
@@ -74,7 +72,7 @@ export function FestivalPhotos() {
       language === "en"
         ? "Check out this amazing photo from Liverpool Forro Festival 2024! Photo by Dan Polari."
         : "Confira essa foto incrível do Liverpool Forro Festival 2024! Foto por Dan Polari.";
-    const currentImage = slides[index]?.src;
+    const currentImage = slides[index]?.download;
     const shareText = encodeURIComponent(shareTextString);
     let shareUrl = encodeURIComponent(currentImage);
     let downloadLocalUrl = currentImage;
@@ -85,7 +83,7 @@ export function FestivalPhotos() {
       shareUrl = encodeURIComponent(
         `${showUrl}${currentImageUrl}?extension=${imageExtension}`,
       );
-      downloadLocalUrl = `${downloadUrl}${currentImageUrl}?extension=${imageExtension}`;
+      // downloadLocalUrl = `${downloadUrl}${currentImageUrl}?extension=${imageExtension}`;
     }
 
     if (platform === "instagramDirect") {
@@ -129,8 +127,10 @@ export function FestivalPhotos() {
   };
 
   const handleDownload = (downloadLocalUrl: any) => {
+    const imageName = downloadLocalUrl.split("/").pop();
     const link = document.createElement("a");
     link.href = downloadLocalUrl;
+    link.download = imageName;
     // link.download = `image-${index + 1}.jpg`;
     link.click();
     setShowFlashMessage({

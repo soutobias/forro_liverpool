@@ -238,7 +238,7 @@ Site.destroy_all
 site = Site.new(
   title: 'Brazilian forró classes & events in the heart of Liverpool',
   description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
-  frame: 'Liverpool Forró Festival Lote 2 Tickets now available! - Get Tickets! - ',
+  frame: 'Liverpool Forró Festival Lote 1 Tickets available on the 17th of January! - Get Tickets! - ',
   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
@@ -250,7 +250,7 @@ SiteTranslation.destroy_all
 site_translation = SiteTranslation.new(
   title: 'Aulas de Forró no coração de Liverpool',
   description: 'Aulas de Forró para todos os níveis, workshops e bandas brasileiras aqui em Liverpool. Não precisa trazer parceiro. Todos são bem-vindos!',
-  frame: 'Liverpool Forró Festival - Ingressos do Lote 2 agora disponíveis! - Compre Ingressos! - ',
+  frame: 'Liverpool Forró Festival - Ingressos do Lote 1 disponíveis no dia 17 de janeiro! - Compre Ingressos! - ',
   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
@@ -562,9 +562,9 @@ sitefestival = Site2025Festival.new(
   ],
   data: '16-18 May, 2025',
   local: 'Liverpool, England',
-  video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/video.mp4',
-  textvideo: "3 days of dance classes and parties with incredible forró teachers and musicians from around the world. Come celebrate Brazilian culture in the heart of the UK's music scene.",
-  titlevideo: "Forró in the heart of the UK's music scene"
+  video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/LFF25-TicketLaunch.mp4',
+  textvideo: "Join us for 3 days of dance classes and parties: even more live music, talented teachers, and forró magic. Come let Brazilian culture inspire you, right here in the Beatles' hometown.",
+  titlevideo: "Brazilian music & dance, back for year 2!"
 )
 sitefestival.save!
 
@@ -578,14 +578,14 @@ site_festival_translation = Site2025FestivalTranslation.new(
   ],
   data: '16-18 de Maio, 2025',
   local: 'Liverpool, Inglaterra',
-  video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/video.mp4',
-  textvideo: 'Três dias cheios de aulas e festas com artistas incríveis do mundo afora. Vem curtir com a gente esse festival de cultura brasileira na cidade natal dos Beatles.',
-  titlevideo: 'Forró na cidade mais musical da Inglaterra'
+  video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/LFF25-TicketLaunch.mp4',
+  textvideo: 'Vem curtir 3 dias de aulas e festas: ainda mais música ao vivo, professores talentosos e a magia do forró. Deixe a cultura brasileira te inspirar, bem aqui na cidade natal dos Beatles.',
+  titlevideo: 'Música e dança brasileira, de volta para o segundo ano!'
 )
 site_festival_translation.save!
 
-
 FestivalTeacher.destroy_all
+Festival2025Teacher.destroy_all
 
 festival_teachers_data = [
   {
@@ -666,6 +666,7 @@ festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(fest
 festival_teachers_data.map { |festival_teacher_data| Festival2025Teacher.create(festival_teacher_data) }
 
 FestivalTeacherTranslation.destroy_all
+Festival2025TeacherTranslation.destroy_all
 
 festival_teacher_translations_data = [
   {
@@ -758,15 +759,15 @@ lote_data = [
   },
   {
     lote_number: 2,
-    start_datetime: 'Fri, 01 Mar 2024 16:00:00.000000000 UTC +00:00',
+    start_datetime: 'Fri, 01 Mar 2025 16:00:00.000000000 UTC +00:00',
     end_datetime: 'Tue, 01 Apr 2025 16:00:00.000000000 UTC +00:00',
     status: ['Available 1 March at 4pm GMT', 'Disponível em 1 de Março, às 16h'],
     status2: ['Limited quantities available.', 'Quantidades limitadas.'],
   },
   {
     lote_number: 1,
-    start_datetime: 'Wed, 17 Jan 2024 16:00:00.000000000 UTC +00:00',
-    end_datetime: 'Fri, 01 Mar 2024 16:00:00.000000000 UTC +00:00',
+    start_datetime: 'Wed, 17 Jan 2025 16:00:00.000000000 UTC +00:00',
+    end_datetime: 'Fri, 01 Mar 2025 16:00:00.000000000 UTC +00:00',
     status:
     ['Available 17 January at 4pm GMT', 'Disponível em 17 de Janeiro, às 16h'],
     status2: ['Limited quantities available.', 'Quantidades limitadas.']
@@ -779,42 +780,42 @@ Ticket.destroy_all
 
 ticket_data = [
   {
-    price: 40.0,
+    price: 50,
     ticket_type: ['Party Pass', 'Passe para festas'],
     forro_class: [],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 1
   },
   {
-    price: 60.0,
+    price: 75,
     ticket_type: ['Full Pass', 'Passe Completo'],
     forro_class: ['All Classes', 'Todas as aulas'],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 1
   },
   {
-    price: 70.0,
+    price: 60,
     ticket_type: ['Full Pass', 'Passe completo'],
     forro_class: ['All Classes', 'Todas as aulas'],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 2
   },
   {
-    price: 60.0,
+    price: 85,
     ticket_type: ['Party Pass', 'Passe para festas'],
     forro_class: [],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 2
   },
   {
-    price: 90.0,
+    price: 70,
     ticket_type: ['Full Pass', 'Passe Completo'],
     forro_class: ['All Classes', 'Todas as aulas'],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 3
   },
   {
-    price: 70.0,
+    price: 95,
     ticket_type: ['Party Pass', 'Passe para festas'],
     forro_class: [],
     forro_party: ['All Parties', 'Todas as festas'],

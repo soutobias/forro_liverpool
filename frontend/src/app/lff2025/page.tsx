@@ -36,6 +36,22 @@ export default function Home() {
   const { language } = useLanguage();
   const year = "2025";
 
+  const [urlTeachers, setUrlTeachers] = useState<string>("");
+  const [teachers, setTeachers] = useState<keyable[] | null>(null);
+  useEffect(() => {
+    if (language === "en") {
+      setUrlTeachers("api/v1/festival2025_teachers");
+    } else {
+      setUrlTeachers("api/v1/festival2025_teacher_translations");
+    }
+  }, [language]);
+
+  useEffect(() => {
+    if (urlTeachers) {
+      fetchApi(urlTeachers, setTeachers);
+    }
+  }, [urlTeachers]);
+
   useEffect(() => {
     if (siteFestival) {
       setTimeout(() => {
@@ -114,7 +130,11 @@ export default function Home() {
         {siteFestival && (
           <>
             <div ref={targetRef}>
-              <Navbar plusColor="#EAEAEA" siteFestival={siteFestival} />
+              <Navbar
+                plusColor="#EAEAEA"
+                siteFestival={siteFestival}
+                languageBorder="#EAEAEA"
+              />
             </div>
             <HeroLFF2025
               year={"2025"}
@@ -123,7 +143,7 @@ export default function Home() {
             <VideoIntro2025 siteFestival={siteFestival}></VideoIntro2025>
           </>
         )}
-        <Teachers2025></Teachers2025>
+        {teachers && <Teachers2025 teachers={teachers}></Teachers2025>}
         <ClassEventsLFF2025 year={2025}></ClassEventsLFF2025>
         <Liverpool2025 />
         <GetTickets2025 />

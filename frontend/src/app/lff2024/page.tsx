@@ -27,6 +27,22 @@ export default function Home() {
   const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null);
   const { language } = useLanguage();
 
+  const [urlTeachers, setUrlTeachers] = useState<string>("");
+  const [teachers, setTeachers] = useState<keyable[] | null>(null);
+  useEffect(() => {
+    if (language === "en") {
+      setUrlTeachers("api/v1/festival2025_teachers");
+    } else {
+      setUrlTeachers("api/v1/festival2025_teacher_translations");
+    }
+  }, [language]);
+
+  useEffect(() => {
+    if (urlTeachers) {
+      fetchApi(urlTeachers, setTeachers);
+    }
+  }, [urlTeachers]);
+
   useEffect(() => {
     if (siteFestival) {
       setTimeout(() => {
@@ -115,7 +131,7 @@ export default function Home() {
             <VideoIntro siteFestival={siteFestival}></VideoIntro>
           </>
         )}
-        <Teachers></Teachers>
+        {teachers && <Teachers teachers={teachers} />}
         <ClassEventsLFF year={2024}></ClassEventsLFF>
         {/* <Liverpool />
         <GetTickets /> */}

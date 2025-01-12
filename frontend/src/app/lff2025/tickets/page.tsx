@@ -104,7 +104,11 @@ export default function Home() {
         {siteFestival && (
           <>
             <div ref={targetRef}>
-              <Navbar plusColor="#EAEAEA" siteFestival={siteFestival}></Navbar>
+              <Navbar
+                languageBorder="#EAEAEA"
+                plusColor="#EAEAEA"
+                siteFestival={siteFestival}
+              ></Navbar>
             </div>
             {ticketsFestival && lotesFestival && (
               <HeroTickets

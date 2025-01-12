@@ -59,8 +59,8 @@ export function Hero(props: HeroProps) {
     props.site &&
     props.site.length > 0 && (
       <div className={`w-full z-[59] relative ${styles.heroBg} sm:pb-20`}>
-        <div className="px-4 sm:flex sm:justify around pt-[6.75rem] sm:gap-[1rem] sm:px-[2rem] md:gap-[3rem] md:px-[3rem] lg:gap-[4rem] lg:px-[6rem] xl:gap-[6rem] xl:px-[8.5rem]">
-          <div className="flex flex-col sm:justify-center sm:w-[50%]">
+        <div className="px-4 lg:flex lg:justify around pt-[6.75rem] md:pt-[8rem] lg:gap-[3rem] lg:px-[3rem] xl:gap-[6rem] xl:px-[8.5rem]">
+          <div className="flex flex-col lg:justify-center lg:w-[50%]">
             <div className="text-[2rem] sm:text-[2.25rem] leading-10 sm:leading-[3rem] font-extrabold font-changa">
               <h1>{props.site[0].title}</h1>
             </div>

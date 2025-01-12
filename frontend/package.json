@@ -4,8 +4,8 @@
   "private": true,
   "proxy": "http://localhost:3000",
   "scripts": {
-    "dev": "PORT=3001 next dev",
-    "build": "next build && cp -r out/* ../public/",
+    "dev": "PORT=3001 NEXT_PUBLIC_API_PATH=http://localhost:3000/ next dev",
+    "build": "NEXT_PUBLIC_API_PATH=https://test.forroliverpool.co.uk/ next build && cp -r out/* ../public/",
     "start": "next start -p 3001",
     "lint": "next lint"
   },
