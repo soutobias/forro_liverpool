@@ -82,7 +82,7 @@ export function Teachers(props: { teachers: any }) {
       item.function === "Professores" ||
       item.function === "Teachers",
   );
-  teacherTeacher = Array.from({ length: 2 }, () => [...teacherTeacher]).flat();
+  // teacherTeacher = Array.from({ length: 2 }, () => [...teacherTeacher]).flat();
 
   let teacherBand = teachers.filter(
     (item: any) => item.function === "Banda" || item.function === "Live Band",

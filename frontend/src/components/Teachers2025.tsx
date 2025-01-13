@@ -113,7 +113,7 @@ export function Teachers2025(props: { teachers: any }) {
       </div>
       <div className="">
         <div
-          className="w-full p-4 sm:flex gap-4 overflow-x-auto no-scrollbar 2xl:justify-center hidden"
+          className="w-full p-4 sm:flex gap-4 overflow-x-auto no-scrollbar lg:justify-center hidden"
           ref={scrollContainerRef1}
           onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef1)}
         >
@@ -136,7 +136,7 @@ export function Teachers2025(props: { teachers: any }) {
         </div>
         <div
           // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-          className="w-full p-4 sm:flex gap-4 overflow-x-auto no-scrollbar xl:justify-center flex-reverse hidden"
+          className="w-full p-4 sm:flex gap-4 overflow-x-auto no-scrollbar sm:justify-center flex-reverse hidden"
           // className="p-4 sm:flex 2xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row "
           ref={scrollContainerRef2}
           onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
@@ -150,7 +150,7 @@ export function Teachers2025(props: { teachers: any }) {
                   title={item.name}
                   location={item.location}
                   action={item.function}
-                  color={styles.lightPinkBg}
+                  color={styles.pinkBg}
                 />
               );
             } else {
