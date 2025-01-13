@@ -193,17 +193,24 @@ export function Teachers2025(props: { teachers: any }) {
           ref={scrollContainerRef3}
           onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
         >
-          {teachers.map((item: any, index: number) => (
-            <TeacherCard
-              key={index}
-              image={item.image}
-              title={item.name}
-              location={item.location}
-              action={item.function}
-              color={styles.purpleBg}
-              small={true}
-            />
-          ))}
+          {teachers.map((item: any, index: number) => {
+            const numColumns = 2;
+            const rowIndex = Math.floor(index / numColumns);
+            const colors = [styles.lightPinkBg, styles.pinkBg, styles.purpleBg];
+            const color = colors[rowIndex % colors.length];
+
+            return (
+              <TeacherCard
+                key={index}
+                image={item.image}
+                title={item.name}
+                location={item.location}
+                action={item.function}
+                color={color}
+                small={true}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
