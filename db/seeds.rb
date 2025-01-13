@@ -660,21 +660,15 @@ festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(fest
 
 festival_teachers_data = [
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/dnx215cin4vil4ellunzv3tgyd41'],
-    name: 'Yse Góes',
-    location: 'Porto',
-    function: 'Teacher'
-  },
-  {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/rrks6ayi25saxxk1kfxe0nk84luu'],
     name: 'Camila Alves',
     location: 'Lisbon',
     function: 'Teacher'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
-    name: 'David Bosco & Isa Monti',
-    location: 'Barcelona',
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/dnx215cin4vil4ellunzv3tgyd41'],
+    name: 'Yse Góes',
+    location: 'Porto',
     function: 'Teacher'
   },
   {
@@ -684,17 +678,24 @@ festival_teachers_data = [
     function: 'Teacher'
   },
   {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
+    name: 'David Bosco & Isa Monti',
+    location: 'Barcelona',
+    function: 'Teacher'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/0uryfeb5urj0s7q0yqqcw6gs235e'],
+    name: 'DJ Márcio',
+    location: 'São Paulo',
+    function: 'DJ'
+  },
+  {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/gbysat1d6ol8yp9mx73n0jvtqgqa'],
     name: 'DJ Pastel',
     location: 'Porto',
     function: 'DJ'
-  },
-  {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/0uryfeb5urj0s7q0yqqcw6gs235e'],
-    name: 'DJ MárcioSP',
-    location: 'São Paulo',
-    function: 'DJ'
   }
+
 ]
 
 festival_teachers_data.map { |festival_teacher_data| Festival2025Teacher.create(festival_teacher_data) }
@@ -769,22 +770,16 @@ festival_teacher_translations_data.map { |festival_teacher_translation_data| Fes
 
 festival_teacher_translations_data = [
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/dnx215cin4vil4ellunzv3tgyd41'],
-    name: 'Yse Góes',
-    location: 'Porto',
-    function: 'Professora'
-  },
-  {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/rrks6ayi25saxxk1kfxe0nk84luu'],
     name: 'Camila Alves',
     location: 'Lisboa',
     function: 'Professora'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
-    name: 'David Bosco & Isa Monti',
-    location: 'Barcelona',
-    function: 'Professores'
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/dnx215cin4vil4ellunzv3tgyd41'],
+    name: 'Yse Góes',
+    location: 'Porto',
+    function: 'Professora'
   },
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/tasmb0l2ygkf2qwjsextuu6z3d8t'],
@@ -793,15 +788,21 @@ festival_teacher_translations_data = [
     function: 'Professor'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/gbysat1d6ol8yp9mx73n0jvtqgqa'],
-    name: 'DJ Pastel',
-    location: 'Porto',
-    function: 'DJ'
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
+    name: 'David Bosco & Isa Monti',
+    location: 'Barcelona',
+    function: 'Professores'
   },
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/0uryfeb5urj0s7q0yqqcw6gs235e'],
-    name: 'DJ MárcioSP',
+    name: 'DJ Márcio',
     location: 'São Paulo',
+    function: 'DJ'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/gbysat1d6ol8yp9mx73n0jvtqgqa'],
+    name: 'DJ Pastel',
+    location: 'Porto',
     function: 'DJ'
   }
 ]

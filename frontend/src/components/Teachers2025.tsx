@@ -118,7 +118,7 @@ export function Teachers2025(props: { teachers: any }) {
           onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef1)}
         >
           {teacherTeacher.map((item: any, index: number) => {
-            if (index < 3) {
+            if (index < 2) {
               return (
                 <TeacherCard
                   key={index}
@@ -142,7 +142,7 @@ export function Teachers2025(props: { teachers: any }) {
           onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
         >
           {teacherTeacher.map((item: any, index: number) => {
-            if (index >= 3) {
+            if (index >= 2) {
               return (
                 <TeacherCard
                   key={index}
