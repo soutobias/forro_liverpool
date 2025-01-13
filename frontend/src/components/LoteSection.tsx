@@ -79,8 +79,8 @@ export function LoteSection(props: {
                   ? ticket.forro_party[position]
                   : ""
               }
-              isDisabled={false}
-              // isSoldOut={language === "en" ? "SOON" : "EM BREVE"}
+              isDisabled={true}
+              isSoldOut={language === "en" ? "AVAILABLE SOON" : "EM BREVE"}
             />
           ))}
         {loteStatus === 1 && <TicketWidget />}

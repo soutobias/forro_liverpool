@@ -28,6 +28,27 @@ export function Teachers(props: { teachers: any }) {
     scrollContainerRef5,
   ];
 
+  const handleMouseEnter = (e: any, ref: any) => {
+    const speed = 10;
+    const element = ref.current;
+
+    const move = (e: any) => {
+      const containerWidth = element.offsetWidth;
+      const positionX = e.clientX - element.getBoundingClientRect().left;
+      const scrollAmount = (positionX / containerWidth - 0.5) * 2;
+
+      element.scrollLeft += scrollAmount * speed;
+    };
+
+    element.addEventListener("mousemove", move);
+
+    const handleMouseLeave = () => {
+      element.removeEventListener("mousemove", move);
+    };
+
+    element.addEventListener("mouseleave", handleMouseLeave);
+  };
+
   useEffect(() => {
     const scrollInterval = setInterval(() => {
       let mul = 1;
@@ -61,15 +82,15 @@ export function Teachers(props: { teachers: any }) {
       item.function === "Professores" ||
       item.function === "Teachers",
   );
-  teacherTeacher = Array.from({ length: 20 }, () => [...teacherTeacher]).flat();
+  teacherTeacher = Array.from({ length: 2 }, () => [...teacherTeacher]).flat();
 
   let teacherBand = teachers.filter(
     (item: any) => item.function === "Banda" || item.function === "Live Band",
   );
-  teacherBand = Array.from({ length: 20 }, () => [...teacherBand]).flat();
+  // teacherBand = Array.from({ length: 20 }, () => [...teacherBand]).flat();
 
   let teacherDJ = teachers.filter((item: any) => item.function === "DJ");
-  teacherDJ = Array.from({ length: 20 }, () => [...teacherDJ]).flat();
+  // teacherDJ = Array.from({ length: 20 }, () => [...teacherDJ]).flat();
 
   const handleScroll = (e: React.WheelEvent<HTMLDivElement>) => {
     setScrollDirection(e.deltaY > 0 ? "left" : "right");
@@ -79,7 +100,7 @@ export function Teachers(props: { teachers: any }) {
     <div
       id="teachers"
       className={`pb-[15rem] md:pb-[25rem] font-changa ${styles.blackBg}`}
-      onWheel={handleScroll}
+      // onWheel={handleScroll}
     >
       <div className="pt-16 pb-10 text-center md:px-[8.5rem]">
         <H1
@@ -95,10 +116,11 @@ export function Teachers(props: { teachers: any }) {
         <div
           className="w-full p-4 flex gap-4 overflow-x-auto no-scrollbar 2xl:justify-center"
           ref={scrollContainerRef1}
+          onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef1)}
         >
           {teacherTeacher.map((item: any, index: number) => (
             <TeacherCard
-              key={`${index}`}
+              key={index}
               image={item.image}
               title={item.name}
               location={item.location}
@@ -109,9 +131,10 @@ export function Teachers(props: { teachers: any }) {
         </div>
         <div
           // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-          className="w-full p-4 flex gap-4 overflow-x-auto no-scrollbar xl:justify-center flex-reverse"
+          className="w-full p-4 sm:flex gap-4 overflow-x-auto no-scrollbar xl:justify-center flex-reverse hidden"
           // className="p-4 sm:flex 2xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row "
           ref={scrollContainerRef2}
+          onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
         >
           {teacherBand.map((item: any, index: number) => (
             <TeacherCard
@@ -126,8 +149,9 @@ export function Teachers(props: { teachers: any }) {
         </div>
         <div
           // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-          className="w-full p-4 flex xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row"
+          className="w-full p-4 sm:flex xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
           ref={scrollContainerRef3}
+          onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
         >
           {teacherDJ.map((item: any, index: number) => (
             <TeacherCard
@@ -139,6 +163,44 @@ export function Teachers(props: { teachers: any }) {
               color={styles.purpleBg}
             />
           ))}
+        </div>
+        <div className="">
+          <div
+            // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+            className="p-4 flex sm:hidden justify-left md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
+            ref={scrollContainerRef4}
+            onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef4)}
+          >
+            {teacherBand.map((item: any, index: number) => (
+              <TeacherCard
+                key={index}
+                image={item.image}
+                title={item.name}
+                location={item.location}
+                action={item.function}
+                color={styles.pinkBg}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="">
+          <div
+            // className="p-4 flex gap-4 overflow-x-auto no-scrollbar"
+            className="p-4 flex sm:hidden justify-right md:pl-[10rem] gap-4 overflow-x-auto no-scrollbar"
+            ref={scrollContainerRef5}
+            onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef5)}
+          >
+            {teacherDJ.map((item: any, index: number) => (
+              <TeacherCard
+                key={index}
+                image={item.image}
+                title={item.name}
+                location={item.location}
+                action={item.function}
+                color={styles.purpleBg}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

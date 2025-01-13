@@ -31,9 +31,9 @@ export default function Home() {
   const [teachers, setTeachers] = useState<keyable[] | null>(null);
   useEffect(() => {
     if (language === "en") {
-      setUrlTeachers("api/v1/festival2025_teachers");
+      setUrlTeachers("api/v1/festival_teachers");
     } else {
-      setUrlTeachers("api/v1/festival2025_teacher_translations");
+      setUrlTeachers("api/v1/festival_teacher_translations");
     }
   }, [language]);
 

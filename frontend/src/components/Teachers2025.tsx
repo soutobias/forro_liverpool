@@ -28,6 +28,27 @@ export function Teachers2025(props: { teachers: any }) {
     scrollContainerRef5,
   ];
 
+  const handleMouseEnter = (e: any, ref: any) => {
+    const speed = 10;
+    const element = ref.current;
+
+    const move = (e: any) => {
+      const containerWidth = element.offsetWidth;
+      const positionX = e.clientX - element.getBoundingClientRect().left;
+      const scrollAmount = (positionX / containerWidth - 0.5) * 2;
+
+      element.scrollLeft += scrollAmount * speed;
+    };
+
+    element.addEventListener("mousemove", move);
+
+    const handleMouseLeave = () => {
+      element.removeEventListener("mousemove", move);
+    };
+
+    element.addEventListener("mouseleave", handleMouseLeave);
+  };
+
   useEffect(() => {
     const scrollInterval = setInterval(() => {
       let mul = 1;
@@ -65,21 +86,20 @@ export function Teachers2025(props: { teachers: any }) {
       item.function === "Professores" ||
       item.function === "Teachers",
   );
-  teacherTeacher = Array.from({ length: 20 }, () => [...teacherTeacher]).flat();
+  // teacherTeacher = Array.from({ length: 20 }, () => [...teacherTeacher]).flat();
 
   let teacherBand = teachers.filter(
     (item: any) => item.function === "Banda" || item.function === "Live Band",
   );
-  teacherBand = Array.from({ length: 20 }, () => [...teacherBand]).flat();
+  // teacherBand = Array.from({ length: 20 }, () => [...teacherBand]).flat();
 
   let teacherDJ = teachers.filter((item: any) => item.function === "DJ");
-  teacherDJ = Array.from({ length: 20 }, () => [...teacherDJ]).flat();
+  // teacherDJ = Array.from({ length: 20 }, () => [...teacherDJ]).flat();
 
   return (
     <div
       id="teachers"
       className={`pb-[15rem] md:pb-[25rem] font-changa ${styles.blackBgFull}`}
-      onWheel={handleScroll}
     >
       <div className="pt-16 pb-10 text-center md:px-[8.5rem]">
         <H1
@@ -93,26 +113,50 @@ export function Teachers2025(props: { teachers: any }) {
       </div>
       <div className="">
         <div
-          className="w-full p-4 flex gap-4 overflow-x-auto no-scrollbar 2xl:justify-center"
+          className="w-full p-4 sm:flex gap-4 overflow-x-auto no-scrollbar 2xl:justify-center hidden"
           ref={scrollContainerRef1}
+          onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef1)}
         >
-          {teacherTeacher.map((item: any, index: number) => (
-            <TeacherCard
-              key={`${index}`}
-              image={item.image}
-              title={item.name}
-              location={item.location}
-              action={item.function}
-              color={styles.lightPinkBg}
-            />
-          ))}
+          {teacherTeacher.map((item: any, index: number) => {
+            if (index < 3) {
+              return (
+                <TeacherCard
+                  key={index}
+                  image={item.image}
+                  title={item.name}
+                  location={item.location}
+                  action={item.function}
+                  color={styles.lightPinkBg}
+                />
+              );
+            } else {
+              return <></>;
+            }
+          })}
         </div>
         <div
           // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-          className="w-full p-4 flex gap-4 overflow-x-auto no-scrollbar xl:justify-center flex-reverse"
+          className="w-full p-4 sm:flex gap-4 overflow-x-auto no-scrollbar xl:justify-center flex-reverse hidden"
           // className="p-4 sm:flex 2xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row "
           ref={scrollContainerRef2}
+          onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef2)}
         >
+          {teacherTeacher.map((item: any, index: number) => {
+            if (index >= 3) {
+              return (
+                <TeacherCard
+                  key={index}
+                  image={item.image}
+                  title={item.name}
+                  location={item.location}
+                  action={item.function}
+                  color={styles.lightPinkBg}
+                />
+              );
+            } else {
+              return <></>;
+            }
+          })}
           {teacherBand.map((item: any, index: number) => (
             <TeacherCard
               key={index}
@@ -126,8 +170,9 @@ export function Teachers2025(props: { teachers: any }) {
         </div>
         <div
           // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
-          className="w-full p-4 flex xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row"
+          className="w-full p-4 sm:flex xl:justify-center gap-4 overflow-x-auto no-scrollbar flex-row-reverse sm:flex-row hidden"
           ref={scrollContainerRef3}
+          onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
         >
           {teacherDJ.map((item: any, index: number) => (
             <TeacherCard
@@ -141,22 +186,25 @@ export function Teachers2025(props: { teachers: any }) {
           ))}
         </div>
       </div>
-      <div className="pl-4 pr-4 pt-8 md:hidden">
-        <MainButton
-          href="/lff2025/tickets"
-          content={language === "en" ? "Get Tickets" : "Ingressos"}
-          bg="white"
-          font="black"
-        />
-      </div>
-      <div className="pl-4 pr-4 pt-8 md:flex w-full md:justify-center hidden">
-        <MainButton
-          href="/lff2025/tickets"
-          content={language === "en" ? "Get Tickets" : "Ingressos"}
-          bg="white"
-          font="black"
-          width="50%"
-        />
+      <div className="">
+        <div
+          // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
+          className="w-full p-4 sm:hidden xl:justify-center gap-4 overflow-x-auto no-scrollbar grid grid-cols-2"
+          ref={scrollContainerRef3}
+          onMouseEnter={(e) => handleMouseEnter(e, scrollContainerRef3)}
+        >
+          {teachers.map((item: any, index: number) => (
+            <TeacherCard
+              key={index}
+              image={item.image}
+              title={item.name}
+              location={item.location}
+              action={item.function}
+              color={styles.purpleBg}
+              small={true}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -238,7 +238,7 @@ Site.destroy_all
 site = Site.new(
   title: 'Brazilian forró classes & events in the heart of Liverpool',
   description: 'All-levels forró dance classes and live music events in the heart of Liverpool. No partner needed. Everyone is welcome!',
-  frame: 'Liverpool Forró Festival Lote 1 Tickets available on the 17th of January! - Get Tickets! - ',
+  frame: 'Liverpool Forró Festival Lote 1 Tickets available now! - Get Tickets! - ',
   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
@@ -250,7 +250,7 @@ SiteTranslation.destroy_all
 site_translation = SiteTranslation.new(
   title: 'Aulas de Forró no coração de Liverpool',
   description: 'Aulas de Forró para todos os níveis, workshops e bandas brasileiras aqui em Liverpool. Não precisa trazer parceiro. Todos são bem-vindos!',
-  frame: 'Liverpool Forró Festival - Ingressos do Lote 1 disponíveis no dia 17 de janeiro! - Compre Ingressos! - ',
+  frame: 'Liverpool Forró Festival - Ingressos do Lote 1 disponíveis agora! - Compre Ingressos! - ',
   cover_image: ['https://www.otempo.com.br/image/contentid/policy:1.2638617:1647968748/Screen-Shot-2022-03-22-at-2-01-35-PM-png.png?f=3x2&q=0.6&w=1200&$p$f$q$w=ceb5660'],
   cover_video: 'https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/ForroLiverpoolIntro.webm',
   image: [Faker::LoremFlickr.image, Faker::LoremFlickr.image]
@@ -625,12 +625,6 @@ festival_teachers_data = [
     function: 'DJ'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
-    name: 'David Bosco & Isabelle Monti',
-    location: 'Barcelona',
-    function: 'Teachers'
-  },
-  {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/sanguim.jpg'],
     name: 'DJ Sanguim',
     location: 'London',
@@ -679,7 +673,7 @@ festival_teachers_data = [
   },
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
-    name: 'David Bosco & Isabelle Monti',
+    name: 'David Bosco & Isa Monti',
     location: 'Barcelona',
     function: 'Teacher'
   },
@@ -740,12 +734,6 @@ festival_teacher_translations_data = [
     function: 'DJ'
   },
   {
-    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
-    name: 'David Bosco & Isabelle Monti',
-    location: 'Barcelona',
-    function: 'Professores'
-  },
-  {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/sanguim.jpg'],
     name: 'DJ Sanguim',
     location: 'Londres',
@@ -794,7 +782,7 @@ festival_teacher_translations_data = [
   },
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
-    name: 'David Bosco & Isabelle Monti',
+    name: 'David Bosco & Isa Monti',
     location: 'Barcelona',
     function: 'Professores'
   },
@@ -829,22 +817,22 @@ lote_data = [
     lote_number: 3,
     start_datetime: 'Tue, 01 Apr 2025 16:00:00.000000000 UTC +00:00',
     end_datetime: 'Mon, 19 May 2025 00:00:00.000000000 UTC +00:00',
-    status: ['Available 1 April at 4pm GMT', 'Disponível em 1 de Abril, às 16h'],
+    status: ['', ''],
     status2: ['Limited quantities available.', 'Quantidades limitadas.']
   },
   {
     lote_number: 2,
     start_datetime: 'Fri, 01 Mar 2025 16:00:00.000000000 UTC +00:00',
     end_datetime: 'Tue, 01 Apr 2025 16:00:00.000000000 UTC +00:00',
-    status: ['Available 1 March at 4pm GMT', 'Disponível em 1 de Março, às 16h'],
+    status: ['', ''],
     status2: ['Limited quantities available.', 'Quantidades limitadas.'],
   },
   {
     lote_number: 1,
-    start_datetime: 'Wed, 17 Jan 2025 16:00:00.000000000 UTC +00:00',
+    start_datetime: 'Wed, 15 Jan 2025 15:58:00.000000000 UTC +00:00',
     end_datetime: 'Fri, 01 Mar 2025 16:00:00.000000000 UTC +00:00',
     status:
-    ['Available 17 January at 4pm GMT', 'Disponível em 17 de Janeiro, às 16h'],
+    ['Available 15 January at 4pm GMT', 'Disponível em 15 de Janeiro, às 16h'],
     status2: ['Limited quantities available.', 'Quantidades limitadas.']
   }
 ]
@@ -876,42 +864,42 @@ ticket_data = [
     lote: 1
   },
   {
-    price: 65,
+    # price: 65,
     ticket_type: ['Full Pass', 'Passe completo'],
     forro_class: ['All Classes', 'Todas as aulas'],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 2
   },
   {
-    price: 90,
+    # price: 90,
     ticket_type: ['Party Pass', 'Passe para festas'],
     forro_class: [],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 2
   },
   {
-    price: 20,
+    # price: 20,
     ticket_type: ['SPECIAL PRICE! Saturday party only', 'PREÇO ESPECIAL! Somente Festa de sábado'],
     forro_class: [],
     forro_party: ['Saturday Party', 'Festa de sábado'],
     lote: 2
   },
   {
-    price: 110,
+    # price: 110,
     ticket_type: ['Full Pass', 'Passe Completo'],
     forro_class: ['All Classes', 'Todas as aulas'],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 3
   },
   {
-    price: 85,
+    # price: 85,
     ticket_type: ['Party Pass', 'Passe para festas'],
     forro_class: [],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 3
   },
   {
-    price: 30,
+    # price: 30,
     ticket_type: ['SPECIAL PRICE! Saturday party only', 'PREÇO ESPECIAL! Somente Festa de sábado'],
     forro_class: [],
     forro_party: ['Saturday Party', 'Festa de sábado'],
