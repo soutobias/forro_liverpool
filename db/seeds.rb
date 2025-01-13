@@ -663,6 +663,46 @@ festival_teachers_data = [
 ]
 
 festival_teachers_data.map { |festival_teacher_data| FestivalTeacher.create(festival_teacher_data) }
+
+festival_teachers_data = [
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/dnx215cin4vil4ellunzv3tgyd41'],
+    name: 'Yse Góes',
+    location: 'Porto',
+    function: 'Teacher'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/rrks6ayi25saxxk1kfxe0nk84luu'],
+    name: 'Camila Alves',
+    location: 'Lisbon',
+    function: 'Teacher'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
+    name: 'David Bosco & Isabelle Monti',
+    location: 'Barcelona',
+    function: 'Teacher'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/tasmb0l2ygkf2qwjsextuu6z3d8t'],
+    name: 'Daniel Marinho',
+    location: 'Salvador',
+    function: 'Teacher'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/gbysat1d6ol8yp9mx73n0jvtqgqa'],
+    name: 'DJ Pastel',
+    location: 'Porto',
+    function: 'DJ'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/0uryfeb5urj0s7q0yqqcw6gs235e'],
+    name: 'DJ MárcioSP',
+    location: 'São Paulo',
+    function: 'DJ'
+  }
+]
+
 festival_teachers_data.map { |festival_teacher_data| Festival2025Teacher.create(festival_teacher_data) }
 
 FestivalTeacherTranslation.destroy_all
@@ -693,12 +733,6 @@ festival_teacher_translations_data = [
     location: 'Liverpool',
     function: 'Banda'
   },
-  # {
-  #   image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/marinaebraga.jpg'],
-  #   name: 'Filipe e Marina',
-  #   location: 'Liverpool',
-  #   function: 'Professores'
-  # },
   {
     image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/Pastel.jpg'],
     name: 'DJ Pastel',
@@ -744,6 +778,47 @@ festival_teacher_translations_data = [
 ]
 
 festival_teacher_translations_data.map { |festival_teacher_translation_data| FestivalTeacherTranslation.create(festival_teacher_translation_data) }
+
+festival_teacher_translations_data = [
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/dnx215cin4vil4ellunzv3tgyd41'],
+    name: 'Yse Góes',
+    location: 'Porto',
+    function: 'Professora'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/rrks6ayi25saxxk1kfxe0nk84luu'],
+    name: 'Camila Alves',
+    location: 'Lisboa',
+    function: 'Professora'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/david_isa.jpg'],
+    name: 'David Bosco & Isabelle Monti',
+    location: 'Barcelona',
+    function: 'Professores'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/tasmb0l2ygkf2qwjsextuu6z3d8t'],
+    name: 'Daniel Marinho',
+    location: 'Salvador',
+    function: 'Professor'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/gbysat1d6ol8yp9mx73n0jvtqgqa'],
+    name: 'DJ Pastel',
+    location: 'Porto',
+    function: 'DJ'
+  },
+  {
+    image: ['https://pub-300f3c2ca8864f7c86d0abf8f5751408.r2.dev/0uryfeb5urj0s7q0yqqcw6gs235e'],
+    name: 'DJ MárcioSP',
+    location: 'São Paulo',
+    function: 'DJ'
+  }
+]
+
+
 festival_teacher_translations_data.map { |festival_teacher_translation_data| Festival2025TeacherTranslation.create(festival_teacher_translation_data) }
 
 
@@ -780,13 +855,6 @@ Ticket.destroy_all
 
 ticket_data = [
   {
-    price: 50,
-    ticket_type: ['Party Pass', 'Passe para festas'],
-    forro_class: [],
-    forro_party: ['All Parties', 'Todas as festas'],
-    lote: 1
-  },
-  {
     price: 75,
     ticket_type: ['Full Pass', 'Passe Completo'],
     forro_class: ['All Classes', 'Todas as aulas'],
@@ -794,31 +862,59 @@ ticket_data = [
     lote: 1
   },
   {
-    price: 60,
+    price: 50,
+    ticket_type: ['Party Pass', 'Passe para festas'],
+    forro_class: [],
+    forro_party: ['All Parties', 'Todas as festas'],
+    lote: 1
+  },
+  {
+    price: 20,
+    ticket_type: ['SPECIAL PRICE! Saturday party only', 'PREÇO ESPECIAL! Somente Festa de sábado'],
+    forro_class: [],
+    forro_party: ['Saturday Party', 'Festa de sábado'],
+    lote: 1
+  },
+  {
+    price: 65,
     ticket_type: ['Full Pass', 'Passe completo'],
     forro_class: ['All Classes', 'Todas as aulas'],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 2
   },
   {
-    price: 85,
+    price: 90,
     ticket_type: ['Party Pass', 'Passe para festas'],
     forro_class: [],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 2
   },
   {
-    price: 70,
+    price: 20,
+    ticket_type: ['SPECIAL PRICE! Saturday party only', 'PREÇO ESPECIAL! Somente Festa de sábado'],
+    forro_class: [],
+    forro_party: ['Saturday Party', 'Festa de sábado'],
+    lote: 2
+  },
+  {
+    price: 110,
     ticket_type: ['Full Pass', 'Passe Completo'],
     forro_class: ['All Classes', 'Todas as aulas'],
     forro_party: ['All Parties', 'Todas as festas'],
     lote: 3
   },
   {
-    price: 95,
+    price: 85,
     ticket_type: ['Party Pass', 'Passe para festas'],
     forro_class: [],
     forro_party: ['All Parties', 'Todas as festas'],
+    lote: 3
+  },
+  {
+    price: 30,
+    ticket_type: ['SPECIAL PRICE! Saturday party only', 'PREÇO ESPECIAL! Somente Festa de sábado'],
+    forro_class: [],
+    forro_party: ['Saturday Party', 'Festa de sábado'],
     lote: 3
   }
 ]

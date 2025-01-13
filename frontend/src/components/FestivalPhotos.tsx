@@ -33,7 +33,7 @@ const slides = images.map((image) => {
     height: image.height * 3,
     description: "Photos by Dan Polari!",
     share: {
-      url: newImageUrl,
+      url: image.hd,
       title:
         "Check out this amazing photo from Liverpool Forro Festival 2024! Photo by Dan Polari",
     },
@@ -80,9 +80,10 @@ export function FestivalPhotos() {
     if (imageName) {
       const imageExtension = imageName.split(".")[1];
       const currentImageUrl = imageName.split(".")[0];
-      shareUrl = encodeURIComponent(
-        `${showUrl}${currentImageUrl}?extension=${imageExtension}`,
-      );
+      // shareUrl = encodeURIComponent(
+      //   `${showUrl}${currentImageUrl}?extension=${imageExtension}`,
+      // );
+      shareUrl = encodeURIComponent(currentImage);
       // downloadLocalUrl = `${downloadUrl}${currentImageUrl}?extension=${imageExtension}`;
     }
 
