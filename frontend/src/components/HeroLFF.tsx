@@ -1,52 +1,66 @@
-import styles from './Bg.module.css'
+import styles from "./Bg.module.css";
 // import { LFFLogo } from '@/assets/lff_logo'
-import Image from 'next/image'
-import LFFLogo from '../assets/LFF_Logo.png'
-import CrossWalk from '../assets/Images-LFF-Crosswalk.png'
-import CrossWalk1 from '../assets/Images-LFF-Crosswalk-2000px.png'
-import { MainButton } from './MainButton'
-import { Scroll } from '@/assets/scroll'
-import { useLanguage } from '@/lib/language'
+import Image from "next/image";
+import LFFLogo from "../assets/LFF_Logo.png";
+import CrossWalk from "../assets/Images-LFF-Crosswalk.png";
+import CrossWalk1 from "../assets/Images-LFF-Crosswalk-2000px.png";
+import { MainButton } from "./MainButton";
+import { Scroll } from "@/assets/scroll";
+import { useLanguage } from "@/lib/language";
 // import { CursorFollower } from './CursorFollower'
-import { CursorTrail } from './CursorTrail'
-import { useEffect, useState } from 'react'
-import { CursorFollower } from './CursorFollower'
+import { CursorTrail } from "./CursorTrail";
+import { useEffect, useState } from "react";
+import { CursorFollower } from "./CursorFollower";
 
-export function HeroLFF(props: { siteFestival: any }) {
-  const { language } = useLanguage()
-  const keyForRerender = language
-  const [trail, setTrail] = useState<any>([])
-  const [isCursorInDiv, setIsCursorInDiv] = useState(false)
+export function HeroLFF(props: { siteFestival: any; year: string }) {
+  const { language } = useLanguage();
+  const keyForRerender = language;
+  const [trail, setTrail] = useState<any>([]);
+  const [isCursorInDiv, setIsCursorInDiv] = useState(false);
 
   const handleMouseMove = (e: any) => {
     setTrail((currentTrail: any) => [
       ...currentTrail,
       { x: e.pageX, y: e.pageY - 40, key: Date.now() * Math.random() },
-    ])
-  }
+    ]);
+  };
 
   const handleMouseLeave = () => {
-    setTrail([])
-    setIsCursorInDiv(false)
-  }
+    setTrail([]);
+    setIsCursorInDiv(false);
+  };
 
   const handleMouseEnter = () => {
-    setTrail([])
-    setIsCursorInDiv(true)
-  }
+    setTrail([]);
+    setIsCursorInDiv(true);
+  };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTrail((currentTrail: any) => {
         if (currentTrail.length > 0) {
-          return currentTrail.slice(1)
+          return currentTrail.slice(1);
         }
-        return currentTrail
-      })
-    }, 20) // Adjust for trail duration
+        return currentTrail;
+      });
+    }, 20); // Adjust for trail duration
 
-    return () => clearInterval(intervalId)
-  }, [])
+    return () => clearInterval(intervalId);
+  }, []);
+
+  function scrollToSection(e: any) {
+    const href = e.currentTarget.getAttribute("href");
+    if (href) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      const offsetTop = element instanceof HTMLElement ? element.offsetTop : 0;
+      window.scroll({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  }
+
   return (
     <div
       className={`w-full z-[59] font-changa relative ${styles.blackBg}`}
@@ -54,8 +68,6 @@ export function HeroLFF(props: { siteFestival: any }) {
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
     >
-      <CursorTrail trail={trail} />
-      <CursorFollower isVisible={isCursorInDiv} />
       <div className="pt-[6.75rem]">
         <div>
           <div className="flex justify-center pl-4 pr-4">
@@ -63,15 +75,21 @@ export function HeroLFF(props: { siteFestival: any }) {
               {props.siteFestival && (
                 <div className="block">
                   <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
-                    {props.siteFestival[0].data.split(',')[0].trim()}
+                    {props.siteFestival[0].data.split(",")[0].trim()}
                   </p>
                   <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
-                    {props.siteFestival[0].data.split(',')[1].trim()}
+                    {props.siteFestival[0].data.split(",")[1].trim()}
                   </p>
                 </div>
               )}
               <Image
-                src={LFFLogo}
+                src={
+                  props.year === "2025"
+                    ? props.siteFestival
+                      ? props.siteFestival[0].image[0]
+                      : ""
+                    : LFFLogo
+                }
                 alt="illustration"
                 className="w-auto sm:h-[20rem] md:h-[25rem]  lg:h-[30rem] xl:h-[35rem] 2xl:h-[38rem]"
                 width={1336}
@@ -80,10 +98,10 @@ export function HeroLFF(props: { siteFestival: any }) {
               {props.siteFestival && (
                 <div className="block">
                   <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
-                    {props.siteFestival[0].local.split(',')[0].trim()}
+                    {props.siteFestival[0].local.split(",")[0].trim()}
                   </p>
                   <p className="text-center text-white text-[2rem] leading-10 xl:text-[2.5rem] xl:leading-[3rem] font-extrabold">
-                    {props.siteFestival[0].local.split(',')[1].trim()}
+                    {props.siteFestival[0].local.split(",")[1].trim()}
                   </p>
                 </div>
               )}
@@ -91,31 +109,41 @@ export function HeroLFF(props: { siteFestival: any }) {
           </div>
           <div className="flex justify-center pl-4 pr-4">
             <Image
-              src={LFFLogo}
+              src={
+                props.year === "2025"
+                  ? props.siteFestival
+                    ? props.siteFestival[0].image[0]
+                    : ""
+                  : LFFLogo
+              }
               alt="illustration"
               className="h-[17rem] w-auto md:hidden"
               width={1336}
               height={614}
             />
           </div>
-          <div className="pt-3 flex justify-center">
-            <Image
-              src={CrossWalk}
-              alt="illustration"
-              className="overflow-hidden h-[5.25rem] w-full object-cover md:hidden"
-              width={1336}
-              height={614}
-            />
-          </div>
-          <div className="pt-1 flex justify-center w-full overflow-hidden">
-            <Image
-              src={CrossWalk1}
-              alt="illustration"
-              className="xl:h-[9rem] md:h-[7rem] w-[130vw] max-w-[130vw] md:block hidden"
-              width={1336}
-              height={614}
-            />
-          </div>
+          {props.year === "2024" && (
+            <div className="pt-3 flex justify-center">
+              <Image
+                src={CrossWalk}
+                alt="illustration"
+                className="overflow-hidden h-[5.25rem] w-full object-cover md:hidden"
+                width={1336}
+                height={614}
+              />
+            </div>
+          )}
+          {props.year === "2024" && (
+            <div className="pt-1 flex justify-center w-full overflow-hidden">
+              <Image
+                src={CrossWalk1}
+                alt="illustration"
+                className="xl:h-[9rem] md:h-[7rem] w-[130vw] max-w-[130vw] md:block hidden"
+                width={1336}
+                height={614}
+              />
+            </div>
+          )}
           <div className="-mt-[5rem] md:flex md:justify-center hidden">
             {/* <Scroll /> */}
             <div className="justify-center">
@@ -142,8 +170,13 @@ export function HeroLFF(props: { siteFestival: any }) {
             <div className="md:flex md:justify-center hidden">
               <MainButton
                 key={keyForRerender}
-                href="/lff2024/tickets"
-                content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+                href={"#gallery"}
+                onClick={scrollToSection}
+                content={
+                  language === "en"
+                    ? "CHECK OUT THE PHOTOS"
+                    : "CONFIRA AS FOTOS"
+                }
                 bg="white"
                 font="black"
                 width="457px"
@@ -152,8 +185,13 @@ export function HeroLFF(props: { siteFestival: any }) {
             <div className="md:hidden">
               <MainButton
                 key={keyForRerender}
-                href="/lff2024/tickets"
-                content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+                href={"#gallery"}
+                content={
+                  language === "en"
+                    ? "CHECK OUT THE PHOTOS"
+                    : "CONFIRA AS FOTOS"
+                }
+                onClick={scrollToSection}
                 bg="white"
                 font="black"
               />
@@ -188,5 +226,5 @@ export function HeroLFF(props: { siteFestival: any }) {
         </div> */}
       </div>
     </div>
-  )
+  );
 }

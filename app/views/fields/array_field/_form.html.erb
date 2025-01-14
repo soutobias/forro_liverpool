@@ -1,0 +1,7 @@
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field">
+  <%= f.text_area field.attribute, class: "form-control", value: field.data.join("\n") %>
+  <small class="form-text text-muted">Enter each item as a new line.</small>
+</div>

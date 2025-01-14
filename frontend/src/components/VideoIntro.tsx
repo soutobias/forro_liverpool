@@ -1,36 +1,36 @@
-import { useEffect, useRef } from 'react'
-import styles from './Bg.module.css'
+import { useEffect, useRef } from "react";
+import styles from "./Bg.module.css";
 
 export function VideoIntro(props: { siteFestival: any }) {
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const video = videoRef.current
+        const video = videoRef.current;
         if (entries[0].isIntersecting) {
           if (video) {
-            video.play()
+            video.play();
           }
         } else {
           if (video) {
-            video.pause()
+            video.pause();
           }
         }
       },
       { threshold: 0.25 },
-    )
-    const video = videoRef.current
+    );
+    const video = videoRef.current;
     if (video) {
-      observer.observe(videoRef.current)
+      observer.observe(video);
     }
 
     return () => {
       if (video) {
-        observer.unobserve(video)
+        observer.unobserve(video);
       }
-    }
-  }, [])
+    };
+  }, []);
   return (
     <div
       className={`pt-16 md:pt-32 font-semibold text-center font-changa px-4 md:px-[8rem] lg:px-[13rem]  2xl:px-[20rem] text-white ${styles.blackBg}`}
@@ -54,7 +54,7 @@ export function VideoIntro(props: { siteFestival: any }) {
             muted
             controls
             className="rounded-2xl overflow-hidden"
-            style={{ borderRadius: '8px', overflow: 'hidden' }}
+            style={{ borderRadius: "8px", overflow: "hidden" }}
             // poster={path-to-poster.jpg}
           >
             <source
@@ -67,10 +67,10 @@ export function VideoIntro(props: { siteFestival: any }) {
               /> */}
           </video>
         </div>
-        <p className="pt-12 pb-10 text-[1rem] font-sans text-left font-semibolf leading-6 md:hidden">
+        <p className="pt-12 pb-10 text-[1rem] font-sans text-justify md:text-left font-semibolf leading-6 md:hidden">
           {props.siteFestival && props.siteFestival[0].textvideo}
         </p>
       </div>
     </div>
-  )
+  );
 }

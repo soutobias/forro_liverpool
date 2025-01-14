@@ -1,114 +1,125 @@
-'use client'
+"use client";
 
-import { useEffect, useRef, useState } from 'react'
-import { keyable } from '@/components/ClassEvent'
-import { fetchApi } from '@/lib/api'
-import Image from 'next/image'
+import { useEffect, useRef, useState } from "react";
+import { keyable } from "@/components/ClassEvent";
+import { fetchApi } from "@/lib/api";
+import Image from "next/image";
 // import { ArrowUpRight } from 'phosphor-react'
-import { ArrowUpRight } from '@/assets/arrow_up_right'
-import { FrameImportant } from '@/components/FrameImportant'
-import { Navbar } from '@/components/NavBar'
-import { Footer } from '@/components/Footer'
-import { UpButton } from '@/components/UpButton'
-import { GDPR } from '@/components/GDPR'
-import { EventCard } from '@/components/EventCard'
-import styles from '@/components/Bg.module.css'
-import { LocationMarker } from '@/assets/location_marker'
-import { MainButton } from '@/components/MainButton'
-import { useSearchParams } from 'next/navigation'
-import Link from 'next/link'
-import Head from 'next/head'
-import { useLanguage } from '@/lib/language'
-import { H1 } from '@/components/H1'
+import { ArrowUpRight } from "@/assets/arrow_up_right";
+import { FrameImportant } from "@/components/FrameImportant";
+import { Navbar } from "@/components/NavBar";
+import { Footer } from "@/components/Footer";
+import { UpButton } from "@/components/UpButton";
+import { GDPR } from "@/components/GDPR";
+import { EventCard } from "@/components/EventCard";
+import styles from "@/components/Bg.module.css";
+import { LocationMarker } from "@/assets/location_marker";
+import { MainButton } from "@/components/MainButton";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
+import Head from "next/head";
+import { useLanguage } from "@/lib/language";
+import { H1 } from "@/components/H1";
 
 export default function EventDetails() {
-  const [events, setEvents] = useState<keyable[]>([])
+  const [events, setEvents] = useState<keyable[]>([]);
   // const [showEvent, setShowEvent] = useState<keyable>({})
-  const [selectedEvent, setSelectedEvent] = useState<keyable | null>(null)
-  const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
-  const [site, setSite] = useState<keyable[] | null>(null)
-  const [showGDPR, setShowGDPR] = useState(false)
-  const [hasMounted, setHasMounted] = useState(false)
+  const [selectedEvent, setSelectedEvent] = useState<keyable | null>(null);
+  const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null);
+  const [site, setSite] = useState<keyable[] | null>(null);
+  const [showGDPR, setShowGDPR] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+  const [eventsFiltered, setEventsFiltered] = useState<keyable[]>([]);
 
-  const { language } = useLanguage()
+  const { language } = useLanguage();
 
-  const [url, setUrl] = useState<string>('')
-  const [urlFestival, setUrlFestival] = useState<string>('')
-  const [position, setPosition] = useState<number>(1)
-  const urlEvents = 'api/v1/events'
+  const [url, setUrl] = useState<string>("");
+  const [urlFestival, setUrlFestival] = useState<string>("");
+  const [position, setPosition] = useState<number>(1);
+  const urlEvents = "api/v1/events";
 
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
 
-  const paramsId = searchParams.get('id')
+  const paramsId = searchParams.get("id");
 
-  const [isVisible, setIsVisible] = useState(false)
-  const targetRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (siteFestival) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            setIsVisible(entry.isIntersecting)
-          })
+            setIsVisible(entry.isIntersecting);
+          });
         },
         { threshold: 0.1 },
-      )
-      const targetEl = targetRef.current
+      );
+      const targetEl = targetRef.current;
       if (targetEl) {
-        observer.observe(targetEl)
+        observer.observe(targetEl);
       }
 
       // Clean up function
       return () => {
         if (targetEl) {
-          observer.unobserve(targetEl)
+          observer.unobserve(targetEl);
         }
-      }
+      };
     }
-  }, [siteFestival])
+  }, [siteFestival]);
+  useEffect(() => {
+    if (events && events.length > 0) {
+      setEventsFiltered(
+        events.filter(
+          (event: any) => !event.is_festival && event.id !== Number(paramsId),
+        ),
+      );
+    }
+  }, [events, paramsId]);
 
   useEffect(() => {
-    if (language === 'en') {
-      setUrl('api/v1/sites')
-      setUrlFestival('api/v1/sitefestivals')
-      setPosition(0)
+    if (language === "en") {
+      setUrl("api/v1/sites");
+      setUrlFestival("api/v1/sitefestivals");
+      setPosition(0);
     } else {
-      setUrl('api/v1/site_translations')
-      setUrlFestival('api/v1/site_festival_translations')
-      setPosition(1)
+      setUrl("api/v1/site_translations");
+      setUrlFestival("api/v1/site_festival_translations");
+      setPosition(1);
     }
-  }, [language])
+  }, [language]);
 
   useEffect(() => {
     if (url) {
-      fetchApi(url, setSite)
-      fetchApi(urlFestival, setSiteFestival)
+      fetchApi(url, setSite);
+      fetchApi(urlFestival, setSiteFestival);
     }
-  }, [url, urlFestival])
+  }, [url, urlFestival]);
 
   useEffect(() => {
-    fetchApi(urlEvents, setEvents)
-  }, [])
+    fetchApi(urlEvents, setEvents);
+  }, []);
 
   useEffect(() => {
     if (events.length > 0) {
       const foundEvent = events.find((event) => {
-        return String(event.id) === paramsId
-      })
-      setSelectedEvent(foundEvent || null)
+        return String(event.id) === paramsId;
+      });
+      setSelectedEvent(foundEvent || null);
     }
-  }, [events, paramsId])
+  }, [events, paramsId]);
 
   useEffect(() => {
-    setShowGDPR(false)
+    setShowGDPR(false);
     // setShowGDPR(getCookieAuth())
-    setHasMounted(true)
-  }, [])
+    setHasMounted(true);
+  }, []);
 
   if (!hasMounted) {
-    return null
+    return null;
   }
+
   return (
     <>
       <Head>
@@ -116,7 +127,7 @@ export default function EventDetails() {
         <meta name="description" content="Forro Liverpool" />
         {/* Other metadata tags */}
       </Head>
-      <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
+      <div className={showGDPR ? "overflow-hidden pointer-events-none" : ""}>
         <FrameImportant site={site} />
         {siteFestival && (
           <div ref={targetRef}>
@@ -149,23 +160,29 @@ export default function EventDetails() {
                       <div>
                         {selectedEvent.location && (
                           <div>
-                            <div className="flex text-black">
-                              <LocationMarker />
-                              <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-extrabold text-[1rem] md:text-[1.25rem] font-sans">
-                                <Link
-                                  href={selectedEvent.location[2]}
-                                  target="_blank"
-                                  className="flex"
-                                >
-                                  {selectedEvent.location[0]}
-                                  <ArrowUpRight />
-                                </Link>
-                              </div>
-                            </div>
-                            <div className="ml-4 mt-2 text-black">
-                              <div className="text-black leading-5 md:leading-6 pl-0 mt-1 font-semibold text-[1rem] md:text-[1.25rem] font-sans">
-                                {selectedEvent.location[1]}
-                              </div>
+                            {selectedEvent.location.map(
+                              (location: string, index: number) => (
+                                <div key={index} className="text-black">
+                                  <div className="flex">
+                                    <LocationMarker />
+                                    <div className="text-black uppercase leading-4 pl-0 mt-1 ml-1 font-extrabold text-[1rem] md:text-[1.25rem] font-sans">
+                                      <Link
+                                        href={location.split(";")[2]}
+                                        target="_blank"
+                                        className="flex"
+                                      >
+                                        {location.split(";")[0]}
+                                        <ArrowUpRight />
+                                      </Link>
+                                    </div>
+                                  </div>
+                                  <div className="ml-4 mt-2 text-black leading-5 md:leading-6 pl-0 font-semibold text-[1rem] md:text-[1.25rem] font-sans">
+                                    {location.split(";")[1]}
+                                  </div>
+                                </div>
+                              ),
+                            )}
+                            <div className="ml-4 text-black">
                               <div className="text-black leading-4 pl-0 mt-1 pt-5 md:pt-7 font-semibold text-[1rem]  md:text-[1.25rem] font-sans">
                                 {selectedEvent.time[position]}
                               </div>
@@ -182,28 +199,26 @@ export default function EventDetails() {
                   </div>
                 </div>
               </div>
-              {selectedEvent.type_event === 'Special Events' &&
+              {selectedEvent.type_event === "Special Events" &&
                 selectedEvent.ticket_link && (
                   <div className="pt-8 z-[61]">
                     <MainButton
-                      href="/lff2024/tickets"
-                      content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+                      href="/lff2025/tickets"
+                      content={language === "en" ? "Get Tickets" : "Ingressos"}
                       bg="black"
                       font="white"
                     />
                   </div>
                 )}
-              <h2 className="font-changa text-black text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-16">
-                {language === 'en'
-                  ? 'Plus, join us for...'
-                  : 'Além disso, junte-se a nós para...'}
-              </h2>
-              <div className="pt-8 md:grid md:grid-cols-2 md:gap-4">
-                {events &&
-                  events.length > 0 &&
-                  events
-                    .filter((event: any) => !event.is_festival)
-                    .map(
+              {eventsFiltered.length > 0 && (
+                <>
+                  <h2 className="font-changa text-black text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pt-8 sm:pt-16">
+                    {language === "en"
+                      ? "Plus, join us for..."
+                      : "Além disso, junte-se a nós para..."}
+                  </h2>
+                  <div className="pt-8 md:grid md:grid-cols-2 md:gap-4">
+                    {eventsFiltered.map(
                       (event: any) =>
                         String(event.id) !== paramsId && (
                           <EventCard
@@ -213,7 +228,9 @@ export default function EventDetails() {
                           />
                         ),
                     )}
-              </div>
+                  </div>
+                </>
+              )}
             </div>
           )}
         </div>
@@ -222,5 +239,5 @@ export default function EventDetails() {
         {!isVisible && <UpButton />}
       </div>
     </>
-  )
+  );
 }

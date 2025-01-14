@@ -1,41 +1,41 @@
-import styles from './Bg.module.css'
-import { H1 } from './H1'
-import { MainButton } from './MainButton'
+import styles from "./Bg.module.css";
+import { H1 } from "./H1";
+import { MainButton } from "./MainButton";
 
-import Image from 'next/image'
-import triangle from '../assets/triangle.png'
-import zabumba from '../assets/zabumba.png'
-import sanfona from '../assets/sanfona.png'
-import { useLanguage } from '@/lib/language'
-import { useEffect, useState } from 'react'
+import Image from "next/image";
+import triangle from "../assets/triangle.png";
+import zabumba from "../assets/zabumba.png";
+import sanfona from "../assets/sanfona.png";
+import { useLanguage } from "@/lib/language";
+import { useEffect, useState } from "react";
 
 export function GetTickets() {
-  const { language } = useLanguage()
-  const keyForRerender = language
-  const [isAnimationEnabled, setIsAnimationEnabled] = useState(false)
+  const { language } = useLanguage();
+  const keyForRerender = language;
+  const [isAnimationEnabled, setIsAnimationEnabled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY
+      const scrollPosition = window.scrollY;
 
       // Ajuste a posição de rolagem conforme necessário
       if (scrollPosition > 500) {
-        setIsAnimationEnabled(true)
+        setIsAnimationEnabled(true);
       } else {
-        setIsAnimationEnabled(false)
+        setIsAnimationEnabled(false);
       }
-    }
+    };
 
     // Adiciona o ouvinte de evento de rolagem quando o componente é montado
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     // Remove o ouvinte quando o componente é desmontado
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, []) // O segundo argumento [] garante que o useEffect só é executado uma vez (equivalente ao componentDidMount)
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // O segundo argumento [] garante que o useEffect só é executado uma vez (equivalente ao componentDidMount)
 
-  const animationClass = isAnimationEnabled ? styles['swing-animation'] : ''
+  const animationClass = isAnimationEnabled ? styles["swing-animation"] : "";
 
   return (
     <>
@@ -48,9 +48,9 @@ export function GetTickets() {
             <H1
               color="white"
               text={
-                language === 'en'
-                  ? 'Are you ready to party?'
-                  : 'Você está pronto para a festa?'
+                language === "en"
+                  ? "Are you ready to party?"
+                  : "Você está pronto para a festa?"
               }
             />
           </div>
@@ -61,7 +61,7 @@ export function GetTickets() {
               className={`absolute top-[10%] left-[25%] z-[60] w-[8rem] ${animationClass}`}
               width={100}
               height={100}
-              style={{ maxWidth: '10rem' }}
+              style={{ maxWidth: "10rem" }}
             />
           </div>
           <div className={`relative h-[40rem] ${styles.gradientBg}`}>
@@ -69,7 +69,7 @@ export function GetTickets() {
               <H1
                 color="white"
                 text={
-                  language === 'en' ? 'Let’s forrozear!' : 'Bora forrozear!'
+                  language === "en" ? "Let’s forrozear!" : "Bora forrozear!"
                 }
               />
             </div>
@@ -77,8 +77,8 @@ export function GetTickets() {
             <div className="sm:hidden">
               <div className="pl-4 pr-4 pt-8 z-[61] sm:hidden">
                 <MainButton
-                  href="/lff2024/tickets"
-                  content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+                  href="/lff2025/tickets"
+                  content={language === "en" ? "Get Tickets" : "Ingressos"}
                   bg="white"
                   font="black"
                   width="100%"
@@ -90,15 +90,15 @@ export function GetTickets() {
               <H1
                 color="white"
                 text={
-                  language === 'en' ? 'Let’s forrozear!' : 'Bora forrozear!'
+                  language === "en" ? "Let’s forrozear!" : "Bora forrozear!"
                 }
               />
             </div>
             <div className="pl-4 pr-4 pt-8 z-[61] sm:flex sm:justify-center hidden">
               <MainButton
                 key={keyForRerender}
-                href="/lff2024/tickets"
-                content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+                href="/lff2025/tickets"
+                content={language === "en" ? "Get Tickets" : "Ingressos"}
                 bg="white"
                 font="black"
                 width="50%"
@@ -110,7 +110,7 @@ export function GetTickets() {
               className={`absolute top-[30%] left-[50%] xl:left-[70%] z-[60] w-[9rem] ${animationClass}`}
               width={100}
               height={100}
-              style={{ maxWidth: '10rem' }}
+              style={{ maxWidth: "10rem" }}
             />
             <Image
               src={sanfona}
@@ -118,11 +118,11 @@ export function GetTickets() {
               className={`absolute top-[50%] left-[10%] xl:left-[30%] z-[60] w-[11rem] ${animationClass}`}
               width={100}
               height={100}
-              style={{ maxWidth: '10rem' }}
+              style={{ maxWidth: "10rem" }}
             />
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-'use client'
-import Script from 'next/script'
+"use client";
+import Script from "next/script";
 
 // eslint-disable-next-line camelcase
 import {
@@ -7,30 +7,33 @@ import {
   Inter,
   Changa,
   Open_Sans,
-} from 'next/font/google'
-import './globals.css'
-import { ReactNode } from 'react'
-import localFont from 'next/font/local'
+} from "next/font/google";
+import "./globals.css";
+import { ReactNode } from "react";
+import localFont from "next/font/local";
 // import { NavBar } from '@/components/NavBar'
-import { LanguageProvider } from '@/lib/language'
+import { LanguageProvider } from "@/lib/language";
 
 const pieches = localFont({
   src: [
     {
-      path: '../fonts/pieches-webfont.woff',
+      path: "../fonts/pieches-webfont.woff",
     },
   ],
-  variable: '--font-pieches',
-})
+  variable: "--font-pieches",
+});
 
-const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' })
+const roboto = Roboto({ subsets: ["latin"], variable: "--font-roboto" });
 
-const changa = Changa({ subsets: ['latin'], variable: '--font-changa' })
+const changa = Changa({ subsets: ["latin"], variable: "--font-changa" });
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 // eslint-disable-next-line camelcase
-const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-open-sans' })
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  variable: "--font-open-sans",
+});
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -77,5 +80,5 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
-  )
+  );
 }

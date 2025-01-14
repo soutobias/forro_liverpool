@@ -1,32 +1,19 @@
-import { MainButton } from './MainButton'
+import { MainButton } from "./MainButton";
 
 export function TicketCard(props: {
-  isDisabled?: boolean
-  isSoldOut?: string
-  color: string
-  passType: string
-  lote: string
-  price: string
-  classes: string
-  parties: string
+  isDisabled?: boolean;
+  isSoldOut?: string;
+  color: string;
+  passType: string;
+  lote: string;
+  price: string;
+  classes: string;
+  parties: string;
 }) {
   const cardStyle: React.CSSProperties = {
     opacity: props.isDisabled ? 0.6 : 1,
-    pointerEvents: props.isDisabled ? 'none' : 'auto',
-  }
-
-  // .sold-out {
-  //   position: absolute;
-  //   width: 100%;
-  //   top: 50%;
-  //   left: 50%;
-  //   transform: translate(-50%, -50%) rotate(-45deg);
-  //   transform-origin: center;
-  //   background-color: red; /* Background of the "Sold Out" text */
-  //   color: white; /* Color of the "Sold Out" text */
-  //   text-align: center;
-  //   font-size: 20px; /* Example font size */
-
+    pointerEvents: props.isDisabled ? "none" : "auto",
+  };
   return (
     <div
       style={cardStyle}
@@ -37,18 +24,24 @@ export function TicketCard(props: {
           {props.isSoldOut}
         </div>
       )} */}
-      <div className="flex justify-between items-center pb-10">
-        <div className="text-white flex">
-          <div className="text-[1.25rem] md:text-[1.5rem] font-extrabold leading-6 md:leading-8 pe-4">
+      <div className="flex justify-between items-center pb-0">
+        <div className="text-white flex w-full h-[5rem] md:h-[3.5rem]  lg:h-[5rem]">
+          <div className="text-[1.25rem] md:text-[1.5rem] font-extrabold leading-6 md:leading-8 pe-4 max-w-[15rem]">
             {props.passType}
           </div>
           <div className=" text-white text-[1rem] font-normal leading-6 font-sans">
             {props.lote}
           </div>
         </div>
-        <div className="bg-white uppercase text-black w-max pl-4 pr-4 rounded-2xl text-[1rem] font-extrabold">
-          {props.price}
-        </div>
+        {props.price !== "£null" ? (
+          <div className="bg-white uppercase text-black w-max pl-4 pr-4 rounded-2xl text-[1rem] font-extrabold">
+            {props.price}
+          </div>
+        ) : (
+          <div className="bg-white uppercase text-black w-max pl-4 pr-4 rounded-2xl text-[1rem] font-extrabold hidden">
+            {props.price}
+          </div>
+        )}
       </div>
       <div className="text-white text-[1rem] font-normal leading-6 font-sans">
         {props.classes}
@@ -62,7 +55,7 @@ export function TicketCard(props: {
       <div>
         {props.isSoldOut && (
           <MainButton
-            href="/lff2024/tickets"
+            href=""
             content={props.isSoldOut}
             bg="white"
             font="black"
@@ -70,5 +63,5 @@ export function TicketCard(props: {
         )}
       </div>
     </div>
-  )
+  );
 }

@@ -39,6 +39,15 @@ module Forroliverpool
     # end
     # config.eager_load_paths << Rails.root.join('lib')
 
-    config.api_only = true
+    # config.api_only = true
+    config.api_only = false
+    config.assets.enabled = true
+    config.assets.precompile += %w( administrate/application.css administrate/application.js )
+    config.middleware.use ActionDispatch::Flash
+    config.session_store :cookie_store, key: '_your_app_name_session'
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    config.autoload_paths << Rails.root.join("app/fields")
+    config.eager_load_paths << Rails.root.join("app/fields")
   end
 end

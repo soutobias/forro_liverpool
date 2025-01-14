@@ -1,99 +1,113 @@
-'use client'
+"use client";
 
-import { HeroLFF } from '@/components/HeroLFF'
+import styles from "../../components/Bg.module.css";
+import { HeroLFF } from "@/components/HeroLFF";
 // import { VideoIntro } from '@/components/VideoIntro'
-import { Faq } from '@/components/Faq'
-import { Navbar } from '@/components/NavBar'
+import { Navbar } from "@/components/NavBar";
 // import { FrameImportant } from '@/components/FrameImportant'
-import { useEffect, useRef, useState } from 'react'
-import { Footer } from '@/components/Footer'
-import { UpButton } from '@/components/UpButton'
-import { VideoIntro } from '@/components/VideoIntro'
-import { Teachers } from '@/components/Teachers'
-import { ClassEventsLFF } from '@/components/ClassEventsLFF'
-import { Liverpool } from '@/components/Liverpool'
+import { useEffect, useRef, useState } from "react";
+import { Footer } from "@/components/Footer";
+import { UpButton } from "@/components/UpButton";
+import { VideoIntro } from "@/components/VideoIntro";
+import { Teachers } from "@/components/Teachers";
+import { ClassEventsLFF } from "@/components/ClassEventsLFF";
 // import { LiverpoolEvents } from '@/components/LiverpoolEvents'
-import { GetTickets } from '@/components/GetTickets'
-import { fetchApi } from '@/lib/api'
-import { useLanguage } from '@/lib/language'
-import Head from 'next/head'
+import { fetchApi } from "@/lib/api";
+import { useLanguage } from "@/lib/language";
+import Head from "next/head";
+import { FestivalPhotos } from "@/components/FestivalPhotos";
 
 export interface keyable {
-  [key: string]: any
+  [key: string]: any;
 }
 
 export default function Home() {
-  const [showGDPR, setShowGDPR] = useState(false)
-  const [hasMounted, setHasMounted] = useState(false)
-  const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null)
+  const [showGDPR, setShowGDPR] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+  const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null);
+  const { language } = useLanguage();
 
-  const { language } = useLanguage()
+  const [urlTeachers, setUrlTeachers] = useState<string>("");
+  const [teachers, setTeachers] = useState<keyable[] | null>(null);
+  useEffect(() => {
+    if (language === "en") {
+      setUrlTeachers("api/v1/festival_teachers");
+    } else {
+      setUrlTeachers("api/v1/festival_teacher_translations");
+    }
+  }, [language]);
+
+  useEffect(() => {
+    if (urlTeachers) {
+      fetchApi(urlTeachers, setTeachers);
+    }
+  }, [urlTeachers]);
 
   useEffect(() => {
     if (siteFestival) {
       setTimeout(() => {
-        const hash = window.location.hash
+        const hash = window.location.hash;
         if (hash) {
-          const element = document.querySelector(hash)
+          const element = document.querySelector(hash);
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' })
+            element.scrollIntoView({ behavior: "smooth" });
           }
         }
-      }, 500)
+      }, 500);
     }
-  }, [siteFestival])
+  }, [siteFestival]);
 
-  const [urlFestival, setUrlFestival] = useState<string>('')
+  const [urlFestival, setUrlFestival] = useState<string>("");
 
-  const [isVisible, setIsVisible] = useState(false)
-  const targetRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (siteFestival) {
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
-            setIsVisible(entry.isIntersecting)
-          })
+            setIsVisible(entry.isIntersecting);
+          });
         },
         { threshold: 0.1 },
-      )
-      const targetEl = targetRef.current
+      );
+      const targetEl = targetRef.current;
       if (targetEl) {
-        observer.observe(targetEl)
+        observer.observe(targetEl);
       }
 
       // Clean up function
       return () => {
         if (targetEl) {
-          observer.unobserve(targetEl)
+          observer.unobserve(targetEl);
         }
-      }
+      };
     }
-  }, [siteFestival])
+  }, [siteFestival]);
 
   useEffect(() => {
-    if (language === 'en') {
-      setUrlFestival('api/v1/sitefestivals')
+    if (language === "en") {
+      setUrlFestival("api/v1/sitefestivals");
     } else {
-      setUrlFestival('api/v1/site_festival_translations')
+      setUrlFestival("api/v1/site_festival_translations");
     }
-  }, [language])
+  }, [language]);
 
   useEffect(() => {
     if (urlFestival) {
-      fetchApi(urlFestival, setSiteFestival)
+      fetchApi(urlFestival, setSiteFestival);
     }
-  }, [urlFestival])
+  }, [urlFestival]);
 
   useEffect(() => {
-    setShowGDPR(false)
+    setShowGDPR(false);
     // setShowGDPR(getCookieAuth())
-    setHasMounted(true)
-  }, [])
+    setHasMounted(true);
+  }, []);
 
   if (!hasMounted) {
-    return null
+    return null;
   }
   return (
     <>
@@ -102,23 +116,27 @@ export default function Home() {
         <meta name="description" content="Forro Liverpool" />
         {/* Other metadata tags */}
       </Head>
-      <div className={showGDPR ? 'overflow-hidden pointer-events-none' : ''}>
+      <div className={showGDPR ? "overflow-hidden pointer-events-none" : ""}>
         {/* <FrameImportant text="early bird tickets now available!" /> */}
         {siteFestival && (
           <>
             <div ref={targetRef}>
               <Navbar plusColor="#EAEAEA" siteFestival={siteFestival} />
             </div>
-            <HeroLFF siteFestival={siteFestival}></HeroLFF>
+            <HeroLFF year={"2024"} siteFestival={siteFestival}></HeroLFF>
+            <div className={`md:pt-20 ${styles.blackBg}`}>
+              <FestivalPhotos />
+            </div>
+
             <VideoIntro siteFestival={siteFestival}></VideoIntro>
           </>
         )}
-        <Teachers></Teachers>
-        <ClassEventsLFF></ClassEventsLFF>
-        <Liverpool />
-        <GetTickets />
+        {teachers && <Teachers teachers={teachers} />}
+        <ClassEventsLFF year={2024}></ClassEventsLFF>
+        {/* <Liverpool />
+        <GetTickets /> */}
         {/* <LiverpoolEvents /> */}
-        <Faq isFestival={true} />
+        {/* <Faq isFestival={true} /> */}
         <Footer siteFestival={siteFestival} />
         {/* {showGDPR && <GDPR setShowGDPR={setShowGDPR} />} */}
         {/* {Object.keys(showEvent).length > 0 && (
@@ -127,5 +145,5 @@ export default function Home() {
         {!isVisible && <UpButton />}
       </div>
     </>
-  )
+  );
 }

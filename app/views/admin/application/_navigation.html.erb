@@ -1,0 +1,151 @@
+<%#
+# Navigation
+
+This partial is used to display the navigation in Administrate.
+By default, the navigation contains navigation links
+for all resources in the admin dashboard,
+as defined by the routes in the `admin/` namespace
+%>
+
+<nav class="navigation">
+  <%= link_to(t("administrate.navigation.back_to_app"), root_url, class: "button button--alt button--nav") if defined?(root_url) %>
+
+  <h1>SHARED</h1>
+  <br>
+
+  <%= link_to(
+    "Upload Files",
+    new_admin_upload_path,
+    class: "navigation__link navigation__link--#{nav_link_state("uploads")}"
+  ) %>
+
+  <%= link_to(
+    display_resource_name("events"),
+    resource_index_route("events"),
+    class: "navigation__link navigation__link--#{nav_link_state("events")}"
+  ) %>
+
+  <%= link_to(
+    "FAQ",
+    resource_index_route("questions"),
+    class: "navigation__link navigation__link--#{nav_link_state("questions")}"
+  ) %>
+
+  <%= link_to(
+    "FAQ Portuguese",
+    resource_index_route("question_translations"),
+    class: "navigation__link navigation__link--#{nav_link_state("question_translations")}"
+  ) %>
+
+  <br>
+  <h1>MAIN WEBSITE</h1>
+  <br>
+
+  <%= link_to(
+    "Home Page",
+    resource_index_route("sites"),
+    class: "navigation__link navigation__link--#{nav_link_state("sites")}"
+  ) %>
+
+  <%= link_to(
+    "Home Page Portuguese",
+    resource_index_route("site_translations"),
+    class: "navigation__link navigation__link--#{nav_link_state("site_translations")}"
+  ) %>
+
+  <%= link_to(
+    "Community",
+    resource_index_route("communities"),
+    class: "navigation__link navigation__link--#{nav_link_state("communities")}"
+  ) %>
+
+  <%= link_to(
+    "Community Portuguese",
+    resource_index_route("community_translations"),
+    class: "navigation__link navigation__link--#{nav_link_state("community_translations")}"
+  ) %>
+
+
+  <br>
+  <h1>2025 FESTIVAL</h1>
+  <br>
+
+  <%= link_to(
+    "Festival Home Page",
+    resource_index_route("site2025_festivals"),
+    class: "navigation__link navigation__link--#{nav_link_state("site2025_festivals")}"
+  ) %>
+
+  <%= link_to(
+    "Festival Home Page Portuguese",
+    resource_index_route("site2025_festival_translations"),
+    class: "navigation__link navigation__link--#{nav_link_state("site2025_festival_translations")}"
+  ) %>
+
+  <%= link_to(
+    "Festival Teachers",
+    resource_index_route("festival2025_teachers"),
+    class: "navigation__link navigation__link--#{nav_link_state("festival2025_teachers")}"
+  ) %>
+
+  <%= link_to(
+    "Festival Teachers Portuguese",
+    resource_index_route("festival2025_teacher_translations"),
+    class: "navigation__link navigation__link--#{nav_link_state("festival2025_teacher_translations")}"
+  ) %>
+
+  <%= link_to(
+    "Liverpool Information",
+    resource_index_route("liverpool_questions"),
+    class: "navigation__link navigation__link--#{nav_link_state("liverpool_questions")}"
+  ) %>
+
+  <%= link_to(
+    "Liverpool Information Portuguese",
+    resource_index_route("liverpool_question_translations"),
+    class: "navigation__link navigation__link--#{nav_link_state("liverpool_question_translations")}"
+  ) %>
+
+  <%= link_to(
+    "Lotes",
+    resource_index_route("lotes"),
+    class: "navigation__link navigation__link--#{nav_link_state("lotes")}"
+  ) %>
+
+  <%= link_to(
+    "Tickets",
+    resource_index_route("tickets"),
+    class: "navigation__link navigation__link--#{nav_link_state("tickets")}"
+  ) %>
+
+
+  <br>
+  <h1>2024 FESTIVAL</h1>
+  <br>
+
+
+  <%= link_to(
+    "Festival Home Page",
+    resource_index_route("sitefestivals"),
+    class: "navigation__link navigation__link--#{nav_link_state("sitefestivals")}"
+  ) %>
+
+  <%= link_to(
+    "Festival Home Page Portuguese",
+    resource_index_route("site_festival_translations"),
+    class: "navigation__link navigation__link--#{nav_link_state("site_festival_translations")}"
+  ) %>
+
+  <%= link_to(
+    "Festival Teachers",
+    resource_index_route("festival_teachers"),
+    class: "navigation__link navigation__link--#{nav_link_state("festival_teachers")}"
+  ) %>
+
+  <%= link_to(
+    "Festival Teachers Portuguese",
+    resource_index_route("festival_teacher_translations"),
+    class: "navigation__link navigation__link--#{nav_link_state("festival_teacher_translations")}"
+  ) %>
+
+</nav>

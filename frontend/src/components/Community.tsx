@@ -1,45 +1,45 @@
-import { CommunityCard } from './CommunityCard'
-import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import styles from './Bg.module.css'
-import { fetchApi } from '@/lib/api'
-import { H1 } from './H1'
-import { useLanguage } from '@/lib/language'
+import { CommunityCard } from "./CommunityCard";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import styles from "./Bg.module.css";
+import { fetchApi } from "@/lib/api";
+import { H1 } from "./H1";
+import { useLanguage } from "@/lib/language";
 
 interface CommunityProps {
-  [key: string]: any
+  [key: string]: any;
 }
 
 export function Community() {
-  const [community, setCommunity] = useState<CommunityProps[]>([])
+  const [community, setCommunity] = useState<CommunityProps[]>([]);
 
-  const { language } = useLanguage()
+  const { language } = useLanguage();
 
-  const [url, setUrl] = useState<string>('')
+  const [url, setUrl] = useState<string>("");
 
   useEffect(() => {
-    if (language === 'en') {
-      setUrl('api/v1/communities')
+    if (language === "en") {
+      setUrl("api/v1/communities");
     } else {
-      setUrl('api/v1/community_translations')
+      setUrl("api/v1/community_translations");
     }
-  }, [language])
+  }, [language]);
 
   useEffect(() => {
     if (url) {
-      fetchApi(url, setCommunity)
+      fetchApi(url, setCommunity);
     }
-  }, [url])
+  }, [url]);
 
   return (
     <div
       id="community"
-      className={`pb-20 px-4 md:px-[8.5rem] ${styles.communityBg}`}
+      className={`pb-20 px-4 lg:px-[5.5rem] xl:px-[5.5rem] ${styles.communityBg}`}
     >
       <div className="pt-20 text-left md:text-center">
         <H1
           color="black"
-          text={language === 'en' ? 'Our Community' : 'Nossa Comunidade'}
+          text={language === "en" ? "Our Community" : "Nossa Comunidade"}
         />
       </div>
       <div>
@@ -51,7 +51,7 @@ export function Community() {
                   key={0}
                   image={community[0].profile_image[0]}
                   name={community[0].name[0]}
-                  action={language === 'en' ? 'Teacher' : 'Professor'}
+                  action={language === "en" ? "Teacher" : "Professor"}
                 />
               </div>
               <div className="-ml-2">
@@ -59,20 +59,20 @@ export function Community() {
                   key={1}
                   image={community[0].profile_image[1]}
                   name={community[0].name[1]}
-                  action={language === 'en' ? 'Teacher' : 'Professora'}
+                  action={language === "en" ? "Teacher" : "Professora"}
                 />
               </div>
             </div>
             <div className=" flex flex-col justify-center">
-              <p className="pt-8 sm:pt-16 pb-12 text-[1rem] md:text-[1.25rem] sm:px-[2rem] md:px-[3rem] lg:px-[10rem] xl:px-[15rem] leading-6 font-sans font-semibold md:leading-7">
+              <p className="pt-8 sm:pt-16 pb-12 text-[1rem] md:text-[1.25rem] sm:px-[2rem] md:px-[2rem] lg:px-[2rem] xl:px-[10rem] 2xl:px-[20rem] leading-6 font-sans font-semibold md:leading-7 text-justify">
                 {community[0].profile}
               </p>
             </div>
           </div>
         )}
       </div>
-      <div className="lg:pt-[4rem] lg:flex lg:justify-center sm:gap-5 lg:gap-8 xl:gap-12 sm:px-[2rem] md:px-[3rem] xl:px-[10rem]">
-        <div className="flex justify-center h-max w-full sm:px-[2rem]">
+      <div className="lg:pt-[4rem] lg:flex lg:justify-between sm:gap-5 lg:gap-8 xl:gap-12 sm:px-[2rem] md:px-[2rem] xl:px-[10rem] 2xl:px-[20rem]">
+        <div className="flex justify-center 2xl:justify-start h-max w-full">
           {community.length > 0 && (
             <Image
               src={community[0].profile_image[2]}
@@ -83,10 +83,10 @@ export function Community() {
             />
           )}
         </div>
-        <p className="pt-8 text-[1rem] sm:px-[2rem] md:text-[1.25rem] leading-7 font-sans font-semibold lg:w-[80%]">
+        <p className="pt-8 text-[1rem] md:text-[1.25rem] leading-7 font-sans font-semibold lg:w-[80%] text-justify">
           {community.length > 0 && community[0].description}
         </p>
       </div>
     </div>
-  )
+  );
 }

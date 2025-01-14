@@ -19,7 +19,7 @@ module Api
 
       # POST /sites
       def create
-        @festival_teacher_translation = FestivalTeacherTranslation.new(question_params)
+        @festival_teacher_translation = FestivalTeacherTranslation.new(festival_teacher_params)
 
         if @festival_teacher_translation.save
           render json: @festival_teacher_translation, status: :created, location: @festival_teacher_translation
@@ -30,7 +30,7 @@ module Api
 
       # PATCH/PUT /sites/1
       def update
-        if @festival_teacher_translation.update(question_params)
+        if @festival_teacher_translation.update(festival_teacher_params)
           render json: @festival_teacher_translation
         else
           render json: @festival_teacher_translation.errors, status: :unprocessable_entity
@@ -50,7 +50,7 @@ module Api
       end
 
       # Only allow a list of trusted parameters through.
-      def question_params
+      def festival_teacher_params
         params.require(:festival_teacher_translations).permit(:function, :image, :name, :location)
       end
     end

@@ -1,160 +1,222 @@
-.blackBg{
-  background-image: url('/images/BG-512px-Black.jpg');
+.blackBg {
+  background-image: url("/images/BG-512px-Black.jpg");
   background-size: auto;
   background-repeat: repeat;
   background-color: lightgray;
 }
 
-.pinkBg{
-  background-image: url('/images/BG-512px-LFF-Pink.jpg');
+.blackBgFull {
+  /* background-image: url('/images/BG-512px-Black.jpg'); */
+  background-size: auto;
+  background-repeat: repeat;
+  background-color: #201e1e;
+}
+
+.pinkBg {
+  background-image: url("/images/BG-512px-LFF-Pink.jpg");
   background-size: auto;
   background-repeat: repeat;
   background-color: lightgray;
 }
 
-.purpleBg{
-  background-image: url('/images/BG-512px-LFF-Purple.jpg');
+.pinkBgGrad {
+  /* background-image: url("/images/BG-512px-LFF-Pink.jpg"); */
+  background-size: auto;
+  background-repeat: repeat;
+  background: linear-gradient(#f62c99, #fe9701);
+}
+
+.purpleBg {
+  background-image: url("/images/BG-512px-LFF-Purple.jpg");
   background-size: auto;
   background-repeat: repeat;
   background-color: lightgray;
 }
 
-.lightPinkBg{
-  background-image: url('/images/BG-512px-LFF-LightPink.jpg');
+.purpleBgFull {
+  /* background-image: url("/images/BG-512px-LFF-Purple.jpg"); */
+  background-size: auto;
+  background-repeat: repeat;
+  background: #b41f75;
+}
+
+.purpleBgGrad {
+  /* background-image: url("/images/BG-512px-LFF-Purple.jpg"); */
+  background-size: auto;
+  background-repeat: repeat;
+  background: linear-gradient(#b41f75, #201e1e);
+}
+
+.lightPinkBg {
+  background-image: url("/images/BG-512px-LFF-LightPink.jpg");
   background-size: auto;
   background-repeat: repeat;
   background-color: lightgray;
 }
 
-.gradientBg{
-  background-image: url('/images/BG-LFF-Gradient-PurpleBlack.jpg');
+.gradientBg {
+  background-image: url("/images/BG-LFF-Gradient-PurpleBlack.jpg");
   background-size: auto 100%;
   background-repeat: repeat-x;
   background-color: lightgray;
 }
 
-.begeBg{
-  background-image: url('/images/BG-512px-White.jpg');
+.begeBg {
+  background-image: url("/images/BG-512px-White.jpg");
   background-size: auto;
   background-repeat: repeat;
   background-color: lightgray;
 }
 
-.circlesBg1{
-  background-image: url('/images/Images-LFF-CirclesBorder.png');
+.circlesBg1 {
+  background-image: url("/images/Images-LFF-CirclesBorder.png");
   background-size: 100% 100%;
   transform: rotate(180deg);
   background-position: left 95% top 0%;
 }
 
-.circlesBg2{
-  background-image: url('/images/Images-LFF-CirclesBorder.png');
+.circlesBg2 {
+  background-image: url("/images/Images-LFF-CirclesBorder.png");
   background-size: 100% 100%;
   background-position: left 50% top 0%;
 }
 
-.rainbowBg{
-  background-image: url('/images/rainbow2.png');
+.rainbowBg {
+  background-image: url("/images/rainbow2.png");
   background-size: 100% 100%;
   background-position: left 95% top 0%;
 }
 
-.heroBg{
-  background-image: url('/images/bg_hero3.jpg'), url('/images/BG-512px-white.jpg');
+.heroBg {
+  background-image: url("/images/bg_hero5.jpg"),
+    url("/images/BG-512px-white.jpg");
   background-size: cover, auto;
   background-repeat: no-repeat, repeat;
   background-color: lightgray, lightgray;
 }
 
-.communityBg{
-  background-image: url('/images/BG-512px-Yellow.jpg');
+.communityBg {
+  background-image: url("/images/BG-512px-Yellow.jpg");
   background-size: auto;
   background-repeat: repeat;
   background-color: lightgray;
 }
 
-@media (max-width: 1024px) {
-  .heroBg{
-    background-image: url('/images/bg_hero1.jpg'), url('/images/BG-512px-white.jpg');
-    background-size: 100% auto, auto;
+.swing-animation {
+  animation: swing 3s infinite;
+}
+
+@media (max-width: 1224px) {
+  .heroBg {
+    background-image: url("/images/bg_hero4.jpg"),
+      url("/images/BG-512px-white.jpg");
+    background-size:
+      100% auto,
+      auto;
     background-repeat: no-repeat, repeat;
     background-color: lightgray, lightgray;
   }
 }
 
+@media (max-width: 1024px) {
+  .heroBg {
+    background-image: url("/images/bg_hero3.jpg"),
+      url("/images/BG-512px-white.jpg");
+    background-size:
+      100% auto,
+      auto;
+    background-repeat: no-repeat, repeat;
+    background-color: lightgray, lightgray;
+  }
+}
+
+@media (max-width: 800px) {
+  .heroBg {
+    background-image: url("/images/bg_hero3.jpg"),
+      url("/images/BG-512px-white.jpg");
+    background-size:
+      100% auto,
+      auto;
+    background-repeat: no-repeat, repeat;
+    background-color: lightgray, lightgray;
+  }
+}
 
 @media (max-width: 640px) {
-  .blackBg{
-    background-image: url('/images/BG-512px-Black.jpg');
+  .blackBg {
+    background-image: url("/images/BG-512px-Black.jpg");
     background-size: auto;
     background-repeat: repeat;
     background-color: lightgray;
   }
 
-  .pinkBg{
-    background-image: url('/images/BG-512px-LFF-Pink.jpg');
+  .pinkBg {
+    background-image: url("/images/BG-512px-LFF-Pink.jpg");
     background-size: auto;
     background-repeat: repeat;
     background-color: lightgray;
   }
 
-  .purpleBg{
-    background-image: url('/images/BG-512px-LFF-Purple.jpg');
+  .purpleBg {
+    background-image: url("/images/BG-512px-LFF-Purple.jpg");
     background-size: auto;
     background-repeat: repeat;
     background-color: lightgray;
   }
 
-  .lightPinkBg{
-    background-image: url('/images/BG-512px-LFF-LightPink.jpg');
+  .lightPinkBg {
+    background-image: url("/images/BG-512px-LFF-LightPink.jpg");
     background-size: auto;
     background-repeat: repeat;
     background-color: lightgray;
   }
 
-  .gradientBg{
-    background-image: url('/images/BG-LFF-Gradient-PurpleBlack.jpg');
+  .gradientBg {
+    background-image: url("/images/BG-LFF-Gradient-PurpleBlack.jpg");
     background-size: auto 100%;
     background-repeat: repeat-x;
     background-color: lightgray;
   }
 
-  .begeBg{
-    background-image: url('/images/BG-512px-White.jpg');
+  .begeBg {
+    background-image: url("/images/BG-512px-White.jpg");
     background-size: auto;
     background-repeat: repeat;
     background-color: lightgray;
   }
 
-  .circlesBg1{
-    background-image: url('/images/Images-LFF-CirclesBorder.png');
+  .circlesBg1 {
+    background-image: url("/images/Images-LFF-CirclesBorder.png");
     background-size: cover;
     transform: rotate(180deg);
     background-position: left 95% top 0%;
   }
 
-  .circlesBg2{
-    background-image: url('/images/Images-LFF-CirclesBorder.png');
+  .circlesBg2 {
+    background-image: url("/images/Images-LFF-CirclesBorder.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left 50% top 0%;
   }
 
-  .rainbowBg{
-    background-image: url('/images/rainbow.png');
+  .rainbowBg {
+    background-image: url("/images/rainbow.png");
     background-size: cover;
     background-position: left 95% top 0%;
   }
 
-  .heroBg{
-    background-image: url('/images/bg_hero1.jpg'), url('/images/BG-512px-white.jpg');
-    background-size: 100% auto, auto;
+  .heroBg {
+    background-image: url("/images/bg_hero1.jpg"),
+      url("/images/BG-512px-white.jpg");
+    background-size:
+      100% auto,
+      auto;
     background-repeat: no-repeat, repeat;
     background-color: lightgray, lightgray;
   }
 
-  .communityBg{
-    background-image: url('/images/BG-512px-Yellow.jpg');
+  .communityBg {
+    background-image: url("/images/BG-512px-Yellow.jpg");
     background-size: auto;
     background-repeat: repeat;
     background-color: lightgray;
@@ -162,15 +224,47 @@
 }
 
 @keyframes swing {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(10deg); }
-  50% { transform: rotate(-10deg); }
-  75% { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
-.swing-animation {
-  animation: swing 3s infinite;
+.shareToolbar {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
 }
 
+.shareToolbar button {
+  /* background-color: #222; */
+  color: white;
+  /* border: 1px solid #fff; */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
 
+.shareToolbar button:hover {
+  background-color: #555;
+}

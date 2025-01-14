@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { useCallback, useEffect, useRef, useState } from 'react'
-import styles from './FrameImportant.module.css'
-import { keyable } from './ClassEvent'
+import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
+import styles from "./FrameImportant.module.css";
+import { keyable } from "./ClassEvent";
 
 interface FrameProps {
-  site: keyable[] | null
+  site: keyable[] | null;
 }
 
 export function FrameImportant(props: FrameProps) {
@@ -15,55 +15,55 @@ export function FrameImportant(props: FrameProps) {
     direction,
     children,
   }: {
-    speed: number
-    direction: 'right' | 'left'
-    children: React.ReactNode
+    speed: number;
+    direction: "right" | "left";
+    children: React.ReactNode;
   }) {
-    const [looperInstances, setLooperInstances] = useState(1)
-    const outerRef = useRef<HTMLDivElement>(null)
-    const innerRef = useRef<HTMLDivElement>(null)
+    const [looperInstances, setLooperInstances] = useState(1);
+    const outerRef = useRef<HTMLDivElement>(null);
+    const innerRef = useRef<HTMLDivElement>(null);
 
     function resetAnimation() {
       if (innerRef?.current) {
-        innerRef.current.setAttribute('data-animate', 'false')
+        innerRef.current.setAttribute("data-animate", "false");
 
         setTimeout(() => {
           if (innerRef?.current) {
-            innerRef.current.setAttribute('data-animate', 'true')
+            innerRef.current.setAttribute("data-animate", "true");
           }
-        }, 10)
+        }, 10);
       }
     }
 
     const setupInstances = useCallback(() => {
-      if (!innerRef?.current || !outerRef?.current) return
+      if (!innerRef?.current || !outerRef?.current) return;
 
-      const { width } = innerRef.current.getBoundingClientRect()
+      const { width } = innerRef.current.getBoundingClientRect();
 
-      const { width: parentWidth } = outerRef.current.getBoundingClientRect()
+      const { width: parentWidth } = outerRef.current.getBoundingClientRect();
 
-      const widthDeficit = parentWidth - width
+      const widthDeficit = parentWidth - width;
 
-      const instanceWidth = width / innerRef.current.children.length
+      const instanceWidth = width / innerRef.current.children.length;
 
       if (instanceWidth) {
         setLooperInstances(
           looperInstances + Math.ceil(widthDeficit / instanceWidth) + 1,
-        )
+        );
       }
 
-      resetAnimation()
-    }, [looperInstances])
+      resetAnimation();
+    }, [looperInstances]);
 
-    useEffect(() => setupInstances(), [setupInstances])
+    useEffect(() => setupInstances(), [setupInstances]);
 
     useEffect(() => {
-      window.addEventListener('resize', setupInstances)
+      window.addEventListener("resize", setupInstances);
 
       return () => {
-        window.removeEventListener('resize', setupInstances)
-      }
-    }, [looperInstances, setupInstances])
+        window.removeEventListener("resize", setupInstances);
+      };
+    }, [looperInstances, setupInstances]);
     return (
       <div className={styles.looper} ref={outerRef}>
         <div
@@ -78,7 +78,7 @@ export function FrameImportant(props: FrameProps) {
               style={{
                 animationDuration: `${speed}s`,
                 animationDirection:
-                  direction === 'right' ? 'reverse' : 'normal',
+                  direction === "right" ? "reverse" : "normal",
               }}
             >
               {children}
@@ -86,15 +86,15 @@ export function FrameImportant(props: FrameProps) {
           ))}
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div
       className={`w-full h-12 bg-pink-400 items-center ${styles.frameShadow}`}
     >
       <Link
-        href="/lff2024"
+        href="/lff2025"
         className="no-underline hover:opacity-60 transition-opacity items-center"
       >
         {props.site && (
@@ -108,5 +108,5 @@ export function FrameImportant(props: FrameProps) {
         )}
       </Link>
     </div>
-  )
+  );
 }

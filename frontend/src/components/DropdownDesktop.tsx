@@ -1,33 +1,34 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { useLanguage } from '@/lib/language'
-import { MainButton } from './MainButton'
-import stylesLocal from './DropDownDesktop.module.css'
-import { FLLogoForroLinks } from '@/assets/fl_logo_forro_links'
-import { LFFLogoForroLinksWhite } from '@/assets/lff_logo_forro_links_white'
+import Link from "next/link";
+import { useLanguage } from "@/lib/language";
+import { MainButton } from "./MainButton";
+import stylesLocal from "./DropDownDesktop.module.css";
+import { FLLogoForroLinks } from "@/assets/fl_logo_forro_links";
+import { LFFLogoForroLinksWhite } from "@/assets/lff_logo_forro_links_white";
 
 export function DropdownDesktop(props: {
-  setDropdown: (dropDown: boolean) => void
-  siteFestival: any
-  slideOutBottom: boolean
-  slideOutTop: boolean
+  setDropdown: (dropDown: boolean) => void;
+  siteFestival: any;
+  slideOutBottom: boolean;
+  slideOutTop: boolean;
 }) {
-  const { language } = useLanguage()
+  const { language } = useLanguage();
 
   function scrollToSection(e: any) {
-    props.setDropdown && props.setDropdown(false)
-    const href = e.currentTarget.getAttribute('href')
+    props.setDropdown && props.setDropdown(false);
+    const href = e.currentTarget.getAttribute("href");
     if (href) {
-      if (href.split('#')[0] === window.location.pathname) {
-        e.preventDefault()
-        const element = document.querySelector(`#${href.split('#')[1]}`)
-        const offsetTop = element instanceof HTMLElement ? element.offsetTop : 0
+      if (href.split("#")[0] === window.location.pathname) {
+        e.preventDefault();
+        const element = document.querySelector(`#${href.split("#")[1]}`);
+        const offsetTop =
+          element instanceof HTMLElement ? element.offsetTop : 0;
 
         window.scroll({
           top: offsetTop,
-          behavior: 'smooth',
-        })
+          behavior: "smooth",
+        });
       }
     }
   }
@@ -87,7 +88,7 @@ export function DropdownDesktop(props: {
           >
             <div className="pt-[3.5rem] md:pt-0">
               <Link
-                href="/lff2024"
+                href="/lff2025"
                 className="text-2xl no-underline cursor-pointer text-white"
                 onClick={scrollToSection}
               >
@@ -98,8 +99,8 @@ export function DropdownDesktop(props: {
             <div className="pt-6 z-[61] flex md:justify-start justify-center">
               <div className="flex justify-center md:pl-0 no-underline rounded-lg">
                 <MainButton
-                  href="/lff2024/tickets"
-                  content={language === 'en' ? 'Get Tickets' : 'Ingressos'}
+                  href="/lff2025/tickets"
+                  content={language === "en" ? "Get Tickets" : "Ingressos"}
                   bg="white"
                   font="black"
                 />
@@ -107,7 +108,7 @@ export function DropdownDesktop(props: {
             </div>
             <div className="pt-6 flex md:justify-start justify-center">
               <Link
-                href="/lff2024#teachers"
+                href="/lff2025#teachers"
                 className="no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0"
                 onClick={scrollToSection}
               >
@@ -123,9 +124,17 @@ export function DropdownDesktop(props: {
                 {props.siteFestival[0] && props.siteFestival[0].navbar[6]}
               </Link>
             </div>
+            <div className="pt-5 flex md:justify-start justify-center ">
+              <Link
+                href="/lff2024"
+                className="font-sans no-underline sm:h-full sm:w-full md:h-max md:w-max cursor-pointer p-3 md:pl-0 text-sm"
+              >
+                2024 Festival Archive
+              </Link>
+            </div>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }

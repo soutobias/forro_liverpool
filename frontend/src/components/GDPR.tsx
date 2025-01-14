@@ -1,9 +1,9 @@
-import { addCookieAuth } from '@/lib/handleCookie'
-import styles from './Bg.module.css'
-import { useLanguage } from '@/lib/language'
+import { addCookieAuth } from "@/lib/handleCookie";
+import styles from "./Bg.module.css";
+import { useLanguage } from "@/lib/language";
 
 export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
-  const { language } = useLanguage()
+  const { language } = useLanguage();
 
   return (
     <div
@@ -17,15 +17,15 @@ export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
             onClick={() => props.setShowGDPR(addCookieAuth())}
           />
         </div> */}
-        <div className="pl-8 pt-12 pr-8">
-          {language === 'en' ? (
-            <p className="pt-0 pb-7 text-black text-[1rem] md:text-[1.25rem] leading-5 md:leading-6 font-sans font-normal">
+        <div className="px-6 pt-12">
+          {language === "en" ? (
+            <p className="pt-0 pb-7 text-black text-[1rem] md:text-[1.25rem] leading-5 md:leading-6 font-sans font-normal text-justify">
               We use cookies to provide necessary site functionality and improve
               your experience. By browsing our website, you consent to our use
               of cookies.
             </p>
           ) : (
-            <p className="pt-0 pb-7 text-black text-[1rem] md:text-[1.25rem] leading-5 md:leading-6 font-sans font-normal">
+            <p className="pt-0 pb-7 text-black text-[1rem] md:text-[1.25rem] leading-5 md:leading-6 font-sans font-normal text-justify">
               Usamos cookies para fornecer as funcionalidades necessárias do
               site e melhorar sua experiência. Ao navegar no nosso site, você
               concorda com o uso de cookies.
@@ -40,11 +40,11 @@ export function GDPR(props: { setShowGDPR: (show: boolean) => void }) {
             <p
               className={`text-white text-center text-[1rem] leading-5 uppercase font-extrabold w-full p-5`}
             >
-              {language === 'en' ? 'Accept' : 'Aceitar'}
+              {language === "en" ? "Accept" : "Aceitar"}
             </p>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
