@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 export function TicketWidget() {
   return (
     <div>
@@ -38,7 +36,7 @@ export function TicketWidget() {
       <iframe
         src="https://www.tickettailor.com/all-tickets/forroliverpool/rtne/1/?ref=website_widget&show_search_filter=true&show_date_filter=true&show_sort=true"
         width="100%"
-        height="620"
+        height="800"
         title="Ticket Widget"
         style={{
           border: "none",
