@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { fetchApi } from "@/lib/api";
+import { useLanguage } from "@/lib/language";
+import { useEffect, useState } from "react";
+import styles from "./Bg.module.css";
 import { keyable } from "./ClassEvent";
 import { EventCardLFF } from "./EventCardLFF";
-import styles from "./Bg.module.css";
-import { fetchApi } from "@/lib/api";
 import { H1 } from "./H1";
-import { useLanguage } from "@/lib/language";
 
 // interface ClassEventsLFFProps {
 //   setShowEvent?: Dispatch<SetStateAction<keyable>>
@@ -67,8 +67,8 @@ export function ClassEventsLFF2025(props: { year: number }) {
               <div className="pl-2 pt-12 pb-8 md:pl-0 md:pt-0">
                 <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-0 pb-8">
                   {language === "en"
-                    ? "Friday, 10th May"
-                    : "Sexta-feira, 10 de Maio"}
+                    ? "Friday, 16th May"
+                    : "Sexta-feira, 16 de Maio"}
                 </h2>
                 <div className="block justify-items-center">
                   {events
@@ -81,8 +81,8 @@ export function ClassEventsLFF2025(props: { year: number }) {
               <div className="pl-2 pt-12 pb-8 md:pl-0 md:pt-0">
                 <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-0 pb-8">
                   {language === "en"
-                    ? "Saturday, 11th May"
-                    : "Sábado, 11 de Maio"}
+                    ? "Saturday, 17th May"
+                    : "Sábado, 17 de Maio"}
                 </h2>
                 <div className="block justify-items-center">
                   {events
@@ -95,8 +95,8 @@ export function ClassEventsLFF2025(props: { year: number }) {
               <div className="pl-2 pt-12 pb-8 md:pl-0 md:pt-0">
                 <h2 className="text-center font-changa text-white text-[1.5rem] md:text-[2rem] leading-6 md:leading-8 font-extrabold pl-2 pt-0 pb-8">
                   {language === "en"
-                    ? "Sunday, 12th May"
-                    : "Domingo, 12 de Maio"}
+                    ? "Sunday, 18th May"
+                    : "Domingo, 18 de Maio"}
                 </h2>
                 <div className="block justify-items-center">
                   {events

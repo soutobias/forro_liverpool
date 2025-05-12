@@ -1,38 +1,31 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { keyable } from "@/components/ClassEvent";
 import { fetchApi } from "@/lib/api";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 // import { ArrowUpRight } from 'phosphor-react'
 import { ArrowUpRight } from "@/assets/arrow_up_right";
-import { FrameImportant } from "@/components/FrameImportant";
-import { Navbar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
-import { UpButton } from "@/components/UpButton";
-import { GDPR } from "@/components/GDPR";
-import { EventCard } from "@/components/EventCard";
-import styles from "@/components/Bg.module.css";
 import { LocationMarker } from "@/assets/location_marker";
-import { MainButton } from "@/components/MainButton";
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
-import Head from "next/head";
-import { useLanguage } from "@/lib/language";
+import styles from "@/components/Bg.module.css";
+import { Footer } from "@/components/Footer";
+import { GDPR } from "@/components/GDPR";
 import { H1 } from "@/components/H1";
+import { MainButton } from "@/components/MainButton";
+import { Navbar } from "@/components/NavBar";
+import { UpButton } from "@/components/UpButton";
+import { useLanguage } from "@/lib/language";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 export default function EventDetails() {
-  const [events, setEvents] = useState<keyable[]>([]);
-  // const [showEvent, setShowEvent] = useState<keyable>({})
   const [selectedEvent, setSelectedEvent] = useState<keyable | null>(null);
   const [siteFestival, setSiteFestival] = useState<keyable[] | null>(null);
-  const [site, setSite] = useState<keyable[] | null>(null);
   const [showGDPR, setShowGDPR] = useState(false);
   const [hasMounted, setHasMounted] = useState(false);
 
   const { language } = useLanguage();
 
-  const [url, setUrl] = useState<string>("");
   const [urlFestival, setUrlFestival] = useState<string>("");
   const [position, setPosition] = useState<number>(1);
   const urlEvents = "api/v1/events";
@@ -70,35 +63,22 @@ export default function EventDetails() {
 
   useEffect(() => {
     if (language === "en") {
-      setUrl("api/v1/sites");
-      setUrlFestival("api/v1/sitefestivals");
+      setUrlFestival("api/v1/site2025_festivals");
       setPosition(0);
     } else {
-      setUrl("api/v1/site_translations");
-      setUrlFestival("api/v1/site_festival_translations");
+      setUrlFestival("api/v1/site2025_festival_translations");
       setPosition(1);
     }
   }, [language]);
 
   useEffect(() => {
-    if (url) {
-      fetchApi(url, setSite);
+    if (urlFestival) {
       fetchApi(urlFestival, setSiteFestival);
     }
-  }, [url, urlFestival]);
-
+  }, [urlFestival]);
   useEffect(() => {
-    fetchApi(urlEvents, setEvents);
-  }, []);
-
-  useEffect(() => {
-    if (events.length > 0) {
-      const foundEvent = events.find((event) => {
-        return String(event.id) === paramsId;
-      });
-      setSelectedEvent(foundEvent || null);
-    }
-  }, [events, paramsId]);
+    fetchApi(`${urlEvents}/${paramsId}`, setSelectedEvent);
+  }, [selectedEvent, paramsId]);
 
   useEffect(() => {
     setShowGDPR(false);
@@ -161,7 +141,7 @@ export default function EventDetails() {
                                     <div className="pl-1">
                                       <div className="text-white uppercase leading-6 pl-0 font-extrabold text-[1rem] md:text-[1.25rem] font-sans">
                                         <Link
-                                          href={location[2]}
+                                          href={location.split(";")[2]}
                                           target="_blank"
                                           className="flex gap-0 justify-start"
                                           title={
@@ -171,7 +151,7 @@ export default function EventDetails() {
                                           }
                                         >
                                           <p className="p-0 m-o">
-                                            {location[0]}
+                                            {location.split(";")[0]}
                                           </p>
                                           <div className="pt-2">
                                             <ArrowUpRight color="white" />
@@ -179,7 +159,7 @@ export default function EventDetails() {
                                         </Link>
                                       </div>
                                       <div className="text-white leading-6 pl-0 pt-1 md:pt-7 font-semibold text-[1rem]  md:text-[1.25rem] font-sans">
-                                        {location[1]}
+                                        {location.split(";")[1]}
                                       </div>
                                     </div>
                                   </div>
@@ -197,21 +177,23 @@ export default function EventDetails() {
                             <p className="text-white text-[1rem] md:text-[1.25rem] leading-6 font-sans font-semibold whitespace-pre-line">
                               {selectedEvent.description[position]}
                             </p>
-                            {selectedEvent.schedule[position].map(
-                              (schedule: any, index: number) => (
-                                <div
-                                  key={index}
-                                  className="pt-4 flex justify-between"
-                                >
-                                  <p className="text-white text-[1rem] md:text-[1.25rem] leading-6 font-sans font-semibold whitespace-pre-line">
-                                    {schedule[0]}
-                                  </p>
-                                  <p className="text-white text-[1rem] md:text-[1.25rem] leading-6 font-sans font-semibold whitespace-pre-line">
-                                    {schedule[1]}
-                                  </p>
-                                </div>
-                              ),
-                            )}
+                            {selectedEvent[
+                              position === 0
+                                ? "schedule"
+                                : "schedule_translation"
+                            ].map((schedule: any, index: number) => (
+                              <div
+                                key={index}
+                                className="pt-4 flex justify-between"
+                              >
+                                <p className="text-white text-[1rem] md:text-[1.25rem] leading-6 font-sans font-semibold whitespace-pre-line">
+                                  {schedule.split(";")[0]}
+                                </p>
+                                <p className="text-white text-[1rem] md:text-[1.25rem] leading-6 font-sans font-semibold whitespace-pre-line">
+                                  {schedule.split(";")[1]}
+                                </p>
+                              </div>
+                            ))}
                           </div>
                         </>
                       )}
@@ -232,15 +214,15 @@ export default function EventDetails() {
                         </div>
                       )}
                       <div className="pt-6 z-[61]">
-                        <MainButton
-                          href="/lff2025/tickets"
+                        {/* <MainButton
+                          href="/lff2024/tickets"
                           content={
                             language === "en" ? "Get Tickets" : "Ingressos"
                           }
                           bg="white"
                           font="black"
                           rounded="none"
-                        />
+                        /> */}
                       </div>
                     </div>
                   </div>
@@ -257,7 +239,7 @@ export default function EventDetails() {
                   </div>
                 )}
                 <Link
-                  href="/lff2025#program"
+                  href="/lff2024#program"
                   className="font-semibold cursor-pointer no-underline mt-12 block lg:-pl-[2rem] md:pt-4 text-[1rem] md:text-[1.5rem] text-white"
                 >
                   {language === "en" ? <p>&#60; Back</p> : <p>&#60; Voltar</p>}

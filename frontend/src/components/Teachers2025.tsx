@@ -1,11 +1,8 @@
-import { H1 } from "./H1";
-import { MainButton } from "./MainButton";
-import { TeacherCard } from "./TeacherCard";
-import { useState, useEffect, useRef } from "react";
-import { fetchApi } from "@/lib/api";
-import styles from "./Bg.module.css";
-import { keyable } from "./ClassEvent";
 import { useLanguage } from "@/lib/language";
+import { useEffect, useRef, useState } from "react";
+import styles from "./Bg.module.css";
+import { H1 } from "./H1";
+import { TeacherCard } from "./TeacherCard";
 
 export function Teachers2025(props: { teachers: any }) {
   const { teachers } = props;
@@ -157,16 +154,6 @@ export function Teachers2025(props: { teachers: any }) {
               return <></>;
             }
           })}
-          {teacherBand.map((item: any, index: number) => (
-            <TeacherCard
-              key={index}
-              image={item.image}
-              title={item.name}
-              location={item.location}
-              action={item.function}
-              color={styles.pinkBg}
-            />
-          ))}
         </div>
         <div
           // className="p-4 flex gap-4 overflow-x-auto no-scrollbar flex-row-reverse"
@@ -182,6 +169,16 @@ export function Teachers2025(props: { teachers: any }) {
               location={item.location}
               action={item.function}
               color={styles.purpleBg}
+            />
+          ))}
+          {teacherBand.map((item: any, index: number) => (
+            <TeacherCard
+              key={index}
+              image={item.image}
+              title={item.name}
+              location={item.location}
+              action={item.function}
+              color={styles.pinkBg}
             />
           ))}
         </div>
