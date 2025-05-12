@@ -215,7 +215,7 @@ export default function EventDetails() {
                       )}
                       <div className="pt-6 z-[61]">
                         {/* <MainButton
-                          href="/lff2024/tickets"
+                          href="/5/tickets"
                           content={
                             language === "en" ? "Get Tickets" : "Ingressos"
                           }
@@ -239,7 +239,7 @@ export default function EventDetails() {
                   </div>
                 )}
                 <Link
-                  href="/lff2024#program"
+                  href="/lff2025#program"
                   className="font-semibold cursor-pointer no-underline mt-12 block lg:-pl-[2rem] md:pt-4 text-[1rem] md:text-[1.5rem] text-white"
                 >
                   {language === "en" ? <p>&#60; Back</p> : <p>&#60; Voltar</p>}
