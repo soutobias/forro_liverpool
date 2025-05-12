@@ -14,7 +14,9 @@ export function MainButton(props: {
       onClick={props.onClick ? props.onClick : () => {}}
       className={`flex justify-center bg-${props.bg} no-underline w-[${
         props.width
-      }] font-changa rounded-${props.rounded || "xl"}`}
+      }] font-changa rounded-${props.rounded || "xl"} opacity-${
+        props.href ? "50" : "100"
+      }`}
       target={props.newTab ? "_blank" : ""}
       rel="noreferrer"
     >

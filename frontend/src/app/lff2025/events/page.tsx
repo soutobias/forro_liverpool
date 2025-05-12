@@ -202,9 +202,13 @@ export default function EventDetails() {
                           <MainButton
                             href={selectedEvent.schedule[0]}
                             content={
-                              language === "en"
-                                ? "Download Class Schedule"
-                                : "Download da Programação"
+                              selectedEvent.schedule[0]
+                                ? language === "en"
+                                  ? "Download Class Schedule"
+                                  : "Download da Programação"
+                                : language === "en"
+                                ? "Available Soon"
+                                : "Disponível em Breve"
                             }
                             bg="white"
                             font="black"
